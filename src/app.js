@@ -28,6 +28,7 @@ $(document).ready(function() {
     el: 'main',
     bus: eventBus,
   });
+  rentalLibraryListView.listenTo(eventBus, 'showRentalLibrary', rentalLibraryListView.render);
 
   $('#show-rental-library').on('click', function(event) {
     event.preventDefault();
