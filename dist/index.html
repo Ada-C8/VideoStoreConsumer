@@ -17,8 +17,9 @@
               <thead>
                 <th class="sort title">Title</th>
                 <th class="sort release">Release Date</th>
-                <th class="sort inventory">Inventory</th>
-                <th class="sort available">Available</th>
+                <th>View</th>
+                <!-- <th class="sort inventory">Inventory</th>
+                <th class="sort available">Available</th> -->
               </thead>
               <tbody id="rental-list">
                 <!-- append here -->
@@ -38,7 +39,6 @@
 
     </main>
     <script type="text/template" id="video-list-template">
-      <tr class="trip-item" id=<%- id %>>
         <td>
           <%- title %>
         </td>
@@ -46,12 +46,14 @@
           <%- release_date %>
         </td>
         <td>
-          <%- inventory %>
+          <button class="button" id=<%- id %> > View </button>
+        </td>
+        <!-- <td>
+          <# inventory %>
         </td>
         <td>
-          <%- available_inventory %>
-        </td>
-      </tr>
+          <# available_inventory %>
+        </td> -->
     </script>
     <script type="text/template" id="video-template">
       <section class="row video">
