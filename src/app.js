@@ -18,13 +18,13 @@ eventBus = _.extend(eventBus, Backbone.Events);
 // ready to go
 $(document).ready(function() {
 
-  const movieList = new MovieList();
-  movieList.bus = eventBus;
-  movieList.fetch();
-  console.log(movieList);
+  const rentalLibraryList = new MovieList();
+  rentalLibraryList.bus = eventBus;
+  rentalLibraryList.fetch();
+  console.log(rentalLibraryList);
 
-  const movieListView = new MovieListView({
-    model: movieList,
+  const rentalLibraryListView = new MovieListView({
+    model: rentalLibraryList,
     template: _.template($('#library-movie-template').html()),
     el: 'main',
     bus: eventBus,
