@@ -6,7 +6,7 @@
   </head>
   <body>
     <main id="main-content">
-      <div class="workspace row">
+      <div class="movie-workspace row">
         <div class="small-4 columns">
           <div id="find-movie-form-container">
             <h3>Find Movie</h3>
@@ -14,10 +14,22 @@
               <label for="title">Title</label>
               <input type="text" name="title" placeholder="enter a title" />
               <!-- <label>Action</label> -->
-              <button class="submit success button">Find Movie</button>
+              <button class="submit success button find-movie">Find Movie</button>
+              <button class="alert button show-all">Show All Movies Available</button>
             </form>
           </div>
         </div>
+        <div class="small-4 columns">
+          <div id="movie-details-container">
+            <h2>Some Specific Moviez</h2>
+            <div class="movie-details-list-container">
+              <ul id="movie-details" class="movies">
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div class="small-4 columns ">
           <div id="movies-container">
             <h2>Moviez</h2>
@@ -42,6 +54,17 @@
       </div>
     </script>
     <script src="/app.bundle.js"></script>
+    <script type="text/template" id="movie-details-template">
+      <div class="panel">
+        <h3 class="title"> <%- title %></h3>
+        <h5 class="release-date">release date: <%- release_date %></h5>
+        <h5 class="inventory">inventory: <%- inventory %></h5>
+        <!-- image src here -->
+        <p class="overview">
+          <%- overview %>
+        </p>
+      </div>
+    </script>
 
   </body>
   </html>
