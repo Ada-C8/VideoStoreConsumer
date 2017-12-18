@@ -6,7 +6,44 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <header class="row">
+        <h1 class="logo">CJ's Vidja Shtore</h1>
+      </header>
+
+      <div class="workspace row">
+        <div id="database-container" class="column small-12 medium-6 large-6">
+          <ul id="database-items">
+
+          </ul>
+
+        </div>
+        <div id="catalog-container" class="column small-12 medium-6 large-6">
+          <ul id="catalog-items">
+
+          </ul>
+        </div>
+      </div>
+      <footer>
+
+      </footer >
+
+      <script type="text/template" id="database-template">
+        <li class="database-movie">
+          <%- title %>: <%- description %>
+
+        </li>
+
+      </script>
+
+      <script type="text/template" id="catalog-template">
+        <li class="catalog-movie">
+          <%- title %>: <%- description %>
+
+        </li>
+
+      </script>
+
+
     </main>
 
     <script src="/app.bundle.js"></script>
