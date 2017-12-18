@@ -2,12 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Baseline</title>
+    <title>VideoVideo</title>
   </head>
+  <header>
+    <h1>VideoStore</h1>
+
+    <section>
+      <form class='search-form'>
+        <input type='text' name='search' placeholder='Search' />
+        <input type='submit' value='Search' class='button'></input>
+      </form>
+    </section>
+  </header>
+
   <body>
     <main id="main-content">
-      
+      <ul id='list'>
+
+      </ul>
     </main>
+
+    <footer>
+    </footer>
+
+    <script type="text/template" id="movie-template" class="movie">
+        <li><img class='movie-thumbnail' src='<%= image_url %>' /></li>
+        <li><%- title %></li>
+        <li><%- release_date %></li>
+    </script>
+
+    <script type="text/template" id="movie-details-template" class="movie">
+        <li><img class='movie-full' src='<%= image_url %>' /></li>
+        <li><%- title %></li>
+        <li><%- release_date %></li>
+        <li><%- overview %></li>
+        <li><%- inventory %></li>
+    </script>
+
+    <script type="text/template" id="customer-template" class="customer">
+        <li><%- name %></li>
+        <li><%- phone %></li>
+    </script>
+
+    <script type="text/template" id="customer-details-template" class="customer">
+        <li><%- name %></li>
+        <li><%- address %></li>
+        <li><%- city %><%- state %><%- postal_code %></li>
+        <li><%- phone %></li>
+        <li><%- account_credit %></li>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
