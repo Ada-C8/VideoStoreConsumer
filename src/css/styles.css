@@ -42,3 +42,9 @@ div {
   border-style: solid;
 }
 */
+/* .workspace.row {
+  width: 100vw;
+} */
+#database-container, #catalog-container {
+  display: inline-block;
+}
