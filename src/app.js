@@ -6,9 +6,20 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
+import MovieList from 'collections/movie_list';
+import MovieListView from 'views/movie_list_view';
+
 // ready to go
 $(document).ready(function() {
+  console.log('WOW');
+  const movies = new MovieList();
 
-  $('#main-content').append('<p>Hello World!</p>');
+  const movieListView = new MovieListView({
+    model: movies,
+    template: _.template($('#movie-template').html()),
+    // bus: bus,
+    el: 'main'
+  });
 
+  movieListView.render();
 });

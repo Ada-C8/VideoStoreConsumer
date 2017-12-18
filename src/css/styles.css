@@ -1,4 +1,7 @@
 @include foundation-everything;
+body {
+  text-align: center;
+}
 
 main {
     background: lightblue;
