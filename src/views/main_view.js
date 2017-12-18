@@ -20,7 +20,7 @@ const MainView = Backbone.View.extend({
       template: this.movieTemplate,
     });
 
-    movieListView.render();
+    movieListView.model.fetch();
   },
   renderAllMovies() {
   },
