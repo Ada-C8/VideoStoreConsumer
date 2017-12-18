@@ -6,8 +6,21 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <header class="row">
+        <h1 class="logo">Video Store</h1>
+      </header>
+
+      <h2>All the Movies!</h2>
+        <div class="movies-list-container">
+          <ul id="movies" class="movies">
+          </ul>
+        </div>
+
     </main>
+
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
