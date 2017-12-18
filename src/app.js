@@ -9,6 +9,6 @@ import _ from 'underscore';
 // ready to go
 $(document).ready(function() {
 
-  $('#main-content').append('<p>Hello World!</p>');
+  // $('#main-content').append('<p>Hello World!</p>');
 
 });
