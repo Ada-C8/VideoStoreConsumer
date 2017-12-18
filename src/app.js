@@ -9,9 +9,13 @@ import _ from 'underscore';
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
 
+import CustomerList from 'collections/customer_list';
+import CustomerListView from 'views/customer_list_view';
+
 // ready to go
 $(document).ready(function() {
-  console.log('WOW');
+
+  // movies
   const movies = new MovieList();
   movies.fetch();
 
@@ -19,6 +23,16 @@ $(document).ready(function() {
     model: movies,
     template: _.template($('#movie-template').html()),
     // bus: bus,
+    el: 'main'
+  });
+
+  // customers
+  const customers = new CustomerList();
+  customers.fetch();
+
+  const customerListView = new CustomerListView({
+    model: customers,
+    template: _.template($('#customer-template').html()),
     el: 'main'
   });
 
