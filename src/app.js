@@ -9,6 +9,8 @@ import Backbone from 'backbone'
 
 import MovieList from 'collections/movie_list';
 import MovieListView from './views/movie_list_view';
+import MainView from 'views/main_view';
+
 
 let movieTemplate;
 
@@ -25,14 +27,11 @@ $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
 
 
-  const movieListView = new MovieListView({
-    el: '#movies-container',
-    model: movieList,
-    // bus: bus,
-    template: movieTemplate,
+  const mainView = new MainView({
+    el: '#main-content',
+    movieTemplate: movieTemplate,
+    movieList: movieList,
   });
-
-  movieListView.render();
 
 
 });
