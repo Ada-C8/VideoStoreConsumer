@@ -22,6 +22,7 @@ $(document).ready(function() {
   rentalLibraryList.bus = eventBus;
   rentalLibraryList.fetch();
 
+
   const rentalLibraryListView = new MovieListView({
     model: rentalLibraryList,
     template: _.template($('#library-movie-template').html()),
@@ -30,9 +31,18 @@ $(document).ready(function() {
   });
   rentalLibraryListView.listenTo(eventBus, 'showRentalLibrary', rentalLibraryListView.render);
 
+  const searchList = new MovieList();
+  searchList.bus = eventBus;
+
+  const searchListView = new MovieListView({
+    model: searchList,
+    template: _.template($('#library-movie-template').html()),
+    el: 'main',
+    bus: eventBus,
+  });
+
   $('#show-rental-library').on('click', function(event) {
     event.preventDefault();
     eventBus.trigger('showRentalLibrary');
   });
-
 });
