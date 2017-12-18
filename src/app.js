@@ -26,7 +26,7 @@ $(document).ready(function() {
   console.log('that is the movie list^^^^');
 
   const movieListView = new MovieListView({
-    el:'main',
+    el:'#main-content',
     model: movieList,
     template: movieTemplate,
   });

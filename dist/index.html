@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
+<head>
+  <meta charset="utf-8">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <main >
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <input type="text" placeholder="Search..">
 
-    </main>
-    <script type="text/template" id="movie-template">
+    </div>
 
-        <div class="row small-12 columns">
-          <h3 class="title"><%- title %></h3>
-          <p class="overview">$<%- overview %></p>
+    <div id="main-content">
 
-          <p class="release-date">$<%- release_date %></p>
+    </div>
+    
+  </main>
+  <script type="text/template" id="movie-template">
 
-          <img
-          src= https://image.tmdb.org/t/p/w500/<%- image_url %> alt= <%- title %>
-          />
-          <div class="movie-actions">
-            <button class="btn-add alert button">Add</button>
+    <div class="row small-12 columns">
+      <h3 class="title"><%- title %></h3>
+      <p class="overview">$<%- overview %></p>
 
-          </div>
-        </div>
-        <!-- </li> -->
-      </script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="/app.bundle.js"></script>
+      <p class="release-date">$<%- release_date %></p>
 
-  </body>
-  </html>
+      <img
+      src= https://image.tmdb.org/t/p/w500/<%- image_url %> alt= <%- title %>
+      />
+      <div class="movie-actions">
+        <button class="btn-add alert button">Add</button>
+
+      </div>
+    </div>
+    <!-- </li> -->
+  </script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
