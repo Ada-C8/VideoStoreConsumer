@@ -11,7 +11,7 @@ const Movie = Backbone.Model.extend({
   parse: function(response) {
     return response;
   },
-  // comparator: 'title',
+  comparator: 'title',
 });
 
 export default Movie;

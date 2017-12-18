@@ -24,7 +24,7 @@ $(document).ready(function() {
   console.log(`Fetching from ${ movieList.url }`);
 
   const movieListView = new MovieListView({
-    el: $('main'),
+    el: $('.movies'),
     model: movieList,
     template: movieTemplate,
   });

@@ -8,7 +8,7 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   render() {
-    this.$('section.movies ul').empty();
+    this.$('ul').empty();
 
     this.model.forEach((movie) => {
       const movieView = new MovieView({
@@ -17,7 +17,7 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie',
       });
-      this.$('section.movies ul').append(movieView.render().$el);
+      this.$(' ul').append(movieView.render().$el);
     });
 
     return this;
