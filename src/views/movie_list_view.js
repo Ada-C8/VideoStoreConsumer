@@ -7,7 +7,7 @@ const MovieListView = Backbone.View.extend({
     this.template = params.template;
   },
   render() {
-    this.$('section.movies').empty();
+    this.$('ul').empty();
 
     console.log(this);
 

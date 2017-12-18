@@ -22,8 +22,8 @@ $(document).ready(function() {
   const movieList = new MovieList();
 
   const movieListView = new MovieListView({
-    el: $('main'),
-    model: movies,
+    el: $('.movies'),
+    model: movieList,
     template: movieTemplate,
   });
 
