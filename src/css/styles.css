@@ -1,5 +1,7 @@
 @include foundation-everything;
 
+/***** MAIN *****/
+
 :root {
   --charcoal: #2A2B2A;
   --red: #D7263D;
@@ -37,7 +39,7 @@ h2 {
   font-size: 3rem;
   font-weight: normal;
   line-height: 0.5;
-  margin-top: 1.25rem;
+  margin: 1.5rem auto;
 }
 
 h3 {
@@ -80,9 +82,29 @@ main {
   width: 80%;
 }
 
+/***** NAV BAR *****/
+
 #nav-bar {
   width: 30%;
 }
+
+form.search input {
+  border-radius: 2rem;
+  display: inline-block;
+}
+
+form.search input[type="text"] {
+  width: 70%;
+}
+
+form.search input[type="submit"] {
+  background-color: var(--red);
+  color: white;
+  height: 2.5rem;
+  width: 25%;
+}
+
+/***** MOVIE LIST *****/
 
 #movie-container {
   width: 60%;
