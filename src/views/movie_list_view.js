@@ -9,11 +9,6 @@ const MovieListView = Backbone.View.extend({
   },
   render() {
     this.$('ul').empty();
-<<<<<<< HEAD
-
-    console.log(this);
-=======
->>>>>>> a4708bc919850c8e21009e3a5f8ae3bbea4c9117
 
     this.model.forEach((movie) => {
       const movieView = new MovieView({
