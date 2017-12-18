@@ -7,12 +7,6 @@ const MovieListView = Backbone.View.extend({
     this.template = params.template;
 
   },
-  // model: Movie,
-  // url: 'http://localhost:3000/movies',
-  // parse(response) {
-  //   console.log(response);
-  //   return response;
-  // },
   render() {
     console.log('IN RENDER');
     console.log(this.model);
@@ -29,8 +23,31 @@ const MovieListView = Backbone.View.extend({
   })
   return this;
 },
+submit(event) {
+  event.preventDefault();
+  const searchTerm = this.$('input[name=search]').val();
+  console.log(searchTerm);
+  const movieList = this.model.models;
+  console.log(movieList);
+  const filteredMovies = movieList.filter(movie => movie.get('title').includes(searchTerm));
+  console.log(filteredMovies);
+  this.$('#list').empty();
+
+  filteredMovies.forEach((movie) => {
+    const movieView = new MovieView({
+      model: movie,
+      template: this.template,
+      tagName: 'li',
+      className: 'movie',
+    });
+    this.$('#list').append(movieView.render().$el);
+  });
+  return this;
+
+},
   events: {
     'click #movie-button': 'render',
+    'click #searchButton': 'submit'
   }
 });
 

@@ -23,7 +23,7 @@ $(document).ready(function() {
     model: movies,
     template: _.template($('#movie-template').html()),
     // bus: bus,
-    el: 'main'
+    el: 'body'
   });
 
   // customers
