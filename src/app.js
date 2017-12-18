@@ -1,6 +1,6 @@
 import 'css/_settings.css';
 import 'foundation-sites/dist/css/foundation.css';
-import './css/styles.css';
+import 'css/styles.css';
 
 // Import jQuery & Underscore
 import $ from 'jquery';
