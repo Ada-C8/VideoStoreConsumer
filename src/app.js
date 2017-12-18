@@ -16,6 +16,6 @@ $(document).ready(function() {
   //  underscore templates
   
 
-  $('#main-content').append('<p>Hello World!</p>');
+  // $('#main-content').append('<p>Hello World!</p>');
 
 });
