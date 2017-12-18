@@ -60,6 +60,7 @@ h4 {
 
 ul {
   list-style: none;
+  margin: 1rem;
 }
 
 .container {
@@ -119,7 +120,7 @@ form.search input[type="submit"] {
   margin: 1rem auto;
   min-width: 19.5rem;
   text-align: left;
-  width: 70%;
+  width: 90%;
 }
 
 .movie:hover {
