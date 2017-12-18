@@ -5,6 +5,10 @@ import './css/styles.css';
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+import Backbone from 'backbone';
+
+// Import models and collections
+import Movie from 'models/movie'
 
 // ready to go
 $(document).ready(function() {
