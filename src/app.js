@@ -6,9 +6,22 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
+import Movie from './models/movie';
+import MovieList from './collections/movie_list';
+
+let movieTemplate;
+
+let movieList = new MovieList();
+
+
+
 // ready to go
 $(document).ready(function() {
 
-  $('#main-content').append('<p>Hello World!</p>');
+  $('#main-content').append('<p>Movies!</p>');
+
+  movieList.fetch().done(() => {
+    console.log(movieList);
+  });
 
 });
