@@ -11,11 +11,17 @@ import MovieListView from 'views/movie_list_view';
 import $ from 'jquery';
 import _ from 'underscore';
 
+
+
 let catalog = new MovieList();
 // let database = new MovieList();
 
 // ready to go
 $(document).ready(function() {
+  let data = catalog.fetch().done()
+  console.log(data);
+  console.log('heres catalog');
+  console.log();
   $('#main-content').append('<p>Hello World!</p>');
 
   const $catalogTemplate = _.template($("#catalog-template").html());
@@ -24,7 +30,6 @@ $(document).ready(function() {
     template: $catalogTemplate,
     el: 'main',
   });
-  catalog.fetch();
 
 
 });
