@@ -15,9 +15,20 @@ import MovieListView from 'views/movie_list_view';
 
 // ready to go
 $(document).ready(function() {
-  const movieList = new MovieList;
-  movieList.fetch();
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
 
-  $('#main-content').append('<p>Hello World!</p>');
+  const movieList = new MovieList;
+  // tripList.on('update', render, tripList);
+  movieList.fetch();
+  const movieListView = new MovieListView({
+    model: movieList,
+    template: _.template($('#movie-template').html()),
+    el: 'movies-container',
+    bus: bus,
+  })
+
+  movieListView.render();
+
 
 });

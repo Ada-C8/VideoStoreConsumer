@@ -12,7 +12,7 @@
             <h2>Moviez</h2>
             <div class="movies-list-container">
               <ul id="movies" class="movies">
-                
+
               </ul>
             </div>
           </div>
@@ -20,7 +20,15 @@
       </div>
 
     </main>
-
+    <script type="text/template" id="movie-template">
+      <div class="row small-12 columns">
+        <h3 class="title"><%- title %></h3>
+        <p class="overview">
+          <%- overview %>
+        </p>
+        <!-- find api get url for images -->
+      </div>
+    </script>
     <script src="/app.bundle.js"></script>
 
   </body>
