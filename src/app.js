@@ -22,6 +22,6 @@ import MovieListView from '/views/movie_list_view';
 // ready to go
 $(document).ready(function() {
 
-  $('#main-content').append('<p>Hello World!</p>');
+  $('#main-content').append('<p>this is the main content. I am in app.js </p>');
 
 });
