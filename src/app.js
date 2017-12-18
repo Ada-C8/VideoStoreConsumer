@@ -6,9 +6,22 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
-// ready to go
-$(document).ready(function() {
+import StoreLibrary from 'collections/store_library';
+import StoreMovie from 'models/store_movie';
 
-  $('#main-content').append('<p>Hello World!</p>');
+
+$(document).ready(function() {
+  let libraryTemplate = _.template($('#store-movie-template').html());
+
+  const storeLibrary = new StoreLibrary();
+  storeLibrary.fetch();
+
+  console.log(storeLibrary.attributes);
+
+  storeLibrary.attributes.forEach((storeMovie) => {
+    $('#store-library').append(libraryTemplate(storeMovie.attributes));
+  });
+
+
 
 });

@@ -6,8 +6,17 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <h2>Open Orders</h2>
+        <div class="store-library-container">
+          <ul id="store-library">
+          </ul>
+        </div>
+
     </main>
+    <script type="text/template" id="store-movie-template">
+      <li class="title"><%- title %></li>
+      <li class="release-date"><%- release_date %></li>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
