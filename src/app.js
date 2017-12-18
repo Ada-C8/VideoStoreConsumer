@@ -21,7 +21,6 @@ $(document).ready(function() {
   const rentalLibraryList = new MovieList();
   rentalLibraryList.bus = eventBus;
   rentalLibraryList.fetch();
-  console.log(rentalLibraryList);
 
   const rentalLibraryListView = new MovieListView({
     model: rentalLibraryList,
