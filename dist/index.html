@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <main id="main-content">
 
-    <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+  <script src="/app.bundle.js"></script>
+  <section>
+    <div id="movies">
+      <table>
+        <thead>
+          <th class="sort title">Title</th>
+          <th class="sort release_date">Release Date</th>
+        </thead>
+        <tbody id="movie-list">
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+</main>
+
+</body>
+
+
+<script type="text/template" id="movie-template">
+    <td>
+      <%- title %>
+    </td>
+    <td>
+      <%- release_date %>
+    </td>
+
+</script>
+</html>
