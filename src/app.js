@@ -14,13 +14,15 @@ import MovieList from './collections/movie_list';
 import MoviesView from './views/movies_view';
 import MoviesLibraryView from './views/movies_library_view';
 
-
+const movieList = new MovieList()
 // ready to go
 $(document).ready(function() {
 
-  moviesLibraryTemplate = _.template($('#movie-template').html());
+  const moviesLibraryTemplate = _.template($('#movie-template').html());
 
-  const movies = new MovieList;////NOTE/(API call data);
+  movieList.fetch()
+
+  // const movies = new MovieList;////NOTE/(API call data);
 
   const moviesLibraryView = new MoviesLibraryView({
     el: '#movies-container',
