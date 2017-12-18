@@ -25,6 +25,7 @@
 
     <main id="main-content">
       <section class="movies large-6 columns">
+        <ul></ul>
       </section>
 
       <section class="movie large-6 columns">
@@ -32,6 +33,14 @@
     </main>
 
     <script src="/app.bundle.js"></script>
+    <!-- TEMPLATES -->
+    <script type="text/template" id="movie-template">
+      <li class="movie">
+        <img src="<%- image_url %>">
+        <p><%- title %></p>
+        <p><%- release_date %></p>
+      </li>  
+    </script>
 
   </body>
   </html>
