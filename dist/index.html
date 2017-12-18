@@ -16,6 +16,16 @@
 
     <script src="/app.bundle.js"></script>
     <!--  movie-template-->
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+      <div class="detail">
+        <p id="overview"><%- overview %></p>
+        <p class="date"><%- release_date %></p>
+        <img src="<%- image_url %>">
+
+      </div>
+      <button class="btn-add button secondary">Add to Collection</button>
+    </script>
 
   </body>
   </html>
