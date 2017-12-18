@@ -10,6 +10,7 @@
 
       <button type="button" name="button" class="button" id="our-movies">Our Movies</button>
       <button type="button" name="button" class="button" id="all-movies">All Movies</button>
+      <div class="form"></div>
 
       <div id='movies-container'>
 
@@ -20,6 +21,7 @@
 
     </main>
 
+
     <script type="text/template" id="movie-template">
       <h3 class="title"><%- title %></h3>
       <div class="detail">
@@ -28,6 +30,13 @@
         </p>
       </div>
       <!-- <button class="btn-cancel button secondary">Cancel</button> -->
+    </script>
+
+    <script type="text/template" id="form-template">
+      <h3>Search all movies</h3>
+      <label for="search-movies">Find Movie:</label>
+        <input type="text" name="search-movies" />
+        <button class="button" id="submit">Submit</button>
     </script>
 
     <script src="/app.bundle.js"></script>

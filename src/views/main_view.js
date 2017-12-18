@@ -7,11 +7,13 @@ import ExternalMovieList from '../collections/external_movie_list';
 const MainView = Backbone.View.extend({
   initialize(params) {
     this.movieTemplate = params.movieTemplate;
+    this.formTemplate = params.formTemplate;
     this.movieList = params.movieList;
   },
   events: {
     'click button#our-movies' : 'renderOurMovies',
-    'click button#all-movies' : 'renderAllMovies'
+    'click button#all-movies' : 'renderForm',
+    'click button#submit' : 'renderAllMovies'
   },
   renderOurMovies() {
     const movieListView = new MovieListView({
@@ -21,6 +23,9 @@ const MainView = Backbone.View.extend({
     });
 
     movieListView.model.fetch();
+  },
+  renderForm() {
+    this.$('.form').append(this.formTemplate);
   },
   renderAllMovies() {
     this.search('Jaws');

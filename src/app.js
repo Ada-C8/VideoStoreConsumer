@@ -30,6 +30,7 @@ $(document).ready(function() {
   const mainView = new MainView({
     el: '#main-content',
     movieTemplate: movieTemplate,
+    formTemplate: _.template($('#form-template').html()),
     movieList: movieList,
   });
 
