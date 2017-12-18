@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Baseline</title>
+    <title>Video Store</title>
 
     <link href="https://fonts.googleapis.com/css?family=Comfortaa|Fredoka+One|Monoton" rel="stylesheet">
   </head>
@@ -21,6 +21,20 @@
               <input type="text" name="query" />
               <input type="submit" value="Search" />
             </form>
+          </li>
+          <li>
+            <form class="new-movie" id="new-movie" style="display: none">
+              <label for="title">Title</label>
+              <input type="text" name="title" />
+              <label for="title">Release Date</label>
+              <input type="text" name="release" />
+              <label for="title">Overview</label>
+              <input type="text" name="overview" />
+              <label for="title">Inventory</label>
+              <input type="text" name="inventory" />
+              <input type="submit" />
+            </form>
+            <a class="button add-btn">Add Movie</a>
           </li>
         </ul>
       </nav>

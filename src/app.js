@@ -40,6 +40,19 @@ const movieSearch = function movieSearch(e) {
   });
 };
 
+const addMovie = function addMovie(e) {
+  e.preventDefault();
+  // console.log($('#new-movie').serialize());
+  const movie = new Movie({
+    title: "Test Movie",
+  });
+  movie.save({
+    success: () => {
+      movieList.add(movie);
+    }
+  });
+};
+
 // ready to go
 $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
@@ -56,5 +69,12 @@ $(document).ready(function() {
   });
 
   $('#search').on('submit', movieSearch);
+
+  $('.add-btn').on('click', () => {
+    $('.add-btn').hide(200);
+    $('#new-movie').show(500);
+  });
+
+  $('#new-movie').on('submit', addMovie);
 
 });
