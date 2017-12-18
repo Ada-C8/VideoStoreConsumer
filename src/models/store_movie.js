@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 
 const StoreMovie = Backbone.Model.extend({
   idAttribute: 'title',
-  urlRoot: 'http://localhost:3000/movies',
+  urlRoot: 'http://localhost:3000/movies'
 
 });
 
