@@ -11,7 +11,7 @@ import MovieList from 'collections/movie_list';
 
 // import views
 import MovieListView from 'views/movie_list_view';
-
+import FormView from 'views/form_view';
 
 // ready to go
 $(document).ready(function() {
@@ -20,15 +20,23 @@ $(document).ready(function() {
 
   const movieList = new MovieList;
   // tripList.on('update', render, tripList);
-  movieList.fetch();
+  // movieList.fetch();
   const movieListView = new MovieListView({
     model: movieList,
     template: _.template($('#movie-template').html()),
+    detailsTemplate: _.template($('#movie-details-template').html()),
     el: '#movies-container',
     bus: bus,
   })
 
-  movieListView.render();
+  const formView = new FormView({
+    model: movieList,
+    el: '.movie-workspace',
+    bus: bus
+
+  })
+
+  // movieListView.render();
 
 
 });
