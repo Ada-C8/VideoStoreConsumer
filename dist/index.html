@@ -2,14 +2,36 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Baseline</title>
+    <title>movies</title>
   </head>
   <body>
     <main id="main-content">
-      
+      <section class="columns large-8 small-12">
+      <h2>Movies!</h2>
+      <table>
+        <thead>
+          <th>Title</th>
+          <th>Release Date</th>
+        </thead>
+        <tbody id="movies-list">
+        </tbody>
+      </table>
+    </section>
     </main>
 
     <script src="/app.bundle.js"></script>
-
+    <script type="text/template" id="all-movies-template">
+      <tr >
+        <td >
+          <%- title %>
+        </td>
+        <td>
+          <%- release_date %>
+        </td>
+        <td>
+          <button type="button" class="button">See Details</button>
+        </td>
+      </tr>
+    </script>
   </body>
   </html>
