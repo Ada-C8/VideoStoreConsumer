@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 
 const Movie = Backbone.Model.extend({
-  urlRoot: 'https://localhost:3000/',
+  urlRoot: 'http://localhost:3000/movies',
   defaults: {
 
   },

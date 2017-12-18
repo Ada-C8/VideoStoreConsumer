@@ -1,11 +1,17 @@
 import Backbone from 'backbone';
-import Movie from '../models/task';
+import Movie from '../models/movie';
 
 const MovieList = Backbone.Collection.extend({
   model: Movie,
-  url: 'https://localhost:3000/',
+  url: 'http://localhost:3000/movies',
+  // parse: function(response){
+  //   console.log(response);
+  //   console.log('response');
+  //   return response;
+  // },
   //TODO: put in correct comparator
-  // comparator: 'name',
+  comparator: 'title',
+
 });
 
 export default MovieList;
