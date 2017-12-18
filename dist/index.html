@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <main id="main-content">
 
-    <script src="/app.bundle.js"></script>
+    <div id="movies-library-template">
 
-  </body>
-  </html>
+    </div>
+
+  </main>
+
+  <script src="/app.bundle.js"></script>
+
+  <script type="text/template" id="movie-template">
+    <h2 class="title"><%- title %></h2>
+    <p class="overview"><%- overview %></p>
+    <p class="release-date"><%- release_date %></p>
+    <img src="https://image.tmdb.org/t/p/w185" + "<%- image_url %>" /> 
+  </script>
+
+</body>
+</html>
