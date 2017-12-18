@@ -27,8 +27,9 @@ const MainView = Backbone.View.extend({
   renderForm() {
     this.$('.form').append(this.formTemplate);
   },
-  renderAllMovies() {
-    this.search('Jaws');
+  renderAllMovies(event) {
+    const title = this.$('input').val();
+    this.search(title);
 
   },
 

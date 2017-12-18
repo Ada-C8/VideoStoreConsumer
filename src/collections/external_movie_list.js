@@ -7,7 +7,6 @@ const ExternalMovieList = Backbone.Collection.extend({
   },
   model: Movie,
   url() {
-    console.log(this.title);
     return `http://localhost:3000/movies/?query=${ this.title }`
   },
 
