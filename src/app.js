@@ -18,6 +18,13 @@ let catalog = new MovieList();
 $(document).ready(function() {
   $('#main-content').append('<p>Hello World!</p>');
 
+  const $catalogTemplate = _.template($("#catalog-template").html());
+  const catalogView = new MovieListView({
+    model: catalog,
+    template: $catalogTemplate,
+    el: 'main',
+  });
+  catalog.fetch();
 
 
 });
