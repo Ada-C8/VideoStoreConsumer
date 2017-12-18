@@ -87,3 +87,20 @@ main {
 #movie-container {
   width: 60%;
 }
+
+.movie {
+  color: #D7263D;
+  background-color: #FFB238;
+  border: 5px solid #D7263D;
+  border-radius: 1rem;
+  padding: 5%;
+  margin: 1rem auto;
+  min-width: 19.5rem;
+  text-align: left;
+  width: 70%;
+}
+
+.movie:hover {
+  background-color: #D7263D;
+  color: #FFB238;
+}
