@@ -6,6 +6,17 @@
   </head>
   <body>
     <main id="main-content">
+      <div class="order-entry-form columns">
+        <h3>Order Entry Form</h3>
+        <form id="order-form">
+          <label for="query">Query:</label>
+          <input type="text" name="query" placeholder="ex. Indiana Jones" />
+          <button class="submit-btn button">Submit</button>
+        </form>
+        <div class="form-errors">
+        </div>
+      </div>
+
       <h2>Open Orders</h2>
         <div class="store-library-container">
           <ul id="store-library">
@@ -14,8 +25,8 @@
 
     </main>
     <script type="text/template" id="store-movie-template">
-      <li class="title"><%- title %></li>
-      <li class="release-date"><%- release_date %></li>
+      <span class="title"><%- title %></span>
+      <span class="release-date"><%- release_date %></span>
     </script>
 
     <script src="/app.bundle.js"></script>
