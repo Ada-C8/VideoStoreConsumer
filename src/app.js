@@ -6,19 +6,26 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
+//MODELS AND COLLECTIONS
+import Movie from './models/movie';
+import MovieList from './collections/movie_list';
+
+//VIEWS
+import MoviesView from './views/movies_view';
+import MoviesLibraryView from './views/movies_library_view';
+
+
 // ready to go
 $(document).ready(function() {
 
-  moviesLibraryTemplate = _.template($('#movies-library-template').html());
+  moviesLibraryTemplate = _.template($('#movie-template').html());
 
   const movies = new MovieList;////NOTE/(API call data);
 
   const moviesLibraryView = new MoviesLibraryView({
-    el: '',
+    el: '#movies-container',
     model: movies,
     template: moviesLibraryTemplate,
   });
-
-  // $('#main-content').append('<p>Hello World!</p>');
 
 });
