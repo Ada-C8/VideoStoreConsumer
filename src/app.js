@@ -29,12 +29,14 @@ $(document).ready(function() {
 
   // new instance of LibMovieList
   const libMovieList = new LibMovieList();
+  libMovieList.fetch()
   // new instance of LibMovieListView
   const libMovieListView = new LibMovieListView({
     el: '#library-movies',
     model: libMovieList,
     template: libraryMovieTemplate,
   });
+
 
   libMovieListView.render();
 
