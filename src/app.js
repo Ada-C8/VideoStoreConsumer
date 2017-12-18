@@ -9,14 +9,34 @@ import _ from 'underscore';
 // Our Components - Project Models, Collections, Views
 import LibMovie from './models/lib_movie';
 import LibMovieList from './collections/lib_movie_list';
+import LibMovieView from './views/lib_movie_view';
+import LibMovieListView from './views/lib_movie_list_view';
+
 // template varibles
 
 let libraryMovieTemplate;
 
+
+
+
+
 // ready to go
 $(document).ready(function() {
   //  underscore templates
-  libraryMovieTemplate = _.template($('#library-movietemplate').html());
+  libraryMovieTemplate = _.template($('#library-movie-template').html());
   // $('#main-content').append('<p>Hello World!</p>');
+  // libMovieList.fetch();
 
+  // new instance of LibMovieList
+  const libMovieList = new LibMovieList();
+  // new instance of LibMovieListView
+  const libMovieListView = new LibMovieListView({
+    el: '#library-movies',
+    model: libMovieList,
+    template: libraryMovieTemplate,
+  });
+
+  libMovieListView.render();
+
+  console.log(libMovieList);
 });
