@@ -5,16 +5,34 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+    <header>
+      <h1>VIDEO STORE PLUS!</h1>
+    </header>
     <main id="main-content">
+      <section>
 
+      </section>
+      <!-- Add Movie Form -->
+      <form>
+        <label for="title">Title</label>
+        <input type="text" name="title"/>
+        <label for="release-data">Release Date</label>
+        <button class="btn-add alert button">Add</button>
+      </form>
     </main>
 
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+      <div class="detail">
+        <span class="action"><%- release_date %></span>
+      </div>
+    </script>
 
+    <script type="text/template" id="movie-detail-template">
 
+    </script>
 
     <script src="/app.bundle.js"></script>
-
-
 
   </body>
   </html>
