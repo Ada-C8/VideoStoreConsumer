@@ -44,11 +44,22 @@ div {
 */
 
 
-/* MY STYLES */
-#search {
+/* OUR STYLES */
 
+/* SEARCH FORM ON MAIN PAGE */
+#search-form {
+  display: inline-block;
 }
 
-nav {
-  display: none;
+#search-form input, #search, #movies {
+  height: 3rem;
+  display: inline-block;
+}
+
+#search-form input {
+  width: 15rem;
+}
+
+#search, #movies {
+  margin-top: .8rem;
 }

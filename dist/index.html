@@ -11,21 +11,23 @@
   </head>
   <body>
     <header>
-      <h1 class="text-center white-text">Search with JKMovie</h1>
+      <h1 class="text-center white-text">JKMovies</h1>
     </header>
 
     <nav class="row">
-      <h2 class="white-text float-left">JKMovie</h2>
-      <button id="new-movie" class="button large blue white-text float-right" type="button" name="button">Add A Movie</button>
+      <form id="search-form" action="index.html" method="post">
+        <input type="text" name="search"/>
+        <button type="button" name="button" id="search" class="button blue white-text">Search</button>
+      </form>
+
+      <button id="movies" class="button blue white-text float-right" type="button" name="button">Rental Library</button>
     </nav>
 
     <main id="main-content">
-      <form action="index.html" method="post">
-        <input type="text" name="search"/>
-        <button type="button" name="button" id="search" class="button large blue white-text">Find a Movie</button>
-      </form>
       <section class="movies large-6 columns">
+      </section>
 
+      <section class="movie large-6 columns">
       </section>
     </main>
 
