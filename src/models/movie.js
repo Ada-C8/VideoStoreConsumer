@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-const Movie = Backbone.Modle.extend({
+const Movie = Backbone.Model.extend({
 
 });
 
