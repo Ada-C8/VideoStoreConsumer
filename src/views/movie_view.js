@@ -14,3 +14,5 @@ const MovieView = Backbone.View.extend({
     return this;
   }, // render
 }) // MovieView
+
+export default MovieView;

@@ -10,11 +10,29 @@ import Backbone from 'backbone';
 // Import models and collections
 import Movie from 'models/movie'
 import MovieList from 'collections/movie_list'
+import MovieListView from './views/movie_list_view'
 
 // ready to go
 $(document).ready(function() {
 
-const movieTemplate = _.template($('#all-movies-template').html());
+  const movieTemplate = _.template($('#all-movies-template').html());
+
+
+  const moviesList = new MovieList();
+
+  console.log("this is moesList");
+  console.log(moviesList);
+
+  const movieListView = new MovieListView({
+    model: moviesList,
+    template: movieTemplate,
+    el: $('#list-movies'),
+  });
+
+  moviesList.fetch();
+  // movieListView.render();
+
+
 
 
 
