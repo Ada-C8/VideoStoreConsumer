@@ -18,6 +18,21 @@ eventBus = _.extend(eventBus, Backbone.Events);
 // ready to go
 $(document).ready(function() {
 
-  $('#show-rental-library').on('click', eventBus.trigger, 'showRentalLibrary');
+  const movieList = new MovieList();
+  movieList.bus = eventBus;
+  movieList.fetch();
+  console.log(movieList);
+
+  const movieListView = new MovieListView({
+    model: movieList,
+    template: _.template($('#library-movie-template').html()),
+    el: 'main',
+    bus: eventBus,
+  });
+
+  $('#show-rental-library').on('click', function(event) {
+    event.preventDefault();
+    eventBus.trigger('showRentalLibrary');
+  });
 
 });
