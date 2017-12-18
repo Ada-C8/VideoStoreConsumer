@@ -10,6 +10,7 @@ import _ from 'underscore';
 import Backbone from 'backbone';
 import Customer from '/models/customer';
 import Movie from './models/movie';
+import Application from './models/application.js';
 
 //collections
 import CustomerList from '/collections/customer_list';
@@ -19,7 +20,9 @@ import MovieList from './collections/movie_list';
 import CustomerListView from '/views/customer_list_view';
 import MovieListView from './views/movie_list_view';
 import MovieView from './views/movie_view';
+import ApplicationView from './views/application_view.js';
 
+let application = new Application();
 let movieList = new MovieList();
 movieList.fetch();
 
