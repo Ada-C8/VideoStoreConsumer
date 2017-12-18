@@ -5,11 +5,12 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    this.listenTo(this.model, 'update', this.render);
   },
   render() {
     const list = this.$('#movies');
     list.empty();
-    
+
     this.model.each((movie) => {
       const movieView = new MovieView({
         model: movie,
@@ -21,6 +22,10 @@ const MovieListView = Backbone.View.extend({
       list.append(movieView.render().$el);
     });
     return this;
+  },
+  searchMovies(searchTerm) {
+    this.model.resetUrl(searchTerm);
+    this.model.fetch()
   },
 });
 

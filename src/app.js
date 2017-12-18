@@ -40,6 +40,7 @@ $(document).ready(function() {
     el: 'main',
     bus: eventBus,
   });
+  searchListView.listenTo(eventBus, 'searchMovies', searchListView.searchMovies)
 
   $('#show-rental-library').on('click', function(event) {
     event.preventDefault();
