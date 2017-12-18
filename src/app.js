@@ -22,6 +22,7 @@ $(document).ready(function() {
   const rentalView = new VideoListView({
     model: rentalList,
     template: videoListTemplate,
+    detailTemplate: videoTemplate,
     el: '#rental-library',
   });
 

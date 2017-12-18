@@ -32,7 +32,9 @@
           </article>
         </section>
         <section class="small-12 large-6 columns">
+          <article id="video-view">
 
+          </article>
         </section>
 
       </section>
@@ -46,7 +48,7 @@
           <%- release_date %>
         </td>
         <td>
-          <button class="button" id=<%- id %> > View </button>
+          <button class="button btn-view" id=<%- id %> > View </button>
         </td>
         <!-- <td>
           <# inventory %>
@@ -64,10 +66,13 @@
         </article>
         <article class="columns small-12 large-6">
           <p>
-            <%- description %>
+            <%- overview %>
           </p>
         </article>
-        <button class="button">Add</button>
+        <p>
+          Available Inventory: <%- available_inventory %> / <%- inventory %>
+        </p>
+        <button class="button btn-add">Add To Rental Library</button>
       </section>
     </script>
     <script src="/app.bundle.js"></script>

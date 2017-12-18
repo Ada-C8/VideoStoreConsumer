@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 
 const Video = Backbone.Model.extend({
+  urlRoot: 'http://localhost:3000/movies',
   initialize(parameters){
 
   },
