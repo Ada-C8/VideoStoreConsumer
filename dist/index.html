@@ -1,34 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Video Store </title>
-  </head>
-  <body>
-    <main id="main-content">
-      <header>
-           <h1>MOVIES</h1>
-         </header>
-         <main>
-           <section id='movie'></section>
-           <section id='movie-list'></section>
-         </main>
+<head>
+  <meta charset="utf-8">
+  <title>Video Store </title>
+</head>
+<body>
 
-<!-- Templates -->
-
-<script id="movie-template" type="text/template">
-  <img src=<%- image_url %> />
-  <h2><%- title %></h2>
-</script>
-
-<script id="movie-info-template" type="text/template">
-  <h3>Title: <%- title %></h3>
-  <h4>Overview: <%- overview %></h4>
-  <h4>Release Date: <%- release_date %></h4>
-</script>
-
-      <header>
-      <a><h1 class="logo large-3 medium-3 columns">K & T VIDEO STORE</h1></a>
+  <header>
+    <a><h1 class="logo large-3 medium-3 columns">K & T VIDEO STORE</h1></a>
     <ul class="menu large-4 medium-4 columns">
       <li><a class="menu-button" id="show-movies-button">Movies</a></li>
       <li><a class="menu-button" id="show-customers-button">Customers</a></li>
@@ -40,12 +19,36 @@
       <li><a id="search-button" type="button" value="Search">Search</a></li>
     </ul>
   </header>
-<footer> Powered by
-  <img src="images/themoviedb.png" alt="The Movie DB"  />
-</footer>
+
+  <main id="main-content">
+
+    <main>
+      <section id='movie'></section>
+      <section id='movie-list'></section>
+      <!-- Templates -->
+
+      <script id="movie-template" type="text/template">
+        <!-- <img src=<%- image_url %> /> -->
+        <h2><%- title %></h2>
+      </script>
+
+      <script id="movie-info-template" type="text/template">
+        <h3>Title: <%- title %></h3>
+        <h4>Overview: <%- overview %></h4>
+        <h4>Release Date: <%- release_date %></h4>
+      </script>
+
     </main>
 
-    <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+
+
+    <footer> Powered by
+      <img src="images/themoviedb.png" alt="The Movie DB"  />
+    </footer>
+  </main>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
