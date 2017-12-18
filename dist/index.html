@@ -7,7 +7,18 @@
   <body>
     <main id="main-content">
       <div class="workspace row">
-        <div class="columns small-12">
+        <div class="small-4 columns">
+          <div id="find-movie-form-container">
+            <h3>Find Movie</h3>
+            <form>
+              <label for="title">Title</label>
+              <input type="text" name="title" placeholder="enter a title" />
+              <!-- <label>Action</label> -->
+              <button class="submit success button">Find Movie</button>
+            </form>
+          </div>
+        </div>
+        <div class="small-4 columns ">
           <div id="movies-container">
             <h2>Moviez</h2>
             <div class="movies-list-container">
@@ -17,11 +28,11 @@
             </div>
           </div>
         </div>
-      </div>
 
+      </div>
     </main>
     <script type="text/template" id="movie-template">
-      <div class="row small-12 columns">
+      <div class="small-4 columns">
         <h3 class="title"><%- title %></h3>
         <p class="overview">
           <%- overview %>
