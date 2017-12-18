@@ -11,4 +11,15 @@ $(document).ready(function() {
 
   $('#main-content').append('<p>Hello World!</p>');
 
+  const movies = new MovieList()
+
+  const movieListView = new MovieListView({
+    model: movie,
+    template: _.template($('#movie-template').html()),
+    el: '.movie-list-container'
+  });
+  // when to movieListView.render();??
+
+
+
 });
