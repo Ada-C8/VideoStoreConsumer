@@ -14,6 +14,5 @@ import MovieList from 'collections/movie_list'
 // ready to go
 $(document).ready(function() {
 
-  $('#main-content').append('<p>Hello World!</p>');
 
 });
