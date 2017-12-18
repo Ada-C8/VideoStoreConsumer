@@ -8,19 +8,6 @@ const StoreLibraryView = Backbone.View.extend({
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
   },
-  // render() {
-  //   Object.keys(this.model.attributes).map(function(key) {
-  //     console.log(key);
-  //     const storeMovieView = new StoreMovieView({
-  //       model: key,
-  //       template: this.template,
-  //       className: 'storeMovie',
-  //     });
-  //     this.$('#store-library').append(storeMovieView.render().$el);
-  //   });
-  //   return this;
-  // },
-
   render() {
     this.model.each((storeMovie) => {
       const storeMovieView = new StoreMovieView({
