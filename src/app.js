@@ -12,12 +12,12 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 let catalog = new MovieList();
-let database = new MovieList();
+// let database = new MovieList();
 
 // ready to go
 $(document).ready(function() {
   $('#main-content').append('<p>Hello World!</p>');
 
-  
+
 
 });
