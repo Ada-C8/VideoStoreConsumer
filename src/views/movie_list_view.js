@@ -15,6 +15,7 @@ const MovieListView = Backbone.View.extend({
   // },
   render() {
     console.log('IN RENDER');
+    console.log(this.model);
     this.$('#list').empty();
 
     this.model.each((movie) => {
@@ -24,7 +25,9 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie',
       });
+      this.$('#list').append(movieView.render().$el);
   })
+  return this;
 },
   events: {
     'click #movie-button': 'render',
