@@ -6,8 +6,23 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <div id='movies-container'>
+        <ul id='movies-list'>
+
+        </ul>
+      </div>
+
     </main>
+
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+      <div class="detail">
+        <p>
+          <span class="overview"><%- overview %></span>
+        </p>
+      </div>
+      <!-- <button class="btn-cancel button secondary">Cancel</button> -->
+    </script>
 
     <script src="/app.bundle.js"></script>
 
