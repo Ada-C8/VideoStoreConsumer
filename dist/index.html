@@ -6,10 +6,48 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <section id = "movies-container" class="movies-container columns small-10 small-offset-1 end">
+          <h2>Movies</h2>
+          <section class="movies-list-container">
+              <ul id="movies" class="movies">
+              </ul>
+          </section>
+      </section>
+      <section id = "movie-details-container" class="movie-details-container columns small-10 small-offset-1 end">
+      </section>
+      <section id = "search-form">
+        <form id = "search-movies">
+
+        </form>
+      </section>
+      <section id = "add-movie-form">
+        <form id = "add-movies">
+
+        </form>
+      </section>
+
     </main>
 
     <script src="/app.bundle.js"></script>
+    <script type="text/template" id= "movie-template">
+      <div class="row small-12 columns">
+
+        <h3 class="title"><%- title %></h3>
+        <h5 class="release_date">$<%- release_date %></h5>
+        <button class="btn-movie-details success button">View Movie Details</button>
+
+      </div>
+    </script>
+    <script type="text/template" id= "movie-details-template">
+      <section class="row small-12 columns">
+
+        <h3 class="title"><%- title %></h3>
+        <p class = "image_url"> <%- image_url %> </p>
+        <p class="release_date">$<%- release_date %></p>
+        <p class="overview"> Overview: <%- overview %></p>
+        <!-- <button class="btn-all-movies success button">Back to All movies</button> -->
+      </section>
+    </script>
 
   </body>
   </html>
