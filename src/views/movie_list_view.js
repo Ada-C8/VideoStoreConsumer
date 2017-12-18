@@ -7,6 +7,36 @@ const MovieListView = Backbone.View.extend({
     this.template = params.template;
   },
 
+  // events: {
+  //   'click button.btn-show': 'getRentalMovies',
+  //   'click button.btn-search': 'getIndividualMovie',
+  // },
+
+  getRentalMovies() {
+    //this.model.remove_all()
+    //calls to the rails API, returns movies in RailsDB in JSON
+    //iterate through each JSON object returned
+    //const newMovie = new Movie(JSON)
+    //this.add
+    //this.render()
+  },
+
+  getIndividualMovie() {
+    //destory collection??
+    //this.model.remove_all()
+
+    //const formData = getFormData()
+    //call to rails, API passes query, which calls to Movie API, which returns anything matching query
+
+    //const newMovie = new Movie(JSON)
+    //this.add
+    //this.render()
+  },
+
+  getFormData(){
+    //get query from search box
+  },
+
   render(){
     this.$('#movies').empty()
     this.model.each((movie) => {
