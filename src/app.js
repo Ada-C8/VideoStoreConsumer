@@ -6,8 +6,9 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
-import Movie from './models/movie';
-import MovieList from './collections/movie_list';
+import Movie from 'models/movie';
+import MovieList from 'collections/movie_list';
+import MovieListView from 'views/movie_list_view';
 
 // ready to go
 $(document).ready(function() {
