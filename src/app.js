@@ -32,7 +32,7 @@ $(document).ready(function() {
   libMovieList.fetch()
   // new instance of LibMovieListView
   const libMovieListView = new LibMovieListView({
-    el: '#library-movies',
+    el: '#library-movies-container',
     model: libMovieList,
     template: libraryMovieTemplate,
   });

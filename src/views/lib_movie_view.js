@@ -11,6 +11,9 @@ initialize(params) {
 },
 
 render() {
+  const compiledTemplate = this.template(this.model.toJSON());
+
+  this.$el.html(compiledTemplate);
 
   return this;
 },

@@ -13,6 +13,21 @@ const LibMovieListView = BackBone.View.extend({
 
   render() {
     console.log('inside lib_movie_list_view render function');
+
+    // clearing dom
+    this.$('#library-movies').empty();
+
+    // loop through all libMovies in our collection and send them to the libMovieView
+
+    this.model.each((libMovie) => {
+      const libMovieView = new LibMovieView({
+        model: libMovie,
+        template: this.template,
+        tagName: 'p',
+        className: 'libMovie',
+      });
+      this.$('#library-movies').append(libMovieView.render().$el);
+    });
     return this;
   },
 
