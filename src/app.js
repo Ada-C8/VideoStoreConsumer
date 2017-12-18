@@ -14,5 +14,8 @@ import MovieList from 'collections/movie_list'
 // ready to go
 $(document).ready(function() {
 
+const movieTemplate = _.template($('#all-movies-template').html());
+
+
 
 });
