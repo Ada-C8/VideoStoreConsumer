@@ -18,6 +18,7 @@ const videoListTemplate = _.template($('#video-list-template').html());
 
 // ready to go
 $(document).ready(function() {
+  rentalList.fetch();
   console.log(rentalList);
   const rentalView = new VideoListView({
     model: rentalList,

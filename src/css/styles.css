@@ -1,15 +1,15 @@
 @include foundation-everything;
 
-main {
+/*main {
     background: lightblue;
-}
+}*/
 
 header {
   background-color: lightgreen;
   padding: 0.5rem;
 }
 
-#completed-checkbox {
+/*#completed-checkbox {
   display: inline;
 }
 
@@ -36,9 +36,13 @@ aside label {
 
 div {
   display: inline;
-}
+}*/
 /*
 * {
   border-style: solid;
 }
 */
+
+.button {
+  margin: 0;
+}
