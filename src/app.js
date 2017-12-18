@@ -17,6 +17,29 @@ let movieListView;
 
 const movieList = new MovieList();
 
+const movieSearch = function movieSearch(e) {
+  e.preventDefault();
+
+  const query = $('#search input[name="query"]').val();
+
+  const searchList = new MovieList(
+    {
+      query: query,
+    }
+  );
+
+  searchList.fetch({
+    success: () => {
+      const newView = new MovieListView({
+        model: searchList,
+        template: movieTemplate,
+        el: $('#movie-list'),
+      });
+      newView.render();
+    }
+  });
+};
+
 // ready to go
 $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
@@ -31,4 +54,7 @@ $(document).ready(function() {
       movieListView.render();
     },
   });
+
+  $('#search').on('submit', movieSearch);
+
 });

@@ -13,6 +13,7 @@ const MovieListView = Backbone.View.extend({
     this.$el.empty();
 
     this.model.each((movie) => {
+      console.log(movie);
       const movieView = new MovieView({
         template: this.template,
         model: movie,
