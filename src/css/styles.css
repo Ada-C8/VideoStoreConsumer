@@ -9,6 +9,10 @@ header {
   padding: 0.5rem;
 }
 
+p.lib-movie {
+  border: solid black 1px;
+}
+
 #completed-checkbox {
   display: inline;
 }

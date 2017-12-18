@@ -17,6 +17,11 @@
         <div class="columns large-6 small-12">
           <div id='all-movies-container'>
             <h2>All Movies</h2>
+            <form id="movie-search-form">
+              <label for="movie-title">Movie Title</label>
+              <input type="text" name="movie-title" placeholder="Moonlight">
+              <input type="submit" value="Search movie database">
+            </form>
             <div class="movies-list-container">
               <ul id="movies" class="movies">
               </ul>
@@ -48,6 +53,7 @@
       <p>
         <strong>Release Date: </strong> <%- release_date %>
       </p>
+
     </script>
 
     <script src="/app.bundle.js"></script>

@@ -24,7 +24,7 @@ const LibMovieListView = BackBone.View.extend({
         model: libMovie,
         template: this.template,
         tagName: 'p',
-        className: 'libMovie',
+        className: 'lib-movie',
       });
       this.$('#library-movies').append(libMovieView.render().$el);
     });
