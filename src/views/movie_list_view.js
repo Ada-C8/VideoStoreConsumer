@@ -10,6 +10,7 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
   this.bus = params.bus;
   this.template = params.template;
+  this.detailsTemplate = params.detailsTemplate;
   this.listenTo(this.model, 'update', this.render);
   },
   render() {
@@ -18,6 +19,7 @@ const MovieListView = Backbone.View.extend({
       const movieView = new MovieView({
         model: movie,
         template: this.template,
+        detailsTemplate: this.detailsTemplate,
         bus: this.bus,
         tagname: 'li',
         className: 'movie',
