@@ -13,6 +13,7 @@ import MovieListView from 'views/movie_list_view';
 $(document).ready(function() {
   console.log('WOW');
   const movies = new MovieList();
+  movies.fetch();
 
   const movieListView = new MovieListView({
     model: movies,
