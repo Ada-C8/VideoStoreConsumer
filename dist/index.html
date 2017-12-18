@@ -6,8 +6,18 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <div id='movies-container'>
+        <ul id='movies'>
+        </ul>
+      </div>
+
     </main>
+
+    <script type="text/template" id="movie-template">
+        <span>
+          You <%- buy ? 'bought' : 'sold' %> <%- symbol %> at $<%- price.toFixed(2) %>
+        </span>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
