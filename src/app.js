@@ -6,9 +6,27 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
+// Our stuff
+import Movie from 'models/movie';
+import MovieList from 'collections/movie_list';
+import MovieView from 'views/movie_view';
+import MovieListView from 'views/movie_list_view';
+
+const movieList = new MovieList();
+
+
+
 // ready to go
 $(document).ready(function() {
 
-  // $('#main-content').append('<p>Hello World!</p>');
+  movieList.fetch({
+    success: () => {
+      console.log(movieList);
+      movieList.render();
+    },
+  });
+
+
+
 
 });
