@@ -19,7 +19,6 @@ $(document).ready(function() {
       template: _.template($('#movie-template').html()),
       el: 'main'
   }); // end of const
-  $('#main-content').append('<p>Hello World!</p>');
 
   movieListView.render();
 

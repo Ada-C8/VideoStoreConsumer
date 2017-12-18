@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
+import MovieList from '../collections/movie_list';
 
 const MovieView = Backbone.View.extend({
   initialize(params) {
@@ -12,6 +13,15 @@ const MovieView = Backbone.View.extend({
 
     return this;
   },
+  events: {
+    'click button.search': 'getMovie',
+  },
+  getMovie: function (e) {
+    const title = this.$el.find('input').val();
+    const movies = new MovieList({title: title});
+
+    movies.fetch();
+  }
 });
 
 export default MovieView;
