@@ -1,7 +1,7 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+  background: lightblue;
 }
 
 header {
