@@ -21,7 +21,7 @@ const MainView = Backbone.View.extend({
       template: this.movieTemplate,
     });
 
-    movieListView.render();
+    movieListView.model.fetch();
   },
   renderForm() {
     this.$('.form').append(this.formTemplate);

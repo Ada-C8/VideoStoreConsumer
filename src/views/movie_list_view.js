@@ -14,7 +14,7 @@ const MovieListView = Backbone.View.extend({
   render() {
     this.$('#movies-list').empty();
 
-    this.model.fetch();
+    // this.model.fetch();
 
     this.model.each((movie) => {
       const movieView = new MovieView({
