@@ -5,6 +5,7 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+    <button id='show-rental-library' class='button'>Rental Library</button>
     <main id="main-content">
       <div id='movies-container'>
         <ul id='movies'>
@@ -13,9 +14,10 @@
 
     </main>
 
-    <script type="text/template" id="movie-template">
+    <script type="text/template" id="library-movie-template">
         <span>
-          You <%- buy ? 'bought' : 'sold' %> <%- symbol %> at $<%- price.toFixed(2) %>
+          <!-- You <%- buy ? 'bought' : 'sold' %> <%- symbol %> at $<%- price.toFixed(2) %> -->
+          A MOVIE!
         </span>
     </script>
 
