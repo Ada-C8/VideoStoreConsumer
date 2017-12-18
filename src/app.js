@@ -21,5 +21,5 @@ $(document).ready(function() {
     el: 'main'
   });
 
-  movieListView.render();
+  // movieListView.render();
 });
