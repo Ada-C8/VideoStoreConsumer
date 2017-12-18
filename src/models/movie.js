@@ -1,5 +1,5 @@
 import Backbone from 'backbone';
 
-var Movie = Backbone.Model.extend({});
+let Movie = Backbone.Model.extend({});
 
 export default Movie;
