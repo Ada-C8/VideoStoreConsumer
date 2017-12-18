@@ -5,11 +5,10 @@ import Movie from '../models/movie';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
+    this.listenTo(this.model, 'update', this.render);
   },
   render() {
-    this.$('section.movies').empty();
-
-    console.log(this);
+    this.$('section.movies ul').empty();
 
     this.model.forEach((movie) => {
       const movieView = new MovieView({
@@ -18,11 +17,10 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie',
       });
-      this.$('section.movies').append(movieView.render().$el);
+      this.$('section.movies ul').append(movieView.render().$el);
     });
 
     return this;
-
   },
   events: {
   },
