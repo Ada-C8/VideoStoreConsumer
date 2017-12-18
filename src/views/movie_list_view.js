@@ -1,26 +1,28 @@
 import Backbone from 'backbone';
-import Movie from '../models/model';
-import MovieView from './movie_view';
+import Movie from 'models/movie';
+import MovieView from 'views/movie_view';
 
 const MovieListView = Backbone.View.extend({
   initialize(params){
     this.template = params.template;
   },
 
-  // events: {
-  //   'click button.btn-show': 'getRentalMovies',
-  //   'click button.btn-search': 'getIndividualMovie',
-  // },
+  events: {
+    'click button.btn-show': 'getRentalMovies',
+    // 'click button.btn-search': 'getIndividualMovie',
+  },
 
   getRentalMovies() {
+    console.log(" all rental movies");
     //this.model.remove_all()
     //calls to the rails API, returns movies in RailsDB in JSON
+    const movieList = this.model.fetch();
+    this.$('#movies').append(movieList);
     //iterate through each JSON object returned
     //const newMovie = new Movie(JSON)
     //this.add
     //this.render()
   },
-
   getIndividualMovie() {
     //destory collection??
     //this.model.remove_all()
