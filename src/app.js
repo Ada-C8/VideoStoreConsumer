@@ -6,8 +6,13 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
-// ready to go
+let libraryMovieTemplate;
+
+
+
 $(document).ready(function() {
+
+  libraryMovieTemplate = _.template($('#library-movietemplate').html());
 
   // $('#main-content').append('<p>Hello World!</p>');
 

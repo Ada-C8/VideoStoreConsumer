@@ -25,16 +25,27 @@
 
         <div class="columns large-6 small-12">
           <h2>Library</h2>
-            <div class="library-movies-list-container">
-              <ul id="library-movies" class="library-movies">
-              </ul>
-            <!-- </div> -->
+          <div id="library-movies" class="library-movies">
+            <!-- library-movie-template stuff-->
+
           </div>
         </div>
 
       </div>
 
     </main>
+
+    <script type="text/template" id="library-movie-template">
+      <p>
+        <strong>Title: </strong> <%- title %>
+      </p>
+      <p>
+        <strong>Description: </strong> <%- overview %>
+      </p>
+      <p>
+        <strong>Release Date: </strong> <%- release_date %>
+      </p>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
