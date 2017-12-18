@@ -6,9 +6,9 @@
   </head>
   <body>
     <main id="main-content">
-      <div class="order-entry-form columns">
-        <h3>Order Entry Form</h3>
-        <form id="order-form">
+      <div class="search-form-container">
+        <h3>Search for Movies:</h3>
+        <form id="search-form">
           <label for="query">Query:</label>
           <input type="text" name="query" placeholder="ex. Indiana Jones" />
           <button class="submit-btn button">Submit</button>
@@ -17,17 +17,30 @@
         </div>
       </div>
 
-      <h2>Open Orders</h2>
+      <h2>Search Results</h2>
+        <div class="api-movies-container">
+          <ul id="api-movies">
+          </ul>
+        </div>
+
+      <h2>Store Library</h2>
         <div class="store-library-container">
           <ul id="store-library">
           </ul>
         </div>
 
     </main>
+    <script type="text/template" id="api-movie-template">
+      <span class="title"><%- title %></span>
+      <span class="release-date"><%- release_date %></span>
+    </script>
+
     <script type="text/template" id="store-movie-template">
       <span class="title"><%- title %></span>
       <span class="release-date"><%- release_date %></span>
     </script>
+
+
 
     <script src="/app.bundle.js"></script>
 

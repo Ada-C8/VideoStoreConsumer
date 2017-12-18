@@ -25,12 +25,7 @@ $(document).ready(function() {
   });
   storeLibraryView.render();
 
-  // console.log(storeLibrary.attributes);
-  //
-  // storeLibrary.attributes.forEach((storeMovie) => {
-  //   $('#store-library').append(libraryTemplate(storeMovie.attributes));
-  // });
-
+  
 
 
 });
