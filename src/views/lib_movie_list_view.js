@@ -10,13 +10,31 @@ const LibMovieListView = BackBone.View.extend({
     this.bus = params.bus;
 
     this.listenTo(this.model, 'update', this.render);
-    this.listenTo(this.bus, 'add_movie_to_lib', this.addLibMovie)
+    this.listenTo(this.bus, 'add_movie_to_lib', this.addLibMovie);
   },
 
-
-  addLibMovie(movie){
+  addLibMovie(searchMovie){
     console.log('Message recieved!');
-    console.log(movie);
+    console.log(searchMovie);
+
+    const newMovie = new LibMovie(searchMovie.attributes);
+
+    newMovie.save({}, {
+      success: (model, response) => {
+        console.log('Successfully saved movie');
+        console.log(model);
+        //report status
+        console.log(model.attributes);
+        this.model.add(model.attributes);
+      },
+      error: (model, response) => {
+        console.log('Failed to save movie');
+
+        this.model.remove(model);
+        console.log(response.responseJSON);
+        //report status
+      }
+    })
   },
 
   render() {

@@ -25,11 +25,11 @@ const SearchMovieListView = BackBone.View.extend({
 
     console.log(externalId);
     // find the movie from our collection
-    let movie = this.model.findWhere({external_id: externalId});
+    let searchMovie = this.model.findWhere({external_id: externalId});
 
-    console.log(movie);
+    console.log(searchMovie);
     // send message and movie to LibMovieListView
-    this.bus.trigger('add_movie_to_lib', movie);
+    this.bus.trigger('add_movie_to_lib', searchMovie);
 
   },
 

@@ -5,9 +5,8 @@ const LibMovieView = BackBone.View.extend({
 
 initialize(params) {
   console.log('inside LibMovieView initalize');
+  
   this.template = params.template;
-
-
 },
 
 render() {
