@@ -39,12 +39,17 @@ const MovieListView = Backbone.View.extend({
     //this.model.remove_all()
 
     const query = this.getFormData();
+
     const newSearch = new Search({query: query})
-    newSearch.url += newSearch.query
+
+    newSearch.url += newSearch.attributes.query
+
     const results = newSearch.fetch()
 
     results.then(() => {
       results.responseJSON.forEach((movie) => {
+        console.log('inforeach loop');
+        console.log(movie);
         const newMovie = new Movie({
         title: movie.title,
         overview: movie.overview,
@@ -53,6 +58,7 @@ const MovieListView = Backbone.View.extend({
       });
         this.model.add(newMovie)
       });
+      console.log('about to render');
       this.render();
     })
   },
