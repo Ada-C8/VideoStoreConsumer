@@ -41,6 +41,7 @@ $(document).ready(function() {
     bus: eventBus,
   });
   searchListView.listenTo(eventBus, 'searchMovies', searchListView.searchMovies)
+  searchListView.listenTo(searchListView.model, 'update', searchListView.render);
 
   $('#show-rental-library').on('click', function(event) {
     event.preventDefault();
