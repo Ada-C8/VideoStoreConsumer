@@ -8,6 +8,7 @@ const MovieView = Backbone.View.extend({
   events: {
     'click button.show-details': 'slideView',
     'click button.show-form': 'slideView',
+    'submit #add-rental': 'newInventory',
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
@@ -22,6 +23,11 @@ const MovieView = Backbone.View.extend({
       this.$('.details').hide();
       this.$('.add-rental-form').toggle({direction: 'right'});
     }
+  },
+  newInventory(event) {
+    event.preventDefault();
+    let quantity = this.$('#add-rental [name="inventory"]').val();
+    this.bus.trigger('addInventory', this.model, quantity);
   },
 })
 

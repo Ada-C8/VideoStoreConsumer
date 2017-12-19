@@ -22,7 +22,6 @@ $(document).ready(function() {
   rentalLibraryList.bus = eventBus;
   rentalLibraryList.fetch();
 
-
   const rentalLibraryListView = new MovieListView({
     model: rentalLibraryList,
     template: _.template($('#library-movie-template').html()),
@@ -30,6 +29,7 @@ $(document).ready(function() {
     bus: eventBus,
   });
   rentalLibraryListView.listenTo(eventBus, 'showRentalLibrary', rentalLibraryListView.render);
+  rentalLibraryListView.listenTo(eventBus, 'addInventory', rentalLibraryListView.addRental);
 
   const searchList = new MovieList();
   searchList.bus = eventBus;
