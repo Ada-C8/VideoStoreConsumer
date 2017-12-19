@@ -18,15 +18,18 @@ const videoListTemplate = _.template($('#video-list-template').html());
 
 // ready to go
 $(document).ready(function() {
-  rentalList.fetch();
-  console.log(rentalList);
-  const rentalView = new VideoListView({
-    model: rentalList,
-    template: videoListTemplate,
-    detailTemplate: videoTemplate,
-    el: '#rental-library',
-  });
+  rentalList.fetch().done(() => {
+    const rentalView = new VideoListView({
+      model: rentalList,
+      template: videoListTemplate,
+      detailTemplate: videoTemplate,
+      el: '#rental-library',
+    });
 
-  rentalView.render();
+    rentalView.render();
+
+  }).fail(()=> {
+    $('#rental-library').html('<p>Please refresh page</p>')
+  });
 
 });

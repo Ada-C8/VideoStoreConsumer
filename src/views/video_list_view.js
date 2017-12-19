@@ -17,8 +17,7 @@ const VideoListView = Backbone.View.extend({
     // this.listenTo(this.model, 'update', this.render);
   },
   render(list) {
-    console.log(this.model);
-    console.log(list);
+
     if (!list) {
       list = this.model.models;
     }
@@ -40,17 +39,18 @@ const VideoListView = Backbone.View.extend({
     // })
   },
   events: {
-    'click button.btn-view': 'viewMe',
+    'click tr.video-item': 'viewMe',
     'keyup input[type=text]': 'filterMe',
-    // 'keypress input[type=text]': ''
+    'click input.btn-search': 'filterMe',
   },
   viewMe(event) {
-    event.preventDefault();
-    const video = this.model.findWhere({id: parseInt(event.currentTarget.id)});
+    // event.preventDefault();
+    // console.log();
+    // const video = this.model.findWhere({id: parseInt(event.currentTarget.id)});
     const detailView = new DetailView({
       // image_url: video.get('image_url'),
       template: this.detailTemplate,
-      title: video.get('title'),
+      title: event.currentTarget.firstElementChild.innerText,
       el: '#video-view',
     });
     detailView.render();
@@ -69,8 +69,7 @@ const VideoListView = Backbone.View.extend({
       const movieList = new Video({id: input});
       movieList.urlRoot += '/?query='
       movieList.fetch({}).done(()=> {
-        console.log(movieList.toJSON())
-        this.model.trigger('sortMe', movieList);
+        this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
       });
       // $.get("/movies/search?query=")
     }
