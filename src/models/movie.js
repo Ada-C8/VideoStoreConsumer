@@ -14,15 +14,16 @@ const Movie = Backbone.Model.extend({
   },
   url: `http://localhost:3000/movies/`,
   parse: function(response) {
-    let movie = {
-      title: response["title"],
-      overview: response["overview"],
-      release_date: response["release_date"],
-      image_url: response["poster_path"],
-      external_id: response["id"],
-    }
-    console.log(movie);
-    return movie;
+    // let movie = {
+    //   title: response["title"],
+    //   overview: response["overview"],
+    //   release_date: response["release_date"],
+    //   image_url: response["poster_path"],
+    //   external_id: response["id"],
+    // }
+    // console.log(movie);
+    // return movie;
+    return response;
   },
   comparator: 'title',
 });

@@ -35,11 +35,10 @@ $(document).ready(function() {
   $('#search-form button').on('click', function() {
     let query = getSearchQuery();
     let searchURL = movieListView.search(query);
-
     movieList.set('url', searchURL);
-    data = movieList.fetch();
     console.log(movieList.url);
-    console.log(data);
+    movieList.fetch();
+    movieListView.render();
     clearSearchQuery();
   });
 

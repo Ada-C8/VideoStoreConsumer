@@ -13,6 +13,7 @@ const MovieListView = Backbone.View.extend({
     this.$('ul').empty();
 
     this.model.forEach((movie) => {
+      console.log(movie);
       const movieView = new MovieView({
         model: movie,
         template: this.template,
@@ -30,6 +31,7 @@ const MovieListView = Backbone.View.extend({
   search(query) {
     let movieURL = "http://localhost:3000/movies?query=" + query;
     console.log(movieURL);
+    return movieURL;
   }
 });
 
