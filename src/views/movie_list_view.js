@@ -28,7 +28,6 @@ const MovieListView = Backbone.View.extend({
     this.model.fetch()
   },
   addRental(model, quantity) {
-    console.log(model);
     const newRental = {
       title: model.get('title'),
       overview: model.get('overview'),
@@ -37,9 +36,8 @@ const MovieListView = Backbone.View.extend({
       external_id: model.get('id'),
       inventory: quantity,
     };
-    console.log(newRental);
-    this.model.add(newRental);
-    console.log(this.model.models);
+    this.model.create(newRental);
+    // TODO: guarantee external id not null and use to call event
   },
 });
 
