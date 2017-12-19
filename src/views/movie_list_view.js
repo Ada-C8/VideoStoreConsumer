@@ -42,6 +42,7 @@ const MovieListView = Backbone.View.extend({
 
       const movieView = new MovieView({
         model: movie,
+        // el: '#single-movie',
         template: this.template,
         tagName: 'div',
         className: 'movie',

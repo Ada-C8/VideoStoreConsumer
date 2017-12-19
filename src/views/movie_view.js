@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
+import MovieList from '../collections/movie_list'
 
 
 const MovieView = Backbone.View.extend({
@@ -9,7 +10,7 @@ const MovieView = Backbone.View.extend({
   },
   render(){
     const compiledTemplate = this.template(this.model.toJSON());
-  
+
     this.$el.html(compiledTemplate);
     return this;
   },
@@ -17,7 +18,17 @@ const MovieView = Backbone.View.extend({
     'click button.btn-add': 'add'
   },
   add(event){
-    console.log('we are adding things to our database');
+    console.log('we are adding things to our library database');
+    debugger
+    let movieData = this.model.attributes;
+    // this.model.add(movieData);
+    const newMovie = new Movie(movieData);
+    if (newMovie.isValid()) {
+      MovieList.add(newMovie)
+      newMovie.save({
+        
+      });
+    }
   },
 });
 
