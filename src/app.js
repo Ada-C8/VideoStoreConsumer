@@ -11,8 +11,6 @@ import _ from 'underscore';
 import MovieList from './collections/movie_list';
 import MovieView from './views/movie_view';
 import MovieListView from './views/movie_list_view';
-import Search from './models/search';
-import SearchList from './collections/search_list';
 
 // Define Variables
 let movieTemplate;
@@ -23,6 +21,7 @@ $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
 
   const movieList = new MovieList();
+
   console.log(`Fetching from ${ movieList.url }`);
 
   const movieListView = new MovieListView({
@@ -34,35 +33,24 @@ $(document).ready(function() {
   movieList.fetch();
   movieListView.render();
 
-  $('#search-form button').on('click', function() {
-    let query = getSearchQuery();
-    let search = new Search({
-      query: query,
-    });
-    // let results = new SearchList();
+  // Search event
+  $('#search-form').on('submit', function(e){
+    e.preventDefault();
+    let queryText = $('#search-form input').val();
 
-    let data = search.fetch();
-
-    console.log(search);
-    console.log(data);
-
-    // data = movieList.fetch();
-    // console.log("******");
-    //
-    // console.log(data);
-    clearSearchQuery();
+    if (queryText.length > 0 ) {
+      console.log(queryText);
+      movieList.fetch({
+        data: {query: queryText},
+      });
+      movieListView.render();
+    }
+    $('#search-form input').val('');
   });
 
-  const getSearchQuery = function() {
-    const val = $('#search-form input').val();
-    console.log(val);
-    return val;
-  };
-  const clearSearchQuery = function() {
-    const val = $('#search-form input').val('');
-  }
-
-  $('#main-content').append('<p>Hello World!</p>');
-
-
+  // Rental Library
+  $('#movies').on('click', function(){
+    movieList.fetch();
+    movieListView.render();
+  });
 });
