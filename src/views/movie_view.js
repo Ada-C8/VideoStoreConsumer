@@ -15,6 +15,7 @@ let MovieView = Backbone.View.extend({
   events: {
     'click' : 'showDetails'
     },
+    
     showDetails: function () {
       this.trigger('showMovieDetails', this.model);
   }

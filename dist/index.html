@@ -12,18 +12,17 @@
       <li><a class="menu-button" id="show-movies-button">Movies</a></li>
       <li><a class="menu-button" id="show-customers-button">Customers</a></li>
       <li><a class="menu-button" id="show-rentals-button">Rentals</a></li>
+      <li><a class="menu-button" id="add-movie">Add New Movie</a></li>
     </ul>
 
     <ul id="search" class="menu align-right large-5 medium-5 columns">
       <li><input type="text" name="query-term" placeholder="Movie Title" id="search-box" /></li>
       <li><a id="search-button" type="button" value="Search">Search</a></li>
-      <li><a id="add-movie" type="button" value="Add Movie">Add Movie</a></li>
     </ul>
   </header>
 
   <main id="main-content">
 
-    <main>
       <section id='movie'></section>
       <section id='movie-list'></section>
       <!-- Templates -->
@@ -40,6 +39,22 @@
         <h4>Release Date: <%- release_date %></h4>
       </script>
 
+      <aside class="columns large-4 small-12">
+      <h2>Add a Movie</h2>
+      <form id="add-movie-form">
+        <label for="title">Title</label>
+        <input type="text" name="title"></input>
+
+        <label for="overview">Details</label>
+        <input type="text" name="overview"></input>
+
+        <label for="release_date">Year Released</label>
+        <input type="number" name="release_date"></input>
+
+        <input type="submit" value="Add Movie" class="button"></input>
+      </form>
+    </aside>
+
     </main>
 
 
@@ -48,7 +63,6 @@
     <footer> Powered by
       <img src="images/themoviedb.png" alt="The Movie DB" height="42" width="42" />
     </footer>
-  </main>
 
   <script src="/app.bundle.js"></script>
 
