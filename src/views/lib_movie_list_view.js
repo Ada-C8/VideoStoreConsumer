@@ -7,8 +7,16 @@ const LibMovieListView = BackBone.View.extend({
   initialize(params) {
     console.log('inside LibMovieListView initialize');
     this.template = params.template;
+    this.bus = params.bus;
 
     this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.bus, 'add_movie_to_lib', this.addLibMovie)
+  },
+
+
+  addLibMovie(movie){
+    console.log('Message recieved!');
+    console.log(movie);
   },
 
   render() {

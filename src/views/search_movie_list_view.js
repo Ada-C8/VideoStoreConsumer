@@ -6,31 +6,49 @@ const SearchMovieListView = BackBone.View.extend({
 
   initialize(params) {
     this.template = params.template;
+    this.bus = params.bus;
 
     this.listenTo(this.model, 'update', this.render);
   },
 
   events: {
     'submit': 'searchMovies',
+    'click button.btn-add-movie': 'addMovie',
+  },
+
+  addMovie(event){
+    console.log('clicked on add movie button');
+    console.log(event);
+    // get external_id
+    let externalId = parseInt(event.currentTarget.classList[2]);
+
+
+    console.log(externalId);
+    // find the movie from our collection
+    let movie = this.model.findWhere({external_id: externalId});
+
+    console.log(movie);
+    // send message and movie to LibMovieListView
+    this.bus.trigger('add_movie_to_lib', movie);
+
   },
 
   searchMovies(event){
-    event.preventDefault();
-    const baseURL = '`http://localhost:3000/movies?query=';
     console.log('In searchMovies');
+    event.preventDefault();
+    // changes url back to base URL
+    this.model.url = 'http://localhost:3000/movies?query=';
+
     console.log(this.$('#search-movie-title').val());
     const searchMovieTitle = this.$('#search-movie-title').val();
 
-    // TODO: make sure we think about reseting url in the base of multiple searches, also do we need to change user input search term if there are spaces?
     console.log(this.model);
-
+    // add searchterm to end of url so we can send it to RoR app
     this.model.url += searchMovieTitle;
 
     this.model.fetch().then(function(response){
       console.log(response);
-
     });
-    console.log(this.model.url);
   },
 
   render() {

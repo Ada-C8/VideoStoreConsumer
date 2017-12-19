@@ -27,6 +27,10 @@ const searchMovieList = new SearchMovieList();
 
 // ready to go
 $(document).ready(function() {
+  // events bus
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
+
   //  underscore templates
   libraryMovieTemplate = _.template($('#library-movie-template').html());
   searchMovieTemplate = _.template($('#search-movie-template').html());
@@ -38,6 +42,7 @@ $(document).ready(function() {
     el: '#library-movies-container',
     model: libMovieList,
     template: libraryMovieTemplate,
+    bus: bus,
   });
 
   libMovieListView.render();
@@ -48,6 +53,7 @@ $(document).ready(function() {
     el: '#search-movies-container',
     model: searchMovieList,
     template: searchMovieTemplate,
+    bus: bus,
   });
 
   searchMovieListView.render();
