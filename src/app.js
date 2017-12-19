@@ -26,6 +26,12 @@ $(document).ready(function() {
   movies.fetch()
 
   // $('.movies-appear').hide()
+
+  // $('.view-library-btn').click(function() {
+  //   console.log('in the view library button');
+  //   $('.movies-appear').toggle();
+  // });
+
   const moviesLibraryView = new MoviesLibraryView({
     el: '#movies-container',
     model: movies,
@@ -33,5 +39,27 @@ $(document).ready(function() {
   });
 
   moviesLibraryView.render();
+
+  $('#movie-search-form').on('submit', function(event) {
+    event.preventDefault();
+    // console.log(event);
+    let queryText = $('#query').val().trim();
+    if (queryText.length > 0 ){
+      movies.fetch({
+        reset: true,
+        data: { query: queryText }
+      });
+    } else {
+      movies.fetch();
+      // movies.reset();
+    }
+
+  });
+
+  $('#movies-container').on('click', function(event){
+    movies.fetch({
+      reset: true
+    });
+  })
 
 });

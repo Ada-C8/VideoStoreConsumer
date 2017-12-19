@@ -1,7 +1,7 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: white;
 }
 
 header {
@@ -37,6 +37,12 @@ aside label {
 div {
   display: inline;
 }
+
+ul {
+  list-style: none;
+}
+
+
 /*
 * {
   border-style: solid;

@@ -7,12 +7,11 @@ import MovieView from './movie_view'
 const MoviesLibraryView = Backbone.View.extend({
   initialize(params){
     this.template = params.template;
-    this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'update reset', this.render);
   },
   render(){
-    console.log(this);
-    console.log('this is this.model');
-console.log(this.model);
+    this.$('#movies').empty();
+
     this.model.each((movie) => {
       const movieView = new MovieView({
         model: movie,
@@ -20,10 +19,7 @@ console.log(this.model);
         className: 'movie',
         tagName: 'li',
       });
-      console.log("rendering movie view");
-      console.log('this is movie = ');
-      console.log(movie);
-      console.log(this.template);
+
       this.$('#movies').append(movieView.render().$el);
     });
     return this;
