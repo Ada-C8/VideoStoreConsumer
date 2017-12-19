@@ -11,6 +11,10 @@ const MovieView = Backbone.View.extend({
     'submit #add-rental': 'newInventory',
   },
   render() {
+    // Handle any null release dates TODO: should this be for all possible null attributes?
+    if(!this.model.get('release_date')) {
+      this.model.set('release_date', 'Unknown');
+    }
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
