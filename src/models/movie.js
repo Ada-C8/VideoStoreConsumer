@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 
 const Movie = Backbone.Model.extend({
   url: function() {
-    return `http://localhost:3000/movies/`;
+    return 'http://localhost:3000/movies/?query=' + this.get('title');
   },
   parse: function(response){
     let movie = {

@@ -2,7 +2,8 @@ import Backbone from 'backbone';
 import Movie from '../models/movie';
 import MovieList from '../collections/movie_list';
 import MovieView from '../views/movie_view';
-import MovieSearch from '../collections/movie_search';
+import ReturnedMovieView from '../views/returned_movie_view';
+// import MovieSearch from '../collections/movie_search';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {
@@ -17,69 +18,47 @@ const MovieListView = Backbone.View.extend({
 
   render() {
     this.$('#movie-list').empty();
-    console.log(this.model.length);
-    this.model.each((movie) => {
-      const movieView = new MovieView({
-        tagName: 'li',
-        template: this.template,
-        model: movie,
-        bus: this.bus,
-      });
-      this.$('#movie-list').append(movieView.render().$el);
+    // console.log(this.model.length);
+    const lastMovie = this.model.at(this.model.length -1);
+    // console.log(lastMovie);
+    const movieView = new MovieView({
+      tagName: 'li',
+      template: this.template,
+      model: lastMovie,
+      bus: this.bus,
     });
+
+    this.$('#movies-in-store').append(movieView.render().$el);
 
     return this;
   },
 
   searchMovies(event) {
-    console.log(this.model.url);
     event.preventDefault();
-    console.log('This is the searchMovies function');
+    // console.log('This is the searchMovies function');
     this.$('#movie-list').empty();
-    console.log('View cleared');
-    const movieTitle = this.$('form input[name=title]').val();
-    this.model.url = `http://localhost:3000/movies?query=${movieTitle}`;
-    console.log(`the url is ${this.model.url}`);
-    const result = this.model.fetch({
-      success: (model, response) =>{
-        response.forEach((movie) => {
-          console.log(`the movie is ${movie}`);
+
+    const movieTitle = this.getFormData();
+    const movieSearch = new Movie({title: movieTitle})
+    const results = movieSearch.fetch({
+      success: (model, response) => {
+        response.forEach((movieData) => {
+          const newMovie = new Movie(movieData);
+          // TODO: This needs to be a ReturnedMovieView
           const movieView = new MovieView({
             tagName: 'li',
             template: this.template,
-            model: movie,
+            model: newMovie,
             bus: this.bus,
           });
-          //console.log(`the template is ${movieView.template}`);
-
-          //This is the part that is causing the issue.
-          this.$('#movie-list').append(movieView.render().$el);
+          this.$('#matching-movies').append(movieView.render().$el);
         });
+      },
+      error: (model, response) => {
+        console.log(`This is the model: ${model} in the movie list view`);
+        console.log(`This is the response: ${reponse} in the movie list view`);
       }
     });
-    console.log(result);
-    const movieList = new MovieList({
-      query: movieTitle,
-    });
-
-
-    /*
-    const movieList = new MovieList();
-    movieList.url = `http://localhost:3000/movies?query=${movieTitle}`
-
-    movieList.fetch({
-      success: (model, response) => {
-        response.forEach((movie) => {
-          console.log(movie);
-        });
-      },
-      // TODO: CREATE AN ERROR DIV/AND OR TEMPLATE TO DISPLAY ALL ERRORS UNDERNEATH THE SEARCH BAR
-      error: (model, reponse) => {
-        console.log('Your errors are: ' + response);
-        // console.log(`This is the model: ${model}`);
-        // console.log(`This is the response: ${reponse}`);
-      },
-    });*/
   },
 
   getFormData() {

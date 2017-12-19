@@ -20,16 +20,16 @@ $(document).ready(function() {
   let bus = {};
   bus = _.extend(bus, Backbone.Events);
 
+  // Fetches all movies currently in the rental store
   movieList.fetch({
     success: (model, response) => {
-      // console.log(response);
       response.forEach((movie) => {
         movieList.add(movie);
       });
     },
-    error: (model, reponse) => {
-      console.log(`This is the model: ${model}`);
-      console.log(`This is the response: ${reponse}`);
+    error: (model, response) => {
+      console.log(`This is the model: ${model} in the app.js`);
+      console.log(`This is the response: ${response} in the app.js`);
     },
   })
 
@@ -42,18 +42,23 @@ $(document).ready(function() {
     bus: bus,
   });
 
+  // const returnedMovieView = new ReturnedMovieView({
+  //   el: 'li',
+  //   template:
+  // });
+
   //console.log(movieList.length);
 
-  movieListView.render();
+  // movieListView.render();
 
-  $('#search-form button').on('click', function () {
-    let query = $('#search-form input').val();
-    let url = movieListView.search(query);
-
-    movieList.set('url', url);
-    result = movieList.fetch();
-    console.log(`the result is ${result}`);
-  });
+  // $('#search-form button').on('click', function () {
+  //   let query = $('#search-form input').val();
+  //   let url = movieListView.search(query);
+  //
+  //   movieList.set('url', url);
+  //   result = movieList.fetch();
+  //   // console.log(`the result is ${result}`);
+  // });
 
 }); // DOCUMENT READY
 
