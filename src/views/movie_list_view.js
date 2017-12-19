@@ -29,6 +29,18 @@ const MovieListView = Backbone.View.extend({
     });
     return this;
   },
+  events: {
+    'click button.btn-search': 'searchMovies',
+  },
+  searchMovies: function(event) {
+    event.preventDefault();
+    console.log('IN searchMovies');
+    console.log(this);
+
+    const query = this.$('input[name=movie-query]').val();
+    this.model.search(query);
+  },
+
 });
 
 export default MovieListView;

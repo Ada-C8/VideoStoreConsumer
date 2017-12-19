@@ -14,23 +14,28 @@ let bus = {};
 bus = _.extend(bus, Backbone.Events);
 
 $(document).ready(function() {
-  const movies = new MovieList();
-  movies.fetch();
+  const rentalMovies = new MovieList();
+  rentalMovies.fetch();
 
   console.log('FETCHED MOVIES:');
-  console.log(movies);
-
-  // const movieData = fetchedMovies.responseJSON
-  // console.log('MOVIE DATA:');
-  // console.log(movieData);
+  console.log(rentalMovies);
 
   const movieListView = new MovieListView({
-    model: movies,
+    model: rentalMovies,
     template: _.template($('#movie-template').html()),
     el: 'main',
   });
 
   movieListView.render();
+
+  const searchedMovies = new MovieList();
+
+  const resultsListView = new MovieListView({
+    model: searchedMovies,
+    template: _.template($('#movie-template').html()),
+    el: 'main',
+  });
+
   // $('#main-content').append('<p>Hello World!</p>');
 
 });

@@ -4,13 +4,12 @@ import Movie from 'models/movie';
 const MovieList = Backbone.Collection.extend({
   model: Movie,
   url: 'http://localhost:3000/movies',
-  // parse(response) {
-  //   response.forEach(function(movieAttrs) {
-  //     if (movieAttrs.inventory == null) {
-  //       movieAttrs.inventory = 0;
-  //     }
-  //   })
-  // },
+  search(query) {
+    // this.url = `http://localhost:3000/movies/search?query=${query}`
+    console.log('INSIDE MOVIELIST search method');
+    this.url = `http://localhost:3000/movies?query=${query}`
+    this.fetch();
+  },
 });
 
 export default MovieList;
