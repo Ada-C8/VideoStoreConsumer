@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 import Backbone from 'backbone';
 
 import MovieView from './movie_view';
@@ -22,18 +24,28 @@ const MovieListView = Backbone.View.extend({
 
   events: {
     'click button#btn-rentals': 'getRentals',
+    'click button#btn-search': 'searchDBMovies',
   },
 
   getRentals: function(e) {
     e.preventDefault();
-    console.log(this.model);
     this.model.fetch().done(() => {
-      console.log(this.model);
       this.render();
     })
 
   },
 
+  searchDBMovies: function(e) {
+    e.preventDefault();
+    console.log('hello!');
+    this.model.fetch({ data: $.param({'query': 'cat'}) }).done(() => {
+      console.log(this.model);
+      this.render();
+    })
+  },
+
 });
 
 export default MovieListView;
+
+// collection.fetch({ data: $.param({ page: 1}) });
