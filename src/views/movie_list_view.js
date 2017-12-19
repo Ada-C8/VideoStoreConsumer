@@ -38,12 +38,8 @@ const MovieListView = Backbone.View.extend({
     const movieTitle = this.$('form input[name=title]').val();
 
     console.log(`The movie title is ${movieTitle}`);
-    const movie = new Movie({requested_movie: movieTitle});
 
-    console.log(movieList.fetch());
-
-
-    movie.fetch({
+    movieList.fetch({
       success: (model, response) => {
         // TODO: NEED TO ADD APPENDING TO ANOTHER DIV IN THE INDEX OF THE MOVIE LIST VIEW
         console.log(`This is the model: ${model}`);
