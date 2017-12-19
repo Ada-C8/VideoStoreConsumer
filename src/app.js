@@ -22,7 +22,7 @@ $(document).ready(function() {
 
   movieList.fetch({
     success: (model, response) => {
-      console.log(response);
+      // console.log(response);
       response.forEach((movie) => {
         movieList.add(movie);
       });
