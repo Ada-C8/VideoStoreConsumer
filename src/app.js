@@ -18,7 +18,14 @@ let catalog = new MovieList();
 
 // ready to go
 $(document).ready(function() {
-  let data = catalog.fetch().done()
+  let data = catalog.fetch({
+    success: function(response) {
+      response.models.forEach((model) => {
+        console.log(model.attributes);
+      })
+    }
+  });
+
   console.log(data);
   console.log('heres catalog');
   console.log();
