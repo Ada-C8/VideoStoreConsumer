@@ -18,7 +18,22 @@ const MovieListView = Backbone.View.extend({
       this.$('#rentals').append(movieView.render().$el);
     })
     return this;
-  }
-})
+  },
+
+  events: {
+    'click button#btn-rentals': 'getRentals',
+  },
+
+  getRentals: function(e) {
+    e.preventDefault();
+    console.log(this.model);
+    this.model.fetch().done(() => {
+      console.log(this.model);
+      this.render();
+    })
+
+  },
+
+});
 
 export default MovieListView;

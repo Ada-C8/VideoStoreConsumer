@@ -2,7 +2,7 @@ import Backbone from 'backbone';
 
 const MovieView = Backbone.View.extend({
   initialize(params) {
-    this.template = params.movieTemplate;
+    this.template = params.template;
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
