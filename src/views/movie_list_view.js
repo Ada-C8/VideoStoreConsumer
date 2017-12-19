@@ -6,8 +6,9 @@ import Movie from '../models/movie';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
-    this.listenTo(this.model, 'update', this.render);
     this.bus = params.bus;
+    this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.bus, 'addMovieDB', this.addMovieDB)
   },
   render() {
     this.model.each((movie) => {
@@ -17,7 +18,7 @@ const MovieListView = Backbone.View.extend({
         template: this.template,
         tagName: 'tr',
         className: 'movie',
-        // bus: this.bus,
+        bus: this.bus,
       });
       this.$('#movie-list').append(movieView.render().$el);
     });
@@ -28,6 +29,10 @@ const MovieListView = Backbone.View.extend({
     // 'click button.btn-search-api': 'searchApi',
   },
 
+  addMovieDB(movie_hash){
+    this.model.add(movie_hash);
+    console.log("i tried to add a movie")
+  }
   // getFormData() {
   //   console.log("I am reading the form")
   //   const formData = {};

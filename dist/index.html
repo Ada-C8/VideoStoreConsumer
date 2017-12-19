@@ -13,7 +13,7 @@
 
     <section>
       <div id="movie-list">
-        <div id="movies" class="columns large-8 small-12 trade-column">
+        <div id="movies" class="columns large-5 small-12 trade-column">
           <div class="movie-search-form columns small-12">
             <h3>Find a movie in the store:</h3>
             <form id="form" method="get">
@@ -36,8 +36,8 @@
         </div>
       </div>
 
-      <div id="movie-search">
-        <div class="movie-entry-form columns small-3">
+      <div id="movie-search" class= "columns large-5 small-12">
+        <div class="movie-entry-form">
           <h3>Find New Movie</h3>
           <form id="form" method="get">
             <label>Title</label>
@@ -54,6 +54,7 @@
               <th class="sort title">Title</th>
               <th class="sort release_date">Release Date</th>
               <th class="img_url">Image</th>
+              <th></th>
             </thead>
             <tbody id="search-list">
             </tbody>
@@ -90,6 +91,9 @@
   </td>
   <td>
     <img src= "<%- image_url %>" />
+  </td>
+  <td>
+    <button class="button">Add movie</button>
   </td>
 
 </script>

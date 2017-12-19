@@ -21,9 +21,9 @@ let searchTemplate;
 // ready to go
 $(document).ready(function() {
 
-  // let bus = {};
-
-  // bus = _.extend(bus, Backbone.Events);
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
+  
   movieTemplate = _.template($('#movie-template').html());
   searchTemplate = _.template($('#search-template').html());
 
@@ -40,13 +40,14 @@ $(document).ready(function() {
     el: '#movie-list',
     model: movies,
     template: movieTemplate,
-    // bus: bus,
+    bus: bus,
   });
 
   const searchListView = new SearchListView({
     el: '#movie-search',
     model: searches,
     template: searchTemplate,
+    bus: bus,
   });
 
 
