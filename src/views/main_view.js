@@ -27,7 +27,7 @@ const MainView = Backbone.View.extend({
     movieListView.model.fetch();
   },
   renderForm() {
-    this.$('#movies-container').empty();
+    this.$('#movies-list').empty();
     this.$('.form').html(this.formTemplate);
   },
   renderAllMovies(event) {
