@@ -40,7 +40,7 @@ header {
   background: #2f2f2f;
   border: solid 5px #ffcf00;
   border-radius: 5px;
-  height: 360px;
+  min-height: 360px;
   margin: 1em;
   padding: 1em;
 }
@@ -75,7 +75,7 @@ header {
 .slide {
   display: none;
   width: 27em;
-  height: 318px;
+  /* height: 318px; */
 }
 
 .details {
