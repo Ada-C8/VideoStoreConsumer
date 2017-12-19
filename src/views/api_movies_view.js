@@ -14,7 +14,6 @@ import APIMovies from 'collections/api_movies';
 
 const APIMoviesView = Backbone.View.extend({
   initialize(params) {
-    console.log(params);
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
   },
@@ -28,10 +27,6 @@ const APIMoviesView = Backbone.View.extend({
      this.$('#api-movies').append(apiMovieView.render().$el);
     });
     return this;
-  },
-  events: {
-  'click .submit-btn': 'keywordSearch',
-
   },
 
 //   keywordSearch: function(event) {

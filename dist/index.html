@@ -31,8 +31,11 @@
 
     </main>
     <script type="text/template" id="api-movie-template">
-      <span class="title"><%- title %></span>
-      <span class="release-date"><%- release_date %></span>
+      <li class="single-api-movie">
+        <span class="title"><%- title %></span>
+        <span class="release-date"><%- release_date %></span>
+        <button class="add-movie-btn button">Add to Library</button>
+      </li>
     </script>
 
     <script type="text/template" id="store-movie-template">

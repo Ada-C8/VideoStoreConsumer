@@ -5,6 +5,8 @@ import _ from 'underscore';
 // import StoreMovie from 'models/store_movie';
 // import StoreMoviesView from 'models/store_movies';
 import APIMovie from 'models/api_movie'
+import StoreMovie from 'models/store_movie'
+
 
 import APIMoviesView from '../views/api_movies_view'
 import StoreMovieView from '../views/store_movie_view';
@@ -23,8 +25,20 @@ const APIMovieView = Backbone.View.extend({
     return this;
   },
   events: {
-
+  // 'click .submit-btn': 'keywordSearch',
+  'click .add-movie-btn': 'addMovieToLibrary',
   },
+
+  addMovieToLibrary: function(event) {
+    console.log('adding movie to lib in api movies view');
+    // console.log(this.model.attributes.title);
+
+    const newStoreMovie = new StoreMovie({
+      title: this.model.attributes.title,
+      release_date: this.model.attributes.release_date,
+    })
+  },
+
 });
 
 export default APIMovieView;
