@@ -32,7 +32,5 @@ $(document).ready(function() {
   movieList.fetch();
   movieListView.render();
 
-  $('#main-content').append('<p>Hello World!</p>');
-
 
 });
