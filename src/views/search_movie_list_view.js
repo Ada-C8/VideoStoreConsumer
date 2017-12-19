@@ -7,6 +7,7 @@ const SearchMovieListView = BackBone.View.extend({
   initialize(params) {
     this.template = params.template;
 
+    this.listenTo(this.model, 'update', this.render);
   },
 
   events: {
@@ -27,12 +28,25 @@ const SearchMovieListView = BackBone.View.extend({
 
     this.model.fetch().then(function(response){
       console.log(response);
+
     });
     console.log(this.model.url);
   },
 
   render() {
+    console.log('inside search_movie_list_view render function');
 
+    this.$('#search-movies').empty();
+
+    this.model.each((searchMovie) => {
+      const searchMovieView = new SearchMovieView({
+        model: searchMovie,
+        template: this.template,
+        tagName: 'p',
+        className: 'search-movie',
+      });
+      this.$('#search-movies').append(searchMovieView.render().$el);
+    });
     return this;
   },
 });

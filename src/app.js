@@ -46,7 +46,7 @@ $(document).ready(function() {
   const searchMovieListView = new SearchMovieListView({
     el: '#search-movies-container',
     model: searchMovieList,
-    template: searchMovieTemplate,
+    template: libraryMovieTemplate,
   });
 
   searchMovieListView.render();

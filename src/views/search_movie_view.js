@@ -8,11 +8,12 @@ const SearchMovieView = BackBone.View.extend({
   },
 
   render() {
+    console.log('In searchMovieView render');
     const compiledTemplate = this.template(this.model.toJSON());
 
     this.$el.html(compiledTemplate);
 
-    return this
+    return this;
   },
 });
 
