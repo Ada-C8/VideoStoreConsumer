@@ -5,6 +5,8 @@ import './css/styles.css';
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+import Backbone from 'backbone';
+
 
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
@@ -15,6 +17,9 @@ import CustomerListView from 'views/customer_list_view';
 // ready to go
 $(document).ready(function() {
 
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
+
   // movies
   const movies = new MovieList();
   movies.fetch();
@@ -22,7 +27,7 @@ $(document).ready(function() {
   const movieListView = new MovieListView({
     model: movies,
     template: _.template($('#movie-template').html()),
-    // bus: bus,
+    bus: bus,
     el: 'body'
   });
 

@@ -6,7 +6,9 @@ import $ from 'jquery';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
-
+    this.listenTo(this.model, 'change', this.render);
+    this.bus = params.bus;
+    this.listenTo(this.bus, 'addMe', this.addInventory);
   },
   render() {
     console.log('IN RENDER');
@@ -21,6 +23,7 @@ const MovieListView = Backbone.View.extend({
           template: this.template,
           tagName: 'li',
           className: 'movie',
+          bus: this.bus,
         });
         this.$('#list').append(movieView.render().$el);
         $('.add-inventory').hide();
@@ -67,15 +70,23 @@ const MovieListView = Backbone.View.extend({
             template: this.template,
             tagName: 'li',
             className: 'imdb-movie',
+            bus: this.bus,
           });
           this.$('#list').append(movieView.render().$el);
         });
       });
     }
   },
+  addInventory(attributes) {
+    console.log(this);
+    console.log(attributes);
+    this.model.add(attributes);
+    this.render();
+    console.log(this.model);
+  },
   events: {
     'click #movie-button': 'render',
-    'click #searchButton': 'submit'
+    'click #searchButton': 'submit',
   }
 });
 
