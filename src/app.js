@@ -18,15 +18,25 @@ $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
   $('#main-content').append('<p>Hello World!</p>');
 
-
-
+  // let query = false;
+  //need to move this into the movielistview
+  // $('#movie-filter').on('keyup', function(event) {
+  //   let $filter = $('#movie-filter');
+  //   if ($filter.val().trim() === "") {
+  //     return false;
+  //   } else {
+  //     query = $filter.val();
+  //     // movieList.fetch;
+  //     return query;
+  //   }
+  // });
 
   console.log(movieList);
   // debugger
   console.log('that is the movie list^^^^');
 
   const movieListView = new MovieListView({
-    el:'#main-content',
+    el:'main',
     model: movieList,
     template: movieTemplate,
   });
