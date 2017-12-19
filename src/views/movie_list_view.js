@@ -6,24 +6,24 @@ import MovieView from '../views/movie_view';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
-    this.quoteList = params.quoteList;
-    console.log('ORDERLIST VIEW FOR QUOTES');
-    console.log(this.quoteList);
+    this.model = params.model;
     this.listenTo(this.model, 'update', this.render);
   },
   render() {
     console.log('INSIDE MOVIE LIST VIEW RENDER');
+    console.log(this.model);
     // Clear the unordered list
     this.$('#movies').empty();
     // Iterate through the list rendering each order
-    this.model.forEach((movie) => {
-      // Create a new OrderView with the model & template
+    this.model.each((movie) => {
+      // Create a new view with the model & template
       const movieView = new MovieView({
         model: movie,
         template: this.template,
         tagName: 'li',
         className: 'movie',
       });
+      console.log('MAKING MOVIE VIEWS');
       // Then render the OrderView and append the resulting HTML to the DOM.
       this.$('#movies').append(movieView.render().$el);
     });

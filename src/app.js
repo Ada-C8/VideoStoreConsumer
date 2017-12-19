@@ -16,10 +16,9 @@ bus = _.extend(bus, Backbone.Events);
 $(document).ready(function() {
   const movies = new MovieList();
   movies.fetch();
-  //movies.render();
-  console.log('FETCHED MOVIES:');
 
-  movies.on('update', render, movies);
+  console.log('FETCHED MOVIES:');
+  console.log(movies);
 
   // const movieData = fetchedMovies.responseJSON
   // console.log('MOVIE DATA:');
@@ -31,7 +30,7 @@ $(document).ready(function() {
     el: 'main',
   });
 
-
-  $('#main-content').append('<p>Hello World!</p>');
+  movieListView.render();
+  // $('#main-content').append('<p>Hello World!</p>');
 
 });
