@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
-import MovieListView from './movie_list_view.js';
-import MovieDetailsView from './movie_details_view.js';
+import Movie from '../models/movie';
+import MovieListView from './movie_list_view';
+import MovieDetailsView from './movie_details_view';
 import $ from 'jquery';
 import _ from 'underscore';
 
@@ -33,9 +34,6 @@ let ApplicationView = Backbone.View.extend({
     movieDetailsView.render();
   },
 
-  // renderForm: function() {
-  //   $('aside').show();
-  // }
 });
 
 export default ApplicationView;
