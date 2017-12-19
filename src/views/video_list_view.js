@@ -1,6 +1,9 @@
 import Backbone from 'backbone';
 import VideoView from 'views/video_view';
 import DetailView from 'views/detail_view';
+import $ from 'jquery';
+import Video from 'models/video';
+import VideoList from 'collections/video_list';
 
 
 const VideoListView = Backbone.View.extend({
@@ -56,14 +59,20 @@ const VideoListView = Backbone.View.extend({
     event.preventDefault();
     // filter rental list
     console.log('filtering');
-    // console.log()
-    console.log( this.model.filterList(event.target.value))
-    // this.model.filterList(event.target.value).render();
-    const newList = this.model.filterList(event.target.value);
+    const input = event.target.value;
+    const newList = this.model.filterList(input);
     this.model.trigger('sortMe', newList);
+
     // Search if you hit enter
     if (event.keyCode == 13) {
       console.log('you hit enter');
+      const movieList = new Video({id: input});
+      movieList.urlRoot += '/?query='
+      movieList.fetch({}).done(()=> {
+        console.log(movieList.toJSON())
+        this.model.trigger('sortMe', movieList);
+      });
+      // $.get("/movies/search?query=")
     }
   },
 });
