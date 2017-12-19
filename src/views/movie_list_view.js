@@ -7,7 +7,6 @@ const MovieListView = Backbone.View.extend({
     this.template = params.template;
 
     this.listenTo(this.model, 'update', this.render);
-    this.listenTo();
   },
   render() {
     this.$('ul').empty();

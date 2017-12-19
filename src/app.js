@@ -33,6 +33,7 @@ $(document).ready(function() {
   movieList.fetch();
   movieListView.render();
 
+  // Search event
   $('#search-form').on('submit', function(e){
     e.preventDefault();
     let queryText = $('#search-form input').val();
@@ -45,5 +46,11 @@ $(document).ready(function() {
       movieListView.render();
     }
     $('#search-form input').val('');
+  });
+
+  // Rental Library
+  $('#movies').on('click', function(){
+    movieList.fetch();
+    movieListView.render();
   });
 });
