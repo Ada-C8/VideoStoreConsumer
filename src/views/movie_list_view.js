@@ -25,10 +25,13 @@ const MovieListView = Backbone.View.extend({
       }
     });
   },
-  // events: {
-  //   'click button.btn-query': 'search',
-  // },
+  events: {
+    'click button.btn-query': 'search',
+  },
   // search: function(query) {
+  //   query.preventDefault();
+  //   query = this.$(`[name='query']`).val();
+  //
   // },
 
 

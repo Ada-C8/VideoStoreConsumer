@@ -34,20 +34,29 @@ $(document).ready(function() {
     model: catalog,
     template: $catalogTemplate,
     el: 'main',
-    speficyTemp: "catalog"
+    specifyTemp: "catalog"
   });
 
-  let database = new MovieList([], {
-    query: "something"
-  });
 
-  let databaseView = new MovieListView({
-    model: database,
-    template: $databaseTemplate,
-    el: 'main',
-    specifyTemp: "database"
-  });
 
+  $('.btn-query').click(function(){
+console.log('submit button was clicked');
+    let query = this.$(`[name='query']`).val();
+    debugger;
+    let database = new MovieList([], {
+      query: query,
+    });
+
+    let databaseView = new MovieListView({
+      model: database,
+      template: $databaseTemplate,
+      el: 'main',
+      specifyTemp: "database"
+    });
 
   database.fetch();
+  });
+
+
+
 });
