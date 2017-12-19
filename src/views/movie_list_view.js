@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import MovieView from './movie_view';
+import $ from 'jquery';
 // import Movie from '../models/movie';
 
 const MovieListView = Backbone.View.extend({
@@ -49,6 +50,7 @@ const MovieListView = Backbone.View.extend({
           className: 'movie',
         });
         this.$('#list').append(movieView.render().$el);
+        $('.add-inventory').hide();
       });
       return this;
     });

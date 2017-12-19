@@ -10,8 +10,8 @@
     <section>
       <form class='search-form'>
         <input type='text' name='search' placeholder='Search' />
-        <input type="radio" id='inventory' name="search-type" value="search inventory" checked><label for="inventory">Search Inventory</label>
-        <input type="radio" id='imdb' name="search-type" value="search IMDB"><label for="imdb">Search IMDB</label>
+        <input type="radio" id='inventory' name="search-type" value="search inventory"><label for="inventory">Search Inventory</label>
+        <input type="radio" id='imdb' name="search-type" value="search IMDB" checked><label for="imdb">Search IMDB</label>
         <input type='submit' value='Search' class='button' id="searchButton"></input>
       </form>
     </section>
@@ -36,6 +36,7 @@
         <p><img class='movie-thumbnail' src='<%= image_url %>' /></p>
         <h3><%- title %></h3>
         <h5><%- release_date %></h5>
+        <button class='button add-inventory'>Add to inventory</button>
     </script>
 
     <script type="text/template" id="movie-details-template" class="movie">
