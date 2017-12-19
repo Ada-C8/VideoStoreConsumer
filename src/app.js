@@ -1,28 +1,29 @@
-import 'css/_settings.css';
-import 'foundation-sites/dist/css/foundation.css';
-import './css/styles.css';
-
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
 
+//Styles
+import 'css/_settings.css';
+import 'foundation-sites/dist/css/foundation.css';
+import './css/styles.css';
+
 // Models & Collections
-import ResultList from './collections/result_list';
-import ResultListView from './views/result_list_view';
+import Library from './collections/library';
+import LibraryView from './views/library_view';
 
 
-const resultList = new ResultList();
+const library = new Library();
 
 // ready to go
 $(document).ready(function() {
-  resultList.fetch();
+  library.fetch();
 
-  const resultListView = new ResultListView({
-    model: resultList,
-    template: _.template($('#result-template').html()),
-    el: '#results-container',
+  const libraryView = new LibraryView({
+    model: library,
+    template: _.template($('#library-template').html()),
+    el: '#library',
   });
-  
-  resultListView.render();
+
+  libraryView.render();
 
 });

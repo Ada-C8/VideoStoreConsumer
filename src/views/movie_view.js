@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-const ResultView = Backbone.View.extend({
+const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.model = params.model;
@@ -12,4 +12,4 @@ const ResultView = Backbone.View.extend({
   },
 });
 
-export default ResultView;
+export default MovieView;
