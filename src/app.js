@@ -46,6 +46,15 @@ $(document).ready(function() {
 
   movieListView.render();
 
+  $('#search-form button').on('click', function () {
+    let query = $('#search-form input').val();
+    let url = movieListView.search(query);
+
+    movieList.set('url', url);
+    result = movieList.fetch();
+    console.log(`the result is ${result}`);
+  });
+
 }); // DOCUMENT READY
 
 // RETURNS BACK

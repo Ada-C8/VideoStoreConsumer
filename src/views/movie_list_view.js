@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
+import MovieList from '../collections/movie_list';
 import MovieView from '../views/movie_view';
 
 const MovieListView = Backbone.View.extend({
@@ -31,9 +32,16 @@ const MovieListView = Backbone.View.extend({
 
   searchMovies(event) {
     event.preventDefault();
+    const movieList = new MovieList();
+    console.log(movieList);
     console.log('This is the searchMovies function');
-    const movieTitle = this.getFormData();
+    const movieTitle = this.$('form input[name=title]').val();
+
+    console.log(`The movie title is ${movieTitle}`);
     const movie = new Movie({requested_movie: movieTitle});
+
+    console.log(movieList.fetch());
+
 
     movie.fetch({
       success: (model, response) => {
