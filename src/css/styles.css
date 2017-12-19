@@ -42,6 +42,18 @@ li:hover {
 transform: scale(1.3);
 }
 
+.summary {
+  font-size: 0.9em;
+  line-height: 1.3em;
+  padding: 10px;
+  height: 276px;
+  position:absolute;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+}
+
 /* Movie */
 .add-inventory {
   position: absolute;

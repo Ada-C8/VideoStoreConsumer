@@ -7,7 +7,6 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 
-
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
 
@@ -42,4 +41,8 @@ $(document).ready(function() {
   });
 
   // movieListView.render();
+
+  $('body').on('mouseenter', 'li', (event) => {
+    $('.summary').css('display', 'block');
+  });
 });
