@@ -10,11 +10,11 @@ const SearchMovieListView = BackBone.View.extend({
   },
 
   events: {
-    'click input #submit': 'searchMovies',
+    'submit': 'searchMovies',
   },
 
   searchMovies(event){
-    event.preventDeault();
+    event.preventDefault();
     console.log('In searchMovies');
   },
 
