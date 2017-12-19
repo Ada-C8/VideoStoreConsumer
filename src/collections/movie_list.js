@@ -7,6 +7,11 @@ const MovieList = Backbone.Collection.extend({
   parse(response) {
     return response;
   },
+  searchUrl: function(searchTerm){
+   this.url = this.url + "?query=" + searchTerm;
+   console.log(this.url);
+   return this;
+  }
 });
 
 export default MovieList;

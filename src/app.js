@@ -10,16 +10,36 @@ import Movie from 'models/movie';
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
 
-// ready to go
-$(document).ready(function() {
-  const movies = new MovieList();
+  const allMovieList = function(event){
+    const movies = new MovieList();
+    movies.fetch();
 
-  const movieListView = new MovieListView({
-      model: movies,
-      template: _.template($('#movie-template').html()),
+    const movieListView = new MovieListView({
+        model: movies,
+        template: _.template($('#movie-template').html()),
+        el: 'main'
+    }); // end of const
+    movieListView.render();
+  };
+
+  const searchDbList = function(event){
+    event.preventDefault();
+    const searchParams = $('#searchParams').val();
+
+    const returnedList = new MovieList();
+    returnedList.searchUrl(searchParams);
+    returnedList.fetch();
+
+    const searchReturns = new MovieListView({
+      model:returnedList,
+      template: _.template($('#return-template').html()),
       el: 'main'
-  }); // end of const
+    });
+    searchReturns.render();
+  };
 
-  movieListView.render();
-
-});
+  // ready to go
+  $(document).ready(function() {
+    $('.list_movies').click(allMovieList);
+    $('#search-form').submit(searchDbList);
+  });

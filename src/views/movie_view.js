@@ -8,6 +8,7 @@ const MovieView = Backbone.View.extend({
     this.listenTo(this.model, "change", this.render);
   },
   render() {
+    console.log(this);
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
 
@@ -15,13 +16,14 @@ const MovieView = Backbone.View.extend({
   },
   events: {
     'click button.search': 'getMovie',
-  },
-  getMovie: function (e) {
-    const title = this.$el.find('input').val();
-    const movies = new MovieList({title: title});
 
-    movies.fetch();
-  }
+  },
+  // getMovie: function (e) {
+  //   const title = this.$el.find('input').val();
+  //   const movies = new MovieList({title: title});
+  //
+  //   movies.fetch();
+  // }
 });
 
 export default MovieView;
