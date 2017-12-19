@@ -26,6 +26,15 @@
         </span>
     </script>
 
+    <script type="text/template" id="imdb-movie-template">
+        <span>
+          <img src='<%- image_url %>' alt='<%- title %>'/>
+          <%- title %>
+        </span>
+        <button class='movie-details button'>Show Details</button>
+        <button class='add-rental button'>Add to Rental Library</button>
+    </script>
+
     <script src="/app.bundle.js"></script>
 
   </body>

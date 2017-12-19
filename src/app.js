@@ -3,13 +3,13 @@ import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 
-import 'css/_settings.css';
-import 'foundation-sites/dist/css/foundation.css';
-import './css/styles.css';
-
 // Import collections and views
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
+
+import 'css/_settings.css';
+import 'foundation-sites/dist/css/foundation.css';
+import './css/styles.css';
 
 
 let eventBus = {};
@@ -36,7 +36,7 @@ $(document).ready(function() {
 
   const searchListView = new MovieListView({
     model: searchList,
-    template: _.template($('#library-movie-template').html()),
+    template: _.template($('#imdb-movie-template').html()),
     el: 'main',
     bus: eventBus,
   });
