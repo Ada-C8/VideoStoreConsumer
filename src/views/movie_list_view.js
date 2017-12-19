@@ -25,24 +25,29 @@ const MovieListView = Backbone.View.extend({
 },
 submit(event) {
   event.preventDefault();
-  const searchTerm = this.$('input[name=search]').val().toUpperCase();
-  console.log(searchTerm);
-  const movieList = this.model.models;
-  console.log(movieList);
-  const filteredMovies = movieList.filter(movie => movie.get('upperCaseTitle').includes(searchTerm));
-  console.log(filteredMovies);
-  this.$('#list').empty();
 
-  filteredMovies.forEach((movie) => {
-    const movieView = new MovieView({
-      model: movie,
-      template: this.template,
-      tagName: 'li',
-      className: 'movie',
+  const searchType = this.$('input[name=search-type]:checked').val();
+  const searchTerm = this.$('input[name=search]').val().toUpperCase();
+
+  if (searchType === 'search inventory') {
+    const movieList = this.model.models;
+    const filteredMovies = movieList.filter(movie => movie.get('upperCaseTitle').includes(searchTerm));
+
+    this.$('#list').empty();
+
+    filteredMovies.forEach((movie) => {
+      const movieView = new MovieView({
+        model: movie,
+        template: this.template,
+        tagName: 'li',
+        className: 'movie',
+      });
+      this.$('#list').append(movieView.render().$el);
     });
-    this.$('#list').append(movieView.render().$el);
-  });
-  return this;
+    return this;
+  } else {
+    console.log('Searching Imdb...');
+  }
 
 },
   events: {
