@@ -7,7 +7,6 @@ const MovieList = Backbone.Collection.extend({
   url: 'http://localhost:3000/movies',
 
   parse(response) {
-    console.log(response);
     return response
 
   },
