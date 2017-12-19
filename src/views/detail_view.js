@@ -55,24 +55,15 @@ const Detail = Backbone.View.extend({
     }).fail(() => {
         this.failedAdd();
     });
-    // movie.save({}, {
-    //   success: this.successfulAdd,
-    //   error: this.failedAdd,
-    // });
-    //
+
   },
   successfulAdd(movie) {
-    console.log(movie)
     this.collection.add(movie);
-    // this.collection.trigger('update');
-    // console.log(this.collection.length);
     this.render();
-    console.log(this.collection)
+    $('#message').html(`<p>${movie.title} has been added to your rental library! </p>`)
   },
   failedAdd(movie) {
-    console.log('boo');
-    movie.destroy();
-
+    $('#message').html(`<p>Oops.. can't save to your rental library.</p>`)
   }
 });
 
