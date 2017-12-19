@@ -60,6 +60,11 @@ h1 {
   color: grey;
 }
 
+.video img {
+  border: 1px solid grey;
+  padding: 5px;
+}
+
 .available {
   text-align: center;
   margin-top: 0.5em;

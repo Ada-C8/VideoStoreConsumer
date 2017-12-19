@@ -47,7 +47,7 @@ const VideoListView = Backbone.View.extend({
   events: {
     'click tr.video-item': 'viewMe',
     'keyup input[type=text]': 'filterMe',
-    'click input.btn-search': 'filterMe',
+    'click input.btn-search': 'searchMe',
   },
   viewMe(event) {
     // event.preventDefault();
@@ -64,26 +64,34 @@ const VideoListView = Backbone.View.extend({
     detailView.render();
   },
   filterMe(event) {
+    console.log(event);
     event.preventDefault();
     // filter rental list
     console.log('filtering');
     const input = event.target.value;
+    console.log(input)
     const newList = this.model.filterList(input);
     this.model.trigger('sortMe', newList);
 
     // Search if you hit enter
     if (event.keyCode == 13) {
-      console.log('you hit enter');
-      const movieList = new Video({id: input});
-      movieList.urlRoot += '/?query='
-      movieList.fetch({}).done(()=> {
-        console.log(movieList);
-        // movieList.set('in_library', false)
-        this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
-
-      });
-      // $.get("/movies/search?query=")
+      this.searchMe(event);
     }
+  },
+  searchMe(event) {
+    event.preventDefault();
+    console.log(event)
+    const input = $('input[type=text]')["0"].value;
+    console.log($('input[type=text]'))
+    console.log('you hit enter');
+    const movieList = new Video({id: input});
+    movieList.urlRoot += '/?query='
+    movieList.fetch({}).done(()=> {
+      console.log(movieList);
+      // movieList.set('in_library', false)
+      this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
+
+    });
   },
 });
 
