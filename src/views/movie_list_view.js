@@ -32,12 +32,40 @@ const MovieListView = Backbone.View.extend({
   },
 
   searchMovies(event) {
+    console.log(this.model.url);
     event.preventDefault();
     console.log('This is the searchMovies function');
+    this.$('#movie-list').empty();
+    console.log('View cleared');
     const movieTitle = this.$('form input[name=title]').val();
-    const movieList = new MovieSearch();
-    movieList.url += movieTitle
-    console.log(movieList.url);
+    this.model.url = `http://localhost:3000/movies?query=${movieTitle}`;
+    console.log(`the url is ${this.model.url}`);
+    const result = this.model.fetch({
+      success: (model, response) =>{
+        response.forEach((movie) => {
+          console.log(`the movie is ${movie}`);
+          const movieView = new MovieView({
+            tagName: 'li',
+            template: this.template,
+            model: movie,
+            bus: this.bus,
+          });
+          //console.log(`the template is ${movieView.template}`);
+
+          //This is the part that is causing the issue.
+          this.$('#movie-list').append(movieView.render().$el);
+        });
+      }
+    });
+    console.log(result);
+    const movieList = new MovieList({
+      query: movieTitle,
+    });
+
+
+    /*
+    const movieList = new MovieList();
+    movieList.url = `http://localhost:3000/movies?query=${movieTitle}`
 
     movieList.fetch({
       success: (model, response) => {
@@ -51,7 +79,7 @@ const MovieListView = Backbone.View.extend({
         // console.log(`This is the model: ${model}`);
         // console.log(`This is the response: ${reponse}`);
       },
-    });
+    });*/
   },
 
   getFormData() {
