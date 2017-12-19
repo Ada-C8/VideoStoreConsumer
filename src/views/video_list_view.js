@@ -13,6 +13,7 @@ const VideoListView = Backbone.View.extend({
 
     this.detailTemplate = parameters.detailTemplate;
     this.listenTo(this.model, 'sortMe', this.render);
+    this.listenTo(this.model, 'update', this.render);
     // this.listenTo(this.model, 'change', this.render);
     // this.listenTo(this.model, 'update', this.render);
   },
@@ -54,6 +55,8 @@ const VideoListView = Backbone.View.extend({
       template: this.detailTemplate,
       title: event.currentTarget.firstElementChild.innerText,
       el: '#video-view',
+      collection: this.model,
+
     });
     detailView.render();
   },
