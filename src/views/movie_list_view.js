@@ -1,12 +1,13 @@
 import Backbone from 'backbone';
 import MovieView from './movie_view';
 import Movie from '../models/movie';
+import Search from '../models/search';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
 
-    // this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'update', this.render);
     this.listenTo();
   },
   render() {
@@ -25,12 +26,32 @@ const MovieListView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click button#search': 'search',
+    'click button#search': 'searchQuery',
   },
-  // search(query) {
-  //   let movieURL = "http://localhost:3000/movies?query=" + query;
-  //   console.log(movieURL);
-  // }
+  // function
+  // get form data
+  // add a new search
+  // for each parse results and add
+  searchQuery(event) {
+    event.preventDefault();
+    console.log("Doing a search");
+    let query = this.$('#search-form input').val();
+    console.log(query);
+    let search = new Search({query: query});
+    let results = search.fetch();
+
+    console.log(search);
+    console.log(results);
+
+    this.$('#search-form input').val('');
+  },
+  // getSearchQuery() {
+  //   const val = $('#search-form input').val();
+  //   return val;
+  // },
+  // clearSearchQuery() {
+  //   const val = $('#search-form input').val('');
+  // },
 });
 
 export default MovieListView;
