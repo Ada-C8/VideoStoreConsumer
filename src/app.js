@@ -25,7 +25,7 @@ $(document).ready(function() {
   const movies = new MovieList();
   movies.fetch()
 
-  $('.movies-appear').hide()
+  // $('.movies-appear').hide()
   const moviesLibraryView = new MoviesLibraryView({
     el: '#movies-container',
     model: movies,
