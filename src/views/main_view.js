@@ -16,6 +16,8 @@ const MainView = Backbone.View.extend({
     'click button#submit' : 'renderAllMovies'
   },
   renderOurMovies() {
+    this.$('#movies-list').empty();
+
     const movieListView = new MovieListView({
       el: '#movies-container',
       model: this.movieList,
@@ -25,6 +27,8 @@ const MainView = Backbone.View.extend({
     movieListView.model.fetch();
   },
   renderForm() {
+    this.$('#movies-container').empty();
+
     this.$('.form').append(this.formTemplate);
   },
   renderAllMovies(event) {
@@ -38,6 +42,7 @@ const MainView = Backbone.View.extend({
       title: title
     });
 
+    // this.$('#movies-list').empty();
     const movieListView = new MovieListView({
       el: '#movies-container',
       model: externalMovieList,
