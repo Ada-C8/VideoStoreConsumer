@@ -43,10 +43,19 @@ const Detail = Backbone.View.extend({
   addMe(event) {
     console.log(this.collection.length);
     const movie = new Video(this.model);
-    movie.save({}, {
-      success: this.successfulAdd,
-      error: this.failedAdd,
+    // let url = movie.urlRoot += '/?' + 'title=' + movie.get('title') + '&release_date='  + movie.get('release_date');
+
+    let params = {title: movie.get('title'), release_date: movie.get('release_date')}
+
+    $.post( movie.urlRoot, params, (response) => {
+      this.successfulAdd();
+    }).fail(() => {
+        this.failedAdd();
     });
+    // movie.save({}, {
+    //   success: this.successfulAdd,
+    //   error: this.failedAdd,
+    // });
     // this.render();
   },
   successfulAdd(movie) {
