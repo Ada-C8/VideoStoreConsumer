@@ -43,14 +43,22 @@ const movieSearch = function movieSearch(e) {
 const addMovie = function addMovie(e) {
   e.preventDefault();
 
-  const movie = new Movie({
-    title: "Test Movie",
-  });
+  let formInfo = $('#new-movie').serializeArray();
+  formInfo = arrayToJSON(formInfo);
+  const movie = new Movie(formInfo);
   movie.save({
     success: () => {
       movieList.add(movie);
     }
   });
+};
+
+const arrayToJSON = function arrayToJSON(arr) {
+  const output = {};
+  arr.forEach((item) => {
+    output[item.name] = item.value;
+  });
+  return output;
 };
 
 // ready to go
