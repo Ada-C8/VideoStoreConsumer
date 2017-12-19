@@ -26,6 +26,9 @@ const VideoListView = Backbone.View.extend({
       this.$('#rental-list').empty();
       list.forEach((video) => {
         if (video.get('title')) {
+          if(this.model.findWhere({title: video.get('title')})) {
+            video.set('in_library', true);
+          }
           const videoView = new VideoView({
             model: video,
             template: this.template,
@@ -75,6 +78,7 @@ const VideoListView = Backbone.View.extend({
       movieList.urlRoot += '/?query='
       movieList.fetch({}).done(()=> {
         console.log(movieList);
+        // movieList.set('in_library', false)
         this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
 
       });

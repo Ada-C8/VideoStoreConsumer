@@ -12,7 +12,7 @@
       </header>
       <section class="row">
         <section id="message">
-          
+
         </section>
         <section class="small-12 large-6 columns">
           <!-- Rental Library -->
@@ -61,7 +61,9 @@
           <%- release_date %>
         </td>
         <td>
-          <button class="button btn-view" id="" > Checkout </button>
+          <% if (in_library) {  %>
+            <button class="button btn-view" id="" > Checkout </button>
+          <% } %>
         </td>
         <!-- <td>
           <# inventory %>
@@ -72,24 +74,26 @@
     </script>
     <script type="text/template" id="video-template">
       <section class="row video">
-        <h2><%- title %></h2>
-        <h4><%- release_date %></h4>
-        <article class="columns small-12 large-6">
+        <article class="columns small-12">
+          <h3><%- title %></h3>
+          <h4><%- new Date(release_date).getFullYear() %></h4>
+        </article>
+        <article class="columns small-4">
           <img src=<%- image_url %> />
         </article>
-        <article class="columns small-12 large-6">
+        <article class="columns small-8">
           <p>
             <%- overview %>
           </p>
         </article>
-        <p>
+        <article class="columns small-12 available">
           <% if (in_library) {  %>
             Available Inventory: <%- available_inventory %> / <%- inventory %>
           <% } else {  %>
             This movie in not in the library yet.
             <button class="button btn-add">Add</button>
           <% } %>
-        </p>
+        </article>
 
 
       </section>

@@ -25,7 +25,7 @@ const Detail = Backbone.View.extend({
       this.$el.empty();
       this.$el.html(this.template(movie.toJSON()));
       // $('#video-view').append('<h1>hi</h1>')
-      this.model = movie;
+      // this.model = movie;
     }).fail(() => {
 
       movie.urlRoot += '/?query='

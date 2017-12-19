@@ -50,6 +50,21 @@ h1 {
   text-align: center;
 }
 
+.video h3 {
+  display: inline-block;
+}
+
+.video h4 {
+  font-style: italic;
+  display: inline-block;
+  color: grey;
+}
+
+.available {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
 
 /*#completed-checkbox {
   display: inline;
@@ -90,6 +105,12 @@ div {
   text-transform: uppercase;
   background-color: gray;
   display: block;
+}
+
+.button:hover {
+  color: gray;
+  background-color: white;
+  border: 1px solid gray;
 }
 
 [type='text'] {
