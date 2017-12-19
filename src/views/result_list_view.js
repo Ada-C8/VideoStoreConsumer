@@ -5,6 +5,7 @@ const ResultListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.model = params.model;
+    this.library = params.library;
     this.listenTo(this.model, 'update', this.render);
   },
   events: {
@@ -18,6 +19,7 @@ const ResultListView = Backbone.View.extend({
         template: this.template,
         tagName: 'li',
         className: 'movie',
+        library: this.library,
       });
       console.log(movie)
       this.$('#results-list').append(movieView.render().$el);
@@ -29,7 +31,7 @@ const ResultListView = Backbone.View.extend({
     const searchTerm = this.$('[name="search"]').val();
     this.model.query = searchTerm
     this.model.fetch()
-  }
+  },
 });
 
 export default ResultListView;

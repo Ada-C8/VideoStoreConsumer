@@ -26,11 +26,13 @@
     </main>
 
     <!-- UNDERSCORE TEMPLATES -->
-    <script type="text/template" id="library-template">
-      <img src="<%- image_url %>" /><%- title %>
-    </script>
 
     <script type="text/template" id="result-list-template">
+      <img src="<%- image_url %>" /><%- title %>
+      <button id="add-btn">Add to Library</button>
+    </script>
+
+    <script type="text/template" id="library-template">
       <img src="<%- image_url %>" /><%- title %>
     </script>
 

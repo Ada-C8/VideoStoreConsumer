@@ -1,3 +1,4 @@
+import Backbone from 'backbone';
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
@@ -16,6 +17,7 @@ import ResultListView from './views/result_list_view';
 
 const library = new Library();
 const resultList = new ResultList();
+const bus = _.extend({}, Backbone.Events);
 
 // ready to go
 $(document).ready(function() {
@@ -24,6 +26,7 @@ $(document).ready(function() {
   const libraryView = new LibraryView({
     model: library,
     template: _.template($('#library-template').html()),
+    bus: bus,
     el: '#library',
   });
 
@@ -32,7 +35,8 @@ $(document).ready(function() {
   const resultListView = new ResultListView({
     model: resultList,
     template: _.template($('#result-list-template').html()),
-    el: '#search'
+    el: '#search',
+    library: library,
   })
 
   //resultList.set('query', 'psycho');
