@@ -1,6 +1,8 @@
-import Backbone from 'backbone';
+import _ from 'underscore';
 import $ from 'jquery';
+import Backbone from 'backbone';
 import Video from '../models/video';
+
 
 const Detail = Backbone.View.extend({
   initialize(parameters) {
@@ -11,15 +13,24 @@ const Detail = Backbone.View.extend({
   render() {
     // fetch movie details
     // console.log(this.image)
-    const movie = new Video({id: this.title});
+    let movie = new Video({id: this.title});
     console.log(movie);
     movie.fetch({}).done(() => {
       // console.log(this.template);
+      movie.set({in_library: true})
       this.$el.empty();
       this.$el.html(this.template(movie.toJSON()));
       // $('#video-view').append('<h1>hi</h1>')
     }).fail(() => {
-      console.log('oops');
+
+      movie.urlRoot += '/?query='
+      movie.fetch({}).done(()=> {
+        movie = movie.attributes[0];
+        console.log(movie);
+        _.extend(movie, {inventory: 0, available_inventory: 0, in_library: false})
+        this.$el.empty();
+        this.$el.html(this.template(movie));
+      });
     })
   },
   events: {

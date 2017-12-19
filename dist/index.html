@@ -80,9 +80,15 @@
           </p>
         </article>
         <p>
-          Available Inventory: <%- available_inventory %> / <%- inventory %>
+          <% if (in_library) {  %>
+            Available Inventory: <%- available_inventory %> / <%- inventory %>
+          <% } else {  %>
+            This movie in not in the library yet.
+            <button class="button btn-add">Add</button>
+          <% } %>
         </p>
-        <button class="button btn-add">Add To Rental Library</button>
+
+
       </section>
     </script>
     <script src="/app.bundle.js"></script>

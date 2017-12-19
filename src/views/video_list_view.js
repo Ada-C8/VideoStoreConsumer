@@ -24,13 +24,15 @@ const VideoListView = Backbone.View.extend({
     // this.model.fetch({}).done(() => {
       this.$('#rental-list').empty();
       list.forEach((video) => {
-        const videoView = new VideoView({
-          model: video,
-          template: this.template,
-          tagName: 'tr',
-          className: 'video-item',
-        });
-        this.$('#rental-list').append(videoView.render().$el);
+        if (video.get('title')) {
+          const videoView = new VideoView({
+            model: video,
+            template: this.template,
+            tagName: 'tr',
+            className: 'video-item',
+          });
+          this.$('#rental-list').append(videoView.render().$el);
+        }
       });
       return this;
 
@@ -69,7 +71,9 @@ const VideoListView = Backbone.View.extend({
       const movieList = new Video({id: input});
       movieList.urlRoot += '/?query='
       movieList.fetch({}).done(()=> {
+        console.log(movieList);
         this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
+
       });
       // $.get("/movies/search?query=")
     }
