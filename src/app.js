@@ -14,6 +14,7 @@ import MovieListView from 'views/movie_list_view';
 
 let movieTemplate;
 let movieListView;
+let movieDetailTemplate;
 
 const movieList = new MovieList();
 
@@ -33,6 +34,7 @@ const movieSearch = function movieSearch(e) {
       const newView = new MovieListView({
         model: searchList,
         template: movieTemplate,
+        detail_template: movieDetailTemplate,
         el: $('#movie-list'),
       });
       newView.render();
@@ -64,11 +66,13 @@ const arrayToJSON = function arrayToJSON(arr) {
 // ready to go
 $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
+  movieDetailTemplate = _.template($('#movie-detail-template').html());
 
   movieList.fetch({
     success: () => {
       movieListView = new MovieListView({
         model: movieList,
+        detail_template: movieDetailTemplate,
         template: movieTemplate,
         el: $('#movie-list'),
       });
@@ -84,5 +88,4 @@ $(document).ready(function() {
   });
 
   $('#new-movie').on('submit', addMovie);
-
 });

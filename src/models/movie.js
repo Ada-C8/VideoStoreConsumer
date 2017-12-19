@@ -1,7 +1,9 @@
 import Backbone from 'backbone';
 
 const Movie = Backbone.Model.extend({
-  urlRoot: 'http://localhost:3000/movies',
+  url: function() {
+    return 'http://localhost:3000/movies/' + this.get('title');
+  },
 });
 
 export default Movie;
