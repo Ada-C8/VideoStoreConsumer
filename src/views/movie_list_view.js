@@ -5,6 +5,7 @@ import Movie from '../models/movie';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
+    this.external = params.external;
     // this.bus = params.bus;
 
     this.listenTo(this.model, 'update', this.render);
@@ -21,6 +22,7 @@ const MovieListView = Backbone.View.extend({
         model: movie,
         // bus: this.bus,
         template: this.template,
+        external: this.external,
         tagName: 'li',
         className: 'movie',
       });

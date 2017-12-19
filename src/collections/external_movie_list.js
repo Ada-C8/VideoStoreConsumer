@@ -1,13 +1,14 @@
 import Backbone from 'backbone';
 import Movie from 'models/movie';
+import MovieList from 'collections/movie_list';
 
-const ExternalMovieList = Backbone.Collection.extend({
+const ExternalMovieList = MovieList.extend({
   initialize (attributes) {
     this.title = attributes.title;
   },
-  model: Movie,
   url() {
-    return `http://localhost:3000/movies/?query=${ this.title }`
+    console.log(this.baseUrl);
+    return this.baseUrl + `/?query=${ this.title }`
   },
 
 });

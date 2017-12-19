@@ -42,6 +42,7 @@ const MainView = Backbone.View.extend({
       el: '#movies-container',
       model: externalMovieList,
       template: this.movieTemplate,
+      external: true
     });
 
     movieListView.model.fetch();
