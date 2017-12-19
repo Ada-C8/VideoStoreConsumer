@@ -6,11 +6,20 @@ const ReturnedMovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    this.listenTo(this.bus, 'addMovie', this.addInventory);
   },
   events: {
     'click form .btn-search': 'matchingMovies',
+    'click .btn-add': 'addMovie'
   },
+  addMovie(attributes){
+    //console.log(this.model.length);
+    //console.log(`attributes are ${attributes}`);
+    this.model.add(attributes);
+    this.render();
+    //console.log(`the model is ${this.model.length}`);
 
+  },
   matchingMovies(event) {
     // console.log('why the eff is this not working')
     event.preventDefault();
@@ -41,6 +50,7 @@ const ReturnedMovieListView = Backbone.View.extend({
     });
     this.model.url = 'http://localhost:3000/movies/?query=';
   },
+
   getFormData() {
     const data = {};
     data['title'] = this.$('form input[name=title]').val();

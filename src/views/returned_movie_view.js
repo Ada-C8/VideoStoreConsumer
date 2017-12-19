@@ -15,6 +15,14 @@ const ReturnedMovieView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
     return this;
   },
+  addMovie(event){
+    event.preventDefault;
+    let data = this.model.attributes;
+    data['bus'] = this.bus;
+    const newRecord = new Movie(data);
+    console.log(this.bus);
+    this.bus.trigger('addMovie', newRecord.attributes);
+  },
 });
 
 export default ReturnedMovieView;
