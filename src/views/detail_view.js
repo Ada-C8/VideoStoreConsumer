@@ -18,6 +18,7 @@ const Detail = Backbone.View.extend({
     movie.fetch({}).done(() => {
       // console.log(this.template);
       movie.set({in_library: true})
+      this.model = movie;
       this.$el.empty();
       this.$el.html(this.template(movie.toJSON()));
       // $('#video-view').append('<h1>hi</h1>')
@@ -26,16 +27,20 @@ const Detail = Backbone.View.extend({
       movie.urlRoot += '/?query='
       movie.fetch({}).done(()=> {
         movie = movie.attributes[0];
-        console.log(movie);
         _.extend(movie, {inventory: 0, available_inventory: 0, in_library: false})
+        this.model = movie;
+        // console.log(movie);
         this.$el.empty();
         this.$el.html(this.template(movie));
       });
     })
   },
   events: {
-
+    'click button.btn-add':'addMe',
   },
+  addMe() {
+    console.log(this.model);
+  }
 });
 
 export default Detail;

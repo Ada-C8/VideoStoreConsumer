@@ -88,11 +88,15 @@ div {
 .button {
   margin: 0;
   text-transform: uppercase;
-  display: inline-block;
   background-color: gray;
+  display: block;
 }
 
 [type='text'] {
   display: inline-block;
   width: 80%;
+}
+.button.btn-search {
+  display: inline-block;
+
 }
