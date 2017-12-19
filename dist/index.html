@@ -33,38 +33,30 @@
     </footer>
 
     <script type="text/template" id="movie-template" class="movie">
-      <li>
         <p><img class='movie-thumbnail' src='<%= image_url %>' /></p>
         <h3><%- title %></h3>
         <h5><%- release_date %></h5>
-      </li>
     </script>
 
     <script type="text/template" id="movie-details-template" class="movie">
-        <li>
           <p><img class='movie-thumbnail' src='<%= image_url %>' /></p>
           <h3><%- title %></h3>
           <h5><%- release_date %></h5>
           <p><%- overview %></p>
           <p><%- inventory %></p>
-        </li>
     </script>
 
     <script type="text/template" id="customer-template" class="customer">
-      <li>
         <h3><%- name %></h3>
         <p><%- phone %></p>
-      </li>
     </script>
 
     <script type="text/template" id="customer-details-template" class="customer">
-      <li>
         <h3><%- name %></h3>
         <p><%- address %></p>
         <p><%- city %><%- state %><%- postal_code %></p>
         <p><%- phone %></p>
         <p><%- account_credit %></p>
-      </li>
     </script>
 
     <script src="/app.bundle.js"></script>

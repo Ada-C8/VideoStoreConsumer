@@ -63,27 +63,12 @@ const MovieListView = Backbone.View.extend({
             model: movie,
             template: this.template,
             tagName: 'li',
-            className: 'movie',
+            className: 'imdb-movie',
           });
           this.$('#list').append(movieView.render().$el);
         });
       });
     }
-
-    //   this.$('#list').empty();
-    //
-    //   imdbList.forEach((movie) => {
-    //     const movieView = new MovieView({
-    //       model: movie,
-    //       template: this.template,
-    //       tagName: 'li',
-    //       className: 'movie',
-    //     });
-    //     this.$('#list').append(movieView.render().$el);
-    //   });
-    //   return this;
-    // }
-
   },
   events: {
     'click #movie-button': 'render',
