@@ -29,20 +29,23 @@ $(document).ready(function() {
 
   const $catalogTemplate = _.template($("#catalog-template").html());
   const $databaseTemplate = _.template($("#database-template").html());
+
   const catalogView = new MovieListView({
     model: catalog,
     template: $catalogTemplate,
     el: 'main',
+    speficyTemp: "catalog"
   });
 
   let database = new MovieList([], {
     query: "something"
-});
+  });
 
   let databaseView = new MovieListView({
     model: database,
     template: $databaseTemplate,
     el: 'main',
+    specifyTemp: "database"
   });
 
 

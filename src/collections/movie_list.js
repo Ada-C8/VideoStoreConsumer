@@ -10,7 +10,7 @@ const MovieList = Backbone.Collection.extend({
     console.log("in URL function")
     if (this.query) {
       console.log("in IF!")
-      return this.urlRoot + '/query=' + this.query
+      return this.urlRoot + '/?query=' + this.query
     } else {
       console.log("in ELSE!");
       console.log(this.query);

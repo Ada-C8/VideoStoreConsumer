@@ -5,6 +5,8 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
+    this.specifyTemp = params.specifyTemp;
+    console.log(params.specifyTemp);
   },
 
   render() {
@@ -16,8 +18,12 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie'
       });
-      this.$('#catalog-movies').append(movieView.render().$el);
-    })
+      if (this.specifyTemp === "catalog"){
+        this.$('#catalog-movies').append(movieView.render().$el);
+      } else if (this.specifyTemp === "database"){
+        this.$('#database-movies').append(movieView.render().$el);
+      }
+    });
   },
   // events: {
   //   'click button.btn-query': 'search',
