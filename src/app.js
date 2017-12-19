@@ -26,14 +26,14 @@ let application = new Application();
 let movieList = new MovieList();
 movieList.fetch();
 
-// $('#main-content').append('<p>this is the main content. I am in app.js </p>');
-
 // ready to go
 $(document).ready(function() {
-  let movieListView = new MovieListView({
-      model: movieList,
-      template: _.template($('#movie-template').html()),
-      el: 'body'
-    });
-    movieListView.render();
+let appView = new ApplicationView({
+  el: 'body',
+  model: application,
+  movieListTemplate: _.template($('#movie-template').html()),
+  movieList: movieList,
+  movieDetailsTemplate: _.template($('#movie-info-template').html())
+});
+appView.showList();
 });
