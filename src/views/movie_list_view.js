@@ -25,11 +25,11 @@ const MovieListView = Backbone.View.extend({
 },
 submit(event) {
   event.preventDefault();
-  const searchTerm = this.$('input[name=search]').val();
+  const searchTerm = this.$('input[name=search]').val().toUpperCase();
   console.log(searchTerm);
   const movieList = this.model.models;
   console.log(movieList);
-  const filteredMovies = movieList.filter(movie => movie.get('title').includes(searchTerm));
+  const filteredMovies = movieList.filter(movie => movie.get('upperCaseTitle').includes(searchTerm));
   console.log(filteredMovies);
   this.$('#list').empty();
 
