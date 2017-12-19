@@ -28,8 +28,7 @@ const MainView = Backbone.View.extend({
   },
   renderForm() {
     this.$('#movies-container').empty();
-
-    this.$('.form').append(this.formTemplate);
+    this.$('.form').html(this.formTemplate);
   },
   renderAllMovies(event) {
     const title = this.$('input').val();
