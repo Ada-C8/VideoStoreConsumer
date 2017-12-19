@@ -8,7 +8,9 @@ const APIMovies = Backbone.Collection.extend({
   sync: function(method, model, options) {
       switch(method) {
         case 'read':
-          options.url = 'http://localhost:3000/movies' + 'search' + params['query'];
+        options.url = 'http://localhost:3000/movies';
+
+          // options.url = 'http://localhost:3000/movies/' + 'search';
           return Backbone.sync(method, model, options);
       }
     }

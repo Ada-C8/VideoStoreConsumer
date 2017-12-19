@@ -2,15 +2,15 @@ import Backbone from 'backbone';
 import $ from 'jquery';
 import _ from 'underscore';
 
-import StoreMovie from 'models/store_movie';
-import StoreMoviesView from 'models/store_movies';
+// import StoreMovie from 'models/store_movie';
+// import StoreMoviesView from 'models/store_movies';
 import APIMovie from 'models/api_movie'
 
-import APIMoviesView from '../views/api_movies'
+import APIMoviesView from '../views/api_movies_view'
 import StoreMovieView from '../views/store_movie_view';
 
 import APIMovies from 'collections/api_movies'
-import StoreMovies from '/collections/store_movies';
+import StoreLibrary from '/collections/store_library';
 
 const APIMovieView = Backbone.View.extend({
   initialize(params) {
