@@ -10,7 +10,7 @@
 
       <button type="button" name="button" class="button" id="our-movies">Our Movies</button>
       <button type="button" name="button" class="button" id="all-movies">All Movies</button>
-      <div class="form"></div>
+      <div id="search-form"></div>
 
       <div id='movies-container'>
 
@@ -34,9 +34,11 @@
 
     <script type="text/template" id="form-template">
       <h3>Search all movies</h3>
-      <label for="search-movies">Find Movie:</label>
+      <form>
+        <label for="search-movies">Find Movie:</label>
         <input type="text" name="search-movies" />
         <button class="button" id="submit">Submit</button>
+      </form>
     </script>
 
     <script src="/app.bundle.js"></script>

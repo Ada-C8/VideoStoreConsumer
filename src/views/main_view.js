@@ -13,7 +13,7 @@ const MainView = Backbone.View.extend({
   events: {
     'click button#our-movies' : 'renderOurMovies',
     'click button#all-movies' : 'renderForm',
-    'click button#submit' : 'renderAllMovies'
+    'click button#submit' : 'renderAllMovies',
   },
   renderOurMovies() {
     this.$('#movies-list').empty();
@@ -28,10 +28,12 @@ const MainView = Backbone.View.extend({
   },
   renderForm() {
     this.$('#movies-list').empty();
-    this.$('.form').html(this.formTemplate);
+    this.$('#search-form').html(this.formTemplate);
   },
   renderAllMovies(event) {
-    const title = this.$('input').val();
+    event.preventDefault();
+    console.log('in renderAllMovies');
+    const title = this.$('form input').val();
     this.search(title);
 
   },
