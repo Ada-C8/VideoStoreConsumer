@@ -9,7 +9,6 @@ const Movie = Backbone.Model.extend({
   },
   url: `http://localhost:3000/movies/`,
   parse: function(response) {
-    // console.log(response);
     return response;
   },
   comparator: 'title',

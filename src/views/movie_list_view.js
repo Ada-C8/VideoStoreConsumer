@@ -1,7 +1,6 @@
 import Backbone from 'backbone';
 import MovieView from './movie_view';
 import Movie from '../models/movie';
-import Search from '../models/search';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {

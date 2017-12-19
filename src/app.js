@@ -11,10 +11,6 @@ import _ from 'underscore';
 import MovieList from './collections/movie_list';
 import MovieView from './views/movie_view';
 import MovieListView from './views/movie_list_view';
-import Search from './models/search';
-import SearchList from './collections/search_list';
-import SearchView from './views/search_view';
-import SearchListView from './views/search_list_view';
 
 // Define Variables
 let movieTemplate;
@@ -45,14 +41,9 @@ $(document).ready(function() {
       console.log(queryText);
       movieList.fetch({
         data: {query: queryText},
-        // reset: true,
       });
       movieListView.render();
     }
     $('#search-form input').val('');
   });
-
-  $('#main-content').append('<p>Hello World!</p>');
-
-
 });
