@@ -6,20 +6,21 @@
   </head>
   <body>
     <main id="main-content">
-      <div class="movie-workspace row">
-        <div class="small-4 columns">
+      <div class="movie-workspace grid-x grid-padding-x">
+        <div class="small-4 cell">
           <div id="find-movie-form-container">
             <h3>Find Movie</h3>
             <form>
               <label for="title">Title</label>
               <input type="text" name="title" placeholder="enter a title" />
               <!-- <label>Action</label> -->
-              <button class="submit success button find-movie">Find Movie</button>
-              <button class="alert button show-all">Show All Movies Available</button>
+              <button class="submit success button hollow find-movie">Find Movie</button>
+              <button class="alert button hollow show-all">Show All Movies Available</button>
+              <button class="secondary button hollow vendor">Search with Vendor</button>
             </form>
           </div>
         </div>
-        <div class="small-4 columns">
+        <div class="small-4 cell">
           <div id="movie-details-container">
             <h2>Some Specific Moviez</h2>
             <div class="movie-details-list-container">
@@ -30,7 +31,18 @@
           </div>
         </div>
 
-        <div class="small-4 columns ">
+        <div class="small-4 cell">
+          <section id="vendors-container">
+            <h2>Search Results</h2>
+            <div class="vendors-list-container">
+              <ul id="vendor-results" class="movies">
+
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <div class="small-4 cell ">
           <div id="movies-container" hidden="true">
             <h2>Moviez</h2>
             <div class="movies-list-container">
@@ -44,7 +56,7 @@
       </div>
     </main>
     <script type="text/template" id="movie-template">
-      <div class="small-4 columns">
+      <div class="small-4 cell">
         <h3 class="title"><%- title %></h3>
         <p class="overview">
           <%- overview %>
@@ -53,6 +65,16 @@
         <!-- <img src="http://image.tmdb.org/t/p<%- image_url %>"/> -->
       </div>
     </script>
+    <script type="text/template" id="vendor-template">
+      <div class="small-4 cell">
+        <h3 class="title"><%-title %></h3>
+        <p class="overview">
+          <%- overview %>
+        </p>
+        <button class="button secondary hollow tiny">Add to Library</button>
+      </div>
+    </script>
+    
     <script src="/app.bundle.js"></script>
     <script type="text/template" id="movie-details-template">
       <div class="panel">

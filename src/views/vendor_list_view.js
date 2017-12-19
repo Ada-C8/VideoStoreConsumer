@@ -6,34 +6,22 @@ import MovieView from '../views/movie_view';
 // import Quote from '../models/quote';
 import Movie from '../models/movie';
 
-const MovieListView = Backbone.View.extend({
+const VendorListView = Backbone.View.extend({
   initialize(params) {
   this.bus = params.bus;
   this.template = params.template;
   this.detailsTemplate = params.detailsTemplate;
   this.listenTo(this.model, 'update', this.render);
-  },
-  render() {
-    this.$('#movies').empty();
-    this.model.each((movie) => {
-      const movieView = new MovieView({
-        model: movie,
-        template: this.template,
-        detailsTemplate: this.detailsTemplate,
-        bus: this.bus,
-        tagname: 'li',
-        className: 'movie',
-      });
-      this.$('#movies').append(movieView.render().$el);
-    });
+  console.log('initializing vendor list view');
   },
 
-  renderVendorResults() {
+  render() {
+    console.log('rendering the vendor');
     this.$('#vendor-results').empty();
     this.model.each((movie) => {
       const vendorView = new MovieView({
         model: movie,
-        teplate: this.template,
+        template: this.template,
         detailsTemplate: this.detailsTemplate,
         bus: this.bus,
         tagName: 'li',
@@ -41,8 +29,7 @@ const MovieListView = Backbone.View.extend({
       });
       this.$('#vendor-results').append(vendorView.render().$el);
     });
-  }
-
+  },
 });
 
-export default MovieListView;
+export default VendorListView;

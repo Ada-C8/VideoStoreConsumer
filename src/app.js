@@ -11,6 +11,7 @@ import MovieList from 'collections/movie_list';
 
 // import views
 import MovieListView from 'views/movie_list_view';
+import VendorListView from './views/vendor_list_view';
 import FormView from 'views/form_view';
 
 // ready to go
@@ -19,8 +20,10 @@ $(document).ready(function() {
   bus = _.extend(bus, Backbone.Events);
 
   const movieList = new MovieList;
+  const vendorList = new MovieList;
   // tripList.on('update', render, tripList);
   movieList.fetch();
+
   const movieListView = new MovieListView({
     model: movieList,
     template: _.template($('#movie-template').html()),
@@ -31,10 +34,17 @@ $(document).ready(function() {
 
   const formView = new FormView({
     model: movieList,
+    vendorModel: vendorList,
     el: '.movie-workspace',
     bus: bus
+  });
 
-  })
+  const vendorListView = new VendorListView({
+    model: vendorList,
+    template: _.template($('#vendor-template').html()),
+    el: '#vendors-container',
+    bus: bus,
+  });
 
   // movieListView.render();
 
