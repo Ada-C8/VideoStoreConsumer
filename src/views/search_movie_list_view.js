@@ -28,6 +28,7 @@ const SearchMovieListView = BackBone.View.extend({
     this.model.fetch().then(function(response){
       console.log(response);
     });
+    console.log(this.model.url);
   },
 
   render() {
