@@ -36,8 +36,7 @@ $(document).ready(function() {
     model: searchedMovies,
     libary: rentalMovies,
     template: _.template($('#movie-template').html()),
-    // el: 'main',
-    el: ''
+    el: 'main',
   });
 
   // $('#main-content').append('<p>Hello World!</p>');

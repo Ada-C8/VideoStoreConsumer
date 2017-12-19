@@ -21,12 +21,11 @@ const MovieView = Backbone.View.extend({
     // console.log(this.model);
 
     const movieData = this.model.attributes;
+    console.log('MOVIE DATA:');
     console.log(movieData);
-    // this.trigger('')
-    // debugger;
+
     this.model.save();
     console.log('the movie saved');
-    // this.trigger('clickedAddMovie', movieData);
   }
 });
 
