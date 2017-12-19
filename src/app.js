@@ -10,11 +10,27 @@ import MovieList from 'collections/movie_list';
 import MovieView from 'views/movie_view';
 import MovieListView from 'views/movie_list_view';
 
-// ready to go
+let bus = {};
+bus = _.extend(bus, Backbone.Events);
+
 $(document).ready(function() {
   const movies = new MovieList();
-  const fetchedMovies = movies.fetch();
-  console.log(fetchedMovies);
+  movies.fetch();
+  //movies.render();
+  console.log('FETCHED MOVIES:');
+
+  movies.on('update', render, movies);
+
+  // const movieData = fetchedMovies.responseJSON
+  // console.log('MOVIE DATA:');
+  // console.log(movieData);
+
+  const movieListView = new MovieListView({
+    model: movies,
+    template: _.template($('#movie-template').html()),
+    el: 'main',
+  });
+
 
   $('#main-content').append('<p>Hello World!</p>');
 

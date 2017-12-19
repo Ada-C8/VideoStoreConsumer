@@ -5,6 +5,13 @@ const Movie = Backbone.Model.extend({
   defaults: {
     inventory: 0,
   },
+  validate(attributes) {
+    // title: 
+    // overview:
+    // release_date:
+    // image_url:
+    // external_id:
+  },
 
 });
 
