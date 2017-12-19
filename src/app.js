@@ -29,9 +29,10 @@ const searchMovieList = new SearchMovieList();
 $(document).ready(function() {
   //  underscore templates
   libraryMovieTemplate = _.template($('#library-movie-template').html());
+  searchMovieTemplate = _.template($('#search-movie-template').html());
 
   // libMovieList.fetch();
-  libMovieList.fetch()
+  libMovieList.fetch();
   // new instance of LibMovieListView
   const libMovieListView = new LibMovieListView({
     el: '#library-movies-container',
@@ -46,7 +47,7 @@ $(document).ready(function() {
   const searchMovieListView = new SearchMovieListView({
     el: '#search-movies-container',
     model: searchMovieList,
-    template: libraryMovieTemplate,
+    template: searchMovieTemplate,
   });
 
   searchMovieListView.render();

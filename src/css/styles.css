@@ -9,7 +9,7 @@ header {
   padding: 0.5rem;
 }
 
-p.lib-movie {
+p.lib-movie, p.search-movie {
   border: solid black 1px;
 }
 
