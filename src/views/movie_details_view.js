@@ -16,10 +16,9 @@ let MovieDetailsView = Backbone.View.extend({
   events: {
   'click .button#add-movie': 'add'
 },
-
-add(event) {
-  this.model.save();
-}
+  add(event) {
+    this.model.save();
+  }
 });
 
 export default MovieDetailsView;
