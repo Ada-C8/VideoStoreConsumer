@@ -11,7 +11,7 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   events:{
-    'click movie-filter': 'render'
+    'click input.movie-filter': 'searchMovies'
   },
   // renderQuery(params){
   //
@@ -24,7 +24,7 @@ const MovieListView = Backbone.View.extend({
   // }
   render(params){
     event.preventDefault();
-    debugger
+    // debugger
     let query = this.$('#movie-field').val();
     const movieListView = new MovieListView({
       el: '#movie-list',
@@ -36,7 +36,8 @@ const MovieListView = Backbone.View.extend({
     console.log('query ^^^^');
     console.log(this);
     console.log('this is this^^^');
-// this.$('#movie-list').empty();
+    // this.$el.empty();
+    this.$('#movie-list').empty();
     this.model.each((movie)=>{
 
       const movieView = new MovieView({
@@ -48,11 +49,19 @@ const MovieListView = Backbone.View.extend({
 
       });
 
-      this.$el.append(movieView.render().$el);
+      this.$('#movie-list').append(movieView.render().$el);
 
     });
     return this;
   },
+  searchMovies(event){
+    event.preventDefault();
+    console.log('in search movies');
+    this.model.fetchSearch({
+      query: this.$('#movie-field').val(),
+      success: function(query, response){console.log('response');},
+    });
+  }
 });
 
 export default MovieListView;

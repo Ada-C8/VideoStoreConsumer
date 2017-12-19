@@ -12,6 +12,20 @@ const MovieList = Backbone.Collection.extend({
   //TODO: put in correct comparator
   comparator: 'title',
 
+  fetchSearch: function (query, options) {
+    options = options || {};
+    $('#header').html('');
+    $('#header').append(query);
+    // debugger
+    // if (options.url === undefined) {
+    //
+    //   options.url = this.url + "?query=" + query['query']
+    // }
+    options.data = {query: query['query']}
+    debugger
+    return this.fetch(options)
+      // return Backbone.Model.prototype.fetch.call(this, options);
+  },
 });
 
 export default MovieList;
