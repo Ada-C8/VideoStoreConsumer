@@ -16,7 +16,8 @@ const MovieListView = Backbone.View.extend({
   getRentalMovies() {
     console.log(" all rental movies");
     //this.model.remove_all()
-
+    this.model.refresh();
+    
     //calls to the rails API, returns movies in RailsDB in JSON
     const movieList = this.model.fetch()
     movieList.then(() => {
@@ -37,6 +38,7 @@ const MovieListView = Backbone.View.extend({
     event.preventDefault()
     //destory collection??
     //this.model.remove_all()
+    this.model.refresh();
 
     const query = this.getFormData();
 
