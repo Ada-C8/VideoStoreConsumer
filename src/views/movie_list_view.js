@@ -18,7 +18,14 @@ const MovieListView = Backbone.View.extend({
       });
       this.$('#catalog-movies').append(movieView.render().$el);
     })
-  }
+  },
+  // events: {
+  //   'click button.btn-query': 'search',
+  // },
+  // search: function(query) {
+  // },
+
+
 });
 
 export default MovieListView;

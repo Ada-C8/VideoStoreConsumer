@@ -13,7 +13,7 @@ import _ from 'underscore';
 
 
 
-// let database = new MovieList();
+let database = new MovieList();
 let catalog = new MovieList();
 
 
@@ -30,15 +30,22 @@ $(document).ready(function() {
   console.log(catalog);
 
   const $catalogTemplate = _.template($("#catalog-template").html());
+  const $databaseTemplate = _.template($("#database-template").html());
   const catalogView = new MovieListView({
     model: catalog,
     template: $catalogTemplate,
     el: 'main',
   });
 
-  let database = new MovieList({
-    query: "something"
+  let databaseView = new MovieListView({
+    model: database,
+    template: $databaseTemplate,
+    el: 'main',
   });
+
+  // let database = new MovieList({
+  //   query: "something"
+  // });
 
   database.fetch();
 
