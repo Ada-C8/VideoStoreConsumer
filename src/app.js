@@ -18,6 +18,7 @@ import SearchMovieListView from './views/search_movie_list_view';
 
 // template varibles
 let libraryMovieTemplate;
+let searchMovieTemplate;
 
 // new instance of LibMovieList
 const libMovieList = new LibMovieList();
@@ -28,7 +29,7 @@ const searchMovieList = new SearchMovieList();
 $(document).ready(function() {
   //  underscore templates
   libraryMovieTemplate = _.template($('#library-movie-template').html());
-  // $('#main-content').append('<p>Hello World!</p>');
+
   // libMovieList.fetch();
   libMovieList.fetch()
   // new instance of LibMovieListView
@@ -41,6 +42,14 @@ $(document).ready(function() {
   libMovieListView.render();
 
   console.log(libMovieList);
+
+  const searchMovieListView = new SearchMovieListView({
+    el: '#search-movies-container',
+    model: searchMovieList,
+    template: searchMovieTemplate,
+  });
+
+  searchMovieListView.render();
 
 
 });

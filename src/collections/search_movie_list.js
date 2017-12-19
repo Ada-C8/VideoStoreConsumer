@@ -8,7 +8,7 @@ const SearchMovieList = Backbone.Collection.extend({
 
   model: SearchMovie,
   // urlRoot: `http://localhost:3000/movies?query=${this.get('searchTerm')}`,
-  urlRoot: `http://localhost:3000/movies?query=${this.searchTerm}`,
+  urlRoot: `http://localhost:3000/movies?query=`,
 
 });
 

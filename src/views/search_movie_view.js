@@ -16,4 +16,4 @@ const SearchMovieView = BackBone.View.extend({
   },
 });
 
-export deault SearchMovieView;
+export default SearchMovieView;
