@@ -15,17 +15,14 @@ const resultList = new ResultList();
 
 // ready to go
 $(document).ready(function() {
-  resultList.fetch().done(() => {
-
-  });
-
-  $('#main-content').append('<p>Hello World!</p>');
+  resultList.fetch();
 
   const resultListView = new ResultListView({
     model: resultList,
     template: _.template($('#result-template').html()),
     el: '#results-container',
   });
+  
   resultListView.render();
 
 });
