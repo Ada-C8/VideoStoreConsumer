@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
 
   const $catalogTemplate = _.template($("#catalog-template").html());
-  const $databaseTemplate = _.template($("#database-template").html());
+  // const $databaseTemplate = _.template($("#database-template").html());
 
   const catalogView = new MovieListView({
     model: catalog,
@@ -39,23 +39,23 @@ $(document).ready(function() {
 
 
 
-  $('.btn-query').click(function(event){
-    event.preventDefault();
-console.log('submit button was clicked');
+//   $('.btn-query').click(function(event){
+//     event.preventDefault();
+// console.log('submit button was clicked');
     let query = $(`[name='query']`).val();
     let database = new MovieList([], {
       query: query,
     });
 
-    let databaseView = new MovieListView({
-      model: database,
-      template: $databaseTemplate,
-      el: 'main',
-      specifyTemp: "database"
-    });
-
-  database.fetch();
-  });
+  //   let databaseView = new MovieListView({
+  //     model: database,
+  //     template: $databaseTemplate,
+  //     el: 'main',
+  //     specifyTemp: "database"
+  //   });
+  //
+  // database.fetch();
+  // });
 
 
 

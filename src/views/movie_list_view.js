@@ -1,4 +1,5 @@
 import Backbone from 'backbone';
+import _ from 'underscore';
 import MovieView from '../views/movie_view'
 
 const MovieListView = Backbone.View.extend({
@@ -28,11 +29,17 @@ const MovieListView = Backbone.View.extend({
   events: {
     'click button.btn-query': 'search',
   },
-  // search: function(query) {
-  //   query.preventDefault();
-  //   query = this.$(`[name='query']`).val();
-  //
-  // },
+  search: function(e) {
+    e.preventDefault();
+
+
+    this.query = this.$(`[name='query']`).val();
+    debugger;
+    console.log(this.query.url());
+
+
+
+  },
 
 
 });
