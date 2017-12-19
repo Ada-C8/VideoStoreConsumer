@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 import MovieView from '../views/movie_view';
 import Movie from '../models/movie';
+import MovieList from '../collections/movie_list';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {
@@ -18,10 +19,28 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie'
       });
+
       this.$('#movies').append(movieView.render().$el);
     }); // end of each loop
     return this;
-  } // end of render
+  }, // end of render
+  events: {
+    'click button.api-movies': 'getMovies',
+    'submit #search-form': 'getRequest',
+  },
+  getMovies: function (e) {
+    this.model.fetch();
+  },
+  
+  getRequest: function (e) {
+    console.log("YOU HIT THE BUTTON!");
+    e.preventDefault();
+    const searchParams = this.$('#searchParams').val();
+    const returnedList = new MovieList();
+    returnedList.searchUrl(searchParams);
+    returnedList.fetch();
+  },
+
 }); // end MovieListView
 
 export default MovieListView;
