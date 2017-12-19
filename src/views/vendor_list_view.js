@@ -1,7 +1,7 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
 
-import MovieView from '../views/movie_view';
+import VendorView from '../views/vendor_view';
 // import OrderView from '../views/order_view';
 // import Quote from '../models/quote';
 import Movie from '../models/movie';
@@ -19,7 +19,7 @@ const VendorListView = Backbone.View.extend({
     console.log('rendering the vendor');
     this.$('#vendor-results').empty();
     this.model.each((movie) => {
-      const vendorView = new MovieView({
+      const vendorView = new VendorView({
         model: movie,
         template: this.template,
         detailsTemplate: this.detailsTemplate,

@@ -11,7 +11,9 @@ const MovieListView = Backbone.View.extend({
   this.bus = params.bus;
   this.template = params.template;
   this.detailsTemplate = params.detailsTemplate;
+
   this.listenTo(this.model, 'update', this.render);
+  this.listenTo(this.bus, 'addMovie', this.addMovie);
   },
   render() {
     this.$('#movies').empty();
@@ -41,6 +43,14 @@ const MovieListView = Backbone.View.extend({
       });
       this.$('#vendor-results').append(vendorView.render().$el);
     });
+  },
+
+  addMovie(movie) {
+    console.log('adding a new movie to rental library');
+    console.log(this.model);
+    this.model.add(movie);
+    console.log('after adding');
+    console.log(this.model);
   }
 
 });

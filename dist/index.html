@@ -65,16 +65,17 @@
         <!-- <img src="http://image.tmdb.org/t/p<%- image_url %>"/> -->
       </div>
     </script>
+    
     <script type="text/template" id="vendor-template">
       <div class="small-4 cell">
         <h3 class="title"><%-title %></h3>
         <p class="overview">
           <%- overview %>
         </p>
-        <button class="button secondary hollow tiny">Add to Library</button>
+        <button class="button secondary hollow tiny add-movie" id="add-movie">Add to Library</button>
       </div>
     </script>
-    
+
     <script src="/app.bundle.js"></script>
     <script type="text/template" id="movie-details-template">
       <div class="panel">
