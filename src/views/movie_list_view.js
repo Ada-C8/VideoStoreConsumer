@@ -19,17 +19,26 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie'
       });
+
       this.$('#movies').append(movieView.render().$el);
     }); // end of each loop
     return this;
   }, // end of render
   events: {
-    'click button.list_movies': 'allMovieList',
-    'submit button.search': 'searchDbList',
-  },//end event
-  allMovieList: function(event){
-    const movies = new MovieList();
-    movies.fetch();
+    'click button.api-movies': 'getMovies',
+    'submit #search-form': 'getRequest',
+  },
+  getMovies: function (e) {
+    this.model.fetch();
+  },
+
+  getRequest: function (e) {
+    console.log("YOU HIT THE BUTTON!");
+    e.preventDefault();
+    const searchParams = this.$('#searchParams').val();
+    const returnedList = new MovieList();
+    returnedList.searchUrl(searchParams);
+    returnedList.fetch();
   },
 
 }); // end MovieListView
