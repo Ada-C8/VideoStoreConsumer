@@ -1,6 +1,8 @@
 import Backbone from 'backbone';
 import MovieListView from './movie_list_view.js';
 import MovieDetailsView from './movie_details_view.js';
+import $ from 'jquery';
+import _ from 'underscore';
 
 let ApplicationView = Backbone.View.extend({
   initialize: function (params) {
@@ -9,8 +11,9 @@ let ApplicationView = Backbone.View.extend({
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
   events: {
-    'click h1' : 'showList'
+    'click h1' : 'showList',
     },
+
   showList: function () {
     let movieListView = new MovieListView({
       model: this.movieList,
@@ -27,7 +30,11 @@ let ApplicationView = Backbone.View.extend({
       el: 'body'
     });
     movieDetailsView.render();
-  }
+  },
+
+  // renderForm: function() {
+  //   $('aside').show();
+  // }
 });
 
 export default ApplicationView;

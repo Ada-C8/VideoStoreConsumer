@@ -23,10 +23,22 @@ let MovieListView = Backbone.View.extend({
       that.listenTo(movieView, 'showMovieDetails', that.showMovieDetails);
     });
     return this;
-    },
-    showMovieDetails: function (movie) {
-      this.trigger('showMovieDetails', movie);
-  }
+  },
+  events: {
+    'click #search-button' : 'searchMovies'
+  },
+  showMovieDetails: function (movie) {
+    this.trigger('showMovieDetails', movie);
+  },
+  searchMovies: function () {
+    var queryTerm = $('#search-box').val();
+    $('#search-box').val('');
+
+    this.model.fetch({
+      data: { query: queryTerm },
+      processData: true
+    });
+  },
 });
 
 export default MovieListView;

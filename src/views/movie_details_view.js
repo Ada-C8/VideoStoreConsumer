@@ -11,7 +11,7 @@ let MovieDetailsView = Backbone.View.extend({
   render: function() {
     let compiledTemplate = this.template(this.model.toJSON());
     this.$('main').html(compiledTemplate);
-  }
+  },
 });
 
 export default MovieDetailsView;
