@@ -32,5 +32,26 @@ $(document).ready(function() {
   movieList.fetch();
   movieListView.render();
 
+  $('#search-form button').on('click', function() {
+    let query = getSearchQuery();
+    let searchURL = movieListView.search(query);
+
+    movieList.set('url', searchURL);
+    data = movieList.fetch();
+    console.log(movieList.url);
+    console.log(data);
+    clearSearchQuery();
+  });
+
+  const getSearchQuery = function() {
+    const val = $('#search-form input').val();
+    return val;
+  };
+  const clearSearchQuery = function() {
+    const val = $('#search-form input').val('');
+  }
+
+  $('#main-content').append('<p>Hello World!</p>');
+
 
 });
