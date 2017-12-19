@@ -5,6 +5,7 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    this.listenTo(this.model, 'update', this.render);
   },
   render() {
     const list = this.$('#movies');
@@ -25,6 +26,18 @@ const MovieListView = Backbone.View.extend({
   searchMovies(searchTerm) {
     this.model.resetUrl(searchTerm);
     this.model.fetch()
+  },
+  addRental(model, quantity) {
+    const newRental = {
+      title: model.get('title'),
+      overview: model.get('overview'),
+      release_date: model.get('release_date'),
+      image_url: model.get('image_url'),
+      external_id: model.get('id'),
+      inventory: quantity,
+    };
+    this.model.create(newRental);
+    // TODO: guarantee external id not null and use to call event
   },
 });
 

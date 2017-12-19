@@ -8,8 +8,13 @@ const MovieView = Backbone.View.extend({
   events: {
     'click button.show-details': 'slideView',
     'click button.show-form': 'slideView',
+    'submit #add-rental': 'newInventory',
   },
   render() {
+    // Handle any null release dates TODO: should this be for all possible null attributes?
+    if(!this.model.get('release_date')) {
+      this.model.set('release_date', 'Unknown');
+    }
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
@@ -22,6 +27,11 @@ const MovieView = Backbone.View.extend({
       this.$('.details').hide();
       this.$('.add-rental-form').toggle({direction: 'right'});
     }
+  },
+  newInventory(event) {
+    event.preventDefault();
+    let quantity = this.$('#add-rental [name="inventory"]').val();
+    this.bus.trigger('addInventory', this.model, quantity);
   },
 })
 

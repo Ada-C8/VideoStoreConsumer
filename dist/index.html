@@ -32,6 +32,11 @@
     <div class="listing-info">
       <h3><%- title %></h3>
       <p><%- release_date.slice(0, 4) %></p>
+      <button class='button show-details'>Show Details</button>
+    </div>
+    <div class="details slide">
+      <h5>Overview</h5>
+      <p><%- overview %></p>
     </div>
   </script>
 
@@ -54,7 +59,7 @@
       <form id="add-rental">
         <label>Quantity</label>
         <input type="text" name="inventory"></input>
-        <input type="submit" class="button"></input>
+        <input type="submit" class="button" value="Order Movie"></input>
       </form>
     </div>
   </script>
