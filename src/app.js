@@ -20,14 +20,14 @@ $(document).ready(function() {
 
   const movieList = new MovieList;
   // tripList.on('update', render, tripList);
-  // movieList.fetch();
+  movieList.fetch();
   const movieListView = new MovieListView({
     model: movieList,
     template: _.template($('#movie-template').html()),
     detailsTemplate: _.template($('#movie-details-template').html()),
     el: '#movies-container',
     bus: bus,
-  })
+  });
 
   const formView = new FormView({
     model: movieList,

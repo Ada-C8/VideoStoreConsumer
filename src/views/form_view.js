@@ -16,12 +16,13 @@ const FormView = Backbone.View.extend({
   },
   showAllMovies: function(e) {
     e.preventDefault();
-    if (this.$('#movies').hasClass('fetched')) {
-      this.$('#movies').toggle();
-    } else {
-      this.model.fetch();
-      this.$('#movies').addClass('fetched');
-    }
+    // if (this.$('#movies').hasClass('fetched')) {
+    //   this.$('#movies').toggle();
+    // } else {
+    //   this.model.fetch();
+    //   this.$('#movies').addClass('fetched');
+    // }
+    this.$('#movies-container').toggle();
   },
   findMovie: function(e) {
     e.preventDefault();
