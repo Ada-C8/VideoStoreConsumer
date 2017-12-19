@@ -18,6 +18,7 @@ const APIMoviesView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   render() {
+    console.log('in APIMoviesView render');
     this.$('#api-movies').empty();
     this.model.each((apiMovie) => {
       const apiMovieView = new APIMovieView({
@@ -26,25 +27,14 @@ const APIMoviesView = Backbone.View.extend({
         className: 'apiMovie',
       });
       apiMovieView.storeLibrary = this.storeLibrary;
-     this.$('#api-movies').append(apiMovieView.render().$el);
+      this.$('#api-movies').append(apiMovieView.render().$el);
     });
+    // console.log(this.model.length);
+    // if (this.model.length === 0 ) {
+    //
+    // }
     return this;
   },
-
-//   keywordSearch: function(event) {
-//   //   event.preventDefault();
-//   //   console.log('in search');
-//   //   const query = this.$('input[name=query]').val();
-//   //   APIMoviesView.query = query;
-//   //   console.log(APIMoviesView.query);
-//   //   console.log(query);
-//   //   this.trigger('sendSearch', query);
-//   //   this.query = query;
-//   //   this.trigger('sendSearch', this.query);
-//   //
-//   //
-//   // }
-//
 });
 
 export default APIMoviesView;

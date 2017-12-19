@@ -39,10 +39,22 @@ $(document).ready(function() {
   apiMoviesView.storeLibrary = storeLibrary;
 
   $('.submit-btn').on('click', function(e) {
+    console.log('submit button');
     e.preventDefault();
+    $('.errors').empty();
     const query = $('input[name=query]').val();
-    apiMovies.fetch({data: {query:`${query}`}});
-    apiMoviesView.render();
+    apiMovies.fetch({data: {query:`${query}`}}).then(function(){
+      if (apiMoviesView.model.length === 0) {
+        $('.errors').append('<li>There are no movies with that keyword search.</li>');
+        console.log(apiMoviesView.model.length);
+      } else {
+        apiMoviesView.render();
+        console.log(apiMovies.length);
+      }
+    });
+
+
+
   });
 
 });
