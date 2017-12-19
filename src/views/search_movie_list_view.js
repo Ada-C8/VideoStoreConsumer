@@ -16,6 +16,9 @@ const SearchMovieListView = BackBone.View.extend({
   searchMovies(event){
     event.preventDefault();
     console.log('In searchMovies');
+    console.log(event.currentTarget.children[1]);
+    const element = event.currentTarget.children[1];
+    console.log(this.$('#search-movie-title').val());
   },
 
   render() {
