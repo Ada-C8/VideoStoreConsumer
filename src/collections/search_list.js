@@ -1,18 +1,9 @@
 import Backbone from 'backbone';
+import Search from '../models/search';
 
-const Movie = Backbone.Model.extend({
-  defaults: {
-  },
-  initialize(attributes) {
-    // title: attributes["title"];
-    // overview: attributes["overview"];
-    // release_date: attributes["release_date"];
-    // image_url: attributes["poster_path"];
-    // external_id: attributes["id"];
-  },
-  validate(attributes) {
-  },
-  url: `http://localhost:3000/movies/`,
+const SearchList = Backbone.Collection.extend({
+  model: Search,
+  url: `http://localhost:3000/movies?query=`,
   parse: function(response) {
     // console.log(response);
     // console.log(response["poster_path"]);
@@ -25,9 +16,9 @@ const Movie = Backbone.Model.extend({
     // }
     // console.log(movie);
     // console.log(movie.image_url);
+    // return movie;
     return response;
   },
-  comparator: 'title',
 });
 
-export default Movie;
+export default SearchList;

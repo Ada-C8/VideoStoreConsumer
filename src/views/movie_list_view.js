@@ -6,7 +6,7 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
 
-    this.listenTo(this.model, 'update', this.render);
+    // this.listenTo(this.model, 'update', this.render);
     this.listenTo();
   },
   render() {
@@ -28,11 +28,10 @@ const MovieListView = Backbone.View.extend({
   events: {
     'click button#search': 'search',
   },
-  search(query) {
-    let movieURL = "http://localhost:3000/movies?query=" + query;
-    console.log(movieURL);
-    return movieURL;
-  }
+  // search(query) {
+  //   let movieURL = "http://localhost:3000/movies?query=" + query;
+  //   console.log(movieURL);
+  // }
 });
 
 export default MovieListView;
