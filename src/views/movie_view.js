@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
+import $ from 'jquery';
 
 const MovieView = Backbone.View.extend({
   initialize(params) {
@@ -27,10 +28,11 @@ const MovieView = Backbone.View.extend({
     // debugger;
     console.log(movie);
     console.log(this.model.get('cid'));
-    this.$('#movie-details').empty();
+    $('#movie-details').empty();
     const compiledTemplate = this.detailsTemplate(this.model.attributes);
     this.$el.html(compiledTemplate);
-    this.$('#movie-details').append(this.$el);
+    $('#movie-details').append(this.$el);
+    // this.$('#movie-details').append(this.$el);
   }
 
 

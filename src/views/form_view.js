@@ -27,17 +27,17 @@ const FormView = Backbone.View.extend({
   findMovie: function(e) {
     e.preventDefault();
     const title = this.$('input').val().toUpperCase();
-    let result;
+    let result = this.model.findWhere({upperCaseTitle: title});
     // let movie;
-    if(this.$('#movies').hasClass('fetched')) {
-      result = this.model.findWhere({upperCaseTitle: title});
-      // debugger;
-    } else {
-      this.model.fetch();
-      this.$('#movies').addClass('fetched');
-      result = this.model.findWhere({title: title});
-
-    }
+    // if(this.$('#movies').hasClass('fetched')) {
+    //   result = this.model.findWhere({upperCaseTitle: title});
+    //   // debugger;
+    // } else {
+    //   this.model.fetch();
+    //   this.$('#movies').addClass('fetched');
+    //   result = this.model.findWhere({title: title});
+    // 
+    // }
     // debugger;
     if (result ) {
       console.log(`displayMyDetails${result.get('id')}`);

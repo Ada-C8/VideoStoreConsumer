@@ -25,7 +25,7 @@ $(document).ready(function() {
     model: movieList,
     template: _.template($('#movie-template').html()),
     detailsTemplate: _.template($('#movie-details-template').html()),
-    el: '#movies-container',
+    el: 'main',
     bus: bus,
   });
 
