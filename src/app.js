@@ -39,10 +39,10 @@ $(document).ready(function() {
 
 
 
-  $('.btn-query').click(function(){
+  $('.btn-query').click(function(event){
+    event.preventDefault();
 console.log('submit button was clicked');
-    let query = this.$(`[name='query']`).val();
-    debugger;
+    let query = $(`[name='query']`).val();
     let database = new MovieList([], {
       query: query,
     });
