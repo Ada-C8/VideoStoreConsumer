@@ -1,6 +1,6 @@
 import Backbone from 'backbone';
 
-const Movie = Backbone.Model.extend({
+const Search = Backbone.Model.extend({
   // urlRoot: function() {
   //   return `http://localhost:3000/movies?query=${this.get('query')}`
   // },
@@ -12,4 +12,4 @@ const Movie = Backbone.Model.extend({
 });
 
 
-export default Movie;
+export default Search;

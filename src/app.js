@@ -10,9 +10,14 @@ import Movie from './models/movie';
 import MovieView from './views/movie_view';
 import MovieListView from './views/movie_list_view';
 import MovieList from './collections/movie_list';
+import Search from './models/search';
+import SearchView from './views/search_view';
+import SearchListView from './views/search_list_view';
+import SearchList from './collections/search_list';
 
 
 let movieTemplate;
+let searchTemplate;
 // ready to go
 $(document).ready(function() {
 
@@ -20,16 +25,28 @@ $(document).ready(function() {
 
   // bus = _.extend(bus, Backbone.Events);
   movieTemplate = _.template($('#movie-template').html());
+  searchTemplate = _.template($('#search-template').html());
+
   // orderTemplate = _.template($('#order-template').html());
 
 
   const movies = new MovieList();
+  const searches = new SearchList({
+    // query: "",
+  });
+
 
   const movieListView = new MovieListView({
-    el: 'main',
+    el: '#movie-list',
     model: movies,
     template: movieTemplate,
     // bus: bus,
+  });
+
+  const searchListView = new SearchListView({
+    el: '#movie-search',
+    model: searches,
+    template: searchTemplate,
   });
 
 
