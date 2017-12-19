@@ -10,6 +10,7 @@ import './css/styles.css';
 // Models & Collections
 import Library from './collections/library';
 import LibraryView from './views/library_view';
+import ResultList from './collections/result_list';
 
 
 const library = new Library();
@@ -25,5 +26,11 @@ $(document).ready(function() {
   });
 
   libraryView.render();
+
+
+  const resultList = new ResultList({query: 'Psycho'});
+  console.log(resultList);
+
+  resultList.fetch()
 
 });
