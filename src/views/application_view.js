@@ -8,6 +8,9 @@ let ApplicationView = Backbone.View.extend({
     this.movieListTemplate = params.movieListTemplate;
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
+  events: {
+    'click h1' : 'showList'
+    },
   showList: function () {
     let movieListView = new MovieListView({
       model: this.movieList,
