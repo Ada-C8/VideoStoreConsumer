@@ -1,47 +1,55 @@
 @include foundation-everything;
+
+/* General styling */
 body {
   text-align: center;
+  background: #141414;
 }
 
-main {
-    background: lightblue;
+h1, h2, h3, h4, h5, p,[type='radio'] + label[for] {
+  font-family: 'Raleway', sans-serif;
+  color: #e5e5e5;
 }
 
+h4 {
+  height: 80px;
+  font-size: 1.2em;
+  overflow: hidden;
+}
+
+img {
+  max-height: 276px;
+}
+
+/* Header */
 header {
-  background-color: pink;
-  padding: 0.5rem;
+  max-width: 600px;
+  margin: 20px auto;
 }
 
-#completed-checkbox {
-  display: inline;
+/* List styling */
+
+li {
+  margin: 30px;
+  display: inline-block;
+  list-style: none;
+  position: relative;
+  max-width: 185px;
+  transition: all .2s ease-in-out;
 }
 
-label {
-  display: inline;
+li:hover {
+transform: scale(1.3);
 }
 
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
+/* Movie */
+.add-inventory {
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
+/* Customer */
 
-.completed {
-  text-decoration: line-through;
-}
 
-div {
-  display: inline;
-}
-/*
-* {
-  border-style: solid;
-}
-*/
+/* Footer */
