@@ -7,10 +7,17 @@
   <body>
     <main id="main-content">
       <section id="search">
-        <h3>SEARCH FORM COMING SOON!</h3>
-      </section>
-      <section id="results-container">
-        <h3>DATABASE RESULTS</h3>
+          <h3>Search for Movies:</h3>
+          <form>
+            <input type="text" name="search" placeholder="Search for a movie..."/>
+            <button type="submit" id="search-btn">Search</button>
+          </form>
+        <div id="results-container">
+          <h3>DATABASE RESULTS</h3>
+          <ul id="results-list">
+
+          </ul>
+        </div>
       </section>
       <section id="library">
         <h3>RENTAL LIBRARY</h3>
@@ -21,6 +28,10 @@
     <!-- UNDERSCORE TEMPLATES -->
     <script type="text/template" id="library-template">
       <img src="<%- image_url %>" /><%- title %>
+    </script>
+
+    <script type="text/template" id="result-list-template">
+      <%- title %>
     </script>
 
     <!-- INCLUDES -->

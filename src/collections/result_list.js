@@ -2,9 +2,10 @@ import Backbone from 'backbone';
 import Movie from '../models/movie';
 
 const ResultList = Backbone.Collection.extend({
-  initialize: function(options) {
-    this.query = options.query;
-  },
+  // initialize: function(options) {
+  //   //this.query = options.query;
+  // },
+  // query: this.query,
   model: Movie,
   // sync: function(method, model, options) {
   //   switch(method) {

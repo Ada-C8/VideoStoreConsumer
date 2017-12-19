@@ -11,9 +11,11 @@ import './css/styles.css';
 import Library from './collections/library';
 import LibraryView from './views/library_view';
 import ResultList from './collections/result_list';
+import ResultListView from './views/result_list_view';
 
 
 const library = new Library();
+const resultList = new ResultList();
 
 // ready to go
 $(document).ready(function() {
@@ -27,10 +29,16 @@ $(document).ready(function() {
 
   libraryView.render();
 
+  const resultListView = new ResultListView({
+    model: resultList,
+    template: _.template($('#result-list-template').html()),
+    el: '#search'
+  })
 
-  const resultList = new ResultList({query: 'Psycho'});
-  console.log(resultList);
+  //resultList.set('query', 'psycho');
+  //const resultList = new ResultList({query: 'Psycho'});
+  //console.log(resultList);
 
-  resultList.fetch()
+  //resultList.fetch()
 
 });
