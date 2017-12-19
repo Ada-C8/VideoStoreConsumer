@@ -39,7 +39,8 @@ const FormView = Backbone.View.extend({
     }
     // debugger;
     if (result ) {
-      this.bus.trigger(`displayMyDetails${result.get('cid')}`, result);
+      console.log(`displayMyDetails${result.get('id')}`);
+      this.bus.trigger(`displayMyDetails${result.get('id')}`, result);
 
     } else {
       result = searchTMDB(title);

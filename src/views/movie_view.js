@@ -6,7 +6,8 @@ const MovieView = Backbone.View.extend({
     this.template = params.template;
     this.detailsTemplate = params.detailsTemplate;
     this.bus = params.bus;
-    this.listenTo(this.bus, `displayMyDetails${this.model.get('cid')}`, this.renderMovieDetails);
+    // this.listenTo(this.bus, `displayMyDetails${this.model.get('cid')}`, this.renderMovieDetails);
+    this.listenTo(this.bus, `displayMyDetails${this.model.get('id')}`, this.renderMovieDetails);
   },
   render() {
     const compiledTemplate = this.template(this.model.attributes);
@@ -22,9 +23,10 @@ const MovieView = Backbone.View.extend({
     e.preventDefault();
     this.renderMovieDetails(this.model);
   },
-  renderMovieDetails: function(movie) {
+  renderMovieDetails: function(movie, event) {
     // debugger;
     console.log(movie);
+    console.log(this.model.get('cid'));
     this.$('#movie-details').empty();
     const compiledTemplate = this.detailsTemplate(this.model.attributes);
     this.$el.html(compiledTemplate);

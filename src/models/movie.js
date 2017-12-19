@@ -7,7 +7,7 @@ const Movie = Backbone.Model.extend({
   initialize(params) {
     this.title = params.title;
     this.attributes.upperCaseTitle = this.title.toUpperCase();
-  }
+  },
 
 });
 
