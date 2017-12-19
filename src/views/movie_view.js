@@ -16,9 +16,11 @@ const MovieView = Backbone.View.extend({
   },
   slideView(event) {
     if (this.$(event.target).attr('class').includes('details')) {
-      this.$('.details').toggle({direction: 'right'}, 350);
+      this.$('.add-rental-form').hide();
+      this.$('.details').toggle({direction: 'right'});
     } else {
-      this.$('.add-rental-form').toggle({direction: 'right'}, 350);
+      this.$('.details').hide();
+      this.$('.add-rental-form').toggle({direction: 'right'});
     }
   },
 })
