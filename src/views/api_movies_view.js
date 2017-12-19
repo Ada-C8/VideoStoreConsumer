@@ -18,6 +18,7 @@ const APIMoviesView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   render() {
+    this.$('#api-movies').empty();
     this.model.each((apiMovie) => {
       const apiMovieView = new APIMovieView({
         model: apiMovie,

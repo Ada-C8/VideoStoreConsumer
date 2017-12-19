@@ -7,6 +7,7 @@ const StoreLibraryView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'change', this.render);
   },
   render() {
     this.model.each((storeMovie) => {

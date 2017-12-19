@@ -29,16 +29,15 @@ const APIMovieView = Backbone.View.extend({
   'click .add-movie-btn': 'addMovieToLibrary',
   },
 
-  addMovieToLibrary: function(event) {
-    console.log('adding movie to lib in api movies view');
-    // console.log(this.model.attributes.title);
-
+  addMovieToLibrary: function() {
     const newStoreMovie = new StoreMovie({
       title: this.model.attributes.title,
       release_date: this.model.attributes.release_date,
+      overview: this.model.attributes.overview,
+      image_url: this.model.attributes.image_url
     });
     newStoreMovie.save();
-    console.log(newStoreMovie);
+    this.$el.empty()
   },
 
 });
