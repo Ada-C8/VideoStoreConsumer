@@ -25,6 +25,7 @@ const APIMoviesView = Backbone.View.extend({
         template: this.template,
         className: 'apiMovie',
       });
+      apiMovieView.storeLibrary = this.storeLibrary;
      this.$('#api-movies').append(apiMovieView.render().$el);
     });
     return this;

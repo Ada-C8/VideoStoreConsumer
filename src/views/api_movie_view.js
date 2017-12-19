@@ -37,7 +37,8 @@ const APIMovieView = Backbone.View.extend({
       image_url: this.model.attributes.image_url
     });
     newStoreMovie.save();
-    this.$el.empty()
+    this.storeLibrary.add(newStoreMovie);
+    this.$el.empty();
   },
 
 });

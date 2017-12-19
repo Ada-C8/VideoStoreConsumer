@@ -31,23 +31,18 @@ $(document).ready(function() {
 
   const apiMovies = new APIMovies();
 
-  $('.submit-btn').on('click', function(e) {
-    e.preventDefault();
-    const query = $('input[name=query]').val();
-    apiMovies.fetch({data: {query:`${query}`}});
-  });
-
-
   const apiMoviesView = new APIMoviesView({
     model: apiMovies,
     template: _.template($('#api-movie-template').html()),
     el: 'main'
   });
-  apiMoviesView.render();
+  apiMoviesView.storeLibrary = storeLibrary;
 
-
-
-
-
+  $('.submit-btn').on('click', function(e) {
+    e.preventDefault();
+    const query = $('input[name=query]').val();
+    apiMovies.fetch({data: {query:`${query}`}});
+    apiMoviesView.render();
+  });
 
 });
