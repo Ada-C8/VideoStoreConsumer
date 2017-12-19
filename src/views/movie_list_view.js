@@ -3,7 +3,7 @@ import Movie from '../models/movie';
 import MovieList from '../collections/movie_list';
 import MovieView from '../views/movie_view';
 import ReturnedMovieView from '../views/returned_movie_view';
-// import MovieSearch from '../collections/movie_search';
+// import returnedMovieList from '../collections/movie_search';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {
@@ -18,9 +18,7 @@ const MovieListView = Backbone.View.extend({
 
   render() {
     this.$('#movie-list').empty();
-    // console.log(this.model.length);
     const lastMovie = this.model.at(this.model.length -1);
-    // console.log(lastMovie);
     const movieView = new MovieView({
       tagName: 'li',
       template: this.template,
@@ -39,8 +37,8 @@ const MovieListView = Backbone.View.extend({
     this.$('#movie-list').empty();
 
     const movieTitle = this.getFormData();
-    const movieSearch = new Movie({title: movieTitle})
-    const results = movieSearch.fetch({
+    const returnedMovieList = new Movie({title: movieTitle})
+    const results = returnedMovieList.fetch({
       success: (model, response) => {
         response.forEach((movieData) => {
           const newMovie = new Movie(movieData);

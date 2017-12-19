@@ -1,8 +1,8 @@
 import Backbone from 'backbone';
-import Movie from '../models/movie';
+import ReturnedMovie from '../models/returned_movie';
 
 const ReturnedMovieView = Backbone.View.extend({
-  model: Movie,
+  model: ReturnedMovie,
 });
 
 export default ReturnedMovieView;

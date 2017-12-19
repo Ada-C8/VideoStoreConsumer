@@ -34,9 +34,10 @@ $(document).ready(function() {
   })
 
   movieTemplate = _.template($('#movie-template').html());
+  returnedMovieTemplate = _.template($('#returned-movie-template').html());
 
   const movieListView = new MovieListView({
-    el: '#main-content',
+    el: '#current-rentals-view',
     template: movieTemplate,
     model: movieList,
     bus: bus,
@@ -61,26 +62,3 @@ $(document).ready(function() {
   // });
 
 }); // DOCUMENT READY
-
-// RETURNS BACK
-//
-// attributes
-// :
-// external_id
-// :
-// null
-// id
-// :
-// 196
-// image_url
-// :
-// "/psJb2NQKUWDQyhMRV3hoEWk60gS.jpg"
-// overview
-// :
-// "The discovery of a severed human ear found in a field leads a young man on an investigation related to a beautiful, mysterious nightclub singer and a group of criminals who have kidnapped her child."
-// release_date
-// :
-// "1986-08-01"
-// title
-// :
-// "Blue Velvet"

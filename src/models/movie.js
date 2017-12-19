@@ -9,7 +9,6 @@ const Movie = Backbone.Model.extend({
       title: response['title'],
       overview: response['overview']
     }
-    //console.log(`the movie is ${movie.title}`);
     return movie
   },
 });
