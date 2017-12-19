@@ -6,34 +6,61 @@
 </head>
 <body>
   <main id="main-content">
+    <script src="/app.bundle.js"></script>
+    <header>
+<h1>Movie Store</h1>
+    </header>
 
+    <section>
+      <div id="movies" class="columns large-8 small-12 trade-column">
+        <div class="movie-search-form columns small-12">
+          <h3>Find a movie in the store:</h3>
+          <form id="form" method="get">
+            <label>Title</label>
+            <input type="text" id="title" name="title"></input>
+            <button class="btn-search-api success button">Search Store</button>
+          </form>
+          <div class="new-form-errors">
+          </div>
+        </div>
+        <table>
+          <thead>
+            <th class="sort title">Title</th>
+            <th class="sort release_date">Release Date</th>
+            <th class="img_url">Image</th>
+          </thead>
+          <tbody id="movie-list">
+          </tbody>
+        </table>
+      </div>
 
-  <script src="/app.bundle.js"></script>
-  <section>
-    <div id="movies">
-      <table>
-        <thead>
-          <th class="sort title">Title</th>
-          <th class="sort release_date">Release Date</th>
-        </thead>
-        <tbody id="movie-list">
-        </tbody>
-      </table>
-    </div>
+      <div class="movie-entry-form columns small-3">
+        <h3>Find New Movie</h3>
+        <form id="form" method="get">
+          <label>Title</label>
+          <input type="text" id="title" name="title"></input>
+          <button class="btn-search-api success button">Search Movies</button>
+        </form>
+        <div class="new-form-errors">
+        </div>
+      </div>
 
-  </section>
-</main>
+    </section>
+  </main>
 
 </body>
 
 
 <script type="text/template" id="movie-template">
-    <td>
-      <%- title %>
-    </td>
-    <td>
-      <%- release_date %>
-    </td>
+  <td>
+    <%- title %>
+  </td>
+  <td>
+    <%- release_date %>
+  </td>
+ <td>
+   <img src= "<%- image_url %>" />
+ </td>
 
 </script>
 </html>

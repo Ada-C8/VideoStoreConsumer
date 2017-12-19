@@ -25,9 +25,6 @@ $(document).ready(function() {
 
   const movies = new MovieList();
 
-  // TODO: check fetch and rerendering
-  movies.fetch();
-
   const movieListView = new MovieListView({
     el: 'main',
     model: movies,
@@ -35,6 +32,9 @@ $(document).ready(function() {
     // bus: bus,
   });
 
+
+  // TODO: check fetch and rerendering
+  movies.fetch();
   // movieListView.render();
 
   // $('#main-content').append('<p>Hello World!</p>');
