@@ -1,41 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <header>
+    <h1>Hometown</h1>
+    <p>Video Store</p>
+  </header>
+  <div class="actions">
     <button id='show-rental-library' class='button'>Rental Library</button>
     <form id='search-imdb-movies'>
       <label>Search Titles</label>
       <input type='text' id='searchTerm'/>
       <input type='submit' class='button' id='search' value='Search'></input>
     </form>
-    <main id="main-content">
-      <div id='movies-container'>
-        <ul id='movies'>
-        </ul>
-      </div>
+  </div>
+  <main id="main-content">
+    <div id='movies-container'>
+      <ul id='movies'>
+      </ul>
+    </div>
 
-    </main>
+  </main>
 
-    <script type="text/template" id="library-movie-template">
-        <span>
-          <img src='<%- image_url %>' alt='<%- title %>'/>
-          <%- title %>
-        </span>
-    </script>
+  <script type="text/template" id="library-movie-template">
+    <span>
+      <img src='<%- image_url %>' alt='<%- title %>'/>
+    </span>
+    <div class="listing-info">
+      <h3><%- title %></h3>
+      <p><%- release_date.slice(0, 4) %></p>
+    </div>
+  </script>
 
-    <script type="text/template" id="imdb-movie-template">
-        <span>
-          <img src='<%- image_url %>' alt='<%- title %>'/>
-          <%- title %>
-        </span>
-        <button class='movie-details button'>Show Details</button>
-        <button class='add-rental button'>Add to Rental Library</button>
-    </script>
+  <script type="text/template" id="imdb-movie-template">
+    <span>
+      <img src='<%- image_url %>' alt='<%- title %>'/>
+    </span>
+    <div class="listing-info">
+      <h3><%- title %></h3>
+      <p><%- release_date.slice(0, 4) %></p>
+      <button class='button show-details'>Show Details</button>
+      <button class='button show-form'>Add to Rental Library</button>
+    </div>
+    <div class="details slide">
+      <h5>Overview</h5>
+      <p><%- overview %></p>
+    </div>
+    <div class="add-rental-form slide">
+      <h5>Add Movie to Inventory</h5>
+      <form id="add-rental">
+        <label>Quantity</label>
+        <input type="text" name="inventory"></input>
+        <input type="submit" class="button"></input>
+      </form>
+    </div>
+  </script>
 
-    <script src="/app.bundle.js"></script>
+  <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+</body>
+</html>
