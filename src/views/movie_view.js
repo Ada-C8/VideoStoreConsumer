@@ -26,11 +26,10 @@ const MovieView = Backbone.View.extend({
       success: (r) => {
         responseJSON = r.toJSON();
         const generatedHTML = this.detail_template(responseJSON);
-        this.$el.append(generatedHTML);
+        this.$el.append(generatedHTML).find('.movie-detail').show(500);
       },
     });
   },
-
 });
 
 
