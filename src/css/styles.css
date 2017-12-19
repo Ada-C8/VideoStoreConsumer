@@ -36,9 +36,11 @@ article {
 #database-container, #catalog-container {
   background: #C3DFE0;
   color: #233831;
-  border: 1px solid #ADA8B6;
-  /* margin: 10px; */
+  /* border: 1px solid #ADA8B6; */
+  box-shadow: 0 -2px 5px -2px #465362;
 }
+
+
 
 ul#catalog-movies {
   list-style-type: none;
@@ -91,4 +93,10 @@ aside label {
 
 div {
   display: inline;
+}
+
+/* #sort, #add-history, #add-button { */
+h3 {
+  background: #BCD979;
+  box-shadow: 0 2px 5px -2px #465362;
 }
