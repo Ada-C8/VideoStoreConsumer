@@ -42,7 +42,7 @@ const movieSearch = function movieSearch(e) {
 
 const addMovie = function addMovie(e) {
   e.preventDefault();
-  // console.log($('#new-movie').serialize());
+
   const movie = new Movie({
     title: "Test Movie",
   });
