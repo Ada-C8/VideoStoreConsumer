@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 import MovieView from '../views/movie_view';
 import Movie from '../models/movie';
+import MovieList from '../collections/movie_list';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {
@@ -21,7 +22,16 @@ const MovieListView = Backbone.View.extend({
       this.$('#movies').append(movieView.render().$el);
     }); // end of each loop
     return this;
-  } // end of render
+  }, // end of render
+  events: {
+    'click button.list_movies': 'allMovieList',
+    'submit button.search': 'searchDbList',
+  },//end event
+  allMovieList: function(event){
+    const movies = new MovieList();
+    movies.fetch();
+  },
+
 }); // end MovieListView
 
 export default MovieListView;

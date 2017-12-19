@@ -14,12 +14,7 @@ import MovieListView from 'views/movie_list_view';
     const movies = new MovieList();
     movies.fetch();
 
-    const movieListView = new MovieListView({
-        model: movies,
-        template: _.template($('#movie-template').html()),
-        el: 'main'
-    }); // end of const
-    movieListView.render();
+
   };
 
   const searchDbList = function(event){
@@ -38,8 +33,18 @@ import MovieListView from 'views/movie_list_view';
     searchReturns.render();
   };
 
+
   // ready to go
   $(document).ready(function() {
-    $('.list_movies').click(allMovieList);
+    // $('.list_movies').click(allMovieList);
+
+
+    const movieListView = new MovieListView({
+        model: movies,
+        template: _.template($('#movie-template').html()),
+        el: 'main'
+    }); // end of const
+    movieListView.render();
+
     $('#search-form').submit(searchDbList);
   });
