@@ -24,16 +24,16 @@ import ApplicationView from './views/application_view.js';
 
 let application = new Application();
 let movieList = new MovieList();
-movieList.fetch();
+movieList.fetch({reset: true});
 
 // ready to go
 $(document).ready(function() {
-let appView = new ApplicationView({
-  el: 'body',
-  model: application,
-  movieListTemplate: _.template($('#movie-template').html()),
-  movieList: movieList,
-  movieDetailsTemplate: _.template($('#movie-info-template').html())
-});
-appView.showList();
+  let appView = new ApplicationView({
+    el: 'body',
+    model: application,
+    movieListTemplate: _.template($('#movie-template').html()),
+    movieList: movieList,
+    movieDetailsTemplate: _.template($('#movie-info-template').html())
+  });
+  appView.showList({reset: true});
 });

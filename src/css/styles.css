@@ -2,18 +2,33 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee');
 @import url('https://fonts.googleapis.com/css?family=Inconsolata');
 
+
 body {
   font-family: 'Inconsolata', monospace;
 }
 
+ul {
+  list-style-type: none;
+}
+
 main {
     background: lightblue;
+    text-decoration: none;
 }
 
 header {
   background-color: black;
   padding: 0.5rem;
   font-family: 'Inconsolata', monospace;
+}
+
+h2:hover {
+  color: maroon;
+  cursor: pointer;
+}
+
+.float-right {
+  max-block-size: 40px;
 }
 
 #completed-checkbox {
@@ -28,6 +43,7 @@ header {
 
 h2, h3, h4 {
   font-family: 'Bungee', cursive;
+  text-decoration: none;
 }
 
 h5 {

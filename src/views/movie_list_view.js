@@ -7,8 +7,9 @@ import MovieView from './movie_view.js';
 let MovieListView = Backbone.View.extend({
   initialize: function(params) {
     this.template = params.template;
-    this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.model, 'update reset', this.render);
   },
+
   render: function() {
     this.$('main').html('<ul></ul>');
     let that = this;
@@ -36,7 +37,7 @@ let MovieListView = Backbone.View.extend({
 
     this.model.fetch({
       data: { query: queryTerm },
-      processData: true
+      processData: true,
     });
   },
 });

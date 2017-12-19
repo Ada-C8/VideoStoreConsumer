@@ -11,16 +11,17 @@ let ApplicationView = Backbone.View.extend({
     this.movieDetailsTemplate = params.movieDetailsTemplate;
   },
   events: {
-    'click h1' : 'showList',
-    },
+    'click h1' : 'showList'
+  },
 
   showList: function () {
     let movieListView = new MovieListView({
       model: this.movieList,
       template: this.movieListTemplate,
-      el: 'body'
+      el: 'body',
     });
-    movieListView.render();
+
+    this.movieList.fetch({reset: true});
     this.listenTo(movieListView, 'showMovieDetails', this.showMovieDetails);
   },
   showMovieDetails: function (movie) {
