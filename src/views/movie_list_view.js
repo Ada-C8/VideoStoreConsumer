@@ -2,6 +2,7 @@ import Backbone from 'backbone';
 import Movie from '../models/movie';
 import MovieList from '../collections/movie_list';
 import MovieView from '../views/movie_view';
+import MovieSearch from '../collections/movie_search';
 
 const MovieListView = Backbone.View.extend({
   initialize(params) {
@@ -32,18 +33,17 @@ const MovieListView = Backbone.View.extend({
 
   searchMovies(event) {
     event.preventDefault();
-    const movieList = new MovieList();
-    console.log(movieList);
     console.log('This is the searchMovies function');
     const movieTitle = this.$('form input[name=title]').val();
-
-    console.log(`The movie title is ${movieTitle}`);
+    const movieList = new MovieSearch();
+    movieList.url += movieTitle
+    console.log(movieList.url);
 
     movieList.fetch({
       success: (model, response) => {
-        // TODO: NEED TO ADD APPENDING TO ANOTHER DIV IN THE INDEX OF THE MOVIE LIST VIEW
-        console.log(`This is the model: ${model}`);
-        console.log(`This is the response: ${response}`);
+        response.forEach((movie) => {
+          console.log(movie);
+        });
       },
       // TODO: CREATE AN ERROR DIV/AND OR TEMPLATE TO DISPLAY ALL ERRORS UNDERNEATH THE SEARCH BAR
       error: (model, reponse) => {

@@ -42,7 +42,7 @@ $(document).ready(function() {
     bus: bus,
   });
 
-  console.log(movieList.length);
+  //console.log(movieList.length);
 
   movieListView.render();
 
