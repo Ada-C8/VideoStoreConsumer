@@ -16,6 +16,7 @@ import _ from 'underscore';
 // let database = new MovieList();
 let catalog = new MovieList();
 
+
 // ready to go
 $(document).ready(function() {
   catalog.fetch({
@@ -25,6 +26,7 @@ $(document).ready(function() {
       })
     }
   });
+
   console.log(catalog);
 
   const $catalogTemplate = _.template($("#catalog-template").html());
@@ -33,6 +35,12 @@ $(document).ready(function() {
     template: $catalogTemplate,
     el: 'main',
   });
+
+  let database = new MovieList({
+    query: "something"
+  });
+
+  database.fetch();
 
 
 });
