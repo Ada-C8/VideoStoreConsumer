@@ -23,9 +23,10 @@
               <input type="submit" value="Search movie database">
             </form>
 
-            <div class="movies-list-container">
-              <ul id="movies" class="movies">
-              </ul>
+            <div id="search-movies-container" class="movies-list-container">
+              <h2>Search Results</h2>
+              <div id="search-movies" class="movies">
+              </div>
             <!-- </div> -->
             </div>
           </div>
@@ -54,6 +55,19 @@
       <p>
         <strong>Release Date: </strong> <%- release_date %>
       </p>
+
+    </script>
+    <script type="text/template" id="search-movie-template">
+      <p>
+        <strong>Title: </strong> <%- title %>
+      </p>
+      <p>
+        <strong>Description: </strong> <%- overview %>
+      </p>
+      <p>
+        <strong>Release Date: </strong> <%- release_date %>
+      </p>
+      <button class="btn-add-movie">Add To Library</button>
 
     </script>
 
