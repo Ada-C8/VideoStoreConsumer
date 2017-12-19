@@ -25,33 +25,6 @@ const MovieListView = Backbone.View.extend({
 
     return this;
   },
-  events: {
-    'click button#search': 'searchQuery',
-  },
-  // function
-  // get form data
-  // add a new search
-  // for each parse results and add
-  searchQuery(event) {
-    event.preventDefault();
-    console.log("Doing a search");
-    let query = this.$('#search-form input').val();
-    console.log(query);
-    let search = new Search({query: query});
-    let results = search.fetch();
-
-    console.log(search);
-    console.log(results);
-
-    this.$('#search-form input').val('');
-  },
-  // getSearchQuery() {
-  //   const val = $('#search-form input').val();
-  //   return val;
-  // },
-  // clearSearchQuery() {
-  //   const val = $('#search-form input').val('');
-  // },
 });
 
 export default MovieListView;

@@ -37,6 +37,21 @@ $(document).ready(function() {
   movieList.fetch();
   movieListView.render();
 
+  $('#search-form').on('submit', function(e){
+    e.preventDefault();
+    let queryText = $('#search-form input').val();
+
+    if (queryText.length > 0 ) {
+      console.log(queryText);
+      movieList.fetch({
+        data: {query: queryText},
+        // reset: true,
+      });
+      movieListView.render();
+    }
+    $('#search-form input').val('');
+  });
+
   $('#main-content').append('<p>Hello World!</p>');
 
 

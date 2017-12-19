@@ -9,6 +9,9 @@ const Search = Backbone.Model.extend({
     console.log(url);
     return url;
   },
+  parse: function(response) {
+    return response;
+  },
 });
 
 export default Search;
