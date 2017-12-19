@@ -10,6 +10,10 @@
   --jade: #1B998B;
 }
 
+* {
+  border: 1px solid green;
+}
+
 body {
   background-color: var(--charcoal);
 }
@@ -83,10 +87,36 @@ main {
   width: 80%;
 }
 
+.button {
+  align-items: flex-start;
+  color: white;
+  background-color: #D7263D;
+  border-color: buttonface;
+  border-image: initial;
+  border-style: outset;
+  border-radius: 5rem;
+  border-width: 2px;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 2.5rem;
+  margin: 1rem auto;
+  padding: 10px 6px 3px;
+  text-align: center;
+  width: 100%;
+}
+
+.button:active {
+  border-style: inset;
+}
+
 /***** NAV BAR *****/
 
 #nav-bar {
   width: 30%;
+}
+
+input[type="text"] {
+  border-radius: 2rem;
 }
 
 form.search input {
@@ -98,8 +128,9 @@ form.search input[type="text"] {
   width: 70%;
 }
 
-form.search input[type="submit"] {
+input[type="submit"] {
   background-color: var(--red);
+    border-radius: 2rem;
   color: white;
   height: 2.5rem;
   width: 25%;
@@ -126,4 +157,20 @@ form.search input[type="submit"] {
 .movie:hover {
   background-color: #D7263D;
   color: #FFB238;
+}
+
+.movie .name {
+  font-family: 'Fredoka One', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.movie-options ul {
+  margin: 0;
+}
+
+.movie-options li {
+  display: inline;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 1.25rem;
 }
