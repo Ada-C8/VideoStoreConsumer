@@ -51,7 +51,7 @@ const Detail = Backbone.View.extend({
     let params = {title: movie.get('title'), release_date: movie.get('release_date')}
 
     $.post( movie.urlRoot, params, (response) => {
-      this.successfulAdd();
+      this.successfulAdd(response);
     }).fail(() => {
         this.failedAdd();
     });
@@ -59,12 +59,15 @@ const Detail = Backbone.View.extend({
     //   success: this.successfulAdd,
     //   error: this.failedAdd,
     // });
-    // this.render();
+    //
   },
   successfulAdd(movie) {
+    console.log(movie)
     this.collection.add(movie);
-    console.log(this.collection.length);
-
+    // this.collection.trigger('update');
+    // console.log(this.collection.length);
+    this.render();
+    console.log(this.collection)
   },
   failedAdd(movie) {
     console.log('boo');

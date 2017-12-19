@@ -18,10 +18,10 @@ const VideoListView = Backbone.View.extend({
     // this.listenTo(this.model, 'update', this.render);
   },
   render(list) {
-
     if (!list) {
       list = this.model.models;
     }
+    console.log(list.length)
     // this.model.fetch({}).done(() => {
       this.$('#rental-list').empty();
       list.forEach((video) => {
