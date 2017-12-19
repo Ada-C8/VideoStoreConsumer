@@ -13,10 +13,11 @@ const ReturnedMovieListView = Backbone.View.extend({
     'click .btn-add': 'addMovie'
   },
   addMovie(attributes){
-    //console.log(this.model.length);
+    //console.log(this);
     //console.log(`attributes are ${attributes}`);
     this.model.add(attributes);
     this.render();
+    console.log('movie has been added to inventory');
     //console.log(`the model is ${this.model.length}`);
 
   },
