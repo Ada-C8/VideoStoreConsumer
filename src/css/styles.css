@@ -14,6 +14,7 @@ ul {
 main {
     background: lightblue;
     text-decoration: none;
+    padding: 40px;
 }
 
 header {
@@ -27,10 +28,6 @@ h2:hover {
   cursor: pointer;
 }
 
-.float-right {
-  max-block-size: 40px;
-}
-
 #completed-checkbox {
   display: inline;
 }
@@ -39,11 +36,22 @@ h2:hover {
   font-family: 'Bungee', cursive;
   color: yellow;
   text-shadow: -2px 0px 3px rgba(0, 255, 255, 1);
+  text-align: center;
+}
+
+#logo:hover {
+  color: maroon;
+  text-shadow: -2px 1px 4px rgba(0, 255, 255, 1);
 }
 
 h2, h3, h4 {
   font-family: 'Bungee', cursive;
-  text-decoration: none;
+  display: table-header-group;
+}
+
+h2 {
+  font-size: 1.5em;
+  padding: 40px;
 }
 
 h5 {
@@ -64,13 +72,27 @@ aside label {
   color: #FFFFFF;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
 div {
   display: inline;
 }
+
+.pageDescription {
+  color: lightblue;
+  font-size: 1.2em;
+  padding-left: 20px;
+}
+
+img {
+    margin: auto;
+     width: 50%;
+     padding: 40px;
+   }
+
+footer {
+  color: green;
+  padding-left: 280px;
+}
+
 /*
 * {
   border-style: solid;
