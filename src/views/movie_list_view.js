@@ -1,6 +1,7 @@
 import Backbone from 'backbone';
 import Movie from 'models/movie';
 import MovieView from 'views/movie_view';
+import Search from 'models/search';
 
 const MovieListView = Backbone.View.extend({
   initialize(params){
@@ -9,16 +10,16 @@ const MovieListView = Backbone.View.extend({
 
   events: {
     'click button.btn-show': 'getRentalMovies',
-    // 'click button.btn-search': 'getIndividualMovie',
+    'click button.btn-search': 'getIndividualMovie',
   },
 
   getRentalMovies() {
     console.log(" all rental movies");
     //this.model.remove_all()
+
     //calls to the rails API, returns movies in RailsDB in JSON
     const movieList = this.model.fetch()
     movieList.then(() => {
-      // console.log(movieList.responseJSON[0].title)
       movieList.responseJSON.forEach((movie) => {
         const newMovie = new Movie({
         title: movie.title,
@@ -28,24 +29,36 @@ const MovieListView = Backbone.View.extend({
       });
         this.model.add(newMovie)
       });
+      this.render();
     })
-    console.log(this.model);
-    this.render();
   },
+
   getIndividualMovie() {
+    event.preventDefault()
     //destory collection??
     //this.model.remove_all()
 
-    //const formData = getFormData()
-    //call to rails, API passes query, which calls to Movie API, which returns anything matching query
+    const query = this.getFormData();
+    const newSearch = new Search({query: query})
+    newSearch.url += newSearch.query
+    const results = newSearch.fetch()
 
-    //const newMovie = new Movie(JSON)
-    //this.add
-    //this.render()
+    results.then(() => {
+      results.responseJSON.forEach((movie) => {
+        const newMovie = new Movie({
+        title: movie.title,
+        overview: movie.overview,
+        release_date: movie.release_date,
+        image_url: movie.image_url,
+      });
+        this.model.add(newMovie)
+      });
+      this.render();
+    })
   },
 
   getFormData(){
-    //get query from search box
+    return this.$('input#query').val()
   },
 
   render(){
