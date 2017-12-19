@@ -6,20 +6,30 @@
 </head>
 <body>
   <main id="main-content">
+    <header>
 
-    <h1>BiBi and Ang's BadAss Backbone Baseline</h1>
-    <section class="library-movies" id="library-movies">
-    </section>
+      <h1>BiBi and Ang's BadAss Backbone Baseline</h1>
+      <section class="library-movies" id="library-movies">
+      </section>
 
-    <button class="button view-library-btn">View Library Movies</button>
-
-    <button class="button search-btn">Search for Movies</button>
+      <ul id="search" class="menu align-right large-5 medium-5 columns">
+        <li><input type="text" name="queryTerm" placeholder="Movie Title" id="search-box" /></li>
+        <li><a id="search-button" type="button" value="Search">Search</a></li>
+      </ul>
+    </header>
 
     <section class="search-form" id="search-form">
-      <form id="movie-search-form">
-        <input id="query" type="text" name="query"/>
-        <input type="submit" value="GO" />
-      </form>
+      <ul>
+
+        <li id="buttons"><button class="button view-library-btn">View Library Movies</button>
+
+        <button class="button search-btn">Search for Movies</button></li>
+
+        <form id="movie-search-form">
+          <li><input id="query" type="text" name="query" placeholder="Movie Title"/></li>
+          <li><input type="submit" value="GO" />
+        </form>
+      </ul>
     </section>
 
     <section class="movies-appear">
@@ -38,10 +48,10 @@
   <script src="/app.bundle.js"></script>
 
   <script type="text/template" id="movie-template">
+    <img src="https://image.tmdb.org/t/p/w185/<%- image_url %>" />
     <h2 class="title"><%- title %></h2>
     <p class="overview"><%- overview %></p>
-    <p class="release-date"><%- release_date %></p>
-    <img src="https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+    <p class="release-date">Release Date: <%- release_date %></p>
     <button class='btn-add alert button' style="<%- external_id ? '' : 'display:none;' %>">Add to Library</button>
   </script>
 

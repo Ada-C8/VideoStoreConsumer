@@ -5,8 +5,9 @@ main {
 }
 
 header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  background-color: gold;
+  padding: 40px;
+  margin-bottom: 10px;
 }
 
 #completed-checkbox {
@@ -40,6 +41,17 @@ div {
 
 ul {
   list-style: none;
+
+}
+
+
+script h2, script p, script button {
+  display: inline-block;
+  float: right;
+}
+
+#search-form {
+  display: right;
 }
 
 
