@@ -11,6 +11,7 @@ import Backbone from 'backbone';
 import Movie from 'models/movie'
 import MovieList from 'collections/movie_list'
 import MovieListView from './views/movie_list_view'
+import SearchView from './views/search_view'
 
 // ready to go
 $(document).ready(function() {
@@ -22,6 +23,10 @@ $(document).ready(function() {
 
   console.log("this is moesList");
   console.log(moviesList);
+
+  const searchView = new SearchView({
+    el: $('#search-view'),
+  });
 
   const movieListView = new MovieListView({
     model: moviesList,

@@ -11,7 +11,6 @@ const MovieListView = Backbone.View.extend({
     console.log("inside render in movie list view");
     console.log( this.model);
     this.model.each((movie) => {
-      console.log("inside the loop");
       const movieView = new MovieView({
         model: movie,
         template: this.template,
