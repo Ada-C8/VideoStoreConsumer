@@ -12,13 +12,15 @@ const ReturnedMovieListView = Backbone.View.extend({
   },
 
   matchingMovies(event) {
-    console.log('why the eff is this not working')
+    // console.log('why the eff is this not working')
     event.preventDefault();
 
     const movieTitle = this.getFormData();
-
-    const searchedMovie = new ReturnedMovie({title: movieTitle})
-    const results = searchedMovie.fetch({
+    // console.log('This is the movie title: ' + movieTitle.title);
+    // console.log(this.model.url);
+    this.model.url += movieTitle.title;
+    // console.log(url);
+    const results = this.model.fetch({
       success: (model, response) => {
         response.forEach((movieData) => {
           let newMovie = new ReturnedMovie(movieData);
@@ -37,6 +39,7 @@ const ReturnedMovieListView = Backbone.View.extend({
         console.log(`This is the response: ${reponse} in the movie list view`);
       }
     });
+    this.model.url = 'http://localhost:3000/movies/?query=';
   },
   getFormData() {
     const data = {};

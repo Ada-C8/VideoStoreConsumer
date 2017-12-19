@@ -55,7 +55,7 @@ $(document).ready(function() {
   const returnedMovieListView = new ReturnedMovieListView({
     el: '#returned-movies-view',
     template: returnedMovieTemplate,
-    model: returnedMovieTemplate,
+    model: returnedList,
     bus: bus,
   });
 
