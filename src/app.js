@@ -32,7 +32,6 @@ $(document).ready(function() {
   // });
 
   console.log(movieList);
-  // debugger
   console.log('that is the movie list^^^^');
 
   const movieListView = new MovieListView({

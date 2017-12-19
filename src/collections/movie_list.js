@@ -22,7 +22,7 @@ const MovieList = Backbone.Collection.extend({
     //   options.url = this.url + "?query=" + query['query']
     // }
     options.data = {query: query['query']}
-    debugger
+  
     return this.fetch(options)
       // return Backbone.Model.prototype.fetch.call(this, options);
   },

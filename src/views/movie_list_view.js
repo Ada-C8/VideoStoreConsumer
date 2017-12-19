@@ -24,7 +24,6 @@ const MovieListView = Backbone.View.extend({
   // }
   render(params){
     event.preventDefault();
-    // debugger
     let query = this.$('#movie-field').val();
     const movieListView = new MovieListView({
       el: '#movie-list',
@@ -32,10 +31,6 @@ const MovieListView = Backbone.View.extend({
       query: this.query,
       query: query,
     });
-    console.log(query);
-    console.log('query ^^^^');
-    console.log(this);
-    console.log('this is this^^^');
     // this.$el.empty();
     this.$('#movie-list').empty();
     this.model.each((movie)=>{
