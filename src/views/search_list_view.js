@@ -9,6 +9,10 @@ const SearchListView = Backbone.View.extend({
     // NOTE: add template back in later when we need it
     // this.template = params.template;
   }, // initialize
+  statusMessage(message) {
+    this.$('#status-messages').empty();
+    this.$('#status-messages').append(`<p>${message}</p>`)
+  }, // statusMessage
   events: {
     'click #search-button': 'searchForMovie',
   }, // events
@@ -28,26 +32,18 @@ const SearchListView = Backbone.View.extend({
 
     $.get(encoded_url).done( (data) => {
       const APIresponse = data;
-      // console.log(APIresponse["responseJSON"]);
+      if (APIresponse.length < 1) {
+        console.log('no results');
+        this.statusMessage(`No results found for ${title}`);
+      }
       this.render(APIresponse)
+
     })
-
-
-
   }, // searchForMovie
   render(results){
     console.log("inside render in search list view");
-    console.log(results[0]);
-    // make a new search view for each result in the search response.
-    // results.each((result) => {
-    //   const searchView = new SearchView({
-    //     model: result,
-    //     template: this.template,
-    //     tagName: 'tr',
-    //   });
-    //   this.$('#search-list').append(searchView.render().$el);
-    // })
 
+    this.$('#search-list').empty();
 
     for (var result of results) {
       const searchView = new SearchView({
@@ -58,7 +54,7 @@ const SearchListView = Backbone.View.extend({
       this.$('#search-list').append(searchView.render().$el);
 }
     return this
-  }
+  },  // render
 }) //close view
 
 export default SearchListView
