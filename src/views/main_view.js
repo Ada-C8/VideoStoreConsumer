@@ -32,8 +32,8 @@ const MainView = Backbone.View.extend({
   },
   renderAllMovies(event) {
     event.preventDefault();
-    console.log('in renderAllMovies');
     const title = this.$('form input').val();
+    this.$('#movies-list').html('<h3> Searching...</h3>');
     this.search(title);
 
   },
