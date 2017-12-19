@@ -37,8 +37,9 @@ const MovieListView = Backbone.View.extend({
 
   searchDBMovies: function(e) {
     e.preventDefault();
-    console.log('hello!');
-    this.model.fetch({ data: $.param({'query': 'cat'}) }).done(() => {
+    let searchWord = this.$('input[name=search-movies]').val();
+    console.log(searchWord);
+    this.model.fetch({ data: $.param({'query': searchWord}) }).done(() => {
       console.log(this.model);
       this.render();
     })
