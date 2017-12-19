@@ -9,6 +9,7 @@ import Movie from 'models/movie';
 import MovieList from 'collections/movie_list';
 import MovieView from 'views/movie_view';
 import MovieListView from 'views/movie_list_view';
+import MovieDetailsView from 'views/movie_list_view';
 
 let bus = {};
 bus = _.extend(bus, Backbone.Events);
@@ -33,6 +34,7 @@ $(document).ready(function() {
 
   const resultsListView = new MovieListView({
     model: searchedMovies,
+    libary: rentalMovies,
     template: _.template($('#movie-template').html()),
     // el: 'main',
     el: ''

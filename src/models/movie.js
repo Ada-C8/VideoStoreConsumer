@@ -1,12 +1,12 @@
 import Backbone from 'backbone';
 
 const Movie = Backbone.Model.extend({
-  urlRoot: 'localhost:3000/movies',
+  urlRoot: 'http://localhost:3000/movies',
   defaults: {
     inventory: 0,
   },
   validate(attributes) {
-    // title: 
+    // title:
     // overview:
     // release_date:
     // image_url:

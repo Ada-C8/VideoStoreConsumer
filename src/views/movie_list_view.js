@@ -25,6 +25,7 @@ const MovieListView = Backbone.View.extend({
       });
       console.log('MAKING MOVIE VIEWS');
       // Then render the OrderView and append the resulting HTML to the DOM.
+      this.listenTo(movie, 'clickedAddMovie', this.addMovietoRentals);
       this.$('#movies').append(movieView.render().$el);
     });
     return this;
@@ -44,7 +45,18 @@ const MovieListView = Backbone.View.extend({
   viewMovies: function(event) {
     this.$('.movies-container h2').html('Rental Library Movies');
     this.model.viewRentalMovies();
-  }
+  },
+  addMovietoRentals: function(movieData) {
+    console.log('in addMovietoRentals');
+    event.preventDefault();
+    const newMovie = new Movie(movieData);
+    debugger;
+    if (newMovie.isValid()) {
+      console.log('valid movie');
+    } else {
+      console.log('not valid');
+    }
+  },
 
 });
 

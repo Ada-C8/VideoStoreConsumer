@@ -11,7 +11,7 @@ const MovieList = Backbone.Collection.extend({
   viewRentalMovies() {
     this.url = 'http://localhost:3000/movies';
     this.fetch();
-  }
+  },
 });
 
 export default MovieList;
