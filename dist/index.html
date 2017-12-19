@@ -13,14 +13,14 @@
       <div class="workspace row">
         <div id="database-container" class="columns small-12 medium-6 large-6">
           <h2>Database List</h2>
-          <ul id="database-items">
+          <ul id="database-movies">
 
           </ul>
 
         </div>
         <div id="catalog-container" class="columns small-12 medium-6 large-6">
           <h2>Catalog List</h2>
-          <ul id="catalog-items">
+          <ul id="catalog-movies">
 
           </ul>
         </div>
@@ -31,7 +31,7 @@
 
       <script type="text/template" id="database-template">
         <li class="database-movie">
-          <%- title %>: <%- description %>
+          <%- title %>: <%- overview %>
 
         </li>
 
@@ -39,7 +39,7 @@
 
       <script type="text/template" id="catalog-template">
         <li class="catalog-movie">
-          <%- title %>: <%- description %>
+          <%- title %>: <%- overview %>
 
         </li>
 

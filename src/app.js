@@ -13,23 +13,19 @@ import _ from 'underscore';
 
 
 
-let catalog = new MovieList();
 // let database = new MovieList();
+let catalog = new MovieList();
 
 // ready to go
 $(document).ready(function() {
-  let data = catalog.fetch({
+  catalog.fetch({
     success: function(response) {
       response.models.forEach((model) => {
-        console.log(model.attributes);
+        model.attributes.models
       })
     }
   });
-
-  console.log(data);
-  console.log('heres catalog');
-  console.log();
-  $('#main-content').append('<p>Hello World!</p>');
+  console.log(catalog);
 
   const $catalogTemplate = _.template($("#catalog-template").html());
   const catalogView = new MovieListView({
