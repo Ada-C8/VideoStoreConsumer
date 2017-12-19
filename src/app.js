@@ -19,6 +19,7 @@ $(document).ready(function() {
 
   console.log('FETCHED MOVIES:');
   console.log(rentalMovies);
+  // $('#results-container').hide();
 
   const movieListView = new MovieListView({
     model: rentalMovies,
@@ -33,7 +34,8 @@ $(document).ready(function() {
   const resultsListView = new MovieListView({
     model: searchedMovies,
     template: _.template($('#movie-template').html()),
-    el: 'main',
+    // el: 'main',
+    el: ''
   });
 
   // $('#main-content').append('<p>Hello World!</p>');

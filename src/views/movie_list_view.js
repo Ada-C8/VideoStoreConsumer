@@ -31,15 +31,20 @@ const MovieListView = Backbone.View.extend({
   },
   events: {
     'click button.btn-search': 'searchMovies',
+    'click button.btn-rental-lib': 'viewMovies',
   },
   searchMovies: function(event) {
     event.preventDefault();
-    console.log('IN searchMovies');
-    console.log(this);
+    this.$('.movies-container h2').html('Results');
+    this.$('#results-container').show();
 
     const query = this.$('input[name=movie-query]').val();
     this.model.search(query);
   },
+  viewMovies: function(event) {
+    this.$('.movies-container h2').html('Rental Library Movies');
+    this.model.viewRentalMovies();
+  }
 
 });
 
