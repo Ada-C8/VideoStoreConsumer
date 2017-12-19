@@ -1,12 +1,67 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  color: #465362;
 }
 
-header {
-  background-color: lightgreen;
+h1 {
+  font-size: 2em;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+
+main {
+  background: white;
+}
+
+nav {
+  background: #C3DFE0;
+  position: sticky;
+  box-shadow: 0 2px 5px -2px #465362;
   padding: 0.5rem;
+}
+
+article {
+  margin: 20px 0;
+}
+
+#database-container, #catalog-container {
+  background: #C3DFE0;
+  color: #233831;
+  border: 1px solid #ADA8B6;
+  /* margin: 10px; */
+}
+
+ul#catalog-movies {
+  list-style-type: none;
+}
+
+.catalog-movie {
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px -2px #465362;
+}
+.catalog-movie span{
+  font-weight: bold;
+}
+
+#title-image{
+  display: block;
+  text-align: center;
+}
+#title-image img {
+  width: 100%;
+}
+#overview {
+  padding-top: 10px;
 }
 
 #completed-checkbox {
@@ -36,15 +91,4 @@ aside label {
 
 div {
   display: inline;
-}
-/*
-* {
-  border-style: solid;
-}
-*/
-/* .workspace.row {
-  width: 100vw;
-} */
-#database-container, #catalog-container {
-  display: inline-block;
 }

@@ -5,26 +5,39 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
-    <main id="main-content">
+    <nav>
       <header class="row">
         <h1 class="logo">CJ's Vidja Shtore</h1>
       </header>
+    </nav>
 
-      <div class="workspace row">
-        <div id="database-container" class="columns small-12 medium-6 large-6">
+    <main id="main-content">
+      <section class="workspace row">
+
+        <article id="sort" class="columns small-12 medium-3 large-3">
+          <h3>sort</h3>
+        </article>
+
+        <!-- toggles visability between database and container -->
+        <!-- <article id="database-container" class="columns small-12 medium-6 large-6">
           <h2>Database List</h2>
           <ul id="database-movies">
 
           </ul>
+        </article> -->
 
-        </div>
-        <div id="catalog-container" class="columns small-12 medium-6 large-6">
+        <article id="catalog-container" class="columns small-12 medium-6 large-6">
           <h2>Catalog List</h2>
           <ul id="catalog-movies">
 
           </ul>
-        </div>
-      </div>
+        </article>
+
+        <article id="add-history" class="columns small-12 medium-3 large-3">
+          <h3>track history</h3>
+        </article>
+
+      </section>
       <footer>
 
       </footer >
@@ -39,8 +52,24 @@
 
       <script type="text/template" id="catalog-template">
         <li class="catalog-movie">
-          <%- title %>: <%- overview %>
+          <div class="row">
 
+            <div id="title-image" class="columns medium-6 small-12">
+              <p>
+                <span><%- title %></span>
+              </p>
+              <img src= "https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+            </div>
+
+            <div id="overview" class="columns medium-6 small-12">
+              <p>
+                <span>Overview: </span><%- overview %>
+              </p>
+              <p>
+                <span>Release Date: </span><%- release_date %>
+              </p>
+            </div>
+          </div>
         </li>
 
       </script>
