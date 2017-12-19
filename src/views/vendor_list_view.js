@@ -11,6 +11,8 @@ const VendorListView = Backbone.View.extend({
   this.bus = params.bus;
   this.template = params.template;
   this.detailsTemplate = params.detailsTemplate;
+  this.inventory = params.inventory;
+
   this.listenTo(this.model, 'update', this.render);
   console.log('initializing vendor list view');
   },
@@ -22,6 +24,7 @@ const VendorListView = Backbone.View.extend({
       const vendorView = new VendorView({
         model: movie,
         template: this.template,
+        inventory: this.inventory,
         detailsTemplate: this.detailsTemplate,
         bus: this.bus,
         tagName: 'li',

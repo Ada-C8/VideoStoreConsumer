@@ -20,6 +20,7 @@ const FormView = Backbone.View.extend({
     'click button.vendor': 'searchTMDB',
   },
   showAllMovies: function(e) {
+    console.log('showing all movies');
     e.preventDefault();
     // if (this.$('#movies').hasClass('fetched')) {
     //   this.$('#movies').toggle();

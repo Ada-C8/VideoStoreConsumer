@@ -41,6 +41,7 @@ $(document).ready(function() {
 
   const vendorListView = new VendorListView({
     model: vendorList,
+    inventory: movieList,
     template: _.template($('#vendor-template').html()),
     el: '#vendors-container',
     bus: bus,

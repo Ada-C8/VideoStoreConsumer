@@ -30,21 +30,6 @@ const MovieListView = Backbone.View.extend({
     });
   },
 
-  renderVendorResults() {
-    this.$('#vendor-results').empty();
-    this.model.each((movie) => {
-      const vendorView = new MovieView({
-        model: movie,
-        teplate: this.template,
-        detailsTemplate: this.detailsTemplate,
-        bus: this.bus,
-        tagName: 'li',
-        className: 'movie',
-      });
-      this.$('#vendor-results').append(vendorView.render().$el);
-    });
-  },
-
   addMovie(movie) {
     console.log('adding a new movie to rental library');
     console.log(this.model);

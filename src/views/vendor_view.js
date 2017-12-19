@@ -7,6 +7,7 @@ const VendorView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.detailsTemplate = params.detailsTemplate;
+    this.inventory = params.inventory;
     this.bus = params.bus;
     // this.listenTo(this.bus, `displayMyDetails${this.model.get('cid')}`, this.renderMovieDetails);
     this.listenTo(this.bus, `displayMyDetails${this.model.get('id')}`, this.renderMovieDetails);
@@ -36,22 +37,35 @@ const VendorView = Backbone.View.extend({
   },
 
   addMovie(event) {
-    event.preventDefault();
-    console.log('add movie');
-    console.log(this.model);
+    // check if movie already exists in collection
+    const title = this.model.get('title').toUpperCase();
+    const date = this.model.get('release_date');
 
-    const movie_data = {
-      external_id: this.model.get('id'),
-      title: this.model.get('title'),
-      release_date: this.model.get('release_date'),
-      image_url: this.model.get('image_url'),
-      overview: this.model.get('overview'),
+    let result = this.inventory.findWhere({upperCaseTitle: title});
+
+    console.log(`result is`);
+    console.log(result);
+
+    // if doesn't exist add to collection
+    if (!result) {
+      console.log('movie does not exist');
+      event.preventDefault();
+      console.log('add movie');
+      console.log(this.model);
+
+      const movie_data = {
+        external_id: this.model.get('id'),
+        title: this.model.get('title'),
+        release_date: this.model.get('release_date'),
+        image_url: this.model.get('image_url'),
+        overview: this.model.get('overview'),
+      }
+      const newMovie = new Movie(movie_data);
+      console.log('this is a new movie');
+      console.log(newMovie);
+
+      this.bus.trigger('addMovie', newMovie);
     }
-    const newMovie = new Movie(movie_data);
-    console.log('this is a new movie');
-    console.log(newMovie);
-
-    this.bus.trigger('addMovie', newMovie);
   },
 
 });
