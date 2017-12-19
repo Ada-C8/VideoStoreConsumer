@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Video Store </title>
+  <title>KT MOVIE STORE</title>
 </head>
 <body>
 
   <header>
-    <a><h1 class="logo large-3 medium-3 columns">K & T VIDEO STORE</h1></a>
+    <a><h1 id="logo" class="logo large-3 medium-3 columns"> K & T MOVIE STORE </h1></a>
     <ul class="menu large-4 medium-4 columns">
       <li><a class="menu-button" id="show-movies-button">Movies</a></li>
       <li><a class="menu-button" id="show-customers-button">Customers</a></li>
@@ -28,15 +28,14 @@
       <!-- Templates -->
 
       <script id="movie-template" type="text/template">
-        <!-- <img src=<%- image_url %> /> -->
         <h2><%- title %></h2>
       </script>
 
       <script id="movie-info-template" type="text/template">
-        <!-- <img src=<%- image_url %> /> -->
-        <h3>Title: <%- title %></h3>
-        <h4>Overview: <%- overview %></h4>
-        <h4>Release Date: <%- release_date %></h4>
+        <h3> <%- title %></h3>
+        <img src="https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+        <h4>Overview:</h4><h5> <%- overview %></h5></h4>
+        <h4>Release Date:</h4><h5> <%- release_date %></h5>
         <h4 class="button" id="add-movie">Add Movie to Store</h4>
       </script>
 
