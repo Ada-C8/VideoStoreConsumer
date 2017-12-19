@@ -46,4 +46,10 @@ $(document).ready(function() {
     event.preventDefault();
     eventBus.trigger('showRentalLibrary');
   });
+
+  $('#search-imdb-movies').on('submit', function(event) {
+    event.preventDefault();
+    const searchTerm = $('#searchTerm').val();
+    eventBus.trigger('searchMovies', searchTerm);
+  });
 });
