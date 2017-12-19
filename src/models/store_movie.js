@@ -7,6 +7,9 @@ const StoreMovie = Backbone.Model.extend({
         case 'read':
           options.url = 'http://localhost:3000/movies' + model.get('title');
           return Backbone.sync(method, model, options);
+        case 'create':
+          options.url = 'http://localhost:3000/movies';
+          return Backbone.sync(method, model, options);
       }
     }
   // idAttribute: 'title',

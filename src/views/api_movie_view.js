@@ -36,7 +36,9 @@ const APIMovieView = Backbone.View.extend({
     const newStoreMovie = new StoreMovie({
       title: this.model.attributes.title,
       release_date: this.model.attributes.release_date,
-    })
+    });
+    newStoreMovie.save();
+    console.log(newStoreMovie);
   },
 
 });
