@@ -14,15 +14,15 @@ const ReturnedMovieListView = Backbone.View.extend({
     'click form .btn-search': 'matchingMovies'
   },
   addMovie(movie){
-    console.log('in add movie method');
-    console.log(movie);
+    // console.log('in add movie method');
+    // console.log(movie);
 
     const newMovie = new ReturnedMovie(movie);
-    console.log(newMovie);
+    // console.log(newMovie);
 
     newMovie.save({}, {
       success: (model, response) => {
-        console.log('save worked');
+        // console.log('save worked');
         this.bus.trigger('addToCollection', newMovie);
       },
       error: (model, response) => {
@@ -46,7 +46,7 @@ const ReturnedMovieListView = Backbone.View.extend({
         response.forEach((movieData) => {
           let newMovie = new ReturnedMovie(movieData);
           let returnedMovieView = new ReturnedMovieView({
-            tagName: 'li',
+            tagName: 'tr',
             template: this.template,
             model: newMovie,
             bus: this.bus,

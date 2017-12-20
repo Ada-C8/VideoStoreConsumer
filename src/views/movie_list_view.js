@@ -16,7 +16,7 @@ const MovieListView = Backbone.View.extend({
   addToCollection(movie){
     console.log(`The movie in the view method is ${movie}`);
     const movieView = new MovieView({
-      tagName: 'li',
+      tagName: 'tr',
       template: this.template,
       model: movie,
       bus: this.bus

@@ -24,9 +24,18 @@
         <!-- Movies that match the search -->
         <div id='imdb-section'>
           <h2>Search for movies on the web!</h2>
-          <ul id="matching-movies">
+          <table class="hover striped stack">
+            <thead>
+              <th>Movie</th>
+              <th>Release Date</th>
+              <th>Overview</th>
+              <th>Add Movie to Store</th>
+            </thead>
 
-          </ul>
+            <!-- APPEND ALL TRIPS  -->
+            <tbody id="matching-movies">
+            </tbody>
+          </table>
         </div>
       </section>
 
@@ -57,8 +66,6 @@
       </section>
 
       <!-- Search for Movie Form -->
-
-
     </main>
 
     <!-- Templates -->
@@ -78,11 +85,26 @@
     </script>
 
     <script type="text/template" id="returned-movie-template">
-      <h3 class="title"><%- title %></h3>
+      <td>
+        <img src = '<%- image_url %>' alt='<%- title%>'/>
+        <br>
+        <%- title %>
+      </td>
+      <td>
+        <%- release_date %>
+      </td>
+      <td>
+        <%- overview %>
+      </td>
+      <td>
+        <button class="button btn-add">Add</button>
+      </td>
+
+      <!-- <h3 class="title"><%- title %></h3>
       <p><%- release_date %></p>
       <p><img src = '<%- image_url %>' alt='<%- title%>'/></p>
       <p><%- overview %></p>
-      <p><button class="button btn-add">Add to collection</button><p>
+      <p><button class="button btn-add">Add to collection</button><p> -->
     </script>
 
     <script src="/app.bundle.js"></script>
