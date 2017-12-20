@@ -1,15 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <title>movies</title>
+</head>
+<body>
+  <main id="main-content">
+    <section id="search-view">
+      <div id="status-messages"></div>
+      <form id="search-form">
+        <label for="title">Title</label>
+        <input id="search-input" name="title" type="text" placeholder="What movie are you looking for?"></input>
+        <button type="submit" class="button search-button" id="search-button">Search</button>
+      </form>
+      <section id="results-table",  class="columns large-8 small-12 hide">
+        <h2>Results!</h2>
+        <div id="search-status"></div>
+        <table>
+          <thead>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Overview</th>
+            <th>Release Date</th>
+            <th><button class="button" id='clear-search'>Clear Results</button>
+          </thead>
+          <tbody id="search-list">
+          </tbody>
+        </table>
+      </section>
 
-    <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+    </section>
+    <section class="columns large-8 small-12">
+      <h2>Movies!</h2>
+      <section id="list-movies">
+        <table>
+          <thead>
+            <th>Title</th>
+            <th>Release Date</th>
+          </thead>
+          <tbody id="movies-list">
+          </tbody>
+        </table>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.bundle.js"></script>
+  <script type="text/template" id="all-movies-template">
+    <td >
+      <%- title %>
+    </td>
+    <td>
+      <%- release_date %>
+    </td>
+    <td>
+      <button type="button" class="button">See Details</button>
+    </td>
+  </script>
+
+  <script type="text/template" id="search-results">
+    <td >
+      <img src="<%- image_url%>">
+    </td>
+    <td >
+      <%- title %>
+    </td>
+    <td>
+      <%- overview %>
+    </td>
+    <td>
+      <%- release_date %>
+    </td>
+    <td id="have-movie">
+      <!-- have ? 'have it' : 'have it' -->
+
+      <% if (have) { %>
+        You have this movie
+        <% } %>
+        <% if (!have) { %>
+          <button class="button" id="add-movie">Add to library</button>
+          <% } %>
+        </td>
+      </script>
+
+    </body>
+    </html>
