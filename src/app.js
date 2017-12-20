@@ -1,8 +1,10 @@
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+import Backbone from 'backbone';
 import VideoList from 'collections/video_list';
 import VideoListView from 'views/video_list_view';
+import DetailView from 'views/detail_view';
 import CustomerList from 'collections/customer_list';
 
 
@@ -13,42 +15,42 @@ import './css/styles.css';
 
 
 const rentalList = new VideoList();
-rentalList.fetch();
 
 const customerList = new CustomerList();
-customerList.fetch({}).done(()=> {
-  console.log('done');
-  customerList.each((customer) => {
-    const name = customer.get('name');
-    const id = customer.get('id');
-    console.log(customer);
-    $('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
-  });
-
-});
+customerList.fetch();
 
 
 const videoTemplate = _.template($('#video-template').html());
 const videoListTemplate = _.template($('#video-list-template').html());
+
+let bus = {};
+bus = _.extend(bus, Backbone.Events);
 
 // ready to go
 $(document).ready(function() {
   rentalList.fetch().done(() => {
     const rentalView = new VideoListView({
       model: rentalList,
+      bus: bus,
       template: videoListTemplate,
-      detailTemplate: videoTemplate,
+      // detailTemplate: videoTemplate,
       el: '#rental-library',
-      customerList: customerList,
     });
-
     rentalView.render();
+
+    const detailView = new DetailView({
+      collection: rentalList,
+      customerList: customerList,
+      bus: bus,
+      template: videoTemplate,
+      el: '#video-main'
+    });
+    detailView.render();
 
   }).fail(()=> {
     $('#rental-library').html('<p>Please refresh page</p>')
   });
 
-  // this.$('button#confirm-checkout').attr('value', title);
-
   $('#checkout-form').hide();
+
 });

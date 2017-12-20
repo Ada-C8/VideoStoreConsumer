@@ -11,7 +11,8 @@ const VideoListView = Backbone.View.extend({
     this.template = parameters.template;
     this.model = parameters.model;
     this.customerList = parameters.customerList;
-    this.detailTemplate = parameters.detailTemplate;
+    this.bus = parameters.bus;
+
     this.listenTo(this.model, 'sortMe', this.render);
     this.listenTo(this.model, 'update', this.render);
     // this.listenTo(this.model, 'change', this.render);
@@ -21,8 +22,7 @@ const VideoListView = Backbone.View.extend({
     if (!list) {
       list = this.model.models;
     }
-    console.log(list.length)
-    // this.model.fetch({}).done(() => {
+
       this.$('#rental-list').empty();
       list.forEach((video) => {
         if (video.get('title')) {
@@ -40,37 +40,21 @@ const VideoListView = Backbone.View.extend({
       });
       return this;
 
-    // }).fail(() => {
-    //   console.log('not working');
-    // })
   },
   events: {
     'click tr.video-item': 'viewMe',
     'keyup input[type=text]': 'filterMe',
     'click input.btn-search': 'searchMe',
-    // 'click button#confirm-checkout': 'checkMeOut',
   },
   viewMe(event) {
-    // $('#checkout-form').show();
-    // this.checkOutForm();
-
-    const detailView = new DetailView({
-      // image_url: video.get('image_url'),
-      template: this.detailTemplate,
-      title: event.currentTarget.firstElementChild.innerText,
-      el: '#video-main',
-      collection: this.model,
-      customerList: this.customerList,
-    });
-    detailView.render();
+    this.bus.trigger("selectedVideo", event.currentTarget.firstElementChild.innerText);
+    // console.log(event.currentTarget.firstElementChild.innerText)
   },
   filterMe(event) {
-    console.log(event);
     event.preventDefault();
     // filter rental list
     console.log('filtering');
     const input = event.target.value;
-    console.log(input)
     const newList = this.model.filterList(input);
     this.model.trigger('sortMe', newList);
 
@@ -81,17 +65,11 @@ const VideoListView = Backbone.View.extend({
   },
   searchMe(event) {
     event.preventDefault();
-    console.log(event)
     const input = $('input[type=text]')["0"].value;
-    console.log($('input[type=text]'))
-    console.log('you hit enter');
     const movieList = new Video({id: input});
     movieList.urlRoot += '/?query='
     movieList.fetch({}).done(()=> {
-      console.log(movieList);
-      // movieList.set('in_library', false)
       this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
-
     });
   },
 });
