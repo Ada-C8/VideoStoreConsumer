@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import Movie from 'models/movie';
+import MovieList from 'collections/movie_list'
 
 const MovieView = Backbone.View.extend({
   initialize(params){
@@ -20,17 +21,20 @@ const MovieView = Backbone.View.extend({
   //   const movieList = this.model.save();
   // }
   add(event) {
+
     const movieList = this.model.save({}, {
       success: (model, response) => {
         this.$('.reporting').empty();
         this.$('.reporting').append('Successfully saved movie to library!');
       },
       error: (model, response) => {
+        console.log(response);
         this.$('.reporting').empty();
         this.$('.reporting').append('Failed to save movie to library');
 
       }
     });
+
   },
 });
  export default MovieView;
