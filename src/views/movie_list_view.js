@@ -7,7 +7,10 @@ import MovieView from './movie_view';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
+    this.bus = params.bus;
+    this.listenTo(this.bus, 'updateStatusMessage', this.statusMessage);
   },
+
   render() {
     this.$('#rentals').empty();
     this.model.each((movie) => {
@@ -16,6 +19,7 @@ const MovieListView = Backbone.View.extend({
         template: this.template,
         tagname: 'li',
         className: 'rental',
+        bus: this.bus,
       })
       this.$('#rentals').append(movieView.render().$el);
     })
@@ -45,6 +49,11 @@ const MovieListView = Backbone.View.extend({
     })
   },
 
+  statusMessage: function(statusMessage) {
+    this.$('#status-messages').empty();
+    this.$('#status-messages').html(`<h3>${statusMessage}</h3>`);
+  }
+  
 });
 
 export default MovieListView;

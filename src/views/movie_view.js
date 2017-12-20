@@ -6,6 +6,7 @@ import Movie from '../models/movie';
 const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
+    this.bus = params.bus;
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
@@ -32,19 +33,24 @@ const MovieView = Backbone.View.extend({
 
   addLib: function(e) {
     e.preventDefault();
-    console.log(this.model);
     const newMovie = new Movie ({
       title: this.model.get('title'),
       release_date: this.model.get('release_date'),
     })
     newMovie.save({}, {
-      success: this.successSave(newMovie),
+      success: this.successSave.bind(this),
+      error: this.failSave.bind(this),
     });
   },
 
   successSave: function(newMovie) {
-    console.log(newMovie);
-    console.log('success');
+    const statusMessage = `${newMovie.attributes.title} added to rental list!`;
+    this.bus.trigger('updateStatusMessage', statusMessage);
+  },
+
+  failSave: function(newMovie, response) {
+    const statusMessage = `${newMovie.attributes.title} unable to add to rental list!`;
+    this.bus.trigger('updateStatusMessage', statusMessage);
   }
 })
 

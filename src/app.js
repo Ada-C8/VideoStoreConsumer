@@ -16,6 +16,9 @@ import MovieListView from './views/movie_list_view';
 
 let movieList = new MovieList();
 
+let bus = {};
+bus = _.extend(bus, Backbone.Events);
+
 // ready to go
 $(document).ready(function() {
 
@@ -24,6 +27,7 @@ $(document).ready(function() {
       model: movieList,
       template: _.template($('#movie-template').html()),
       el: 'main',
+      bus: bus,
     })
     movieListView.render();
     // console.log(movieList);
