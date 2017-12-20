@@ -31,7 +31,7 @@ const LibMovieListView = BackBone.View.extend({
         console.log('Failed to save movie');
 
         this.model.remove(model);
-        console.log(response.responseJSON);
+        console.log(response.responseJSON['errors']);
         //report status
       }
     })

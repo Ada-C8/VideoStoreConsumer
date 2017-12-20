@@ -50,7 +50,7 @@ $(document).ready(function() {
   console.log(libMovieList);
 
   const searchMovieListView = new SearchMovieListView({
-    el: '#search-movies-container',
+    el: 'main',
     model: searchMovieList,
     template: searchMovieTemplate,
     bus: bus,

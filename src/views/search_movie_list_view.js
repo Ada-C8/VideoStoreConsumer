@@ -19,6 +19,7 @@ const SearchMovieListView = BackBone.View.extend({
   addMovie(event){
     console.log('clicked on add movie button');
     console.log(event);
+
     // get external_id
     let externalId = parseInt(event.currentTarget.classList[2]);
 
@@ -35,20 +36,41 @@ const SearchMovieListView = BackBone.View.extend({
 
   searchMovies(event){
     console.log('In searchMovies');
+    this.clearStatus();
     event.preventDefault();
     // changes url back to base URL
     this.model.url = 'http://localhost:3000/movies?query=';
 
-    console.log(this.$('#search-movie-title').val());
     const searchMovieTitle = this.$('#search-movie-title').val();
 
-    console.log(this.model);
-    // add searchterm to end of url so we can send it to RoR app
-    this.model.url += searchMovieTitle;
+    if (searchMovieTitle === '') {
+      this.statusUpdate('Please enter a search term.');
+    } else {
+      console.log(this.model);
+      // add searchterm to end of url so we can send it to RoR app
+      this.model.url += searchMovieTitle;
 
-    this.model.fetch().then(function(response){
-      console.log(response);
-    });
+
+      this.model.fetch().then((response) => {
+        console.log('response');
+        console.log(response);
+        if (response.length < 1) {
+          this.statusUpdate('No search results, please try again.');
+        }
+      });
+    }
+  },
+
+  statusUpdate(message) {
+    // clear messages
+    console.log('inside statusUpdate');
+
+    const formattedMessage = `<p>${message}</p>`;
+    this.$('#messages').append(formattedMessage);
+  },
+
+  clearStatus(){
+    this.$('#messages').html('');
   },
 
   render() {
