@@ -41,14 +41,24 @@ addMovieToCheckout(title) {
   //create new rental
   console.log('addMovieToCheckout model:');
   console.log(this.model);
-  this.model.set({title: title});
-  this.model.set({customer_id: customerID});
-  this.model.set({due_date: Date.today + 14});
-  // this.model.set('customer_id': );
-  console.log(this.model.attributes);
+
+  let dueDate = new Date();
+  dueDate.setDate(dueDate.getDate() + 14);
+
+  const modelAttributes = {
+    title: title,
+    customer_id: customerID,
+    due_date: dueDate,
+  };
+
+  console.log('model attributes');
+  console.log(modelAttributes);
+
+  const newRental = new Rental(modelAttributes);
 
   //send post request to Rails API
-
+  newRental.save({}, {
+  })
 
 },
 
