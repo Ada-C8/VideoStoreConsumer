@@ -5,6 +5,7 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    this.referenceList = params.referenceList;
     this.listenTo(this.model, 'update', this.render);
   },
   render() {
@@ -22,6 +23,9 @@ const MovieListView = Backbone.View.extend({
       list.append(movieView.render().$el);
     });
     return this;
+  },
+  completeList() {
+    this.model.set(this.referenceList.models);
   },
   searchMovies(searchTerm) {
     this.model.resetUrl(searchTerm);

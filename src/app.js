@@ -24,13 +24,17 @@ $(document).ready(function() {
   rentalLibraryList.bus = eventBus;
   rentalLibraryList.fetch();
 
+  const rentalDisplayList = new MovieList();
+  rentalDisplayList.bus = eventBus;
+
   const rentalLibraryListView = new MovieListView({
-    model: rentalLibraryList,
+    model: rentalDisplayList,
     template: _.template($('#library-movie-template').html()),
     el: 'main',
     bus: eventBus,
+    referenceList: rentalLibraryList,
   });
-  rentalLibraryListView.listenTo(eventBus, 'showRentalLibrary', rentalLibraryListView.render);
+  rentalLibraryListView.listenTo(eventBus, 'showRentalLibrary', rentalLibraryListView.completeList);
   rentalLibraryListView.listenTo(eventBus, 'addInventory', rentalLibraryListView.addRental);
 
   const searchList = new MovieList();
@@ -67,7 +71,7 @@ $(document).ready(function() {
     eventBus.trigger('searchMovies', searchTerm);
   });
 
-  $('nav a').click(function(event) {
+  $('nav a').click(function() {
     let divId = $(this).attr('id');
     let n = divId.indexOf('-');
     divId = `${divId.substring(0, n)}-container`;
