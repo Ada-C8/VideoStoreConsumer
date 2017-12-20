@@ -6,8 +6,13 @@
 </head>
 <body>
   <header>
-    <h1>Hometown</h1>
-    <p>Video Store</p>
+    <div id="logo" class="columns small-6">
+      <h1>Hometown</h1>
+      <p>Video Store</p>
+    </div>
+    <nav class="columns small-6">
+      <a href="#">Movies</a> | <a href="#">Customers</a> | <a href="#">Rentals</a>
+    </nav>
   </header>
   <div class="actions">
     <button id='show-rental-library' class='button'>Rental Library</button>
@@ -21,6 +26,14 @@
     <div id='movies-container'>
       <section id='movies'>
       </section>
+    </div>
+
+    <div id="customers-container" class="display-none">
+      <p>In customers container</p>
+    </div>
+
+    <div id="rentals-container" class="display-none">
+      <p>In rentals container</p>
     </div>
 
   </main>
