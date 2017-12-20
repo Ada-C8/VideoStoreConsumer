@@ -10,12 +10,41 @@
       <header>
         <h1>anderserb Video Store</h1>
       </header>
+
       <div class="row">
         <div id="messages">
           <!-- error handling messages live here -->
         </div>
       </div>
+
       <div class="row">
+
+        <div class="columns large-6 small-12">
+          <div id="check-out-container">
+            <h2>Check-out</h2>
+            <form id="check-out-form">
+              <label for="customer-name">Name</label>
+              <select name="customer-name">
+                <!-- Option entries should be added here using JavaScript -->
+                <option>HI</option>
+              </select>
+              <input type="text" name="movie-title" placeholder="Moonlight">
+              <input type="submit" value="Check-out movie">
+            </form>
+          </div>
+
+          <div id="check-in-container">
+            <h2>Check-in</h2>
+            <form id="check-in-form">
+              <label for="customer-name">Name</label>
+              <select name="customer-name">
+                <!-- Option entries should be added here using JavaScript -->
+              </select>
+              <input type="text" name="movie-title" placeholder="Moonlight">
+              <input type="submit" value="Check-in movie">
+            </form>
+          </div>
+        </div>
 
         <div class="columns large-6 small-12">
           <div id='search-movies-container'>
@@ -26,17 +55,16 @@
               <input type="submit" value="Search movie database">
             </form>
 
-            <div id="search-movies-container" class="movies-list-container">
-              <h2>Search Results</h2>
+            <div id="search-movies-list-container" class="movies-list-container">
+              <h4>Search Results</h4>
               <div id="search-movies" class="movies">
               </div>
             <!-- </div> -->
             </div>
           </div>
 
-        </div>
+          <hr />
 
-        <div class="columns large-6 small-12">
           <div id="library-movies-container">
             <h2>Library</h2>
             <div id="library-movies" class="library-movies">

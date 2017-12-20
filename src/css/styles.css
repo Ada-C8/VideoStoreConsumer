@@ -9,6 +9,50 @@ header {
   padding: 0.5rem;
 }
 
+hr {
+  border-color: black;
+}
+
+/*Status messages*/
+#messages {
+  text-align: center;
+  margin: 1%;
+}
+
+/*check in and check out*/
+#check-out-container h2, #check-in-container h2 {
+  text-align: center;
+}
+
+#check-out-form, #check-in-form {
+  max-width: 300px;
+  margin: auto;
+}
+
+#check-out-form {
+  margin-bottom: 10%;
+}
+
+/*movie search*/
+#search-movies-container h2 {
+  text-align: center;
+}
+
+#search-movies-list-container h4 {
+  text-align: center;
+}
+
+#movie-search-form {
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 10%;
+}
+
+/*library movies*/
+#library-movies-container h2 {
+  text-align: center;
+}
+
 p.lib-movie, p.search-movie {
   border: solid black 1px;
 }
