@@ -15,6 +15,7 @@ import LibMovieListView from './views/lib_movie_list_view';
 // import SearchMovieList from './collections/search_movie_list';
 // import SearchMovieView from './views/search_movie_view';
 import SearchMovieListView from './views/search_movie_list_view';
+import RentalView from './views/rental_view';
 
 // template varibles
 let libraryMovieTemplate;
@@ -37,12 +38,28 @@ $(document).ready(function() {
   searchMovieTemplate = _.template($('#search-movie-template').html());
 
   // get all customers from API
+  // let allCustomers;
+
   console.log('Getting all customers');
-  $.get('http://localhost:3000/customers?sort=name', function(data) {
-    console.log(data);
-    
+
+  const rentalView = new RentalView({
+    el: '#rental-view',
+    // allCustomers: allCustomers,
+    bus: bus,
+  })
+
+  rentalView.render();
+
+
+  const searchMovieListView = new SearchMovieListView({
+    el: 'main',
+    model: searchMovieList,
+    template: searchMovieTemplate,
+    bus: bus,
+    // allCustomers: allCustomers,
   });
 
+  searchMovieListView.render();
 
   // libMovieList.fetch();
   libMovieList.fetch();
@@ -58,15 +75,6 @@ $(document).ready(function() {
   libMovieListView.render();
 
   console.log(libMovieList);
-
-  const searchMovieListView = new SearchMovieListView({
-    el: 'main',
-    model: searchMovieList,
-    template: searchMovieTemplate,
-    bus: bus,
-  });
-
-  searchMovieListView.render();
 
 
 });

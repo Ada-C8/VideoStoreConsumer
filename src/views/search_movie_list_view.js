@@ -9,6 +9,7 @@ const SearchMovieListView = BackBone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    // this.allCustomers = params.allCustomers;
 
     this.listenTo(this.model, 'update', this.render);
   },
