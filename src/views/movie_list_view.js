@@ -6,15 +6,24 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    this.collection = params.collection;
 
     this.listenTo(this.model, 'update', this.render);
+    this.listenTo(this.collection, 'update', this.render);
 
+    this.mode = "inventory";
     // console.log("THIS IS THE MODEL");
     // console.log(this.model);
     // console.log("THIS IS THE COLLECTION");
     // console.log(this.collection);
   },
-  render(boolean) {
+  inventoryMode() {
+    this.mode = "inventory";
+  },
+  searchMode() {
+    this.mode = "search";
+  },
+  render() {
     this.$('ul').empty();
 
     // this.collection.fetch({context:collection}).done(function() {
@@ -29,12 +38,12 @@ const MovieListView = Backbone.View.extend({
     //   search_shit.method();
     // })
 
-    console.log(boolean);
+    console.log(this.mode);
 
     // console.log("COLLECTION LENGTH: ");
     // console.log(this.collection.size());
 
-    if (boolean == true) {
+    if (this.mode == "search") {
       // let moviesRender = this.collection;
       console.log("IF ELSE  - COLLECTION");
       console.log(this.collection);
@@ -50,7 +59,7 @@ const MovieListView = Backbone.View.extend({
         });
         this.$('ul').append(movieView.render().$el);
       });
-    } else {
+    } else if (this.mode == "inventory"){
       // let moviesRender = this.model;
       this.model.forEach((movie) => {
         // console.log(movie);
@@ -65,6 +74,8 @@ const MovieListView = Backbone.View.extend({
         });
         this.$('ul').append(movieView.render().$el);
       });
+    } else {
+      console.error(`Invalid movie list mode ${this.mode}`);
     }
 
     // this.collection.forEach((movie) => {

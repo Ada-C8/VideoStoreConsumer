@@ -46,7 +46,7 @@ $(document).ready(function() {
   })
 
   movieList.fetch();
-  movieListView.render(false);
+  // movieListView.render();
 
   // Search event
   $('#search-form').on('submit', function(e){
@@ -55,18 +55,20 @@ $(document).ready(function() {
 
     if (queryText.length > 0 ) {
       console.log(queryText);
+      movieListView.searchMode();
       searchList.fetch({
         data: {query: queryText},
       });
-      movieListView.render(true);
+      // movieListView.render();
     }
     $('#search-form input').val('');
   });
 
   // Rental Library
   $('#movies').on('click', function(){
+    movieListView.inventoryMode();
     movieList.fetch();
-    movieListView.render();
+    // movieListView.render();
   });
 
   // Check Library
