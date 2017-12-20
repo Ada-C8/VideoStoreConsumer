@@ -8,6 +8,9 @@ const SearchView = Backbone.View.extend({
 
     this.listenTo(this.bus,`${this.model.title}${this.model.release_date}`, this.setHave )
   },
+  events: {
+    'click #add-movie' : 'makePost',
+  },
   render(){
     console.log('in render for search view');
     const movieData = {
@@ -32,7 +35,11 @@ const SearchView = Backbone.View.extend({
     } else {
       this.model['have'] = false;
     } // if
-  } // setHave
+  }, // setHave
+  makePost(){
+    // TODO .post request to the rails API, $.post( "test.php", { name: "John", time: "2pm" } );
+    
+  }//makePost
 
 });
 
