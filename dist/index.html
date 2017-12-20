@@ -27,9 +27,7 @@
     <section class="search-form grid-x" id="search-form">
       <div class="columns medium-9 small-12">
         <ul>
-          <li id="buttons"><button class="button view-library-btn">View Library Movies</button>
-
-          <button class="button search-btn">Search for Movies</button></li>
+          <li id="buttons"><button class="button view-library-btn">View Library Movies</button></li>
 
           <li><form id="movie-search-form">
             <input id="query" type="text" name="query" placeholder="Movie Title"/>
@@ -55,7 +53,7 @@
   <script src="/app.bundle.js"></script>
 
   <script type="text/template" id="movie-template">
-    <img src="https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+    <img src="<%- image_url %>" />
     <h2 class="title"><%- title %></h2>
     <p class="overview"><%- overview %></p>
     <p class="release-date">Release Date: <%- release_date %></p>
