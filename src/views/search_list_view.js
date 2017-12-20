@@ -41,9 +41,10 @@ const SearchListView = Backbone.View.extend({
     return title;
   },
 
+
   searchApi() {
     //this is an ugly way to reset the URL.  See if we can fix it
-    // this.$('#search-error-message').empty()
+    this.$('#search-error-message').html('');
     event.preventDefault();
     const title = this.getFormData()
     if (title === ""){
@@ -52,12 +53,33 @@ const SearchListView = Backbone.View.extend({
       return
     } else {
       this.model.url += title;
-      console.log(this.model.url);
-      this.model.fetch();
+      // console.log(this.model.url);
+      let that = this
+      this.model.fetch().done(function () {
+        that.reportNoResults(title);
+      });
+
+
+      //reset URL
       this.model.url = 'http://localhost:3000/movies?query=';
+      // console.log(this.model.length)
+
       //what if no models are returned?  report error here?
     }
   },
+
+  reportNoResults(title){
+    if(this.model.length == 0) {
+      // this.$('#search-error-message').empty()
+      this.$('#movie-success-messages').html('');
+
+      console.log(`No movies match search term: ${title}`)
+      this.$('#search-error-message').append(`No movies match search term: ${title}`)
+    }
+  },
+  // clearMessages(){
+  //   this.$('#movie-success-messages').html('');
+  // },
 
 });
 

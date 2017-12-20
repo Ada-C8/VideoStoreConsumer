@@ -54,11 +54,15 @@ const MovieListView = Backbone.View.extend({
         // handleValidationFailuresTrip(trip.validationError);
         return;
       }
+      this.clearMessages();
+
       newMovie.save({}, {
         success: (model, response) => {
           console.log(this.model.attributes)
           console.log(`Successfully added new movie: ${newMovie.get('title')}`);
-          // $('.movie-success-messages').show();
+          let successMessage = `Successfully added new movie: ${newMovie.get('title')}`;
+          this.$('#movie-success-messages').append(successMessage);
+          this.$('#movie-success-messages').show();
         },
         error: (model, response) => {
           console.log('Failed to save movie! Server response:');
@@ -69,7 +73,9 @@ const MovieListView = Backbone.View.extend({
         },
       });
     },
-
+    clearMessages(){
+      this.$('#movie-success-messages').html('');
+    },
     getFormData() {
       console.log("I am reading the movie rental form")
       // const formData = {};
