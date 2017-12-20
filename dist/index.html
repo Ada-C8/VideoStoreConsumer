@@ -18,17 +18,18 @@
           <!-- Rental Library -->
           <article id="rental-library">
             <h3>Search Rentals</h3>
+            
             <form>
               <input type="text" name="search" placeholder="search IMDB"/>
               <input type="submit" value="Search" class="button btn-search">
-
             </form>
+
             <div id="rental-table">
               <table>
                 <thead>
                   <th class="sort title">Title</th>
                   <th class="sort release">Release Date</th>
-                  <th>Checkout</th>
+                  <th>In Library?</th>
                   <!-- <th class="sort inventory">Inventory</th>
                   <th class="sort available">Available</th> -->
                 </thead>
@@ -61,9 +62,7 @@
           <%- release_date %>
         </td>
         <td>
-          <% if (in_library) {  %>
-            <button class="button btn-view" id="" > Checkout </button>
-          <% } %>
+          <%- in_library ? 'yes' : 'no'   %>
         </td>
         <!-- <td>
           <# inventory %>
