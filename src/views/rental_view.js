@@ -6,11 +6,14 @@ const RentalView = BackBone.View.extend({
 
 initialize(params) {
   console.log('inside RentalView initalize');
-
-  this.allCustomers = params.allCustomers;
+  this.bus = params.bus;
+  // this.allCustomers = params.allCustomers;
+  this.listenTo(this.bus, 'pass_movie_name', this.addMovieToCheckout);
 },
 
+
 render() {
+  console.log('Getting all customers');
   $.get('http://localhost:3000/customers?sort=name', (data) => {
     console.log(data);
 
@@ -19,8 +22,12 @@ render() {
       this.$('select[name="customer-name"]').append(`<option data-id="${customer.id}">${customer.name}</option>`)
     });
   });
-
   return this;
+},
+
+addMovieToCheckout(title) {
+  console.log("Message recieved in addMovieToCheckout");
+  console.log(title);
 },
 
 });

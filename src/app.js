@@ -11,9 +11,6 @@ import LibMovie from './models/lib_movie';
 import LibMovieList from './collections/lib_movie_list';
 import LibMovieView from './views/lib_movie_view';
 import LibMovieListView from './views/lib_movie_list_view';
-// import SearchMovie from './models/search_movie';
-// import SearchMovieList from './collections/search_movie_list';
-// import SearchMovieView from './views/search_movie_view';
 import SearchMovieListView from './views/search_movie_list_view';
 import RentalView from './views/rental_view';
 
@@ -23,8 +20,6 @@ let searchMovieTemplate;
 
 // new instance of LibMovieList
 const libMovieList = new LibMovieList();
-//new instance of searchMovieList
-// const searchMovieList = new SearchMovieList();
 const searchMovieList = new LibMovieList();
 
 // ready to go
@@ -37,26 +32,18 @@ $(document).ready(function() {
   libraryMovieTemplate = _.template($('#library-movie-template').html());
   searchMovieTemplate = _.template($('#search-movie-template').html());
 
-  // get all customers from API
-  // let allCustomers;
-
-  console.log('Getting all customers');
-
   const rentalView = new RentalView({
     el: '#rental-view',
-    // allCustomers: allCustomers,
     bus: bus,
   })
 
   rentalView.render();
-
 
   const searchMovieListView = new SearchMovieListView({
     el: 'main',
     model: searchMovieList,
     template: searchMovieTemplate,
     bus: bus,
-    // allCustomers: allCustomers,
   });
 
   searchMovieListView.render();
@@ -65,7 +52,6 @@ $(document).ready(function() {
   libMovieList.fetch();
   // new instance of LibMovieListView
   const libMovieListView = new LibMovieListView({
-    // el: '#library-movies-container',
     el: 'main',
     model: libMovieList,
     template: libraryMovieTemplate,
@@ -73,8 +59,5 @@ $(document).ready(function() {
   });
 
   libMovieListView.render();
-
-  console.log(libMovieList);
-
-
+  // console.log(libMovieList);
 });

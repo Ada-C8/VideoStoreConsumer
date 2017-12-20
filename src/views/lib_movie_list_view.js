@@ -66,6 +66,7 @@ const LibMovieListView = BackBone.View.extend({
         template: this.template,
         tagName: 'p',
         className: 'lib-movie',
+        bus: this.bus,
       });
       this.$('#library-movies').append(libMovieView.render().$el);
     });
