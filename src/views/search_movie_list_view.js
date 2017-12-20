@@ -1,6 +1,4 @@
 import BackBone from 'backbone';
-// import SearchMovie from '../models/search_movie';
-// import SearchMovieView from './search_movie_view';
 import LibMovie from '../models/lib_movie';
 import LibMovieView from './lib_movie_view';
 
@@ -9,7 +7,6 @@ const SearchMovieListView = BackBone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
-    // this.allCustomers = params.allCustomers;
 
     this.listenTo(this.model, 'update', this.render);
   },
@@ -24,14 +21,13 @@ const SearchMovieListView = BackBone.View.extend({
     console.log(event);
 
     // get external_id
-    let externalId = parseInt(event.currentTarget.classList[2]);
-
-
+    const externalId = parseInt(event.currentTarget.classList[2]);
     console.log(externalId);
+
     // find the movie from our collection
     let searchMovie = this.model.findWhere({external_id: externalId});
-
     console.log(searchMovie);
+
     // send message and movie to LibMovieListView
     this.bus.trigger('add_movie_to_lib', searchMovie);
   },
@@ -52,7 +48,6 @@ const SearchMovieListView = BackBone.View.extend({
       console.log(this.model);
       // add searchterm to end of url so we can send it to RoR app
       this.model.url += searchMovieTitle;
-
 
       this.model.fetch().then((response) => {
         console.log('response');
