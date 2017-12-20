@@ -26,8 +26,16 @@ render() {
 },
 
 addMovieToCheckout(title) {
+  // now have title of movie
   console.log("Message recieved in addMovieToCheckout");
   console.log(title);
+  // add movie title to rental form input
+  this.$('#movie-title-selector').autofill({
+    "movie-title": title,
+  });
+  // append(`value="${title}"`)
+  // console.log(test);
+  // test.append(title);
 },
 
 });
