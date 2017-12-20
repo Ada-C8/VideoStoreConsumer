@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <title>The Amazing Movie Database</title>
+</head>
+<body>
+  <header>
 
-    <script src="/app.bundle.js"></script>
+  </header>
 
-  </body>
-  </html>
+  <main id="main-content">
+    <section id="status-messages"></section>
+
+    <section id="search-list">
+      <form>
+        <label for="search-movies">Movie Search</label>
+        <input type="text" name="search-movies" />
+        <button id="btn-search">Cliquez Moi S'il Vous Plait!</button>
+      </form>
+      <button id="btn-rentals">List All Rentals</button>
+    </section>
+
+    <section>
+      <div id="rentals-container">
+        <h2>Movie Rentals</h2>
+        <div id="rentals-list-container">
+          <ul id="rentals">
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="/app.bundle.js"></script>
+  <footer>
+    <div class="columns small-12 medium-11 medium-offset-1">
+      <p class="footer-copy">&copy; 2017, Shaunna and Stef</p>
+    </div>
+  </footer>
+  <script type = "text/template" id="movie-template">
+    <h3><%- title %></h3>
+    <img src="<%- image_url %>"/>
+    <h4>Summary</h4><p><%- overview %></p>
+    <h4>Release Date</h4><p><%- release_date %></p>
+  </script>
+</body>
+</html>
