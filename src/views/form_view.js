@@ -81,6 +81,7 @@ const FormView = Backbone.View.extend({
 
   },
   updateStatusMessageWith: function(movie) {
+    debugger;
     this.$('#status-message').empty();
     if (movie.isValid() && movie.get('unique')) {
       this.$('#status-message').append(`<li class="success">${movie.get('title')} successfully added to rental library</li>`);
@@ -88,6 +89,12 @@ const FormView = Backbone.View.extend({
       this.$('#status-message').append(`<li class="alert">${movie.get('title')} is already in the rental library.</li>`);
     } else {
       this.$('#status-message').append(`<li class="alert">${movie.get('title')} was not successfully added to rental library.</li>`);
+      const errors = movie.validationError;
+      Object.keys(errors).forEach((field) => {
+        errors[field].forEach((error) => {
+          this.$('#status-message').append(`<li class="alert">${field}: ${error}</li>`);
+        });
+      });
     }
 
   },
