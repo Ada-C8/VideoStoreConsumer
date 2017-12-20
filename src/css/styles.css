@@ -118,3 +118,11 @@ h3 {
   background: #BCD979;
   box-shadow: 0 2px 5px -2px #465362;
 }
+
+h4 {
+  text-align: center;
+}
+/* 
+button.btn-add.alreadyAdded {
+  background: grey;
+} */

@@ -21,25 +21,6 @@ const MovieListView = Backbone.View.extend({
       this.$('#catalog-movies').prepend(movieView.render().$el);
     });
   },
-
-  // events: {
-  //   'click button.btn-query': 'search',
-  // },
-
-  // search: function(e) {
-  //   e.preventDefault();
-  //   console.log("this . MODEL:")
-  //   console.log(this.model);
-  //
-  //   console.log("this")
-  //   console.log(this.$(`input[name='query']`).val())
-  //
-  //
-  //   this.model.set('query', this.$(`input[name='query']`).val());
-  //   this.render()
-  // },
-
-
 });
 
 export default MovieListView;

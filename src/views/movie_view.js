@@ -16,26 +16,30 @@ const MovieView = Backbone.View.extend({
   },
   events: {
     'click .btn-add': 'addToInventory',
-    // }
   },
+
   addToInventory: function(e) {
     e.preventDefault();
+    // this.$('button.btn-add').toggleClass('button.btn-add.alreadyAdded')
+    this.$('button.btn-add').css({"background": "grey"})
     if (this.model.get("inInventory")) {
       console.log("already exists in inventory");
       console.log(this.$el);
     } else {
+      this.model.set('inInventory', 'true')
+      this.$('button.btn-add').css({"background": "grey"})
       const databaseInfo = {
         title: this.model.get("title"),
         image_url: this.model.get("image_url").slice(32),
         overview: this.model.get("overview"),
         release_date: this.model.get("release_date"),
+        inInventory: true,
       };
+
       const addMovieFromDatabase = new Movie(databaseInfo);
       if (addMovieFromDatabase.isValid()) {
         this.inventory.add(addMovieFromDatabase);
         addMovieFromDatabase.save({}, {
-        // success: events.successfulSave,
-        // error: events.failedSave,
         success: function(response){
           console.log("yes, added to db probably")
         },
