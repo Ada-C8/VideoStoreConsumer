@@ -29,23 +29,11 @@ const MovieView = Backbone.View.extend({
       title: this.model.get('title'),
       release_date: this.model.get('release_date'),
     })
-    if (newMovie.isValid()) {
-      newMovie.save({}, {
-        success: this.successSave.bind(this),
-        error: this.failSave.bind(this),
-      });
-    } else {
-      console.log(newMovie.validationError);
-      let statusMessage = '';
-      console.log(newMovie.validationError);
-      console.log(Object.keys(newMovie.validationError));
-      Object.keys(newMovie.validationError).forEach((key) => {
-        statusMessage = `${statusMessage}<p>${newMovie.validationError[key]}</p>`;
-      });
-      console.log(statusMessage);
-      this.bus.trigger('updateStatusMessage', newMovie.validationError.values)
-    }
 
+    newMovie.save({}, {
+      success: this.successSave.bind(this),
+      error: this.failSave.bind(this),
+    });
   },
 
   successSave: function(newMovie) {
@@ -53,10 +41,10 @@ const MovieView = Backbone.View.extend({
     this.bus.trigger('updateStatusMessage', statusMessage);
   },
 
-  failSave: function(newMovie, response) {
+  failSave: function(newMovie) {
     const statusMessage = `${newMovie.attributes.title} unable to add to rental list!`;
     this.bus.trigger('updateStatusMessage', statusMessage);
-  }
+  },
 })
 
 export default MovieView;

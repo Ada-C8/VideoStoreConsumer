@@ -35,7 +35,6 @@ const MovieListView = Backbone.View.extend({
     e.preventDefault();
     this.model.fetch().done(() => {
       this.render({button: false});
-      console.log(this.model.models);
     })
 
   },
@@ -43,9 +42,12 @@ const MovieListView = Backbone.View.extend({
   searchDBMovies: function(e) {
     e.preventDefault();
     let searchWord = this.$('input[name=search-movies]').val();
-    console.log(searchWord);
     this.model.fetch({ data: $.param({'query': searchWord}) }).done(() => {
-      console.log(this.model);
+      if (this.model.length == 0) {
+        this.statusMessage('No Results Found!')
+      } else {
+        this.statusMessage(`${this.model.length} Results Found.`)
+      }
       this.render({button: true});
     })
   },
