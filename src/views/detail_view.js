@@ -22,15 +22,11 @@ const Detail = Backbone.View.extend({
     this.$el.find('#video-view').empty();
 
     movie.fetch({}).done(() => {
-      movie.set({in_library: true})
-      // this.model = movie;
-
+      movie.set({in_library: true});
       this.$el.find('#video-view').html(this.template(movie.toJSON()));
-      // $('#video-view').append('<h1>hi</h1>')
-      // this.model = movie;
+      this.model = movie;
       this.checkOutForm(title);
       $('#checkout-form').show();
-      // this.$('button#confirm-checkout').attr('value', this.title)
     }).fail(() => {
 
       movie.urlRoot += '/?query='
@@ -38,7 +34,7 @@ const Detail = Backbone.View.extend({
         this.$el.find('#video-view').empty();
         movie = movie.attributes[0];
         _.extend(movie, {inventory: 0, available_inventory: 0, in_library: false})
-        // this.model = movie;
+        this.model = movie;
         // console.log(movie);
         // this.$el.empty();
         this.$el.find('#video-view').html(this.template(movie));
@@ -53,21 +49,18 @@ const Detail = Backbone.View.extend({
   },
   addMe(event) {
     const movie = new Video(this.model);
-    // let url = movie.urlRoot += '/?' + 'title=' + movie.get('title') + '&release_date='  + movie.get('release_date');
-    let params = {title: movie.get('title'), release_date: movie.get('release_date')}
-
-    $.post( movie.urlRoot, params, (response) => {
+    movie.save().done((response)=> {
       this.successfulAdd(response);
     }).fail(() => {
-        this.failedAdd();
+      this.failedAdd();
     });
   },
   successfulAdd(movie) {
     this.collection.add(movie);
-    this.render();
+    this.render(movie.title);
     $('#message').html(`<p>${movie.title} has been added to your rental library! </p>`)
   },
-  failedAdd(movie) {
+  failedAdd() {
     $('#message').html(`<p>Oops.. can't save to your rental library.</p>`)
   },
   checkOutForm(title) {
@@ -75,7 +68,7 @@ const Detail = Backbone.View.extend({
     this.customerList.each((customer) => {
       const name = customer.get('name');
       const id = customer.get('id');
-      this.$('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
+      this.$('select').append(`<option value=${id}>${name}</option>`);
     });
   },
   checkMeOut(event) {
