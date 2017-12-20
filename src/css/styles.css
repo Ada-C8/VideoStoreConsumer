@@ -1,6 +1,36 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Secular+One');
 
-main {
+/*********** ALL STYLES ***********/
+
+h1, h2, h3, h4 {
+  font-family: 'Secular One', sans-serif;
+}
+/*********** HEADER ***********/
+
+.main-header {
+  text-align: center;
+  background-color: #232f3e;
+  color: white;
+  padding: 10px;
+  /* height: 15vh; */
+}
+
+.main-h1-wrapper {
+  border: 2px white solid;
+}
+
+.main-h1-wrapper h1 {
+  margin: 0;
+}
+
+/******* MAIN SECTION HEADERS *******/
+
+
+
+
+
+/* main {
     background: lightblue;
 }
 
@@ -36,7 +66,7 @@ aside label {
 
 div {
   display: inline;
-}
+} */
 /*
 * {
   border-style: solid;

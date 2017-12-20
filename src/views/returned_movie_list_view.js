@@ -14,8 +14,8 @@ const ReturnedMovieListView = Backbone.View.extend({
     'click form .btn-search': 'matchingMovies'
   },
   addMovie(movie){
-    console.log('in add movie method');
-    console.log(movie);
+    // console.log('in add movie method');
+    // console.log(movie);
 
     const newMovie = new ReturnedMovie(movie);
     console.log(newMovie);
@@ -48,7 +48,7 @@ const ReturnedMovieListView = Backbone.View.extend({
           let newMovie = new ReturnedMovie(movieData);
           if (newMovie.isValid()){
             let returnedMovieView = new ReturnedMovieView({
-              tagName: 'li',
+              tagName: 'tr',
               template: this.template,
               model: newMovie,
               bus: this.bus,

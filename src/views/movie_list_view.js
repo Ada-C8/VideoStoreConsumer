@@ -17,7 +17,7 @@ const MovieListView = Backbone.View.extend({
     console.log(`The movie in the view method is ${movie}`);
     if (movie.isValid()){
       const movieView = new MovieView({
-        tagName: 'li',
+        tagName: 'tr',
         template: this.template,
         model: movie,
         bus: this.bus
@@ -29,7 +29,7 @@ const MovieListView = Backbone.View.extend({
     this.$('#movie-list').empty();
     const lastMovie = this.model.at(this.model.length -1);
     const movieView = new MovieView({
-      tagName: 'li',
+      tagName: 'tr',
       template: this.template,
       model: lastMovie,
       bus: this.bus,
