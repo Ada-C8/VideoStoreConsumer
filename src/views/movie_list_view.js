@@ -18,9 +18,9 @@ const MovieListView = Backbone.View.extend({
     }
 
     this.model.each((movie) => {
-      if (this.movieList.contains(movie)) {
-        console.log(movie);
-      }
+      // if (this.movieList.contains(movie)) {
+        // console.log(movie);
+      // }
       const movieView = new MovieView({
         model: movie,
         template: this.template,
