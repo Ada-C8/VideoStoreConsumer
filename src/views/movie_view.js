@@ -17,12 +17,6 @@ const MovieView = Backbone.View.extend({
   },
   addMovie: function(event) {
     event.preventDefault();
-    console.log('REACHED addMovie');
-    console.log('***********');
-    console.log(this.model);
-    console.log(this.model.attributes);
-    console.log('***********');
-
     this.model.save(this.model.attributes,{type: 'POST'});
 
   },

@@ -1,5 +1,4 @@
 import Backbone from 'backbone';
-
 import _ from 'underscore';
 import MovieView from '../views/movie_view';
 import Movie from '../models/movie';
@@ -15,7 +14,6 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model,"currentInv", this.render);
   },
   render() {
-    console.log("INSIDE RENDER");
     this.$('#movie').empty();
 
     this.model.each((movie) => {
@@ -31,8 +29,6 @@ const MovieListView = Backbone.View.extend({
   },
 
   renderSearch() {
-    console.log("************");
-    console.log("INSIDE RENDER SEARCH");
     this.template = this.searchTemplate;
   },
 
@@ -41,19 +37,15 @@ const MovieListView = Backbone.View.extend({
     'click button.view-inventory': 'showInventory',
   },
 
-  searchMovies: function(event)
-  {
+  searchMovies: function(event) {
     event.preventDefault();
     const query = this.$('input[name=query]').val();
     this.model.fetch({data: {"query": query}});
     this.trigger('showSearched', this);
-    console.log('Inside searchMovies');
-    console.log(this.model);
   },
 
   showInventory: function(event) {
     event.stopImmediatePropagation();
-    console.log("inside showInventory");
     this.model.fetch();
     this.trigger('currentInv');
   },
