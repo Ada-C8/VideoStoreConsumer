@@ -4,6 +4,11 @@ main {
     background: lightblue;
 }
 
+.movie h4{
+  /* hide the overview */
+  display: none;
+}
+
 header {
   background-color: lightgreen;
   padding: 0.5rem;

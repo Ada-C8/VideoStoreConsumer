@@ -6,10 +6,43 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <header>
+        <h1 class="site-title">SuperDuperVideo</h1>
+        <form id="search-movies">
+          <label for="query">Search For A Movie:</label>
+          <input type="text" name="query" />
+          <input type="submit" value="Search Movie" class="button"></input>
+        </form>
+        <button class="button view-inventory">View Current Inventory</button>
+      </header>
+
+      <section id="movie" class="movie row">
+        <!-- RENDER ALL MOVIE TEMPLATES -->
+      </section>
+
     </main>
 
+    <footer>
+      <div class="columns small-12 medium-11 medium-offset-1">
+        <p class="footer-copy">&copy; 2017, Ada Developers Academy</p>
+      </div>
+    </footer>
+
     <script src="/app.bundle.js"></script>
+    <script type="text/template" id="movie-template">
+      <img src="<%= image_url %>" alt="<%= title %> poster">
+      <h3><%= title %></h3>
+      <h4><%= overview %></h4>
+      <p><%= release_date %></p>
+    </script>
+
+    <script type="text/template" id="search-template">
+      <img src="<%= image_url %>" alt="<%= title %> poster">
+      <h3><%= title %></h3>
+      <h4><%= overview %></h4>
+      <p><%= release_date %></p>
+      <button class="button add-to-inventory">Add to Inventory</button>
+    </script>
 
   </body>
   </html>
