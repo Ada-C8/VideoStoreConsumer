@@ -6,9 +6,16 @@
   </head>
   <body>
     <main id="main-content">
-      <div class="movie-workspace grid-x grid-padding-x">
-        <div class="small-4 cell">
-          <div id="find-movie-form-container">
+      <div class="movie-workspace">
+        <div class="grid-x grid-padding-x">
+          <section class="status" hidden="true">
+            <ul id="status-message">
+
+            </ul>
+          </section>
+        </div>
+        <div class="grid-x grid-padding-x">
+          <div id="find-movie-form-container" class="small-6 cell">
             <h3>Find Movie</h3>
             <form>
               <label for="title">Title</label>
@@ -19,9 +26,8 @@
               <button class="secondary button hollow vendor">Search with Vendor</button>
             </form>
           </div>
-        </div>
-        <div class="small-4 cell">
-          <div id="movie-details-container">
+
+          <div id="movie-details-container" class="small-4 cell">
             <h2>Some Specific Moviez</h2>
             <div class="movie-details-list-container">
               <ul id="movie-details" class="movies">
@@ -30,9 +36,8 @@
             </div>
           </div>
         </div>
-
-        <div class="small-4 cell">
-          <section id="vendors-container">
+        <div class="grid-x grid-padding-x">
+          <section id="vendors-container" class="small-5 cell">
             <h2>Search Results</h2>
             <div class="vendors-list-container">
               <ul id="vendor-results" class="movies">
@@ -40,9 +45,8 @@
               </ul>
             </div>
           </section>
-        </div>
 
-        <div class="small-4 cell ">
+        <div class="small-5 cell ">
           <div id="movies-container" hidden="true">
             <h2>Moviez</h2>
             <div class="movies-list-container">
@@ -52,8 +56,8 @@
             </div>
           </div>
         </div>
-
       </div>
+    </div>
     </main>
     <script type="text/template" id="movie-template">
       <div class="small-4 cell">
@@ -62,13 +66,15 @@
           <%- overview %>
         </p>
         <!-- find api get url for images -->
-        <!-- <img src="http://image.tmdb.org/t/p<%- image_url %>"/> -->
+        <img src="<%- image_url %>"/>
       </div>
     </script>
-    
+
     <script type="text/template" id="vendor-template">
       <div class="small-4 cell">
         <h3 class="title"><%-title %></h3>
+        <h6>release date: <%- release_date %></h6>
+        <img src="<%- image_url %>"/>
         <p class="overview">
           <%- overview %>
         </p>
