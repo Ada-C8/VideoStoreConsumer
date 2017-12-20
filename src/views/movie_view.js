@@ -14,7 +14,8 @@ const MovieView = Backbone.View.extend({
     return this;
   },
   events: {
-    'click button.btn-add': 'add'
+    'click button.btn-add': 'add',
+    'click button.btn-show': 'show'
   },
   add(event){
     event.preventDefault();
@@ -27,6 +28,9 @@ const MovieView = Backbone.View.extend({
     // debugger
     this.model.add(newMovie);
     this.trigger('show_modal');
+  },
+  show(event) {
+    
   },
 });
 
