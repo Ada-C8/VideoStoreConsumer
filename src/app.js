@@ -22,6 +22,8 @@ const TABLE_HEADERS = [ 'title', 'release_date']
 
 let movieTemplate;
 let searchTemplate;
+
+
 // ready to go
 $(document).ready(function() {
 
@@ -54,6 +56,9 @@ $(document).ready(function() {
     bus: bus,
   });
 
+
+
+
   // const movieList = new MovieList()
   //
   // TABLE_HEADERS.forEach((field) => {
@@ -64,7 +69,6 @@ $(document).ready(function() {
   //     movieList.sort();
   //   });
   // });
-
 
   // TODO: check fetch and rerendering
   movies.fetch();

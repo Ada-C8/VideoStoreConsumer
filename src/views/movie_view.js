@@ -17,6 +17,17 @@ const MovieView = Backbone.View.extend({
     return this;
   },
 
+  // events: {
+  //   'click td': 'showModal',
+  // },
+  //
+  // showModal() {
+  //   console.log(this.model)
+  //   this.$('.modal').removeClass('hide')
+  // }
+
+
+
 });
 
 export default MovieView;

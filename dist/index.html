@@ -8,7 +8,7 @@
   <main id="main-content">
     <script src="/app.bundle.js"></script>
     <header>
-      <h1>Movie Store</h1>
+      <h1 class="text-center">Movie Store</h1>
     </header>
 
     <section>
@@ -26,22 +26,25 @@
           </div>
           <table>
             <thead>
-              <th class="sort title">Title</th>
-              <th class="sort release_date">Release Date</th>
+              <th class="title">Title</th>
+              <th class="release_date">Release Date</th>
               <th class="img_url">Image</th>
             </thead>
             <tbody id="movie-list">
             </tbody>
           </table>
         </div>
+
+  
+
       </div>
 
       <div id="movie-search" class= "columns large-5 small-12">
         <div class="movie-entry-form">
-          <h3>Find New Movie</h3>
+          <h3>Find a new movie</h3>
 
-            <p id="search-error-message" class = "red">
-            </p>
+          <p id="search-error-message" class = "red">
+          </p>
 
           <form id="form" method="get">
             <label>Title</label>
@@ -68,6 +71,10 @@
 
 
     </section>
+
+
+
+
   </main>
 
 </body>
@@ -83,7 +90,6 @@
   <td>
     <img src= "<%- image_url %>" />
   </td>
-
 </script>
 
 <script type="text/template" id="search-template">

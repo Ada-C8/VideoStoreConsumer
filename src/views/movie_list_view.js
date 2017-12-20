@@ -10,84 +10,85 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.bus, 'addMovieDB', this.addMovieDB)
   },
-  render() {
-    // this.$('#movie-list').empty();
-    // if (searchResults) {
-    //   searchResults.forEach((movie) => {
-    //     console.log('in Movie List View render');
-    //     const movieView = new MovieView({
-    //       model: movie,
-    //       template: this.template,
-    //       tagName: 'tr',
-    //       className: 'movie',
-    //       bus: this.bus,
-    //     });
-    //     this.$('#movie-list').append(movieView.render().$el);
-    //   });
-    // } else {
-    this.model.sort();
-    this.model.each((movie) => {
-      console.log('in Movie List View render');
-      const movieView = new MovieView({
-        model: movie,
-        template: this.template,
-        tagName: 'tr',
-        className: 'movie',
-        bus: this.bus,
+  render(searchResults) {
+    this.$('#movie-list').empty();
+    if (searchResults) {
+      searchResults.forEach((movie) => {
+        console.log('in Movie List View render');
+        const movieView = new MovieView({
+          model: movie,
+          template: this.template,
+          tagName: 'tr',
+          className: 'movie',
+          bus: this.bus,
+        });
+        this.$('#movie-list').append(movieView.render().$el);
       });
-      this.$('#movie-list').append(movieView.render().$el);
-    });
-    // }
-    return this;
-  },
-
-  events: {
-    'click button.btn-search': 'searchMovies',
-  },
-
-  addMovieDB(movie_hash){
-    const newMovie = new Movie(movie_hash)
-    this.model.add(newMovie);
-
-    if (!newMovie.isValid()) {
-      // handleValidationFailuresTrip(trip.validationError);
-      return;
+    } else {
+      this.model.sort();
+      this.model.each((movie) => {
+        console.log('in Movie List View render');
+        const movieView = new MovieView({
+          model: movie,
+          template: this.template,
+          tagName: 'tr',
+          className: 'movie',
+          bus: this.bus,
+        });
+        this.$('#movie-list').append(movieView.render().$el);
+      });
+      // }
+      return this;
     }
-    newMovie.save({}, {
-      success: (model, response) => {
-        console.log(this.model.attributes)
-        console.log(`Successfully added new movie: ${newMovie.get('title')}`);
-        // $('.movie-success-messages').show();
-      },
-      error: (model, response) => {
-        console.log('Failed to save movie! Server response:');
-        console.log(response);
-        this.model.remove(model);
-
-        // handleValidationFailuresTrip(response.responseJSON["errors"]);
-      },
-    });
   },
 
-  getFormData() {
-    console.log("I am reading the movie rental form")
-    // const formData = {};
-    const title = this.$('.movie-search-form input[name=title]').val();
-    this.$('.movie-search-form input[name=title]').val('')
-    // formData['title'] = title;
-    return title;
-  },
+    events: {
+      'click button.btn-search': 'searchMovies',
+    },
 
-  searchMovies() {
-    event.preventDefault();
-    const title = this.getFormData()
-    const searchResults = this.model.where({title: title});
-    console.log(searchResults);
-    this.render(searchResults)
-  },
+    addMovieDB(movie_hash){
+      const newMovie = new Movie(movie_hash)
+      this.model.add(newMovie);
+
+      if (!newMovie.isValid()) {
+        // handleValidationFailuresTrip(trip.validationError);
+        return;
+      }
+      newMovie.save({}, {
+        success: (model, response) => {
+          console.log(this.model.attributes)
+          console.log(`Successfully added new movie: ${newMovie.get('title')}`);
+          // $('.movie-success-messages').show();
+        },
+        error: (model, response) => {
+          console.log('Failed to save movie! Server response:');
+          console.log(response);
+          this.model.remove(model);
+
+          // handleValidationFailuresTrip(response.responseJSON["errors"]);
+        },
+      });
+    },
+
+    getFormData() {
+      console.log("I am reading the movie rental form")
+      // const formData = {};
+      const title = this.$('.movie-search-form input[name=title]').val();
+      this.$('.movie-search-form input[name=title]').val('')
+      // formData['title'] = title;
+      return title;
+    },
+
+    searchMovies() {
+      event.preventDefault();
+      const title = this.getFormData()
+      const searchResults = this.model.where({title: title});
+      console.log(searchResults);
+      this.render(searchResults)
+    },
 
 
 
-});
+  });
 
-export default MovieListView;
+  export default MovieListView;
