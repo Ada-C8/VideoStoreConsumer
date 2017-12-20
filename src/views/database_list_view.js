@@ -25,14 +25,11 @@ const DatabaseListView = Backbone.View.extend({
         template: this.template,
         tagName: 'tr',
         className: 'movie',
-        // inInventory: inventory
       });
 
       movieView.model.set('inInventory', inventory)
-
       this.$('#database-movies').append(movieView.render().$el);
-        // console.log(this.inInventory)
-        // debugger
+
     });
   },
 
