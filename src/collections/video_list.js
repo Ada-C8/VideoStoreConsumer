@@ -10,10 +10,7 @@ const VideoList = Backbone.Collection.extend({
     const newList = this.select(function(movie) {
       return movie.get('title').toLowerCase().includes(typing);
     });
-    // this.trigger('sortMe', newList);
-    // console.log(newList);
     return newList;
-    // newList.render();
   },
 
 });

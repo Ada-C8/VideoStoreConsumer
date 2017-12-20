@@ -16,8 +16,16 @@ const rentalList = new VideoList();
 rentalList.fetch();
 
 const customerList = new CustomerList();
-customerList.fetch();
+customerList.fetch({}).done(()=> {
+  console.log('done');
+  customerList.each((customer) => {
+    const name = customer.get('name');
+    const id = customer.get('id');
+    console.log(customer);
+    $('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
+  });
 
+});
 
 
 const videoTemplate = _.template($('#video-template').html());
@@ -39,6 +47,8 @@ $(document).ready(function() {
   }).fail(()=> {
     $('#rental-library').html('<p>Please refresh page</p>')
   });
+
+  // this.$('button#confirm-checkout').attr('value', title);
 
   $('#checkout-form').hide();
 });

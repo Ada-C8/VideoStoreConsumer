@@ -11,14 +11,12 @@ const Detail = Backbone.View.extend({
     this.collection = parameters.collection;
     this.customerList = parameters.customerList;
 
+    // this.listenTo(this.model,)
     // this.image = parameters.image_url;
   },
   render() {
-    // fetch movie details
-    // console.log(this.image)
-    // console.log(this.title);
-    console.log(this.customerList)
     let movie = new Video({id: this.title});
+    // this.$el.find('#checkout-form').empty();
     // console.log(movie);
     movie.fetch({}).done(() => {
       // console.log(this.template);
@@ -28,6 +26,9 @@ const Detail = Backbone.View.extend({
       this.$el.find('#video-view').html(this.template(movie.toJSON()));
       // $('#video-view').append('<h1>hi</h1>')
       // this.model = movie;
+      // this.checkOutForm(this.title);
+      this.$el.find('#checkout-form').show();
+      this.$('button#confirm-checkout').attr('value', this.title)
     }).fail(() => {
 
       movie.urlRoot += '/?query='
@@ -39,10 +40,9 @@ const Detail = Backbone.View.extend({
         this.$el.empty();
         this.$el.html(this.template(movie));
         this.model = movie;
+        this.$el.find('#checkout-form').hide();
       });
     })
-    this.$el.find('#checkout-form').show();
-    this.checkOutForm();
   },
   events: {
     'click button.btn-add': 'addMe',
@@ -67,23 +67,26 @@ const Detail = Backbone.View.extend({
   failedAdd(movie) {
     $('#message').html(`<p>Oops.. can't save to your rental library.</p>`)
   },
-  checkOutForm() {
-    this.customerList.each((customer) => {
-      const name = customer.get('name');
-      const id = customer.get('id');
-      this.$('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
-    });
-  },
+  // checkOutForm(title) {
+  //   this.$('button#confirm-checkout').attr('value', title);
+  //   this.customerList.each((customer) => {
+  //     const name = customer.get('name');
+  //     const id = customer.get('id');
+  //     this.$('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
+  //   });
+  // },
   checkMeOut(event) {
     event.preventDefault();
     const day = new Date()
     const due = new Date(day.getFullYear(), day.getMonth(), day.getDate()+7);
     const params = {customer_id: event.currentTarget.form["0"].value, due_date: due}
-    const url = `http://localhost:3000/rentals/${this.title}/check-out`
-    // console.log(this.model.urlRoot)
+    const url = `http://localhost:3000/rentals/${event.currentTarget.value}/check-out`
+    console.log(event)
     $.post( url, params, (response) => {
       console.log('rent me!')
-      console.log(response)
+      // this.model.save({inventory: this.model.get('inventory') - 1}, {patch: true});
+      // console.log(this.model);
+      this.render();
       // this.successfulAdd(response);
     }).fail(() => {
         // this.failedAdd();
