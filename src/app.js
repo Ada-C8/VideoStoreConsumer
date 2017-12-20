@@ -1,21 +1,16 @@
-import 'css/_settings.css';
-import 'foundation-sites/dist/css/foundation.css';
-import './css/styles.css';
-
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+import 'foundation-sites/dist/css/foundation.css';
 
 // collections
-import MovieList from 'collections/movie_list';
+import MovieList from './collections/movie_list';
 
 // views
-import MovieView from './views/movie_view.js';
-import MovieListView from './views/movie_list_view.js';
-import SearchMoviesView from './views/movie_list_view.js';
+import MovieListView from './views/movie_list_view';
 
-// model
-import Movie from 'models/movie';
+import './css/_settings.css';
+import './css/styles.css';
 
 // ready to go
 $(document).ready(function() {
