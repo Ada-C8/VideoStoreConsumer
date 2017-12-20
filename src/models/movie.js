@@ -18,6 +18,11 @@ const Movie = Backbone.Model.extend({
         errors['title'] = ["can't be blank"];
       }
     }
+    if (Object.keys(errors).length > 0) {
+      return errors;
+    } else {
+      return false;
+    }
   },
 });
 

@@ -45,14 +45,31 @@ const movieSearch = function movieSearch(e) {
 const addMovie = function addMovie(e) {
   e.preventDefault();
 
+  const error_box = $('#error-box');
+  error_box.html('');
   let formInfo = $('#new-movie').serializeArray();
   formInfo = arrayToJSON(formInfo);
   const movie = new Movie(formInfo);
-  movie.save({
-    success: () => {
-      movieList.add(movie);
+  console.log(movie);
+  console.log(movie.isValid());
+  if (movie.isValid()) {
+    movie.save({
+      success: () => {
+        movieList.add(movie);
+      }
+    });
+  } else {
+    displayMovieFormErrors(movie.validationError);
+  }
+};
+
+const displayMovieFormErrors = function displayMovieFormErrors(errors) {
+  const error_box = $('#error-box');
+  for (let field in errors) {
+    for (let error of errors[field]) {
+      error_box.append(`<p>${field}: ${error}</p>`);
     }
-  });
+  }
 };
 
 const arrayToJSON = function arrayToJSON(arr) {
