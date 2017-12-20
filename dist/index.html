@@ -17,12 +17,12 @@
     <section>
       <section id="myModal" class = "columns small-12 modal hide">
         <!-- <div class= "modal-content"> -->
-          <section>
+        <section>
 
 
           <button id ="close" class="button black float-right" aria-label="Close">&#215;</button>
           <div id="movie-search" class= "columns large-12 small-12 white">
-          <div class="movie-entry-form">
+            <div class="movie-entry-form">
               <h3>Find a new movie</h3>
               <form id="form" method="get">
                 <label>Title</label>
@@ -37,16 +37,17 @@
             <div id="search-results">
               <table>
                 <thead>
-                  <th class="title">Title</th>
-                  <th class="release_date">Release Date</th>
                   <th class="img_url">Image</th>
-                  <th></th>
+                  <th class="title">Title</th>
+                  <th class="overview">Overview</th>
+                  <th class="release_date">Release Date</th>
+                  <th>Add Movie</th>
                 </thead>
                 <tbody id="search-list">
                 </tbody>
               </table>
             </div>
-          <!-- </div> -->
+            <!-- </div> -->
 
           </section>
         </div>
@@ -72,9 +73,10 @@
           </p>
           <table>
             <thead>
+              <th class="img_url">Image</th>
               <th class="title">Title</th>
               <th class="release_date">Release Date</th>
-              <th class="img_url">Image</th>
+              <th class="overview">Overview</th>
             </thead>
             <tbody id="movie-list">
             </tbody>
@@ -88,36 +90,46 @@
 
 <script type="text/template" id="movie-template">
   <td>
+    <img class = "float-center" src= "<%- image_url %>" />
+  </td>
+  <td>
     <h4>
-        <%- title %>
+      <%- title %>
     </h4>
-<!-- <%- release_date %> -->
   </td>
   <td>
-    <%- release_date %>
+    <p class="small">
+      <%- overview %>
+    </p>
   </td>
   <td>
-    <img src= "<%- image_url %>" />
+    <p>
+      <%- release_date %>
+    </p>
   </td>
 </script>
 
 <script type="text/template" id="search-template">
   <td>
+    <img class = "float-center" src= "<%- image_url %>" />
+  </td>
+  <td>
     <h4>
       <%- title %>
-    </h4>
-    <%- release_date %>
-  </td>
-  <!-- <td>
-    <%- release_date %>
-  </td> -->
-  <td>
-    <img src= "<%- image_url %>" />
-  </td>
-  <td>
-    <button class="button add">Add movie</button>
-    <p class="nothing red hide">Added Movie!</p>
-  </td>
+      </h4
+    </td>
+    <td class= "small">
+      <%-overview%>
+    </td>
+    <td>
+      <p>
+        <%- release_date %>
+      </p>
+    </td>
+    <td>
+      <button class="button add">Add movie</button>
+      <p class="nothing red hide">Added Movie!</p>
+    </td>
 
-</script>
-</html>
+  </script>
+  </html>

@@ -26,9 +26,24 @@ button.black{
   background-color: black;
 }
 
-/*td {
+label{
   font-size: 1.5em;
-}*/
+}
+
+.small{
+  font-size: .75em;
+}
+img {
+  align-items: center;
+}
+
+h4, p {
+  text-align: center;
+}
+td {
+  max-width: 200px;
+
+}
 
 button.black:hover {
   background-color: grey;
