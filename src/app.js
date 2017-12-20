@@ -64,9 +64,11 @@ $(document).ready(function() {
     console.log(this.value);
     if (this.value === 'imdb'){
       $('#imdb-section').show();
+      $('#search').show();
       $('#current-rentals-view').hide();
     } else {
       $('#imdb-section').hide();
+      $('#search').hide();
       $('#current-rentals-view').show();
     }
   });
