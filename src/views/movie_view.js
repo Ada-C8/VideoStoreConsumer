@@ -5,6 +5,7 @@ const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.listenTo(this.model, 'change', this.render);
+    this.inventoried = params.inInventory;
   },
   render() {
     console.log(this.template);
