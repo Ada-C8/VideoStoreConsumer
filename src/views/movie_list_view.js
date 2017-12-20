@@ -10,21 +10,21 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.bus, 'addMovieDB', this.addMovieDB)
   },
-  render(searchResults) {
-    this.$('#movie-list').empty();
-    if (searchResults) {
-      searchResults.forEach((movie) => {
-        console.log('in Movie List View render');
-        const movieView = new MovieView({
-          model: movie,
-          template: this.template,
-          tagName: 'tr',
-          className: 'movie',
-          bus: this.bus,
-        });
-        this.$('#movie-list').append(movieView.render().$el);
-      });
-    } else {
+  render() {
+    // this.$('#movie-list').empty();
+    // if (searchResults) {
+    //   searchResults.forEach((movie) => {
+    //     console.log('in Movie List View render');
+    //     const movieView = new MovieView({
+    //       model: movie,
+    //       template: this.template,
+    //       tagName: 'tr',
+    //       className: 'movie',
+    //       bus: this.bus,
+    //     });
+    //     this.$('#movie-list').append(movieView.render().$el);
+    //   });
+    // } else {
     this.model.each((movie) => {
       console.log('in Movie List View render');
       const movieView = new MovieView({
@@ -36,7 +36,7 @@ const MovieListView = Backbone.View.extend({
       });
       this.$('#movie-list').append(movieView.render().$el);
     });
-  }
+    // }
     return this;
   },
 
@@ -45,9 +45,29 @@ const MovieListView = Backbone.View.extend({
   },
 
   addMovieDB(movie_hash){
-    this.model.add(movie_hash);
-    console.log("i tried to add a movie")
+    const newMovie = new Movie(movie_hash)
+    this.model.add(newMovie);
+
+    if (!newMovie.isValid()) {
+      // handleValidationFailuresTrip(trip.validationError);
+      return;
+    }
+    newMovie.save({}, {
+      success: (model, response) => {
+        console.log(this.model.attributes)
+        console.log(`Successfully added new movie: ${newMovie.get('title')}`);
+        // $('.movie-success-messages').show();
+      },
+      error: (model, response) => {
+        console.log('Failed to save movie! Server response:');
+        console.log(response);
+        this.model.remove(model);
+
+        // handleValidationFailuresTrip(response.responseJSON["errors"]);
+      },
+    });
   },
+
   getFormData() {
     console.log("I am reading the movie rental form")
     // const formData = {};
