@@ -10,7 +10,7 @@ const VideoListView = Backbone.View.extend({
   initialize(parameters) {
     this.template = parameters.template;
     this.model = parameters.model;
-
+    this.customerList = parameters.customerList;
     this.detailTemplate = parameters.detailTemplate;
     this.listenTo(this.model, 'sortMe', this.render);
     this.listenTo(this.model, 'update', this.render);
@@ -48,6 +48,7 @@ const VideoListView = Backbone.View.extend({
     'click tr.video-item': 'viewMe',
     'keyup input[type=text]': 'filterMe',
     'click input.btn-search': 'searchMe',
+    'click button.btn-checkout': 'checkMeOut',
   },
   viewMe(event) {
     // event.preventDefault();
@@ -93,6 +94,18 @@ const VideoListView = Backbone.View.extend({
 
     });
   },
+  checkMeOut(event) {
+    // title: event.currentTarget.firstElementChild.innerText,
+    // Show the form
+    // decrement number of available movies
+
+    this.customerList.each((customer) => {
+      const name = customer.get('name')
+      console.log(name);
+      $('select').append(`<option value=${name}>${name}</option>`);
+    });
+    return this;
+  }
 });
 
 export default VideoListView;

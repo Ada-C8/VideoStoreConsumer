@@ -48,6 +48,14 @@
           <article id="video-view">
 
           </article>
+
+          <form id="checkout-form">
+            <label for="customer">Customer</label>
+            <select name="customer">
+               <!-- Option entries should be added here using JavaScript -->
+            </select>
+             <button class="button" id="confirm-checkout">Checkout</button>
+          </form>
         </section>
 
       </section>
@@ -62,7 +70,7 @@
         </td>
         <td>
           <% if (in_library) {  %>
-            <button class="button btn-view" id="" > Checkout </button>
+            <button class="button btn-checkout" id="" > Checkout </button>
           <% } %>
         </td>
         <!-- <td>
@@ -94,7 +102,6 @@
             <button class="button btn-add">Add</button>
           <% } %>
         </article>
-
 
       </section>
     </script>
