@@ -4,11 +4,13 @@ import MovieList from '../collections/movie_list';
 
 const SearchView = Backbone.View.extend({
   initialize(params) {
-    this.searchTemplate = params.searchTemplate;
+    this.template = params.template;
     this.listenTo(this.model, "change", this.render);
   },
   render() {
-    const compiledTemplate = this.searchTemplate(this.model.toJSON());
+    console.log("THIS IS SVIEW");
+    console.log(this);
+    const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     console.log('in search model')
     console.log(this)

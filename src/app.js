@@ -40,7 +40,20 @@ import SearchView from 'views/search_view';
 
 
  // end of const
-
+ const data = [
+   {
+     title: 'HUMOR',
+   },
+   {
+      title: 'FISHES',
+   },
+   {
+     title: 'SADNESS',
+   },
+   {
+      title: 'POSITIVITY',
+   },
+ ];
 
   // ready to go
   $(document).ready(function() {
@@ -50,14 +63,14 @@ import SearchView from 'views/search_view';
           template: _.template($('#movie-template').html()),
           el: 'main'
       });
-       const results = new MovieList();
+      const results = new MovieList();
       const searchListView = new SearchListView({
             model: results,
             template: _.template($('#return-template').html()),
             el: 'main'
         });
     // movieListView.render();
-    // searchListView.render();
+    searchListView.render();
     // searchReturns.render();
     // $('.list_movies').click(allMovieList);
     // $('#search-form').submit(searchDbList);
