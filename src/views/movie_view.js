@@ -34,8 +34,12 @@ const MovieView = Backbone.View.extend({
         addMovieFromDatabase.save({}, {
         // success: events.successfulSave,
         // error: events.failedSave,
-        success: console.log("yes, added to db probably"),
-        error: console.log("not added i think"),
+        success: function(response){
+          console.log("yes, added to db probably")
+        },
+        error: function(){
+          console.log("not added i think")
+        },
       });
         console.log(this.inventory);
       }
