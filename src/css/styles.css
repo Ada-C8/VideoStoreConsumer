@@ -10,6 +10,18 @@ header {
   padding: 1em;
 }
 
+nav {
+  text-align: right;
+}
+
+header a {
+  color: #ffcf00;
+}
+
+.display-none {
+  display: none;
+}
+
 .actions {
   padding: 1em;
 }
