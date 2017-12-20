@@ -6,10 +6,23 @@ main {
 
 header {
   background-color: gold;
-  color: rgba(63,127,191, 1);
+  color: #9AC83A;
+  font-weight: bold;
+  /*color: rgba(63,127,191, 1);*/
   padding: 40px;
   margin-bottom: 10px;
   background-image: url("popcorn.png")
+}
+
+.button {
+  background: #9AC83A;
+  
+}
+.button:hover {
+  /*background: red;*/
+  background: #88b824;
+  /*background: linear-gradient(top,#b0dc55,#88b824);*/
+
 }
 
 #completed-checkbox {

@@ -23,14 +23,15 @@ $(document).ready(function() {
 
 
   const movies = new MovieList();
-  movies.fetch()
+  // movies.fetch()
 
   // $('.movies-appear').hide()
 
-  // $('.view-library-btn').click(function() {
-  //   console.log('in the view library button');
-  //   $('.movies-appear').toggle();
-  // });
+  $('.view-library-btn').click(function() {
+    console.log('in the view library button');
+    $('.movies-appear').show();
+    movies.fetch()
+  });
 
   const moviesLibraryView = new MoviesLibraryView({
     el: '#movies-container',
