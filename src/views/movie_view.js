@@ -7,7 +7,6 @@ const MovieView = Backbone.View.extend({
     this.bus = params.bus;
     this.collection = params.collection;
 
-    // console.log(this.collection);
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
@@ -19,8 +18,6 @@ const MovieView = Backbone.View.extend({
   },
   showMovie(event){
 
-    // let theLibrary = this.collection.fetch();
-    // console.log(theLibrary);
 
     let selectedMovie = this.model.attributes;
     let selectedSummary = selectedMovie['overview'];
@@ -48,6 +45,3 @@ const MovieView = Backbone.View.extend({
 });
 
 export default MovieView;
-
-// keep 2 collections
-// one for library, one for search results

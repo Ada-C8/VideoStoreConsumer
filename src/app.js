@@ -46,7 +46,6 @@ $(document).ready(function() {
   })
 
   movieList.fetch();
-  // movieListView.render();
 
   // Search event
   $('#search-form').on('submit', function(e){
@@ -59,7 +58,6 @@ $(document).ready(function() {
       searchList.fetch({
         data: {query: queryText},
       });
-      // movieListView.render();
     }
     $('#search-form input').val('');
   });
@@ -68,7 +66,6 @@ $(document).ready(function() {
   $('#movies').on('click', function(){
     movieListView.inventoryMode();
     movieList.fetch();
-    // movieListView.render();
   });
 
   // Check Library
@@ -80,20 +77,3 @@ $(document).ready(function() {
   });
 
 });
-
-
-
-// movie_data = MovieWrapper.getMovie(params[:id])
-//
-// if Movie.where(overview: movie_data["overview"]).length > 0
-//   # add an error message for the user
-// else
-//   movie = Movie.new do |m|
-//     m.title = movie_data["title"]
-//     m.overview = movie_data["overview"]
-//     m.release_date = movie_data["release_date"]
-//     m.image_url = movie_data["poster_path"]
-//   end
-//
-//   movie.save
-// end
