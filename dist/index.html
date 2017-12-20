@@ -70,10 +70,17 @@
     <td>
       <%- release_date %>
     </td>
-    <td>
-      <button type="button" class="button">Add to library</button>
-    </td>
-  </script>
+    <td id="<%-title%>">
+      <!-- have ? 'have it' : 'have it' -->
 
-</body>
-</html>
+      <% if (have) { %>
+        You have this movie
+        <% } %>
+        <% if (!have) { %>
+          <button class="button" id="add-movie">Add to library</button>
+          <% } %>
+        </td>
+      </script>
+
+    </body>
+    </html>
