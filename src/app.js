@@ -11,9 +11,9 @@ import LibMovie from './models/lib_movie';
 import LibMovieList from './collections/lib_movie_list';
 import LibMovieView from './views/lib_movie_view';
 import LibMovieListView from './views/lib_movie_list_view';
-import SearchMovie from './models/search_movie';
-import SearchMovieList from './collections/search_movie_list';
-import SearchMovieView from './views/search_movie_view';
+// import SearchMovie from './models/search_movie';
+// import SearchMovieList from './collections/search_movie_list';
+// import SearchMovieView from './views/search_movie_view';
 import SearchMovieListView from './views/search_movie_list_view';
 
 // template varibles
@@ -23,7 +23,8 @@ let searchMovieTemplate;
 // new instance of LibMovieList
 const libMovieList = new LibMovieList();
 //new instance of searchMovieList
-const searchMovieList = new SearchMovieList();
+// const searchMovieList = new SearchMovieList();
+const searchMovieList = new LibMovieList();
 
 // ready to go
 $(document).ready(function() {

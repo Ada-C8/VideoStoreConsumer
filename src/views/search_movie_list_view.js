@@ -1,6 +1,8 @@
 import BackBone from 'backbone';
-import SearchMovie from '../models/search_movie';
-import SearchMovieView from './search_movie_view';
+// import SearchMovie from '../models/search_movie';
+// import SearchMovieView from './search_movie_view';
+import LibMovie from '../models/lib_movie';
+import LibMovieView from './lib_movie_view';
 
 const SearchMovieListView = BackBone.View.extend({
 
@@ -31,7 +33,6 @@ const SearchMovieListView = BackBone.View.extend({
     console.log(searchMovie);
     // send message and movie to LibMovieListView
     this.bus.trigger('add_movie_to_lib', searchMovie);
-
   },
 
   searchMovies(event){
@@ -79,7 +80,7 @@ const SearchMovieListView = BackBone.View.extend({
     this.$('#search-movies').empty();
 
     this.model.each((searchMovie) => {
-      const searchMovieView = new SearchMovieView({
+      const searchMovieView = new LibMovieView({
         model: searchMovie,
         template: this.template,
         tagName: 'p',
