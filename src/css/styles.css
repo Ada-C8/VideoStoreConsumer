@@ -1,12 +1,48 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: white;
 }
 
 header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  background-color: gold;
+  /*text-shadow: 2px 2px 2px 2px #88b824;*/
+  font-weight: bold;
+  /*color: rgba(63,127,191, 1);*/
+  padding: 40px;
+  margin-bottom: 10px;
+  background-image: url("popcorn.png");
+  /*opacity: .2;*/
+}
+
+h1 {
+  color: #9AC83A;
+  /*opacity: 1;*/
+}
+
+.button {
+  background: #9AC83A;
+  height: 60px;
+  width: auto;
+  font-size: 17px;
+  font-weight: 550;
+  margin-right: 7px;
+  margin-top: 10px;
+}
+
+
+.button:hover {
+  /*background: red;*/
+  background: #88b824;
+  background-color: linear-gradient(top,#b0dc55,#88b824);
+
+}
+.button:focus {
+  background: #9AC83A
+}
+
+#query {
+
 }
 
 #completed-checkbox {
@@ -37,6 +73,24 @@ aside label {
 div {
   display: inline;
 }
+
+ul {
+  list-style: none;
+}
+
+#query {}
+
+
+script h2, script p, script button {
+  display: inline-block;
+  float: right;
+}
+
+#search-form {
+  display: right;
+}
+
+
 /*
 * {
   border-style: solid;

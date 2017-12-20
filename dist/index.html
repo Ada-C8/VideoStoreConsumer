@@ -1,15 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <title>BiBi and Ang's BadAss Backbone Baseline</title>
+</head>
+<body>
+  <main id="main-content">
+    <header>
 
-    <script src="/app.bundle.js"></script>
+      <h1>BiBi and Ang's BadAss Backbone Baseline</h1>
+      <section class="library-movies" id="library-movies">
+      </section>
 
-  </body>
-  </html>
+      <!-- <ul id="search" class="menu align-right large-5 medium-5 columns">
+        <li id="buttons"><button class="button view-library-btn">View Library Movies</button></li>
+
+        <li><button class="button search-btn">Search for Movies</button></li>
+
+        <li><input type="text" name="queryTerm" placeholder="Movie Title" id="search-box" /></li>
+        <li><a id="search-button" type="button" value="Search">Search</a></li>
+
+
+      </ul> -->
+    </header>
+
+    <section class="search-form grid-x" id="search-form">
+      <div class="columns medium-9 small-12">
+        <ul>
+          <li id="buttons"><button class="button view-library-btn">View Library Movies</button></li>
+
+          <li><form id="movie-search-form">
+            <input id="query" type="text" name="query" placeholder="Movie Title"/>
+            <input type="submit" value="GO" />
+          </form></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="movies-appear">
+
+      <div class="movies-container" id="movies-container">
+        <ul class="movies" id="movies">
+        </ul>
+      </div>
+    </section>
+
+
+
+
+  </main>
+
+  <script src="/app.bundle.js"></script>
+
+  <script type="text/template" id="movie-template">
+    <img src="<%- image_url %>" />
+    <h2 class="title"><%- title %></h2>
+    <p class="overview"><%- overview %></p>
+    <p class="release-date">Release Date: <%- release_date %></p>
+    <button class='btn-add alert button' style="<%- external_id ? '' : 'display:none;' %>">Add to Library</button>
+  </script>
+
+
+
+</body>
+</html>
