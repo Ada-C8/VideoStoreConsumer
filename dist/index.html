@@ -3,15 +3,21 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Baseline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+
   <body>
     <header class="main-header">
       <div class="main-h1-wrapper">
         <h1>Video Store Plus</h1>
       </div>
     </header>
+
     <main id="main-content">
       <section id="returned-movies-view" class="small-12 large-6 columns">
+        <header class="section-header">
+          <h4>Search for movies on the web!</h4>
+        </header>
         <form id="movie-search">
           <label for="title">Title</label>
           <input type="text" name="title"/>
@@ -21,9 +27,7 @@
           <button id='search' class="button btn-search alert">Return Matching Movies!</button>
         </form>
 
-        <!-- Movies that match the search -->
-        <div id='imdb-section'>
-          <h2>Search for movies on the web!</h2>
+        <div id="imdb-section">
           <table class="hover striped stack">
             <thead>
               <th>Movie</th>
@@ -32,26 +36,19 @@
               <th>Add Movie to Store</th>
             </thead>
 
-            <!-- APPEND ALL TRIPS  -->
+            <!-- Append Movies that match the search -->
+
             <tbody id="matching-movies">
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- Current Movies in the Rental store -->
       <section id="current-rentals-view" class="small-12 large-6 columns">
-        <header>
-          <h2>Available Movies for Checkout!</h2>
+        <header class="section-header">
+          <h4>Available Movies for Checkout!</h4>
         </header>
-        <!-- <form id="search-current-rentals">
-          <label for="title">Movie Title you are looking for?</label>
-          <input type="text" name="title"/>
-          <button class="button btn-search alert">Return Movies in store</button>
-        </form> -->
-        <!-- <ul id="movies-in-store">
 
-        </ul> -->
         <table class="hover striped stack">
           <thead>
             <th>Movie</th>
@@ -59,13 +56,13 @@
             <th>Overview</th>
           </thead>
 
-          <!-- APPEND ALL TRIPS  -->
+          <!-- Append current Movies in the rental store -->
+
           <tbody id="movies-in-store">
           </tbody>
         </table>
       </section>
 
-      <!-- Search for Movie Form -->
     </main>
 
     <!-- Templates -->
@@ -99,38 +96,9 @@
       <td>
         <button class="button btn-add">Add</button>
       </td>
-
-      <!-- <h3 class="title"><%- title %></h3>
-      <p><%- release_date %></p>
-      <p><img src = '<%- image_url %>' alt='<%- title%>'/></p>
-      <p><%- overview %></p>
-      <p><button class="button btn-add">Add to collection</button><p> -->
     </script>
 
     <script src="/app.bundle.js"></script>
 
   </body>
-  </html>
-<!--
-  // RETURNS BACK
-  //
-  // attributes
-  // :
-  // external_id
-  // :
-  // null
-  // id
-  // :
-  // 196
-  // image_url
-  // :
-  // "/psJb2NQKUWDQyhMRV3hoEWk60gS.jpg"
-  // overview
-  // :
-  // "The discovery of a severed human ear found in a field leads a young man on an investigation related to a beautiful, mysterious nightclub singer and a group of criminals who have kidnapped her child."
-  // release_date
-  // :
-  // "1986-08-01"
-  // title
-  // :
-  // "Blue Velvet" -->
+</html>

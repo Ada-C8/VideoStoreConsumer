@@ -3,7 +3,7 @@
 
 /*********** ALL STYLES ***********/
 
-h1, h2 {
+h1, h2, h3, h4 {
   font-family: 'Secular One', sans-serif;
 }
 /*********** HEADER ***********/
@@ -24,8 +24,10 @@ h1, h2 {
   margin: 0;
 }
 
+/******* MAIN SECTION HEADERS *******/
 
-/*********** MAIN ***********/
+
+
 
 
 /* main {
