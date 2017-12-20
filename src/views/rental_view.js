@@ -55,7 +55,8 @@ addMovieToCheckout(title) {
   console.log(modelAttributes);
 
   const newRental = new Rental(modelAttributes);
-
+  // console.log( newRental.url)
+  newRental.url += title + '/check-out'
   //send post request to Rails API
   newRental.save({}, {
   })

@@ -4,7 +4,7 @@ const Rental = Backbone.Model.extend({
   // defaults
   // validations
   // custom method
-  url: `http://localhost:3000/movies`,
+  url: () => `http://localhost:3000/rentals/`,
 });
 
 export default Rental;
