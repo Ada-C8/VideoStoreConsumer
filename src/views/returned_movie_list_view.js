@@ -35,7 +35,7 @@ const ReturnedMovieListView = Backbone.View.extend({
   matchingMovies(event) {
     // console.log('why the eff is this not working')
     event.preventDefault();
-
+    this.$('#matching-movies').empty();
     const movieTitle = this.getFormData();
     // console.log('This is the movie title: ' + movieTitle.title);
     // console.log(this.model.url);
