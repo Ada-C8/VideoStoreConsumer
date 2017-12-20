@@ -62,6 +62,7 @@ const MovieListView = Backbone.View.extend({
       console.log('Searching Imdb...');
       this.$('#list').empty();
       const imdbList = this.model.fetch({data: {query: regSearchTerm}});
+
       imdbList.then((data, status, response) => {
 
         this.model.models.forEach((movie) => {
@@ -80,8 +81,10 @@ const MovieListView = Backbone.View.extend({
   },
   addInventory(attributes) {
     console.log(this);
-    console.log(attributes);
-    this.model.add(attributes);
+    console.log(attributes.title);
+    // this.model.add(attributes);
+    // this.create({data: {title: attributes.title}}, {type: 'POST'});
+    this.model.create(attributes.title);
     this.render();
     console.log(this.model);
   },
