@@ -22,6 +22,7 @@ const MovieView = Backbone.View.extend({
     e.preventDefault();
     if (this.model.get("inInventory")) {
       console.log("already exists in inventory");
+      console.log(this.$el);
     } else {
       const databaseInfo = {
         title: this.model.get("title"),
@@ -33,10 +34,14 @@ const MovieView = Backbone.View.extend({
       if (addMovieFromDatabase.isValid()) {
         this.inventory.add(addMovieFromDatabase);
         addMovieFromDatabase.save({}, {
-        // success: addMovieFromDatabase.successfulSave(),
-        // error: addMovieFromDatabase.failedSave(),
-        success: console.log("yes, added to db probably"),
-        error: console.log("not added i think"),
+        // success: events.successfulSave,
+        // error: events.failedSave,
+        success: function(response){
+          console.log("yes, added to db probably")
+        },
+        error: function(response){
+          console.log("not added i think")
+        },
       });
       }
     }
