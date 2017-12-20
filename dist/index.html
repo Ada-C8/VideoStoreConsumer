@@ -40,9 +40,20 @@
           <input type="text" name="title"/>
           <button class="button btn-search alert">Return Movies in store</button>
         </form> -->
-        <ul id="movies-in-store">
+        <!-- <ul id="movies-in-store">
 
-        </ul>
+        </ul> -->
+        <table class="hover striped stack">
+          <thead>
+            <th>Movie</th>
+            <th>Release Date</th>
+            <th>Overview</th>
+          </thead>
+
+          <!-- APPEND ALL TRIPS  -->
+          <tbody id="movies-in-store">
+          </tbody>
+        </table>
       </section>
 
       <!-- Search for Movie Form -->
@@ -53,11 +64,17 @@
     <!-- Templates -->
 
     <script type="text/template" id="movie-template">
-      <img src = '<%- image_url %>' alt='<%- title%>'/>
-      <h3 class="title"><%- title %></h3>
-      <div class="detail">
-        <span class="action"><%- release_date %></span>
-      </div>
+      <td>
+        <img src = '<%- image_url %>' alt='<%- title%>'/>
+        <br>
+        <%- title %>
+      </td>
+      <td>
+        <%- release_date %>
+      </td>
+      <td>
+        <%- overview %>
+      </td>
     </script>
 
     <script type="text/template" id="returned-movie-template">
