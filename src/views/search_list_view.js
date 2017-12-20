@@ -56,8 +56,8 @@ const SearchListView = Backbone.View.extend({
       this.model.fetch();
       this.model.url = 'http://localhost:3000/movies?query=';
       //what if no models are returned?  report error here?
-  }
-
+    }
+  },
 
 });
 
