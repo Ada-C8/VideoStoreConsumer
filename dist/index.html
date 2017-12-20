@@ -3,11 +3,55 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Baseline</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Zilla+Slab+Highlight" rel="stylesheet">
+
   </head>
   <body>
     <main id="main-content">
-      
+      <header>
+        <div class="banner">
+          <img src="https://images.sharefaith.com/images/3/1357769977215_16/img_mouseover3.jpg" alt="">
+          <!-- https://images.sharefaith.com/images/3/1357769977215_16/img_mouseover3.jpg -->
+          <!-- https://png.pngtree.com/thumb_back/fw800/back_pic/00/08/99/54562c75a6cc051.jpg -->
+        </div>
+        <h2>Video Store</h2>
+
+        <button type="button" name="button" class="button" id="our-movies">Our Movies</button>
+        <button type="button" name="button" class="button" id="all-movies">All Movies</button>
+      </header>
+
+
+
+      <div id="search-form"></div>
+
+      <div id='movies-container'>
+
+        <ul id='movies-list'>
+
+        </ul>
+      </div>
+
     </main>
+
+
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+      <div class="detail">
+        <p>
+          <span class="overview"><%- overview %></span>
+        </p>
+      </div>
+      <!-- <button class="btn-cancel button secondary">Cancel</button> -->
+    </script>
+
+    <script type="text/template" id="form-template">
+      <h3>Search all movies</h3>
+      <form>
+        <label for="search-movies">Find Movie:</label>
+        <input type="text" name="search-movies" />
+        <button class="button" id="submit">Submit</button>
+      </form>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
