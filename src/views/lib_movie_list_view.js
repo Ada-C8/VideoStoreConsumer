@@ -16,7 +16,7 @@ const LibMovieListView = BackBone.View.extend({
   addLibMovie(searchMovie){
     console.log('Message recieved!');
     console.log(searchMovie);
-
+    this.clearStatus();
     const newMovie = new LibMovie(searchMovie.attributes);
 
     newMovie.save({}, {
@@ -24,6 +24,7 @@ const LibMovieListView = BackBone.View.extend({
         console.log('Successfully saved movie');
         console.log(model);
         //report status
+        this.statusUpdate(`Successfully added the movie " ${model.attributes.title}" to library.` )
         console.log(model.attributes);
         this.model.add(model.attributes);
       },
@@ -32,9 +33,23 @@ const LibMovieListView = BackBone.View.extend({
 
         this.model.remove(model);
         console.log(response.responseJSON['errors']);
+        this.statusUpdate(response.responseJSON['errors']['title']);
+
         //report status
       }
     })
+  },
+
+  statusUpdate(message) {
+    // clear messages
+    console.log('inside statusUpdate');
+
+    const formattedMessage = `<p>${message}</p>`;
+    this.$('#messages').append(formattedMessage);
+  },
+
+  clearStatus(){
+    this.$('#messages').html('');
   },
 
   render() {

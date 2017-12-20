@@ -39,7 +39,8 @@ $(document).ready(function() {
   libMovieList.fetch();
   // new instance of LibMovieListView
   const libMovieListView = new LibMovieListView({
-    el: '#library-movies-container',
+    // el: '#library-movies-container',
+    el: 'main',
     model: libMovieList,
     template: libraryMovieTemplate,
     bus: bus,
