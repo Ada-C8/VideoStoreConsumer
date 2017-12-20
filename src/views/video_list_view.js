@@ -51,15 +51,16 @@ const VideoListView = Backbone.View.extend({
     // 'click button#confirm-checkout': 'checkMeOut',
   },
   viewMe(event) {
-    $('#checkout-form').show();
-    this.checkOutForm();
+    // $('#checkout-form').show();
+    // this.checkOutForm();
 
     const detailView = new DetailView({
       // image_url: video.get('image_url'),
       template: this.detailTemplate,
       title: event.currentTarget.firstElementChild.innerText,
-      el: '#video-view',
+      el: '#video-main',
       collection: this.model,
+      customerList: this.customerList,
     });
     detailView.render();
   },
@@ -91,13 +92,6 @@ const VideoListView = Backbone.View.extend({
       // movieList.set('in_library', false)
       this.model.trigger('sortMe', new VideoList(Object.values(movieList.toJSON())));
 
-    });
-  },
-  checkOutForm() {
-    this.customerList.each((customer) => {
-      const name = customer.get('name');
-      const id = customer.get('id');
-      $('select').append(`<option value=${id}>${name}</option>`);
     });
   },
 });

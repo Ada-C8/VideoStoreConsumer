@@ -9,21 +9,23 @@ const Detail = Backbone.View.extend({
     this.template = parameters.template;
     this.title = parameters.title;
     this.collection = parameters.collection;
+    this.customerList = parameters.customerList;
 
     // this.image = parameters.image_url;
   },
   render() {
     // fetch movie details
     // console.log(this.image)
-    console.log(this.title);
+    // console.log(this.title);
+    console.log(this.customerList)
     let movie = new Video({id: this.title});
     // console.log(movie);
     movie.fetch({}).done(() => {
       // console.log(this.template);
       movie.set({in_library: true})
       this.model = movie;
-      this.$el.empty();
-      this.$el.html(this.template(movie.toJSON()));
+      this.$el.find('#video-view').empty();
+      this.$el.find('#video-view').html(this.template(movie.toJSON()));
       // $('#video-view').append('<h1>hi</h1>')
       // this.model = movie;
     }).fail(() => {
@@ -39,13 +41,14 @@ const Detail = Backbone.View.extend({
         this.model = movie;
       });
     })
+    this.$el.find('#checkout-form').show();
+    this.checkOutForm();
   },
   events: {
     'click button.btn-add': 'addMe',
-    'click button#confirm-checkout.button': console.log('checkout'),
+    'click button#confirm-checkout.button': 'checkMeOut',
   },
   addMe(event) {
-    console.log(this.collection.length);
     const movie = new Video(this.model);
     // let url = movie.urlRoot += '/?' + 'title=' + movie.get('title') + '&release_date='  + movie.get('release_date');
     let params = {title: movie.get('title'), release_date: movie.get('release_date')}
@@ -63,6 +66,13 @@ const Detail = Backbone.View.extend({
   },
   failedAdd(movie) {
     $('#message').html(`<p>Oops.. can't save to your rental library.</p>`)
+  },
+  checkOutForm() {
+    this.customerList.each((customer) => {
+      const name = customer.get('name');
+      const id = customer.get('id');
+      $('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
+    });
   },
   checkMeOut(event) {
     event.preventDefault();
