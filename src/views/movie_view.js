@@ -8,10 +8,18 @@ const MovieView = Backbone.View.extend({
     this.inventoried = params.inInventory;
   },
   render() {
-    console.log(this.template);
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
+  },
+
+  events: {
+    'click .btn-add': 'addToInventory'
+  },
+
+  addToInventory(e){
+    e.preventDefault()
+    this.trigger('addMeToYourRentalStore', this.model)
   }
 });
 
