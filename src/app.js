@@ -37,7 +37,7 @@ $(document).ready(function() {
   const formView = new FormView({
     model: movieList,
     vendorModel: vendorList,
-    el: '.movie-workspace',
+    el: 'main',
     bus: bus
   });
 
