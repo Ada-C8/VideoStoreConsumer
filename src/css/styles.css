@@ -1,5 +1,6 @@
 @include foundation-everything;
 
+
 main {
     background: lightblue;
 }
@@ -36,6 +37,10 @@ aside label {
 
 div {
   display: inline;
+}
+
+ul, li {
+  list-style-type: none;
 }
 /*
 * {
