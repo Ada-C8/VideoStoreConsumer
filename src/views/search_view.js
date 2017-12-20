@@ -16,6 +16,15 @@ const SearchView = Backbone.View.extend({
     console.log(this)
     return this;
   },
+  events: {
+    'click button.add': 'addMovie',
+  },
+  addMovie: function(e) {
+    e.preventDefault();
+    // const newMovie = this.model.attributes;
+    this.model.save();
+    
+  }
 
 });
 

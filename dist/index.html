@@ -20,6 +20,7 @@
       <h2>All the Searched Movies!</h2>
         <div class="movies-list-container">
           <ul id="results" class="results">
+
           </ul>
         </div>
 
@@ -37,7 +38,8 @@
     </script>
 
     <script type="text/template" id="return-template">
-      <h3 class="title"><%- title %></h3>
+      <h3 class="title" data-id="${external_id}"><%- title %></h3>
+      <button class="add">Add Movie To Library</button>
     </script>
 
     <script src="/app.bundle.js"></script>

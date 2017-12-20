@@ -32,6 +32,19 @@ const SearchListView = Backbone.View.extend({
     const searchParams = this.$('#searchParams').val();
     this.model.fetch({data: {query: searchParams}});
   },
+  // addMovie: function(e) {
+  //   e.preventDefault();
+  //   const id = $(e.currentTarget).data("external_id");
+  //   console.log(id)
+  //   const movie = this.model.get(id)
+  //   movie.save();
+    // this.model.each((movie) => {
+    //   console.log(movie);
+    //   console.log(movie.attributes.title)
+    //   const newMovie = movie.attributes
+    //   newMovie.save();
+    // });
+  // },
 
 }); // end MovieListView
 
