@@ -61,6 +61,9 @@ $(document).ready(function() {
     bus: bus,
   });
 
+  // TODO: Event if the button to search is not showing, it is still possible to
+  // Search for a movie if you press center
+  // Need to figure out how to prevent this from happening
   $('input[type=radio][name=searchLocation]').change(function(){
     if (this.value === 'imdb'){
       $('#imdb-section, #search-btn').show();
