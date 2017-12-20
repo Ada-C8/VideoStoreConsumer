@@ -34,8 +34,8 @@ const Movie = Backbone.Model.extend({
 
   add(newMovie) {
     if(!newMovie.isValid()){
-      // $('.display-status').html('')
-      // $('.display-status').html(`${newTrip.validationError}`);
+      $('.display-status').html('')
+      $('.display-status').html(`${newMovie.errors}`);
       // modalDisplay();
     } else {
       newMovie.save( {}, {
@@ -44,7 +44,7 @@ const Movie = Backbone.Model.extend({
           console.log(movieSuccess);
           $('.display-status').html('');
           console.log(response);
-          // $('.display-status').html(response.name + tripSuccess);
+          $('.display-status').html(response.name + movieSuccess);
           // $('#add-trip-form').remove();
           // modalDisplay();
           // reportStatus('success', 'Successfully added reservation!');
