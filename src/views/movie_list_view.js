@@ -29,8 +29,10 @@ const MovieListView = Backbone.View.extend({
         release_date: movie.release_date,
         image_url: movie.image_url,
       });
+      // this.model.add(newMovie)
+      //somehow fetch on a collection inside a promise adds the models created
+      //to the collection without having to explicitly add them
       });
-      console.log(this.model);
       this.render();
       this.$('.btn-add').hide();
     })
@@ -53,10 +55,7 @@ const MovieListView = Backbone.View.extend({
     const results = newSearch.fetch()
 
     results.then(() => {
-      console.log(results.responseJSON);
       if(results.responeJSON === undefined) {
-        console.log('in here');
-        console.log(this.$('ul#movies.movies'));
         this.$("p").html('');
         this.$el.append('<p> no movies match that search term </p>')
       }
@@ -64,8 +63,6 @@ const MovieListView = Backbone.View.extend({
       results.responseJSON.forEach((movie) => {
         this.$("p").html('');
 
-        console.log('inforeach loop');
-        console.log(movie);
         const newMovie = new Movie({
         title: movie.title,
         overview: movie.overview,
