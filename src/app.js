@@ -13,14 +13,16 @@ import LibMovieView from './views/lib_movie_view';
 import LibMovieListView from './views/lib_movie_list_view';
 import SearchMovieListView from './views/search_movie_list_view';
 import RentalView from './views/rental_view';
+import Rental from './models/rental';
 
 // template varibles
 let libraryMovieTemplate;
 let searchMovieTemplate;
 
-// new instance of LibMovieList
+// new instances of models
 const libMovieList = new LibMovieList();
 const searchMovieList = new LibMovieList();
+const rental = new Rental();
 
 // ready to go
 $(document).ready(function() {
@@ -35,6 +37,7 @@ $(document).ready(function() {
   const rentalView = new RentalView({
     el: '#rental-view',
     bus: bus,
+    model: rental,
   })
 
   rentalView.render();

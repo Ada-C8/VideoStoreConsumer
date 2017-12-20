@@ -1,16 +1,16 @@
 import BackBone from 'backbone';
 import $ from 'jquery';
-// import LibMovie from '../models/lib_movie';
+import Rental from '../models/rental';
 
 const RentalView = BackBone.View.extend({
 
 initialize(params) {
   console.log('inside RentalView initalize');
+  this.model = params.model;
   this.bus = params.bus;
   // this.allCustomers = params.allCustomers;
   this.listenTo(this.bus, 'pass_movie_name', this.addMovieToCheckout);
 },
-
 
 render() {
   console.log('Getting all customers');
@@ -29,13 +29,27 @@ addMovieToCheckout(title) {
   // now have title of movie
   console.log("Message recieved in addMovieToCheckout");
   console.log(title);
-  // add movie title to rental form input
-  // this.$('#movie-title-selector').autofill({
-  //   "movie-title": title,
-  });
-  // append(`value="${title}"`)
-  // console.log(test);
-  // test.append(title);
+
+  //TODO: scroll up not working
+  // this.$('#rental-view').animate({ scrollTop: 0 }, "slow");
+  // this.$('#rental-view').scrollTop(0);
+
+  this.$('#movie-title-selector').val(title)
+  const customerID = this.$('select option').attr('data-id');
+  console.log(customerID);
+
+  //create new rental
+  console.log('addMovieToCheckout model:');
+  console.log(this.model);
+  this.model.set({title: title});
+  this.model.set({customer_id: customerID});
+  this.model.set({due_date: Date.today + 14});
+  // this.model.set('customer_id': );
+  console.log(this.model.attributes);
+
+  //send post request to Rails API
+
+
 },
 
 });

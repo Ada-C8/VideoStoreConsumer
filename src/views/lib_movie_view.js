@@ -1,5 +1,6 @@
 import BackBone from 'backbone';
 import LibMovie from '../models/lib_movie';
+import $ from 'jquery';
 
 const LibMovieView = BackBone.View.extend({
 
@@ -15,7 +16,6 @@ events: {
 
 sendMovieTitle(event){
   console.log(`btn-add-checkout has been clicked, inside sendMovieTitle method`);
-
 
   const title = event.currentTarget.value;
 
