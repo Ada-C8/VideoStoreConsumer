@@ -10,6 +10,10 @@ const SearchListView = Backbone.View.extend({
     this.bus = params.bus;
     this.listenTo(this.bus, 'errorSavingMovie', this.renderStatus);
   }, // initialize
+  statusMessage(message) {
+    this.$('#status-messages').empty();
+    this.$('#status-messages').append(`<p>${message}</p>`)
+  }, // statusMessage
   events: {
     'click #search-button': 'searchForMovie',
     'click #clear-search': 'clearResults',
@@ -28,12 +32,14 @@ const SearchListView = Backbone.View.extend({
     // const APIresponse = $.get(encoded_url)
 
     $.get(encoded_url).done( (data) => {
-      const APIresponse = data;
-      this.render(APIresponse)
-    })
+        const APIresponse = data;
+        if (APIresponse.length < 1) {
+          console.log('no results');
+          this.statusMessage(`No results found for ${title}`);
+        }
+        this.render(APIresponse)
 
-
-
+      })
   }, // searchForMovie
   render(results){
     // select element in html and toggle class
