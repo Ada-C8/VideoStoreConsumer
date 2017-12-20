@@ -19,6 +19,10 @@ hr {
   margin: 1%;
 }
 
+#rental-messages {
+  text-align: center;
+}
+
 /*check in and check out*/
 #check-out-container h2, #check-in-container h2 {
   text-align: center;
@@ -29,9 +33,9 @@ hr {
   margin: auto;
 }
 
-#check-out-form {
+/*#check-out-form {
   margin-bottom: 10%;
-}
+}*/
 
 /*movie search*/
 #search-movies-container h2 {

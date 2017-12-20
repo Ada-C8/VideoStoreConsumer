@@ -47,30 +47,25 @@ rentMovie(event) {
   console.log('model attributes');
   console.log(modelAttributes);
 
-
-
   // client side validation
   const newRental = new Rental(modelAttributes);
   if (!newRental.isValid()) {
-    console.log(`trip is not valid!`);
-    statusUpdate(newRental.validationError);
+    console.log(`rental is not valid!`);
+    this.statusUpdate(newRental.validationError);
     return;
   }
 
-  // tripList.add(trip);
-
   // server side validation
-
   //send post request to Rails API
   newRental.save({}, {
     success: (model, response) => {
       console.log('Successfully rented movie');
-      this.statusUpdate(`Successfully checked out the movie ${model.attributes.title} to customer # ${model.attributes.customer_id}`)
+      this.statusUpdate({title: `Successfully checked out the movie ${model.attributes.title} to customer # ${model.attributes.customer_id}`})
     },
     error: (model, response) => {
       console.log('Failed to rent movie');
-      this.statusUpdate(response.responseJSON['errors']['title']);
-      console.log(response.responseJSON['errors']['title']);
+      this.statusUpdate(response.responseJSON['errors']);
+      console.log(response.responseJSON['errors']);
     },
   });
 },
@@ -98,12 +93,20 @@ getFormDataMakeObj(){
   return modelAttributes
 },
 
-statusUpdate(message) {
+statusUpdate(statusObj) {
   // clear messages
   console.log('inside statusUpdate');
 
-  const formattedMessage = `<p>${message}</p>`;
-  this.$('#rental-messages').append(formattedMessage);
+  const $statusMessages = this.$('#rental-messages');
+
+  this.clearStatus();
+
+  Object.keys(statusObj).forEach((key) => {
+    $statusMessages.append(`<p>${key}: ${statusObj[key]}</p>`);
+  })
+  //
+  // const formattedMessage = `<p>${message}</p>`;
+  // this.$('#rental-messages').append(formattedMessage);
 },
 
 clearStatus(){
