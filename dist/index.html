@@ -35,18 +35,22 @@
 
       <p class="release-date"><%- release_date %></p>
 
-      <img
-      src= <%- image_url %> alt= <%- title %>
-      />
-      <div class="movie-actions">
-        <button class="btn-add alert button" id="add-movie-button">Add</button>
+      <img  src= <%- image_url %> alt= <%- title %>  />
+        <div class="movie-actions">
+      <% if( typeof id !== 'undefined'){ %>
 
+
+          <button class="btn-add alert button" id="rent-movie-button">Learn More</button>
+
+        </div>
+        <% }else{ %>
+            <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
+              <% } %>
       </div>
-    </div>
-    <!-- </li> -->
-  </script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="/app.bundle.js"></script>
+      <!-- </li> -->
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="/app.bundle.js"></script>
 
-</body>
-</html>
+  </body>
+  </html>
