@@ -48,9 +48,10 @@ const VideoListView = Backbone.View.extend({
     'click tr.video-item': 'viewMe',
     'keyup input[type=text]': 'filterMe',
     'click input.btn-search': 'searchMe',
-    'click button.btn-checkout': 'checkMeOut',
+    // 'click tr.video-item .btn-checkout': 'checkMeOut',
   },
   viewMe(event) {
+    $('#checkout-form').show();
     // event.preventDefault();
     // console.log();
     // const video = this.model.findWhere({id: parseInt(event.currentTarget.id)});
@@ -95,15 +96,20 @@ const VideoListView = Backbone.View.extend({
     });
   },
   checkMeOut(event) {
-    // title: event.currentTarget.firstElementChild.innerText,
+    event.preventDefault();
+    console.log(event);
+    console.log(event.currentTarget.firstElementChild);
     // Show the form
     // decrement number of available movies
+    // this.viewMe(event);
+
 
     this.customerList.each((customer) => {
       const name = customer.get('name')
-      console.log(name);
       $('select').append(`<option value=${name}>${name}</option>`);
     });
+
+
     return this;
   }
 });

@@ -19,6 +19,7 @@ const customerList = new CustomerList();
 customerList.fetch();
 
 
+
 const videoTemplate = _.template($('#video-template').html());
 const videoListTemplate = _.template($('#video-list-template').html());
 
@@ -39,4 +40,5 @@ $(document).ready(function() {
     $('#rental-library').html('<p>Please refresh page</p>')
   });
 
+  $('#checkout-form').hide();
 });
