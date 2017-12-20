@@ -42,10 +42,7 @@ const MovieListView = Backbone.View.extend({
     return this;
   },
   resetModel(movie){
-    debugger
     this.model.set([movie])
-    // this.model.save();
-    debugger
   },
   searchMovies(event){
     event.preventDefault();
