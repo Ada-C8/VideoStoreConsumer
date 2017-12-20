@@ -34,6 +34,6 @@ $(document).ready(function() {
 
   // });
 
-  $('#main-content').append('<p>Movies!</p>');
+
 
 });

@@ -35,6 +35,7 @@ const MovieListView = Backbone.View.extend({
     e.preventDefault();
     this.model.fetch().done(() => {
       this.render();
+      console.log(this.model.models);
     })
 
   },
@@ -53,7 +54,7 @@ const MovieListView = Backbone.View.extend({
     this.$('#status-messages').empty();
     this.$('#status-messages').html(`<h3>${statusMessage}</h3>`);
   }
-  
+
 });
 
 export default MovieListView;

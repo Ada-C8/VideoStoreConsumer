@@ -8,6 +8,7 @@ const MovieView = Backbone.View.extend({
     this.template = params.template;
     this.bus = params.bus;
   },
+  
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
