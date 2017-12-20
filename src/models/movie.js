@@ -1,7 +1,9 @@
 import Backbone from 'backbone';
 
 const Movie = Backbone.Model.extend({
-  // TODO: DO I need this parse function?
+  initialize(attributes){
+    url: 'http://localhost:3000/movies'
+  },
   parse: function(response){
     let movie = {
       title: response['title'],
