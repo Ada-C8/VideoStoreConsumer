@@ -1,10 +1,12 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
+import Movie from '../models/movie';
 
 const SearchView = Backbone.View.extend({
   initialize(params){
     this.template = params.template;
     this.bus = params.bus;
+    this.movies = params.movies;
 
     this.listenTo(this.bus,`${this.model.title}${this.model.release_date}`, this.setHave )
   },
@@ -38,7 +40,26 @@ const SearchView = Backbone.View.extend({
   }, // setHave
   makePost(){
     // TODO .post request to the rails API, $.post( "test.php", { name: "John", time: "2pm" } );
-    
+    // this.movies.add(this.model);
+    // create a model so we can make a post request on it
+    // from notes: $.post(url, formData, success: callback)
+    const newMovie = new Movie(this.model);
+    console.log('in makePost');
+    // console.log(this.model);
+    // console.log(newMovie);
+
+    // set the url
+    const url = 'http://localhost:3000/movies';
+
+    // pull out the external_id from the views model to pass to the api
+    const ex_id = this.model['external_id'];
+
+    // make a post request to the api
+    $.post(url, {movie: {external_id: ex_id }}).done(function(data) {
+      console.log('successful api call');
+      console.log(data);
+  })
+  // TODO: deal with failure case! 
   }//makePost
 
 });

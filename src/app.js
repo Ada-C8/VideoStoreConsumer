@@ -31,6 +31,7 @@ $(document).ready(function() {
     el: $('#search-view'),
     template: searchTemplate,
     bus: bus,
+    movies: moviesList,
   });
 
   const movieListView = new MovieListView({

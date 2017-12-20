@@ -7,6 +7,7 @@ const SearchListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
+    this.movies = params.movies;
     // NOTE: add template back in later when we need it
     // this.template = params.template;
   }, // initialize
@@ -51,7 +52,8 @@ const SearchListView = Backbone.View.extend({
         model: result,
         template: this.template,
         tagName: 'tr',
-        bus: this.bus, 
+        bus: this.bus,
+        movies: this.movies,
       });
       this.$('#search-list').append(searchView.render().$el);
 }
