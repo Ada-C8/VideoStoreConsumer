@@ -39,6 +39,7 @@ $(document).ready(function() {
     el: $('section.movie'),
     template: showTemplate,
     bus: bus,
+    collection: movieList
   })
 
   movieList.fetch();
@@ -65,11 +66,4 @@ $(document).ready(function() {
     movieListView.render();
   });
 
-  // Details
-  $('button.add-collection').on('click', function() {
-    // let tripID = $(this).attr('data-id');
-    // trip = tripList.get(tripID);
-    // const trip = tripList.add(tripData);
-    // trip.save();
-  })
 });
