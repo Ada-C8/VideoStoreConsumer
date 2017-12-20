@@ -9,7 +9,7 @@ const Movie = Backbone.Model.extend({
     this.title = params.title;
     // this.attributes.upperCaseTitle = this.title.toUpperCase();
   },
-  validates(attributes) {
+  validate(attributes) {
     const errors = {};
     if(!attributes.title) {
       errors['title'] = ["cannot be blank"];

@@ -81,7 +81,6 @@ const FormView = Backbone.View.extend({
 
   },
   updateStatusMessageWith: function(movie) {
-    debugger;
     this.$('#status-message').empty();
     if (movie.isValid() && movie.get('unique')) {
       this.$('#status-message').append(`<li class="success">${movie.get('title')} successfully added to rental library</li>`);
