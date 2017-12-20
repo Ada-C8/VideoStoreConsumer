@@ -11,7 +11,7 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.bus, 'updateStatusMessage', this.statusMessage);
   },
 
-  render() {
+  render(args) {
     this.$('#rentals').empty();
     this.model.each((movie) => {
       const movieView = new MovieView({
@@ -21,7 +21,7 @@ const MovieListView = Backbone.View.extend({
         className: 'rental',
         bus: this.bus,
       })
-      this.$('#rentals').append(movieView.render().$el);
+      this.$('#rentals').append(movieView.render(args).$el);
     })
     return this;
   },
@@ -34,7 +34,7 @@ const MovieListView = Backbone.View.extend({
   getRentals: function(e) {
     e.preventDefault();
     this.model.fetch().done(() => {
-      this.render();
+      this.render({button: false});
       console.log(this.model.models);
     })
 
@@ -46,7 +46,7 @@ const MovieListView = Backbone.View.extend({
     console.log(searchWord);
     this.model.fetch({ data: $.param({'query': searchWord}) }).done(() => {
       console.log(this.model);
-      this.render();
+      this.render({button: true});
     })
   },
 

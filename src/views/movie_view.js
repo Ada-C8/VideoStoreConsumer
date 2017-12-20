@@ -8,10 +8,13 @@ const MovieView = Backbone.View.extend({
     this.template = params.template;
     this.bus = params.bus;
   },
-  
-  render() {
+
+  render(args) {
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
+    if (args.button) {
+      this.$el.append('<button id="btn-add-to-lib">Add Me!</button>')
+    }
     return this;
   },
 
