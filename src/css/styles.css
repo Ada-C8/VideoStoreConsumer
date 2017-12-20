@@ -28,10 +28,11 @@ h1 {
   font-weight: 550;
 }
 
+
 .button:hover {
   /*background: red;*/
   background: #88b824;
-  /*background: linear-gradient(top,#b0dc55,#88b824);*/
+  background: linear-gradient(top,#b0dc55,#88b824);
 
 }
 .button:focus {
