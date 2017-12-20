@@ -38,11 +38,4 @@ $(document).ready(function() {
     el: '#search',
     library: library,
   })
-
-  //resultList.set('query', 'psycho');
-  //const resultList = new ResultList({query: 'Psycho'});
-  //console.log(resultList);
-
-  //resultList.fetch()
-
 });

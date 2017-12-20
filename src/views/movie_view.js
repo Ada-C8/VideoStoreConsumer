@@ -15,7 +15,6 @@ const MovieView = Backbone.View.extend({
     return this;
   },
   addToLibrary() {
-    console.log(this.model);
     this.library.add(this.model);
     this.model.save();
   }

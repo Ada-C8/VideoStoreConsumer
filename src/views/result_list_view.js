@@ -21,7 +21,6 @@ const ResultListView = Backbone.View.extend({
         className: 'movie',
         library: this.library,
       });
-      console.log(movie)
       this.$('#results-list').append(movieView.render().$el);
     });
     return this;
