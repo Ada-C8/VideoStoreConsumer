@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import _ from 'underscore';
+import Movie from '../models/movie';
 import MovieView from '../views/movie_view'
 
 const DatabaseListView = Backbone.View.extend({
@@ -7,7 +8,6 @@ const DatabaseListView = Backbone.View.extend({
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
     this.inventory = params.availableInventory;
-
   },
 
   render() {
@@ -18,42 +18,29 @@ const DatabaseListView = Backbone.View.extend({
         if (availableMovie.get('overview') === movie.get('overview')) {
           inventoried = true;
         }
+        movie.set('inInventory', inventoried);
       })
 
       const movieView = new MovieView({
         model: movie,
+        inventory: this.inventory,
         template: this.template,
         tagName: 'tr',
         className: 'movie',
       });
-
       this.$('#database-movies').append(movieView.render().$el);
       return this;
     });
   },
-
-  events: {
-    'click button.add': 'addToInventory',
+  updateStatusMessageFrom: function(messageHash) {
+  const errorMessageEl = this.$('.form-errors');
+  errorMessageEl.empty();
+  _.each(messageHash, (messageType) => {
+    messageType.forEach((message) => {
+      errorMessageEl.append(`<h3>${message}</h3>`);
+    });
+  });
   },
-  addToInventory: function(e) {
-    e.preventDefault();
-    const orderData = {
-    title: this.$(title).val(),
-    image: image_url,
-    overview: overview,
-    inInventory: inventoried,
-    matchedQuote: this.quoteList.findWhere({ symbol: this.$('select[name=symbol]').val() }),
-    console.log("this . MODEL:")
-    console.log(this.model);
-
-    console.log("this")
-    console.log(this.$(`input[name='query']`).val())
-
-
-    this.model.set('query', this.$(`input[name='query']`).val());
-    this.render()
-  },
-
 
 });
 
