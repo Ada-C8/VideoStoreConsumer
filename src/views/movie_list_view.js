@@ -13,31 +13,17 @@ const MovieListView = Backbone.View.extend({
   events:{
     'click input.movie-filter': 'searchMovies'
   },
-  // renderQuery(params){
-  //
-  //   movieListView = new MovieListView({
-  //     query: this.query,
-  //     el: 'main',
-  //     template: this.movieTemplate,
-  //   });
-  //
-  // }
   render(params){
     event.preventDefault();
-    let query = this.$('#movie-field').val();
     const movieListView = new MovieListView({
       el: '#movie-list',
       template: this.movieTemplate,
-      query: this.query,
-      query: query,
     });
-    // this.$el.empty();
     this.$('#movie-list').empty();
     this.model.each((movie)=>{
 
       const movieView = new MovieView({
         model: movie,
-        // el: '#single-movie',
         template: this.template,
         tagName: 'div',
         className: 'movie',
@@ -48,10 +34,6 @@ const MovieListView = Backbone.View.extend({
     });
     return this;
   },
-  // fetchLibrary(event){
-  //   event.preventDefault();
-  //   console.log('fetching library');
-  // },
   searchMovies(event){
     event.preventDefault();
     console.log('in search movies');

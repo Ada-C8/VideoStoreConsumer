@@ -16,24 +16,10 @@ const movieList = new MovieList();
 
 $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
-  $('#main-content').append('<p>Hello World!</p>');
   $('.view-library').on( "click", function() {
     event.preventDefault();
     movieList.fetch();
   });
-  // let query = false;
-  //need to move this into the movielistview
-  // $('#movie-filter').on('keyup', function(event) {
-  //   let $filter = $('#movie-filter');
-  //   if ($filter.val().trim() === "") {
-  //     return false;
-  //   } else {
-  //     query = $filter.val();
-  //     // movieList.fetch;
-  //     return query;
-  //   }
-  // });
-
 
   const movieListView = new MovieListView({
     el:'main',
