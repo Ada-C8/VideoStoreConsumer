@@ -71,19 +71,32 @@ const FormView = Backbone.View.extend({
     event.preventDefault();
     console.log(this.vendorModel);
     const title = this.$('input').val();
+    const that = this;
+    this.vendorModel.fetch({
+      data: $.param({ query: title }),
+      success: function(vendorModel, response, options) {
+        that.updateStatusFrom(options);
+      }
+   });
 
-    this.vendorModel.fetch({ data: $.param({ query: title }) });
   },
   updateStatusMessageWith: function(movie) {
     this.$('#status-message').empty();
     if (movie.isValid()) {
-      //
-      this.$('#status-message').append(`<li>${movie.get('title')} successfully added to rental library</li>`);
+      this.$('#status-message').append(`<li class="success">${movie.get('title')} successfully added to rental library</li>`);
     } else {
-      //
-      this.$('#status-message').append(`<li>${movie.get('title')} was not successfully added to rental library.</li>`).css('color', 'red');
+      this.$('#status-message').append(`<li class="alert">${movie.get('title')} was not successfully added to rental library.</li>`);
     }
 
+  },
+  updateStatusFrom: function(options) {
+    this.$('#status-message').empty();
+    const query = options.data.slice(6)
+    if(options.xhr.responseJSON.length === 0){
+      this.$('#status-message').append(`<li class="alert">No results for query: ${query}</li>`);
+    } else {
+      this.$('#status-message').append(`<li class="success">Results for query: ${query}</li>`);
+    }
   }
 
 });
