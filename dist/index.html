@@ -2,13 +2,108 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Baseline</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fjalla+One|Roboto">
+    <title>Video Store</title>
   </head>
   <body>
     <main id="main-content">
-      
-    </main>
+      <header class="row">
+        <h1>Online-Videos</h1>
+      </header>
+      <section class="row">
+        <section id="message">
 
+        </section>
+        <section class="small-12 large-6 columns">
+          <!-- Rental Library -->
+          <article id="rental-library">
+            <h3>Search Rentals</h3>
+
+            <form>
+              <input type="text" name="search" placeholder="search IMDB"/>
+              <input type="submit" value="Search" class="button btn-search">
+            </form>
+
+            <div id="rental-table">
+              <table>
+                <thead>
+                  <th class="sort title">Title</th>
+                  <th class="sort release">Release Date</th>
+                  <th>In Library?</th>
+                  <!-- <th class="sort inventory">Inventory</th>
+                  <th class="sort available">Available</th> -->
+                </thead>
+                <tbody id="rental-list">
+                  <!-- append here -->
+                </tbody>
+              </table>
+
+            </div>
+          </article>
+          <!-- Search List -->
+          <article>
+
+          </article>
+        </section>
+        <section class="small-12 large-6 columns" id="video-main">
+          <article id="video-view">
+
+          </article>
+
+          <form id="checkout-form">
+            <label for="customer">Customer</label>
+            <select name="customer">
+              <!-- Option entries should be added here using JavaScript -->
+            </select>
+            <button class="button" id="confirm-checkout">Checkout</button>
+          </form>
+        </section>
+
+      </section>
+
+    </main>
+    <script type="text/template" id="video-list-template">
+        <td>
+          <%- title %>
+        </td>
+        <td>
+          <%- release_date %>
+        </td>
+        <td>
+          <%- in_library ? 'yes' : 'no'   %>
+        </td>
+        <!-- <td>
+          <# inventory %>
+        </td>
+        <td>
+          <# available_inventory %>
+        </td> -->
+    </script>
+    <script type="text/template" id="video-template">
+      <section class="row video">
+        <article class="columns small-12">
+          <h3><%- title %></h3>
+          <h4><%- new Date(release_date).getFullYear() %></h4>
+        </article>
+        <article class="columns small-4">
+          <img src=<%- image_url %> />
+        </article>
+        <article class="columns small-8">
+          <p>
+            <%- overview %>
+          </p>
+        </article>
+        <article class="columns small-12 available">
+          <% if (in_library) {  %>
+            Available Inventory: <%- available_inventory %> / <%- inventory %>
+          <% } else {  %>
+            This movie in not in the library yet.
+            <button class="button btn-add">Add</button>
+          <% } %>
+        </article>
+
+      </section>
+    </script>
     <script src="/app.bundle.js"></script>
 
   </body>
