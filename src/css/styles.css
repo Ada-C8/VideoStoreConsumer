@@ -11,12 +11,12 @@ body {
 
 h1 {
   font-size: 2em;
+  padding-top: 25px;
 }
 
 h1, h2, h3 {
   text-align: center;
 }
-
 
 main {
   background: white;
@@ -26,7 +26,21 @@ nav {
   background: #C3DFE0;
   position: sticky;
   box-shadow: 0 2px 5px -2px #465362;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
+}
+input[type="text"], input[type="text"]:focus {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 1.25em;
+  width: 100%;
+  border-width: 0;
+  /* display: inline-block; */
+  /* background: none; */
+  box-shadow: 0 -2px -5px -2px #465362;
+}
+
+input[type="text"]:focus{
+  box-shadow: 0 1px 5px 1px #8CD195;
 }
 
 article {
