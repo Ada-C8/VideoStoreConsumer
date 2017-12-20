@@ -45,4 +45,8 @@ $(document).ready(function() {
   $('body').on('mouseenter', 'li', (event) => {
     $('.summary').css('display', 'block');
   });
+
+  $('body').on('mouseleave', 'li', (event) => {
+    $('.summary').css('display', 'none');
+  });
 });

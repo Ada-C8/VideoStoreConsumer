@@ -13,13 +13,19 @@ const MovieView = Backbone.View.extend({
     return this;
   },
   addInventory(event) {
-    event.preventDefault();
-    let movieData = this.model.attributes;
-    movieData['inventory'] = 1;
-    movieData['bus'] = this.bus;
-    const newMovie = new Movie(movieData);
-    console.log(this.bus);
-    this.bus.trigger(`addMe`, newMovie.attributes);
+    this.model.save({}, {
+      success: (model, response) => {
+        console.log('success');
+        console.log(model);
+        console.log(response);
+      },
+      error: (model, response) => {
+        console.log('error');
+        console.log(model);
+        console.log(response);
+      }
+    })
+    // this.bus.trigger(`addMe`, newMovie.attributes);
   },
   events: {
     'click .add-inventory': 'addInventory'
