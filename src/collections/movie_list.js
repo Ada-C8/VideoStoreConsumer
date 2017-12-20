@@ -17,7 +17,11 @@ const MovieList = Backbone.Collection.extend({
   addToLibrary(movie) {
     if (!this.contains(movie)){
       const result = this.create(movie);
+      result.set('unique', true);
         this.bus.trigger('updateStatus', result);
+    } else {
+      movie.set('unique', false);
+      this.bus.trigger('updateStatus', movie);
     }
   },
 
