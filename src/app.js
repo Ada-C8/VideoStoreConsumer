@@ -40,7 +40,20 @@ import SearchView from 'views/search_view';
 
 
  // end of const
-
+ const data = [
+   {
+     title: 'HUMOR',
+   },
+   {
+      title: 'FISHES',
+   },
+   {
+     title: 'SADNESS',
+   },
+   {
+      title: 'POSITIVITY',
+   },
+ ];
 
   // ready to go
   $(document).ready(function() {
@@ -57,7 +70,7 @@ import SearchView from 'views/search_view';
             el: 'main'
         });
     // movieListView.render();
-    // searchListView.render();
+    searchListView.render();
     // searchReturns.render();
     // $('.list_movies').click(allMovieList);
     // $('#search-form').submit(searchDbList);

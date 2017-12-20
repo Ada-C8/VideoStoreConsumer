@@ -12,8 +12,6 @@ const SearchListView = Backbone.View.extend({
   },
   render() {
     this.$('#results').empty();
-    console.log("in search render")
-    console.log(this)
     this.model.each((movie) => {
       const searchView = new SearchView ({
         model: movie,
@@ -30,14 +28,9 @@ const SearchListView = Backbone.View.extend({
     'submit #search-form': 'getRequest',
   },
   getRequest: function (e) {
-    console.log("YOU HIT THE BUTTON!");
     e.preventDefault();
     const searchParams = this.$('#searchParams').val();
-    const returnedList = new MovieList();
-    returnedList.searchUrl(searchParams);
-    returnedList.fetch();
-    console.log(returnedList)
-    returnedList.render();
+    this.model.fetch({data: {query: searchParams}});
   },
 
 }); // end MovieListView
