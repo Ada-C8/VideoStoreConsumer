@@ -22,6 +22,7 @@ const ShowView = Backbone.View.extend({
     'click button.add-collection': 'addtoLibrary'
   },
   addtoLibrary() {
+    let collection_state = this.collection
     this.model
   }
 });
