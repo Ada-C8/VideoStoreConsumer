@@ -21,9 +21,7 @@ const ReturnedMovieListView = Backbone.View.extend({
           this.bus.trigger('addToCollection', newMovie);
         },
         error: (model, response) => {
-          console.log('save failed');
-          console.log(model);
-          console.log(response);
+          this.$('#returned-movies-errors').append('<p>There was something wrong with your request!</p>')
         }
       });
     }
@@ -43,7 +41,7 @@ const ReturnedMovieListView = Backbone.View.extend({
         response.forEach((movieData) => {
           let newMovie = new ReturnedMovie(movieData);
 
-          if (newMovie.isValid()){
+          if (newMovie.isValid()) {
             let returnedMovieView = new ReturnedMovieView({
               tagName: 'tr',
               template: this.template,
@@ -55,8 +53,7 @@ const ReturnedMovieListView = Backbone.View.extend({
         });
       },
       error: (model, response) => {
-        console.log(`This is the model: ${model} in the movie list view`);
-        console.log(`This is the response: ${reponse} in the movie list view`);
+        this.$('#returned-movies-errors').append('<p>There was something wrong with your request!</p>')
       }
     });
     // Reset URL
@@ -71,9 +68,7 @@ const ReturnedMovieListView = Backbone.View.extend({
 
   clearFormData() {
     this.$('form input[name=title]').val('');
-    // this.$('form-errors').empty();
   },
-
 }); // ReturnedMovieListView
 
 export default ReturnedMovieListView;

@@ -6,6 +6,4 @@ const returnedMovieList = Backbone.Collection.extend({
   url: 'http://localhost:3000/movies/?query=',
 });
 
-
-
 export default returnedMovieList;

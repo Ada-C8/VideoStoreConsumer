@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 const ReturnedMovieView = Backbone.View.extend({
   model: ReturnedMovie,
-
+  
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;

@@ -18,7 +18,6 @@ const MovieListView = Backbone.View.extend({
     this.$('#movie-list').empty();
 
     const lastMovie = this.model.at(this.model.length -1);
-
     const movieView = new MovieView({
       tagName: 'tr',
       template: this.template,
@@ -27,7 +26,6 @@ const MovieListView = Backbone.View.extend({
     });
 
     this.$('#movies-in-store').append(movieView.render().$el);
-
     return this;
   },
   addToCollection(attributes) {
@@ -39,32 +37,20 @@ const MovieListView = Backbone.View.extend({
         model: newMovie,
         bus: this.bus
       });
-      this.$('#movies-in-store').append(movieView.render().$el);
+      this.$('#movies-in-store').prepend(movieView.render().$el);
     } else {
-      let errors = movie.validationError
-      Object.keys(errors).forEach((key) => {
-        this.$('#returned-movies-errors').append(`<p>${errors[key]}</p>`);
-      });
+      this.displayOrderErrors(this.validationError);
     }
   },
-}); // MovieListView
+  displayOrderErrors(errors) {
+    const $errorDisplay = this.$('#available-movies-errors');
+    $errorDisplay.empty();
 
-  // addToCollection(movie) {
-  //   if (movie.isValid()) {
-  //     const movieView = new MovieView({
-  //       tagName: 'tr',
-  //       template: this.template,
-  //       model: movie,
-  //       bus: this.bus
-  //     });
-  //     this.$('#movies-in-store').append(movieView.render().$el);
-  //   } else {
-  //     let errors = movie.validationError
-  //     Object.keys(errors).forEach((key) => {
-  //       this.$('#returned-movies-errors').append(`<p>${errors[key]}</p>`);
-  //     });
-  //   }
-  // },
+    Object.keys(errors).forEach((key) => {
+      $errorDisplay.append(`<p>${errors[key]}</p>`);
+    });
+  },
+}); // MovieListView
 
 
 export default MovieListView;

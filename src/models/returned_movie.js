@@ -28,6 +28,12 @@ const returnedMovie = Backbone.Model.extend({
     if (!attributes.image_url){
       errors['title'] = 'The image url can not be blank';
     }
+
+    if ( Object.keys(errors).length > 0 ) {
+      return errors;
+    } else {
+      return false;
+    }
   },
 });
 
