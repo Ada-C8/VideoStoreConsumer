@@ -37,6 +37,11 @@ aside label {
 div {
   display: inline;
 }
+
+/* #myModal {
+  width: 500px;
+  background-color: red;
+} */
 .modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -47,6 +52,7 @@ div {
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
 }
 
 /* Modal Content/Box */
@@ -56,6 +62,7 @@ div {
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
 }
 .show{
   display:block;
@@ -63,6 +70,24 @@ div {
 
 .hidden{
   display: none;
+}
+
+.button.close {
+  display: block;
+  width: 5%;
+  height: 2%;
+  /* float: right; */
+  align-content: right;
+  /* margin-left: 75%; */
+  background-color: lightblue;
+  margin-right: 15%;
+  font-size: 30%;
+}
+
+p.display-status {
+  max-width: 500px;
+  width: 100%;
+  display: block;
 }
 /*
 * {
