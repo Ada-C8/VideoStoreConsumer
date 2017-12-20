@@ -1,6 +1,7 @@
 import BackBone from 'backbone';
-import SearchMovie from '../models/search_movie';
+// import SearchMovie from '../models/search_movie';
 import SearchMovieView from './search_movie_view';
+import LibMovie from '../models/lib_movie';
 
 const SearchMovieListView = BackBone.View.extend({
 
@@ -31,7 +32,6 @@ const SearchMovieListView = BackBone.View.extend({
     console.log(searchMovie);
     // send message and movie to LibMovieListView
     this.bus.trigger('add_movie_to_lib', searchMovie);
-
   },
 
   searchMovies(event){

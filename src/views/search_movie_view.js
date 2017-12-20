@@ -1,5 +1,6 @@
 import BackBone from 'backbone';
-import SearchMovie from '../models/search_movie';
+// import SearchMovie from '../models/search_movie';
+import LibMovie from '../models/lib_movie';
 
 const SearchMovieView = BackBone.View.extend({
 
