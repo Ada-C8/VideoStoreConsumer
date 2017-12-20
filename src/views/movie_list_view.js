@@ -91,7 +91,8 @@ const MovieListView = Backbone.View.extend({
     const searchResults = this.model.myWhere('title', query);
     console.log(searchResults.length == 0);
     if (searchResults == 0){
-      this.clearMessages('#movie-fail-messages');
+      this.clearMessages('#movie-fail-messages')
+      this.clearMessages('#movie-success-messages');
       // this.$('#movie-fail-messages').html('');
       if (query == ""){
         let failMessage = 'Search requires an inputed title'
