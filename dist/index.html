@@ -6,10 +6,39 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <h3>Rental Store</h3>
+
+      <div class="movie-list-containter">
+        <button class="btn-show show button">See all rental movies</button>
+
+        <form id="movieForm">
+          <label for="search">Search..</label>
+          <input id="query"type="text" name="query"/>
+          <button class="btn-search search button">Search</button>
+        </form>
+
+      </div>
+      <ul id = "movies", class = "movies">
+
+      </ul>
     </main>
 
     <script src="/app.bundle.js"></script>
+    <!--  movie-template-->
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+      <div class="detail">
+        <p id="overview"><%- overview %></p>
+        <p class="date"><%- release_date %></p>
+        <img src="<%- image_url %>">
+
+      </div>
+
+      <div class="reporting">
+
+      </div>
+      <button class="btn-add button secondary">Add to Collection</button>
+    </script>
 
   </body>
   </html>
