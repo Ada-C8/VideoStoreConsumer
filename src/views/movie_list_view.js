@@ -3,6 +3,7 @@ import Movie from '../models/movie';
 import MovieList from '../collections/movie_list';
 import MovieView from '../views/movie_view';
 import ReturnedMovieView from '../views/returned_movie_view';
+import $ from 'jquery';
 // import returnedMovieList from '../collections/movie_search';
 
 const MovieListView = Backbone.View.extend({

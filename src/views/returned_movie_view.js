@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 import ReturnedMovie from '../models/returned_movie';
+import $ from 'jquery';
 
 const ReturnedMovieView = Backbone.View.extend({
   tagName: 'button',
@@ -20,6 +21,7 @@ const ReturnedMovieView = Backbone.View.extend({
     console.log(this.model);
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
+    console.log($('#current-rentals-view').html());
     return this;
   },
 });
