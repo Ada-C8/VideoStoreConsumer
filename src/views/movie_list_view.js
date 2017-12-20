@@ -11,8 +11,6 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.bus, 'addMe', this.addInventory);
   },
   render() {
-    console.log('IN RENDER');
-    console.log(this.model);
     this.$('#list').empty();
 
     this.model.fetch({}).done(() => {
@@ -39,7 +37,6 @@ const MovieListView = Backbone.View.extend({
     const regSearchTerm = this.$('input[name=search]').val();
 
     if (searchType === 'search inventory') {
-      // refactor these into two seperate methods??
       this.model.fetch({}).done(() => {
       const movieList = this.model.models;
       const filteredMovies = movieList.filter(movie => movie.get('upperCaseTitle').includes(searchTerm));
@@ -59,7 +56,6 @@ const MovieListView = Backbone.View.extend({
       return this;
     });
     } else {
-      console.log('Searching Imdb...');
       this.$('#list').empty();
       const imdbList = this.model.fetch({data: {query: regSearchTerm}});
 
@@ -80,13 +76,8 @@ const MovieListView = Backbone.View.extend({
     }
   },
   addInventory(attributes) {
-    console.log(this);
-    console.log(attributes.title);
-    // this.model.add(attributes);
-    // this.create({data: {title: attributes.title}}, {type: 'POST'});
     this.model.create(attributes.title);
     this.render();
-    console.log(this.model);
   },
   events: {
     'click #movie-button': 'render',

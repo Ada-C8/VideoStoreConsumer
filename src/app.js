@@ -40,17 +40,11 @@ $(document).ready(function() {
     el: 'main'
   });
 
-  // movieListView.render();
-
-  $('body').on('mouseenter', 'li', function(event) {
-    $(this).find('.summary').fadeIn(200);
-    $(this).find('.details').fadeIn(200);
-    $(this).find('.thumbs').fadeIn(200);
+  $('body').on('mouseenter', 'li', function() {
+    $(this).find('.moviehover').fadeIn(200);
   });
 
-  $('body').on('mouseleave', 'li', function(event) {
-    $(this).find('.summary').fadeOut(200);
-    $(this).find('.details').fadeOut(200);
-    $(this).find('.thumbs').fadeOut(200);
+  $('body').on('mouseleave', 'li', function() {
+    $(this).find('.moviehover').fadeOut(200);
   });
 });

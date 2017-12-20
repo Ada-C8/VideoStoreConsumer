@@ -16,16 +16,11 @@ const MovieView = Backbone.View.extend({
     this.model.save({}, {
       success: (model, response) => {
         console.log('success');
-        console.log(model);
-        console.log(response);
       },
       error: (model, response) => {
         console.log('error');
-        console.log(model);
-        console.log(response);
       }
     })
-    // this.bus.trigger(`addMe`, newMovie.attributes);
   },
   events: {
     'click .add-inventory': 'addInventory'
