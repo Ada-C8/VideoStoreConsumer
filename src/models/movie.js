@@ -8,18 +8,28 @@ const Movie = Backbone.Model.extend({
   initialize(attributes) {
   },
   validate(attributes) {
-    // TODO: make custom validations
-    // const errors = {};
-    //
-    // if (!attributes.task_name) {
-    //   errors['task_name'] = ["Task name is required"];
-    // }
-    //
-    // if ( Object.keys(errors).length > 0 ) {
-    //   return errors;
-    // } else {
-    //   return false;
-    // }
+
+    const errors = {};
+    const title = this.get('title');
+    const releaseDate = this.get('release_date');
+
+    console.log(title);
+    console.log(`release date is ${releaseDate}`);
+
+    if (!title) {
+      console.log("Cannot add a movie without a name");
+      errors['title'] = ["Cannot add a movie without a name"];
+    }
+
+    if (!releaseDate) {
+      errors['releaseDate'] = ["Cannot add a move that does not have a release date"];
+    }
+
+    if ( Object.keys(errors).length > 0 ) {
+      return errors;
+    } else {
+      return false;
+    }
   },
 
   add(newMovie) {

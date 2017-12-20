@@ -29,7 +29,7 @@ const MovieView = Backbone.View.extend({
     //   $('.display-status').html(`${newTrip.validationError}`);
     //   modalDisplay();
     // }
-    model.add(newMovie);
+    this.model.add(newMovie);
   },
 });
 
