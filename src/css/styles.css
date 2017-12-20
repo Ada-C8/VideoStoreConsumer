@@ -1,11 +1,16 @@
 @include foundation-everything;
 
+body {
+  /* font-family: 'Zilla Slab Highlight', cursive; */
+}
+
 main {
-    background: lightblue;
+    font-family: 'Fredoka One', cursive;
+    background: FFFFFF;
 }
 
 header {
-  background-color: lightgreen;
+  /* background-color: #ca412b; */
   padding: 0.5rem;
 }
 
@@ -37,8 +42,27 @@ aside label {
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+#main-content {
+  text-align: center;
 }
-*/
+
+#main-content h2 {
+  margin-top: 40px;
+  font-family: 'Fredoka One', cursive;
+
+}
+
+li {
+  list-style: none;
+}
+
+form {
+  margin: 0 auto;
+  width: 75%;
+}
+
+img {
+  width: 100%;
+  height: 400px;
+}
