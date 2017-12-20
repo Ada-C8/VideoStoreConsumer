@@ -1,12 +1,17 @@
 @include foundation-everything;
 
 main {
-  background: lightblue;
+  background: lightgrey;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: black;
   padding: 0.5rem;
+}
+
+h1 {
+  color: white;
+  margin-left: 2%;
 }
 
 hr {
