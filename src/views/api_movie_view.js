@@ -25,8 +25,8 @@ const APIMovieView = Backbone.View.extend({
     return this;
   },
   events: {
-  // 'click .submit-btn': 'keywordSearch',
-  'click .add-movie-btn': 'addMovieToLibrary',
+    // 'click .submit-btn': 'keywordSearch',
+    'click .add-movie-btn': 'addMovieToLibrary',
   },
 
   addMovieToLibrary: function() {
@@ -36,10 +36,41 @@ const APIMovieView = Backbone.View.extend({
       overview: this.model.attributes.overview,
       image_url: this.model.attributes.image_url
     });
-    newStoreMovie.save();
-    this.storeLibrary.add(newStoreMovie);
-    this.$el.empty();
+
+    let duplicate = false;
+    this.storeLibrary.forEach(function(storeMovie) {
+      if (storeMovie.attributes.title === newStoreMovie.attributes.title) {
+        duplicate = true;
+      }
+    });
+    if (duplicate === true) {
+      this.failureMessages({duplicate: ['This film is already in your library.']});
+    } else {
+      if (newStoreMovie.isValid()) {
+        newStoreMovie.save();
+        this.storeLibrary.add(newStoreMovie);
+        this.$el.empty();
+        this.successMessages(`${newStoreMovie.attributes.title} has been successfully added to your rental library.`);
+      } else
+      this.failureMessages(newStoreMovie.validationError);
+    }
   },
+
+  failureMessages: function(messageHash) {
+    const statusMessagesEl = $('.errors');
+    statusMessagesEl.empty();
+    _.each(messageHash, (messageType) => {
+      messageType.forEach((message) => {
+        statusMessagesEl.append(`<li>${message}</li>`);
+      })
+    });
+  },
+  successMessages: function(message) {
+    console.log('this was a success');
+    const statusMessagesEl = $('.errors');
+    statusMessagesEl.empty();
+    statusMessagesEl.append(`<li>${message}</li>`);
+  }
 
 });
 
