@@ -41,6 +41,7 @@ const SearchMovieListView = BackBone.View.extend({
     this.clearStatus();
     event.preventDefault();
     // changes url back to base URL
+    // TODO: update url
     this.model.url = 'http://localhost:3000/movies?query=';
 
     const searchMovieTitle = this.$('#search-movie-title').val();

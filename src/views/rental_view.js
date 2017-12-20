@@ -38,16 +38,54 @@ addMovieTitleToCheckoutForm(title) {
   // this.$('#rental-view').scrollTop(0);
 
   this.$('#movie-title-selector').val(title)
-
 },
 
 rentMovie(event) {
   event.preventDefault();
-  const customerID = this.$('select option').attr('data-id');
+
+  let modelAttributes = this.getFormDataMakeObj();
+  console.log('model attributes');
+  console.log(modelAttributes);
+
+
+
+  // client side validation
+  const newRental = new Rental(modelAttributes);
+  if (!newRental.isValid()) {
+    console.log(`trip is not valid!`);
+    statusUpdate(newRental.validationError);
+    return;
+  }
+
+  // tripList.add(trip);
+
+  // server side validation
+
+  //send post request to Rails API
+  newRental.save({}, {
+    success: (model, response) => {
+      console.log('Successfully rented movie');
+      this.statusUpdate(`Successfully checked out the movie ${model.attributes.title} to customer # ${model.attributes.customer_id}`)
+    },
+    error: (model, response) => {
+      console.log('Failed to rent movie');
+      this.statusUpdate(response.responseJSON['errors']['title']);
+      console.log(response.responseJSON['errors']['title']);
+    },
+  });
+},
+
+// helper function to grab form data and return obj attributes
+getFormDataMakeObj(){
+  console.log('in getFormDataMakeObj method');
+  // get customer ID and title out of form
+  const customerID = this.$('form#check-out-form select').find(":selected").attr('data-id');
   console.log(customerID);
+  const title = this.$('form#check-out-form input').val();
+  console.log(title);
+
   //create new rental
   console.log('addMovieToCheckout model:');
-  console.log(this.model);
 
   let dueDate = new Date();
   dueDate.setDate(dueDate.getDate() + 14);
@@ -57,22 +95,19 @@ rentMovie(event) {
     customer_id: customerID,
     due_date: dueDate,
   };
+  return modelAttributes
+},
 
-  console.log('model attributes');
-  console.log(modelAttributes);
+statusUpdate(message) {
+  // clear messages
+  console.log('inside statusUpdate');
 
-  const newRental = new Rental(modelAttributes);
+  const formattedMessage = `<p>${message}</p>`;
+  this.$('#rental-messages').append(formattedMessage);
+},
 
-  //send post request to Rails API
-  newRental.save({}, {
-    success: (model, response) => {
-      console.log('Successfully rented movie');
-    },
-    error: (model, response) => {
-      console.log('Failed to rent movie');
-    },
-  });
-
+clearStatus(){
+  this.$('#rental-messages').html('');
 },
 
 });
