@@ -15,7 +15,7 @@ const DatabaseListView = Backbone.View.extend({
       const movieView = new MovieView({
         model: movie,
         template: this.template,
-        tagName: 'li',
+        tagName: 'tr',
         className: 'movie'
       });
         this.$('#database-movies').append(movieView.render().$el);

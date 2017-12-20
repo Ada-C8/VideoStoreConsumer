@@ -32,9 +32,30 @@
         <!-- toggles visability between database and container -->
         <article id="database-container" class="columns small-12 medium-8 large-8">
           <h2>Database List</h2>
-          <ul id="database-movies">
+          <table>
+            <thead>
+              <tr>
+                <td>
+                  img
+                </td>
+                <td>
+                  Title
+                </td>
+                <td>
+                  release date
+                </td>
+                <td>
+                  overview
+                </td>
+                <td>
+                  status
+                </td>
+              </tr>
+            </thead>
+            <tbody id="database-movies">
 
-          </ul>
+            </tbody>
+          </table>
         </article>
 
         <article id="catalog-container" class="columns small-12 medium-8 large-8">
@@ -50,10 +71,25 @@
       </footer >
 
       <script type="text/template" id="database-template">
-        <li class="database-movie">
-          <%- title %>: <%- overview %>
 
-        </li>
+          <td>
+            <img src= "https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+          </td>
+          <td>
+            <%- title %>
+          </td>
+          <td>
+            <%- release_date %>
+          </td>
+          <td>
+            <%- overview %>
+          </td>
+          <td>
+
+          </td>
+
+
+
 
       </script>
 
