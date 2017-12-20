@@ -1,4 +1,4 @@
-import 'css/_settings.css';
+//import 'css/_settings.css';
 import 'foundation-sites/dist/css/foundation.css';
 import './css/styles.css';
 
