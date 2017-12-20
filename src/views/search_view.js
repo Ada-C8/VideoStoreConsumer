@@ -21,7 +21,7 @@ const SearchView = Backbone.View.extend({
   },
 
   events: {
-    'click button': 'addMovie',
+    'click .add': 'addMovie',
   },
 
   addMovie(){
@@ -30,6 +30,8 @@ const SearchView = Backbone.View.extend({
     let movie_hash = this.model.attributes
     console.log(movie_hash)
     this.bus.trigger('addMovieDB', movie_hash)
+    this.$('.add').addClass('hide');
+    this.$('.nothing').removeClass('hide');
   }
 
 

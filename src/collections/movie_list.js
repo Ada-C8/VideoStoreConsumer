@@ -15,8 +15,6 @@ const MovieList = Backbone.Collection.extend({
       return item.get( key ).toLowerCase() === val.toLowerCase();
     });
   },
-
-
 });
 
 

@@ -57,7 +57,21 @@ $(document).ready(function() {
   });
 
 
+  const modalOpener= function modalOpener() {
+    // console.log(event)
+    console.log('opening modal')
+    $('.modal').removeClass('hide');
+    $('#close').on('click', modalCloser)
+  }
 
+  const modalCloser= function modalCloser() {
+    // console.log(event)
+    console.log('closing modal')
+    $('.modal').addClass('hide');
+    $('.modal').addClass('hide');
+  }
+
+  $('#modalBtn').on('click', modalOpener);
 
   // const movieList = new MovieList()
   //
