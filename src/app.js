@@ -53,4 +53,12 @@ $(document).ready(function() {
     const searchTerm = $('#searchTerm').val();
     eventBus.trigger('searchMovies', searchTerm);
   });
+
+  $('nav a').click(function(event) {
+    let divId = $(this).attr('id');
+    let n = divId.indexOf('-');
+    divId = `${divId.substring(0, n)}-container`;
+
+    $(`#${divId}`).removeClass('display-none').siblings().addClass('display-none');
+  });
 });
