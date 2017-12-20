@@ -26,6 +26,8 @@ const MovieView = Backbone.View.extend({
 
     this.model.save();
     console.log('the movie saved');
+
+    alert(`Woohoo! ${this.model.attributes.title} is now added to the rental library!`)
   }
 });
 

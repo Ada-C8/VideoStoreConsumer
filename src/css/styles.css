@@ -35,7 +35,7 @@ aside label {
 }
 
 div {
-  display: inline;
+  display: inline-block;
 }
 
 #movies li {
