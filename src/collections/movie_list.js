@@ -15,7 +15,10 @@ const MovieList = Backbone.Collection.extend({
   },
 
   addToLibrary(movie) {
-    if (!this.contains(movie)) this.create(movie);
+    if (!this.contains(movie)){
+      const result = this.create(movie);
+        this.bus.trigger('updateStatus', result);
+    }
   },
 
   contains(movie) {

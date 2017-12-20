@@ -13,6 +13,7 @@ const FormView = Backbone.View.extend({
     this.bus = params.bus;
     this.model = params.model;
     this.vendorModel = params.vendorModel;
+    this.listenTo(this.bus, 'updateStatus', this.updateStatusMessageWith);
   },
   events: {
     'click button.find-movie' : 'findMovie',
@@ -73,6 +74,17 @@ const FormView = Backbone.View.extend({
 
     this.vendorModel.fetch({ data: $.param({ query: title }) });
   },
+  updateStatusMessageWith: function(movie) {
+    this.$('#status-message').empty();
+    if (movie.isValid()) {
+      //
+      this.$('#status-message').append(`<li>${movie.get('title')} successfully added to rental library</li>`);
+    } else {
+      //
+      this.$('#status-message').append(`<li>${movie.get('title')} was not successfully added to rental library.</li>`).css('color', 'red');
+    }
+
+  }
 
 });
 
