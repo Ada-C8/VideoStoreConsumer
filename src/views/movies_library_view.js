@@ -8,7 +8,6 @@ const MoviesLibraryView = Backbone.View.extend({
   initialize(params){
     this.template = params.template;
     this.listenTo(this.model, 'update reset', this.render);
-    this.listenTo(this.model, 'click', this.show)
   },
   render(){
     this.$('#movies').empty();
@@ -25,14 +24,6 @@ const MoviesLibraryView = Backbone.View.extend({
     });
     return this;
   },
-  events: {
-    'click button.view-library-btn': 'show'
-  },
-  show() {
-    console.log('I am in show()');
-    this.model.trigger('click')
-    this.$('#movies-container').show()
-  }
 });
 
 export default MoviesLibraryView

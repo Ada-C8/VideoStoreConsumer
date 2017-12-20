@@ -26,13 +26,15 @@ h1 {
   width: auto;
   font-size: 17px;
   font-weight: 550;
+  margin-right: 7px;
+  margin-top: 10px;
 }
 
 
 .button:hover {
   /*background: red;*/
   background: #88b824;
-  background: linear-gradient(top,#b0dc55,#88b824);
+  background-color: linear-gradient(top,#b0dc55,#88b824);
 
 }
 .button:focus {
