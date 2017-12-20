@@ -13,18 +13,6 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.bus, 'addToCollection', this.addToCollection);
   },
-  addToCollection(movie){
-    console.log(`The movie in the view method is ${movie}`);
-    if (movie.isValid()){
-      const movieView = new MovieView({
-        tagName: 'tr',
-        template: this.template,
-        model: movie,
-        bus: this.bus
-      });
-      this.$('#movies-in-store').append(movieView.render().$el);
-    }
-  },
   render() {
     this.$('#movie-list').empty();
     const lastMovie = this.model.at(this.model.length -1);
@@ -38,6 +26,17 @@ const MovieListView = Backbone.View.extend({
     this.$('#movies-in-store').append(movieView.render().$el);
 
     return this;
+  },
+  addToCollection(movie) {
+    if (movie.isValid()) {
+      const movieView = new MovieView({
+        tagName: 'tr',
+        template: this.template,
+        model: movie,
+        bus: this.bus
+      });
+      this.$('#movies-in-store').append(movieView.render().$el);
+    }
   },
 
 }); // MovieListView

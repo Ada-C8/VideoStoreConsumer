@@ -13,16 +13,12 @@ const ReturnedMovieListView = Backbone.View.extend({
   events: {
     'click form #search-btn': 'matchingMovies'
   },
-  addMovie(movie){
-    // console.log('in add movie method');
-    // console.log(movie);
 
+  addMovie(movie){
     const newMovie = new ReturnedMovie(movie);
-    console.log(newMovie);
     if (newMovie.isValid()){
       newMovie.save({}, {
         success: (model, response) => {
-          console.log('save worked');
           this.bus.trigger('addToCollection', newMovie);
         },
         error: (model, response) => {
@@ -33,19 +29,22 @@ const ReturnedMovieListView = Backbone.View.extend({
       });
     }
   },
+
   matchingMovies(event) {
-    // console.log('why the eff is this not working')
     event.preventDefault();
     this.$('#matching-movies').empty();
+
     const movieTitle = this.getFormData();
-    // console.log('This is the movie title: ' + movieTitle.title);
-    // console.log(this.model.url);
+    this.clearFormData();
+
+    // Set URL
     this.model.url += movieTitle.title;
-    // console.log(url);
+
     const results = this.model.fetch({
       success: (model, response) => {
         response.forEach((movieData) => {
           let newMovie = new ReturnedMovie(movieData);
+          
           if (newMovie.isValid()){
             let returnedMovieView = new ReturnedMovieView({
               tagName: 'tr',
@@ -62,6 +61,7 @@ const ReturnedMovieListView = Backbone.View.extend({
         console.log(`This is the response: ${reponse} in the movie list view`);
       }
     });
+    // Reset URL
     this.model.url = 'http://localhost:3000/movies/?query=';
   },
 
@@ -70,10 +70,10 @@ const ReturnedMovieListView = Backbone.View.extend({
     data['title'] = this.$('form input[name=title]').val();
     return data;
   },
-  // TODO: implement this
+
   clearFormData() {
-    this.$('form input[name=price-target]').val('');
-    this.$('form-errors').empty();
+    this.$('form input[name=title]').val('');
+    // this.$('form-errors').empty();
   },
 
 }); // ReturnedMovieListView

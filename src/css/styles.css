@@ -24,6 +24,7 @@ body {
 .button {
   background-color: #ABEBC6;
   color: #232f3e;
+  border-radius: 5px;
 }
 
 td .overflow-auto {

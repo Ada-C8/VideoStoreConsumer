@@ -24,14 +24,17 @@ const returnedList = new ReturnedMovieList();
 let movieTemplate;
 let returnedMovieTemplate;
 
-$(document).ready(function() {
 
+$(document).ready(function() {
   let bus = {};
   bus = _.extend(bus, Backbone.Events);
+
   movieTemplate = _.template($('#movie-template').html());
   returnedMovieTemplate = _.template($('#returned-movie-template').html());
-  // Fetches all movies currently in the rental store
+
   $('#imdb-section, #search-btn').hide();
+
+  // Fetches all movies currently in the rental store
   movieList.fetch({
     success: (model, response) => {
       response.forEach((movie) => {
@@ -61,13 +64,10 @@ $(document).ready(function() {
   $('input[type=radio][name=searchLocation]').change(function(){
     if (this.value === 'imdb'){
       $('#imdb-section, #search-btn').show();
-      // $('#search').show();
       $('#current-rentals-view').hide();
     } else {
       $('#imdb-section, #search-btn').hide();
-      // $('#search').hide();
       $('#current-rentals-view').show();
     }
   });
-
 }); // DOCUMENT READY
