@@ -12,6 +12,7 @@ const DatabaseListView = Backbone.View.extend({
 
   render() {
     this.$('#database-movies').empty();
+    this.$('.form-errors').empty();
     this.model.forEach((movie) => {
       let inventory = false;
       this.inventory.forEach((availableMovie) => {

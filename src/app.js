@@ -43,18 +43,24 @@ $(document).ready(function() {
     event.preventDefault();
     console.log('submit button was clicked');
     let query = $(`[name='query']`).val();
-    let database = new MovieList([], {
-      query: query,
-    });
 
-    let databaseView = new DatabaseListView({
-      model: database,
-      template: $databaseTemplate,
-      el: 'main',
-      availableInventory: catalog
-    });
+    if (query.length > 0) {
+      let database = new MovieList([], {
+        query: query,
+      });
 
-    database.fetch();
+      let databaseView = new DatabaseListView({
+        model: database,
+        template: $databaseTemplate,
+        el: 'main',
+        availableInventory: catalog
+      });
+
+      database.fetch();
+    } else {
+      $('.form-errors').append('<h2>There were no results</h2>')
+    }
+
   });
 
 

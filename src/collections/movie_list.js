@@ -7,7 +7,7 @@ const MovieList = Backbone.Collection.extend({
     this.query = options.query
   },
   url: function() {
-    if (this.query) {
+    if (this.query && this.query.length > 1) {
       return this.urlRoot + '/?query=' + this.query
     } else {
       return this.urlRoot
