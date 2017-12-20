@@ -4,36 +4,42 @@
     <meta charset="utf-8">
     <title>Backbone Baseline</title>
   </head>
-  <body>
+  <body id=#foundation-override>
+    <header>
+      <h1>BACKBONE BASELINE RENTAL LIBRARY</h1>
+    </header>
     <main id="main-content">
       <section id="search">
           <h3>Search for Movies:</h3>
           <form>
             <input type="text" name="search" placeholder="Search for a movie..."/>
-            <button type="submit" id="search-btn">Search</button>
+            <button class="button" type="submit" id="search-btn">Search</button>
           </form>
         <div id="results-container">
           <h3>DATABASE RESULTS</h3>
-          <ul id="results-list">
-
+          <ul id="results-list"><!-- result-list-template renders here-->
           </ul>
         </div>
       </section>
       <section id="library">
         <h3>RENTAL LIBRARY</h3>
-        <ul id="movie-list"><!-- result-template renders here--></ul>
+        <ul id="movie-list"><!-- library-template renders here--></ul>
       </section>
     </main>
 
     <!-- UNDERSCORE TEMPLATES -->
 
     <script type="text/template" id="result-list-template">
-      <img src="<%- image_url %>" /><%- title %>
-      <button id="add-btn">Add to Library</button>
+      <img src="<%- image_url %>" />
+      <%- title %>
+      <%- release_date %>
+      <button class="button" id="add-btn">Add to Library</button>
     </script>
 
     <script type="text/template" id="library-template">
-      <img src="<%- image_url %>" /><%- title %>
+      <img src="<%- image_url %>" />
+      <%- title %>
+      <%- release_date %>
     </script>
 
     <!-- INCLUDES -->
