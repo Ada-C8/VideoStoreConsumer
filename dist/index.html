@@ -61,7 +61,7 @@
             <button class="btn-show alert button" id="show-movie-button">Learn More</button>
 
           </div>
-          <% }else if( typeof available_inventory !== 'undefined'){
+          <% }else if( typeof available_inventory !== 'undefined'){ %>
             <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
           <% }else{ %>
               <p class="available_inventory">Qty: <%- available_inventory %></p>
