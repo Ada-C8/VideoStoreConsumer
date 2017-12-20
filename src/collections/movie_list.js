@@ -3,9 +3,9 @@ import Movie from '../models/movie';
 
 const MovieList = Backbone.Collection.extend({
   urlRoot: 'http://localhost:3000/movies',
-  // initialize(models, options){
-  //   this.query = options.query
-  // },
+  initialize(models, options){
+    this.query = options.query
+  },
   url: function() {
     console.log("in URL function")
     if (this.query) {
