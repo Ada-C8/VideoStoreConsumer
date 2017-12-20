@@ -10,13 +10,14 @@ const ReturnedMovieView = Backbone.View.extend({
     this.bus = params.bus;
   },
   events: {
-    'click': 'sendMovieData'
+    'click .btn-add': 'sendMovieData'
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;
   },
+  // Triggers the function in Movie List View
   sendMovieData: function(){
     this.bus.trigger('addMovie', this.model.attributes);
   },

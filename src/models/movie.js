@@ -9,30 +9,29 @@ const Movie = Backbone.Model.extend({
     this.bus = attributes.bus,
     this.url = 'http://localhost:3000/movies'
   },
-  parse: function(response){
-    let movie = {
-      title: response['title'],
-      overview: response['overview']
-    }
-    return movie
-  },
   validate(attributes){
     const errors = {}
 
-    if (!attributes.title){
+    if (!attributes.title) {
       errors['title'] = 'The title can not be blank';
     }
 
-    if (!attributes.overview){
-      errors['title'] = 'The overview can not be blank';
+    if (!attributes.overview) {
+      errors['overview'] = 'The overview can not be blank';
     }
 
-    if (!attributes.release_date){
-      errors['title'] = 'The release date can not be blank';
+    if (!attributes.release_date) {
+      errors['release_date'] = 'The release date can not be blank';
     }
 
-    if (!attributes.image_url){
-      errors['title'] = 'The image url can not be blank';
+    if (!attributes.image_url) {
+      errors['image_url'] = 'The image url can not be blank';
+    }
+
+    if ( Object.keys(errors).length > 0 ) {
+      return errors;
+    } else {
+      return false;
     }
   },
 });

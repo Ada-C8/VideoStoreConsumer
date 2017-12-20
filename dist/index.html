@@ -13,14 +13,14 @@
       </div>
     </header>
 
-    <section class="errors">
-    </section>
-
     <main id="main-content">
       <section id="returned-movies-view" class="small-12 large-6 columns">
         <header class="section-header align-center">
           <h4>Search for Movies to Add</h4>
         </header>
+        <section id="returned-movies-errors">
+        </section>
+
         <form id="movie-search">
           <label for="title">Search for a movie by clicking MoviesDB</label>
           <input type="text" name="title"/>
@@ -54,6 +54,9 @@
         <header class="section-header align-center">
           <h4>Available Movies for Checkout</h4>
         </header>
+
+        <section id="available-movies-errors">
+        </section>
 
         <table class="striped stack">
           <thead class="aqua-bg">
