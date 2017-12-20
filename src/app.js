@@ -53,7 +53,6 @@ $(document).ready(function() {
     let queryText = $('#search-form input').val();
 
     if (queryText.length > 0 ) {
-      console.log(queryText);
       movieListView.searchMode();
       searchList.fetch({
         data: {query: queryText},
@@ -67,13 +66,4 @@ $(document).ready(function() {
     movieListView.inventoryMode();
     movieList.fetch();
   });
-
-  // Check Library
-  $('li.movie').on('click', function() {
-    let library = movieList.fetch();
-    console.log(library);
-
-
-  });
-
 });

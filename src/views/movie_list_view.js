@@ -12,22 +12,20 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.collection, 'update', this.render);
 
     this.mode = "inventory";
-
   },
+
   inventoryMode() {
     this.mode = "inventory";
   },
+
   searchMode() {
     this.mode = "search";
   },
+
   render() {
     this.$('ul').empty();
 
     if (this.mode == "search") {
-      // let firstMovie = this.collection.first();
-      // console.log(firstMovie);
-      // this.bus.trigger('defaultView', firstMovie);
-
       this.collection.forEach((movie) => {
         const movieView = new MovieView({
           bus: this.bus,
@@ -39,12 +37,7 @@ const MovieListView = Backbone.View.extend({
         });
         this.$('ul').append(movieView.render().$el);
       });
-
     } else if (this.mode == "inventory"){
-      // let firstMovie = this.model.first();
-      // console.log(firstMovie);
-      // this.bus.trigger('defaultView', firstMovie);
-
       this.model.forEach((movie) => {
         const movieView = new MovieView({
           bus: this.bus,
@@ -59,9 +52,8 @@ const MovieListView = Backbone.View.extend({
     } else {
       console.error(`Invalid movie list mode ${this.mode}`);
     }
-
     return this;
-  }
+  },
 });
 
 export default MovieListView;
