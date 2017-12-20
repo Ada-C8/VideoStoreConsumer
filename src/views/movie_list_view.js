@@ -23,8 +23,11 @@ const MovieListView = Backbone.View.extend({
   render() {
     this.$('ul').empty();
 
-
     if (this.mode == "search") {
+      // let firstMovie = this.collection.first();
+      // console.log(firstMovie);
+      // this.bus.trigger('defaultView', firstMovie);
+
       this.collection.forEach((movie) => {
         const movieView = new MovieView({
           bus: this.bus,
@@ -36,7 +39,12 @@ const MovieListView = Backbone.View.extend({
         });
         this.$('ul').append(movieView.render().$el);
       });
+
     } else if (this.mode == "inventory"){
+      // let firstMovie = this.model.first();
+      // console.log(firstMovie);
+      // this.bus.trigger('defaultView', firstMovie);
+
       this.model.forEach((movie) => {
         const movieView = new MovieView({
           bus: this.bus,

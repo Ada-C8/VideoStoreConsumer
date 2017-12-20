@@ -7,7 +7,9 @@ const ShowView = Backbone.View.extend({
     this.bus = params.bus;
     this.template = params.template;
     this.model;
+
     this.listenTo(this.bus, 'addToCollection', this.render);
+    // this.listenTo(this.bus, 'defaultView', this.render);
 
     // console.log(this.collection);
   },
@@ -21,13 +23,34 @@ const ShowView = Backbone.View.extend({
     if(movieData['found'] == false) {
       this.$el.append('<button class="button blue white-text float-right add-collection" type="button" name="button" data-id='+movieData.external_id+'>Add to Rental Library</button>');
     }
+
+    this.model = movieData;
+    // console.log(this.model);
   },
   events: {
     'click button.add-collection': 'addtoLibrary'
   },
   addtoLibrary() {
-    let collection_state = this.collection
-    this.model
+    let externalID = this.$('button.add-collection').attr('data-id');
+
+    let url = "http://localhost:3000/movies/add/" + externalID
+
+    console.log("saving: ");
+    console.log(this.model);
+    let newMovie = new Movie({
+      title: this.model.title,
+      overview: this.model.overview,
+      release_date: this.model.release_date,
+      image_url: this.model.image_url,
+    });
+    console.log(newMovie);
+    let saved = newMovie.save();
+
+    if (saved) {
+      console.log("SUCCESS");
+    }
+    // url.save();
+
   }
 });
 

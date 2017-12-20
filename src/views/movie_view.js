@@ -1,11 +1,14 @@
 import Backbone from 'backbone';
 import Movie from '../models/movie';
+import MovieList from '../collections/movie_list';
 
 const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
     this.collection = params.collection;
+
+    // this.listenTo(this.bus, 'defaultView', this.showMovie);
 
   },
   render() {
@@ -17,9 +20,9 @@ const MovieView = Backbone.View.extend({
     'click': 'showMovie',
   },
   showMovie(event){
-
-
+    // console.log("I AM IN SHOWMOVIE");
     let selectedMovie = this.model.attributes;
+    // console.log(selectedMovie);
     let selectedSummary = selectedMovie['overview'];
 
     // array of matching results
@@ -30,6 +33,7 @@ const MovieView = Backbone.View.extend({
       overview: selectedMovie.overview,
       release_date: selectedMovie.release_date,
       image_url: selectedMovie.image_url,
+      external_id: selectedMovie.external_id,
     }
 
     if (found.length > 0) {
@@ -38,7 +42,7 @@ const MovieView = Backbone.View.extend({
       movie_data['found'] = false;
     }
 
-    console.log(movie_data);
+    // console.log(movie_data);
 
     this.bus.trigger('addToCollection', movie_data);
   },
