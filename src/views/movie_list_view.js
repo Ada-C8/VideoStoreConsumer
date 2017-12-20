@@ -15,13 +15,15 @@ const MovieListView = Backbone.View.extend({
   },
   addToCollection(movie){
     console.log(`The movie in the view method is ${movie}`);
-    const movieView = new MovieView({
-      tagName: 'li',
-      template: this.template,
-      model: movie,
-      bus: this.bus
-    });
-    this.$('#movies-in-store').append(movieView.render().$el);
+    if (movie.isValid()){
+      const movieView = new MovieView({
+        tagName: 'li',
+        template: this.template,
+        model: movie,
+        bus: this.bus
+      });
+      this.$('#movies-in-store').append(movieView.render().$el);
+    }
   },
   render() {
     this.$('#movie-list').empty();
