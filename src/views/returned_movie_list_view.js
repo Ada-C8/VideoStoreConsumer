@@ -18,6 +18,7 @@ const ReturnedMovieListView = Backbone.View.extend({
     if (newMovie.isValid()) {
       newMovie.save({}, {
         success: (model, response) => {
+          this.$('#success-movie-add').append(`<p>Added ${newMovie.get('title')} to Your Rentals!</p>`);
           this.bus.trigger('addToCollection', newMovie);
         },
         error: (model, response) => {
