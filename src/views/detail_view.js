@@ -13,17 +13,18 @@ const Detail = Backbone.View.extend({
     this.bus = parameters.bus;
 
     this.listenTo(this.bus, 'selectedVideo', this.render);
-    // this.listenTo(this.model,)
-    // this.image = parameters.image_url;
+
   },
-  render(title) {
-    console.log(title);
+  render(title, options = {}) {
+
     let movie = new Video({id: title});
     this.$el.find('#video-view').empty();
-
+    if (options['flag']) {
+      this.$el.find('#video-view').prepend(`<h2>Top Pick!</h2>`);
+    }
     movie.fetch({}).done(() => {
       movie.set({in_library: true});
-      this.$el.find('#video-view').html(this.template(movie.toJSON()));
+      this.$el.find('#video-view').append(this.template(movie.toJSON()));
       this.model = movie;
       this.checkOutForm(title);
       $('#checkout-form').show();

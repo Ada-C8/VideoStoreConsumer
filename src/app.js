@@ -45,7 +45,7 @@ $(document).ready(function() {
       template: videoTemplate,
       el: '#video-main'
     });
-    detailView.render();
+    detailView.render('Jaws', {flag: 'top'});
 
   }).fail(()=> {
     $('#rental-library').html('<p>Please refresh page</p>')
