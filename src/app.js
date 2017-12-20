@@ -36,6 +36,14 @@ $(document).ready(function() {
   libraryMovieTemplate = _.template($('#library-movie-template').html());
   searchMovieTemplate = _.template($('#search-movie-template').html());
 
+  // get all customers from API
+  console.log('Getting all customers');
+  $.get('http://localhost:3000/customers?sort=name', function(data) {
+    console.log(data);
+    
+  });
+
+
   // libMovieList.fetch();
   libMovieList.fetch();
   // new instance of LibMovieListView
