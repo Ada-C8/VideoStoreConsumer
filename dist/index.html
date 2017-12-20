@@ -6,8 +6,41 @@
   </head>
   <body>
     <main id="main-content">
-      
+      <header class="row">
+        <h1 class="logo">Video Store</h1>
+      </header>
+
+      <div class="search-bar">
+        <form id="search-form">
+          <input type="text" name="search" id="searchParams" />
+          <button type="submit" class="search button">Search me</button>
+        </form>
+      </div>
+
+      <h2>All the Searched Movies!</h2>
+        <div class="movies-list-container">
+          <ul id="results" class="results">
+
+          </ul>
+        </div>
+
+      <h2>All the Movies!</h2>
+      <button class="api-movies button">See all movies</button>
+        <div class="movies-list-container">
+          <ul id="movies" class="movies">
+          </ul>
+        </div>
+
     </main>
+
+    <script type="text/template" id="movie-template">
+      <h3 class="title"><%- title %></h3>
+    </script>
+
+    <script type="text/template" id="return-template">
+      <h3 class="title"><%- title %></h3>
+      <button class="add button">Add Movie To Library</button>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
