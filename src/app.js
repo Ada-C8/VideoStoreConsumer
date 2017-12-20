@@ -6,6 +6,8 @@ import Backbone from 'backbone';
 // Import collections and views
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
+import CustomerList from 'collections/customer_list';
+import CustomerListView from 'views/customer_list_view';
 
 import 'css/_settings.css';
 import 'foundation-sites/dist/css/foundation.css';
@@ -42,6 +44,17 @@ $(document).ready(function() {
   });
   searchListView.listenTo(eventBus, 'searchMovies', searchListView.searchMovies)
   searchListView.listenTo(searchListView.model, 'update', searchListView.render);
+
+  const customerList = new CustomerList();
+  customerList.bus = eventBus;
+
+  const customerListView = new CustomerListView({
+    model: customerList,
+    template: _.template($('#customer-template').html()),
+    el: 'main',
+    bus: eventBus,
+  });
+  customerList.fetch();
 
   $('#show-rental-library').on('click', function(event) {
     event.preventDefault();
