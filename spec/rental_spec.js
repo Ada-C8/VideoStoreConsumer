@@ -1,47 +1,58 @@
-// import Order from 'models/order';
-//
-// describe('Order spec', () => {
-//
-//   describe('Initialize function', () => {
-//     it('should exhibit attibutes', () => {
-//       const order = new Order({
-//         targetPrice: 88.60,
-//         buy: true,
-//         symbol: 'HUMOR',
-//       });
-//
-//       expect(order.get('targetPrice'))
-//         .toEqual(88.60);
-//       expect(order.get('buy'))
-//         .toEqual(true);
-//       expect(order.get('symbol'))
-//         .toEqual('HUMOR');
-//     });
-//   });
-//
-//   describe('Validate function', () => {
-//     it('should set isValid() to false and return an object with correct message if missing targetPrice', () => {
-//       const order = new Order({
-//           // targetPrice: 88.60,
-//           buy: true,
-//           symbol: 'HUMOR',
-//         });
-//
-//       // order.set({"targetPrice": '0'});
-//       expect(order.isValid()).toBeFalsy();
-//       expect(order.validationError).toEqual({'price': ['A price is required']})
-//     });
-//
-//     it('should set isValid() to false and return an object with correct message if missing symbol', () => {
-//       const order = new Order({
-//           targetPrice: 88.60,
-//           buy: true,
-//           // symbol: 'HUMOR',
-//         });
-//
-//       expect(order.isValid()).toBeFalsy();
-//       expect(order.validationError).toEqual({'symbol': ['A symbol is required']})
-//     });
-//
-//   });
-// });
+import Rental from 'models/rental';
+
+describe('Rental spec', () => {
+
+  describe('Initialize function', () => {
+    it('should exhibit attibutes', () => {
+      const rentalDate = new Date();
+      const rental = new Rental({
+        title: 'Jaws',
+        customer_id: 1,
+        due_date: rentalDate,
+      });
+
+      expect(rental.get('title'))
+        .toEqual('Jaws');
+      expect(rental.get('customer_id'))
+        .toEqual(1);
+      expect(rental.get('due_date'))
+        .toEqual(rentalDate);
+    });
+  });
+
+  describe('Validate function', () => {
+    it('should set isValid() to false and return an object with correct message if missing title', () => {
+      const rental = new Rental({
+        // title: 'Jaws',
+        customer_id: 1,
+        due_date: new Date(),
+      });
+
+      // order.set({"targetPrice": '0'});
+      expect(rental.isValid()).toBeFalsy();
+      expect(rental.validationError).toEqual({'title': ['cannot be blank']})
+    });
+
+    it('should set isValid() to false and return an object with correct message if missing customer_id', () => {
+      const rental = new Rental({
+        title: 'Jaws',
+        // customer_id: 1,
+        due_date: new Date(),
+      });
+
+      expect(rental.isValid()).toBeFalsy();
+      expect(rental.validationError).toEqual({'customer_id': ['cannot be blank']})
+    });
+
+    it('should set isValid() to false and return an object with correct message if missing due_date', () => {
+      const rental = new Rental({
+        title: 'Jaws',
+        customer_id: 1,
+        // due_date: new Date(),
+      });
+
+      expect(rental.isValid()).toBeFalsy();
+      expect(rental.validationError).toEqual({'due_date': ['cannot be blank']})
+    });
+  });
+});
