@@ -49,11 +49,15 @@
     </main>
 
     <script src="/app.bundle.js"></script>
-    <script type="text/template" id= "movie-template">
-      <div class="row small-12 columns">
 
+    <script type="text/template" id= "movie-template">
+      <div class="small-4 columns">
+        <img src="<%- image_url %>" class = "image_url" />
+      </div>
+
+      <div class="small-6 columns">
         <h3 class="title"><%- title %></h3>
-        <h5 class="release_date">$<%- release_date %></h5>
+        <p class="release_date"><%- release_date %></p>
         <button class="btn-movie-details success button">View Movie Details</button>
         <button class="btn-add-movie button">Add Movie</button>
       </div>

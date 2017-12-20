@@ -37,6 +37,11 @@ aside label {
 div {
   display: inline;
 }
+
+#movies li {
+  list-style-type: none;
+}
+
 /*
 * {
   border-style: solid;

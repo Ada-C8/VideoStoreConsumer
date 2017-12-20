@@ -21,7 +21,7 @@ const MovieListView = Backbone.View.extend({
         model: movie,
         template: this.template,
         tagName: 'li',
-        className: 'movie',
+        className: 'movie row',
       });
       console.log('MAKING MOVIE VIEWS');
       // Then render the MovieView and append the resulting HTML to the DOM.
