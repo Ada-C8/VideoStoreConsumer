@@ -18,7 +18,7 @@ const MovieListView = Backbone.View.extend({
         className: 'movie'
       });
 
-        this.$('#catalog-movies').append(movieView.render().$el);
+      this.$('#catalog-movies').append(movieView.render().$el);
     });
   },
 

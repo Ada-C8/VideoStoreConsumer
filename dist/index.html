@@ -86,7 +86,6 @@
       </footer >
 
       <script type="text/template" id="database-template">
-
           <td>
             <img src= <%- image_url %> />
           </td>
@@ -100,13 +99,8 @@
             <%- overview %>
           </td>
           <td>
-            <%- inInventory %>
-            <button class="btn-add button">Add book</button>
+            <button class="btn-add button"><%- inInventory===false ? "Add" : "Nope" %> </button>
           </td>
-
-
-
-
       </script>
 
       <script type="text/template" id="catalog-template">

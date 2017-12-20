@@ -5,10 +5,10 @@ const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.listenTo(this.model, 'change', this.render);
+    this.inCatalog = params.inInventory;
     this.inventory = params.inventory;
   },
   render() {
-    console.log(this.template);
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
     return this;

@@ -13,12 +13,12 @@ const DatabaseListView = Backbone.View.extend({
   render() {
     this.$('#database-movies').empty();
     this.model.forEach((movie) => {
-      let inventoried = false;
+      let inventory = false;
       this.inventory.forEach((availableMovie) => {
         if (availableMovie.get('overview') === movie.get('overview')) {
-          inventoried = true;
+          inventory = true
         }
-        movie.set('inInventory', inventoried);
+        // movie.set('inInventory', inventory);
       })
 
       const movieView = new MovieView({
@@ -28,8 +28,10 @@ const DatabaseListView = Backbone.View.extend({
         tagName: 'tr',
         className: 'movie',
       });
+
+      movieView.model.set('inInventory', inventory)
       this.$('#database-movies').append(movieView.render().$el);
-      return this;
+
     });
   },
   updateStatusMessageFrom: function(messageHash) {
