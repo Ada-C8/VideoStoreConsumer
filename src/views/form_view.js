@@ -33,7 +33,9 @@ const FormView = Backbone.View.extend({
   findMovie: function(e) {
     e.preventDefault();
     const title = this.$('input').val();
-    const result = (this.model.findWhereIgnoreCase('title', title))[0];
+    let result;
+
+    if (title && title !== '') result = (this.model.findWhereIgnoreCase('title', title))[0];
     // console.log(new Movie(result));
     // const title = this.$('input').val().toUpperCase();
     // const title = this.titleize(this.$('input').val());
@@ -67,8 +69,7 @@ const FormView = Backbone.View.extend({
   searchTMDB: function(event) {
     event.preventDefault();
     console.log(this.vendorModel);
-    // const title = this.$('input').val().toUpperCase();
-    const title = this.titleize(this.$('input').val());
+    const title = this.$('input').val();
 
     this.vendorModel.fetch({ data: $.param({ query: title }) });
   },
