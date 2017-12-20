@@ -1,13 +1,13 @@
 import Backbone from 'backbone';
 import $ from 'jquery';
 import Movie from '../models/movie';
-
+// import MovieList from '../collections/movie_list'
 const SearchView = Backbone.View.extend({
   initialize(params){
     this.template = params.template;
     this.bus = params.bus;
     this.movies = params.movies;
-
+    this.listenTo(this.model, 'update', this.render);
     this.listenTo(this.bus,`${this.model.title}${this.model.release_date}`, this.setHave )
   },
   events: {
@@ -24,15 +24,15 @@ const SearchView = Backbone.View.extend({
     return this
   }, // render
   doWeHaveMovie(movieData) {
-    console.log('in doWeHaveMovie');
-    console.log(movieData);
-    this.bus.trigger('lookForMovie', movieData)
+    // console.log('in doWeHaveMovie');
+    // console.log(movieData);
+    this.bus.trigger('lookForMovie', movieData);
   }, // doWeHaveMovie
   setHave(haveIt) {
     console.log('in have it');
     if (haveIt) {
       console.log('in if');
-      console.log(this.model);
+      // console.log(this.model);
       this.model['have'] = true;
     } else {
       this.model['have'] = false;
@@ -55,9 +55,17 @@ const SearchView = Backbone.View.extend({
     const ex_id = this.model['external_id'];
 
     // make a post request to the api
-    $.post(url, {movie: {external_id: ex_id }}).done(function(data) {
+    $.post(url, {movie: {external_id: ex_id }}).done((data) => {
       console.log('successful api call');
-      console.log(data);
+      // console.log(data);
+      const newMovieDB = new Movie(data);
+      console.log("making port to save");
+      this.movies.add(newMovieDB)
+      this.$('#have-movie').empty();
+      this.$('#have-movie').append('Movie added')
+
+
+
 
   })
   // TODO: deal with failure case!

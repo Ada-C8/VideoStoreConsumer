@@ -37,6 +37,10 @@ aside label {
 div {
   display: inline;
 }
+
+.hide {
+  display: none;
+}
 /*
 * {
   border-style: solid;

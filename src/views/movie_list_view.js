@@ -12,8 +12,8 @@ const MovieListView = Backbone.View.extend({
     this.listenTo(this.bus, 'lookForMovie', this.checkCollectionForMovie);
   },
   render() {
-    console.log("inside render in movie list view");
-    console.log( this.model);
+    // console.log("inside render in movie list view");
+    // console.log( this.model);
     this.model.each((movie) => {
       const movieView = new MovieView({
         model: movie,
