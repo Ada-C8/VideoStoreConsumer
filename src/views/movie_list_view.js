@@ -6,21 +6,23 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.external = params.external;
-    // this.bus = params.bus;
 
     this.listenTo(this.model, 'update', this.render);
-    // this.listenTo(this.bus, 'quote_change_price', this.buySellQuote);
   },
 
   render() {
     this.$('#movies-list').empty();
 
-    // this.model.fetch();
+    if (this.model.length === 0) {
+      this.$('#movies-list').append('<h3> No results found, please try again. </h3>')
+    }
 
     this.model.each((movie) => {
+      if (this.movieList.contains(movie)) {
+        console.log(movie);
+      }
       const movieView = new MovieView({
         model: movie,
-        // bus: this.bus,
         template: this.template,
         external: this.external,
         tagName: 'li',
