@@ -46,8 +46,8 @@ const SearchListView = Backbone.View.extend({
     const title = this.getFormData()
     this.model.url += title;
     console.log(this.model.url);
-    this.model.fetch()
-    this.model.url = 'http://localhost:3000/movies?query=',
+    this.model.fetch();
+    this.model.url = 'http://localhost:3000/movies?query=';
     console.log(this.model);
   }
 
