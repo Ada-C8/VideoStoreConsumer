@@ -16,10 +16,11 @@ const MovieListView = Backbone.View.extend({
   getRentalMovies() {
     event.preventDefault()
 
-    this.model.each((movie) => {
-      movie.remove();
-      movie.destroy();
-    })
+    // this.model.each((movie) => {
+    //   movie.destroy();
+    //   collection.remove();
+    // })
+    this.model.reset();
 
     console.log(" all rental movies");
 
@@ -42,10 +43,11 @@ const MovieListView = Backbone.View.extend({
 
   getIndividualMovie() {
     event.preventDefault();
-    this.model.each((movie) => {
-      movie.remove();
-      movie.destroy();
-    })
+    // this.model.each((movie) => {
+    //   movie.destroy();
+    //   collection.remove();
+    // })
+    this.model.reset();
 
     const query = this.getFormData();
 

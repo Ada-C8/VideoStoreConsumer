@@ -17,9 +17,7 @@ const MovieView = Backbone.View.extend({
   },
 
   add(event) {
-    // this.model.add();
     const movieList = this.model.save();
   }
 });
  export default MovieView;
-// somethingdbvjsdbvjsdbv

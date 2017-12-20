@@ -25,11 +25,6 @@ $(document).ready(function() {
   const movieListView = new MovieListView({
     model: movieList,
     template: _.template($('#movie-template').html()),
-    // el: '.movie-list-container'
     el: 'main'
   });
-  // when to movieListView.render();??
-
-
-
 });
