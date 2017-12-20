@@ -1,17 +1,17 @@
 import 'css/_settings.css';
 import 'foundation-sites/dist/css/foundation.css';
-import './css/styles.css';
-
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
 
 import MovieList from 'collections/movie_list';
-import MovieListView from 'views/movie_list_view';
-
 import CustomerList from 'collections/customer_list';
+
+import MovieListView from 'views/movie_list_view';
 import CustomerListView from 'views/customer_list_view';
+
+import './css/styles.css';
 
 // ready to go
 $(document).ready(function() {
@@ -42,11 +42,13 @@ $(document).ready(function() {
 
   // movieListView.render();
 
-  $('body').on('mouseenter', 'li', (event) => {
-    $('.summary').css('display', 'block');
+  $('body').on('mouseenter', 'li', function(event) {
+    // $(this).find('.summary').css('display', 'block');
+    $(this).find('.summary').fadeIn(200);
   });
 
-  $('body').on('mouseleave', 'li', (event) => {
-    $('.summary').css('display', 'none');
+  $('body').on('mouseleave', 'li', function(event) {
+    // $(this).find('.summary').css('display', 'none');
+    $(this).find('.summary').fadeOut(200);
   });
 });
