@@ -9,7 +9,6 @@ import Movie from '../models/movie';
 
 const FormView = Backbone.View.extend({
   initialize(params) {
-    // this.template = params.template;
     this.bus = params.bus;
     this.model = params.model;
     this.vendorModel = params.vendorModel;
@@ -21,14 +20,8 @@ const FormView = Backbone.View.extend({
     'click button.vendor': 'searchTMDB',
   },
   showAllMovies: function(e) {
-    console.log('showing all movies');
     e.preventDefault();
-    // if (this.$('#movies').hasClass('fetched')) {
-    //   this.$('#movies').toggle();
-    // } else {
-    //   this.model.fetch();
-    //   this.$('#movies').addClass('fetched');
-    // }
+
     this.$('#movies-container').toggle();
   },
   findMovie: function(e) {
@@ -37,39 +30,18 @@ const FormView = Backbone.View.extend({
     let result;
 
     if (title && title !== '') result = (this.model.findWhereIgnoreCase('title', title))[0];
-    // console.log(new Movie(result));
-    // const title = this.$('input').val().toUpperCase();
-    // const title = this.titleize(this.$('input').val());
-    // console.log(title);
-    // let result = this.model.findWhere({upperCaseTitle: title});
-    // let result = this.model.findWhere({ title: title });
-    // let movie;
-    // if(this.$('#movies').hasClass('fetched')) {
-    //   result = this.model.findWhere({upperCaseTitle: title});
-    //   // debugger;
-    // } else {
-    //   this.model.fetch();
-    //   this.$('#movies').addClass('fetched');
-    //   result = this.model.findWhere({title: title});
-    //
-    // }
-    // debugger;
     if (result ) {
-      console.log(`displayMyDetails${result.get('id')}`);
       this.bus.trigger(`displayMyDetails${result.get('id')}`, result);
-
     } else {
-      // result = searchTMDB(title);
+      this.$('#status-message').append(`<li class="alert">"${title}" is not present in rental library.</li>`);
     }
   },
   searchModel: function(title) {
-    // const movie = this.model.findWhere({uppercasedTitle: title});
     const movie = this.model.findWhereIgnoreCase({ title: title });
     return movie
   },
   searchTMDB: function(event) {
     event.preventDefault();
-    console.log(this.vendorModel);
     const title = this.$('input').val();
     const that = this;
     this.vendorModel.fetch({
