@@ -41,7 +41,7 @@ $(document).ready(function() {
 
   $('#movie-search-form').on('submit', function(event) {
     event.preventDefault();
-    // console.log(event);
+
     let queryText = $('#query').val().trim();
     if (queryText.length > 0 ){
       movies.fetch({
@@ -50,7 +50,6 @@ $(document).ready(function() {
       });
     } else {
       movies.fetch();
-      // movies.reset();
     }
 
   });

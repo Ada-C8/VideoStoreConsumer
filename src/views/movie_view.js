@@ -4,6 +4,7 @@ import Movie from '../models/movie';
 const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
+    this.listenTo(this.model, 'change', this.render);
   },
   render() {
     const compileTemplate = this.template(this.model.toJSON());
@@ -15,8 +16,7 @@ const MovieView = Backbone.View.extend({
   },
   add(event) {
     this.model.save();
-    this.model.trigger('update');
-  }
-});
+  },
+})
 
 export default MovieView
