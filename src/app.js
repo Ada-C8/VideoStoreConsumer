@@ -50,7 +50,7 @@ import SearchView from 'views/search_view';
           template: _.template($('#movie-template').html()),
           el: 'main'
       });
-       const results = new MovieList();
+      const results = new MovieList();
       const searchListView = new SearchListView({
             model: results,
             template: _.template($('#return-template').html()),
