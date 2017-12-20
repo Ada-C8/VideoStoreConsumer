@@ -119,14 +119,14 @@ div {
 }
 
 .button:active {
-  
+
 }
 
-[type='text'] {
+[type='text'], select {
   display: inline-block;
   width: 80%;
 }
-.button.btn-search {
+.button {
   display: inline-block;
 
 }
