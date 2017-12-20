@@ -20,6 +20,7 @@ const MovieView = Backbone.View.extend({
     e.preventDefault();
     if (this.model.get("inInventory")) {
       console.log("already exists in inventory");
+      console.log(this.$el);
     } else {
       const databaseInfo = {
         title: this.model.get("title"),
