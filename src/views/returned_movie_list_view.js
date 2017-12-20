@@ -8,29 +8,26 @@ const ReturnedMovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
-    
-    // this.listenTo(this.bus, 'addMovie', this.addMovie);
+    this.listenTo(this.bus, 'addMovie', this.addMovie);
   },
   events: {
     'click form #search-btn': 'matchingMovies'
   },
-
-  // addMovie(movie){
-  //   const newMovie = new ReturnedMovie(movie);
-  //   if (newMovie.isValid()) {
-  //     newMovie.save({}, {
-  //       success: (model, response) => {
-  //         this.bus.trigger('addToCollection', newMovie);
-  //       },
-  //       error: (model, response) => {
-  //         console.log('save failed');
-  //         console.log(model);
-  //         console.log(response);
-  //       }
-  //     });
-  //   }
-  // },
-
+  addMovie(movie){
+    const newMovie = new ReturnedMovie(movie);
+    if (newMovie.isValid()) {
+      newMovie.save({}, {
+        success: (model, response) => {
+          this.bus.trigger('addToCollection', newMovie);
+        },
+        error: (model, response) => {
+          console.log('save failed');
+          console.log(model);
+          console.log(response);
+        }
+      });
+    }
+  },
   matchingMovies(event) {
     event.preventDefault();
     this.$('#matching-movies').empty();
