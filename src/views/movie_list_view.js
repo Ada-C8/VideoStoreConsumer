@@ -1,5 +1,4 @@
 import Backbone from 'backbone';
-import _ from 'underscore';
 
 import MovieView from '../views/movie_view';
 // import OrderView from '../views/order_view';
@@ -30,13 +29,13 @@ const MovieListView = Backbone.View.extend({
     });
   },
 
-  addMovie(movie) {
-    console.log('adding a new movie to rental library');
-    console.log(this.model);
-    this.model.add(movie);
-    console.log('after adding');
-    console.log(this.model);
-  }
+  // addMovie(movie) {
+  //   console.log('adding a new movie to rental library');
+  //   console.log(this.model);
+  //   this.model.add(movie);
+  //   console.log('after adding');
+  //   console.log(this.model);
+  // }
 
 });
 

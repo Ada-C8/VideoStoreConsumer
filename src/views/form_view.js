@@ -32,8 +32,14 @@ const FormView = Backbone.View.extend({
   },
   findMovie: function(e) {
     e.preventDefault();
-    const title = this.$('input').val().toUpperCase();
-    let result = this.model.findWhere({upperCaseTitle: title});
+    const title = this.$('input').val();
+    const result = (this.model.findWhereIgnoreCase('title', title))[0];
+    // console.log(new Movie(result));
+    // const title = this.$('input').val().toUpperCase();
+    // const title = this.titleize(this.$('input').val());
+    // console.log(title);
+    // let result = this.model.findWhere({upperCaseTitle: title});
+    // let result = this.model.findWhere({ title: title });
     // let movie;
     // if(this.$('#movies').hasClass('fetched')) {
     //   result = this.model.findWhere({upperCaseTitle: title});
@@ -50,18 +56,21 @@ const FormView = Backbone.View.extend({
       this.bus.trigger(`displayMyDetails${result.get('id')}`, result);
 
     } else {
-      result = searchTMDB(title);
+      // result = searchTMDB(title);
     }
   },
   searchModel: function(title) {
-    const movie = this.model.findWhere({uppercasedTitle: title});
+    // const movie = this.model.findWhere({uppercasedTitle: title});
+    const movie = this.model.findWhereIgnoreCase({ title: title });
     return movie
   },
   searchTMDB: function(event) {
     event.preventDefault();
     console.log(this.vendorModel);
-    const title = this.$('input').val().toUpperCase();
-    this.vendorModel.fetch({ data: $.param({ query: title}) });
+    // const title = this.$('input').val().toUpperCase();
+    const title = this.titleize(this.$('input').val());
+
+    this.vendorModel.fetch({ data: $.param({ query: title }) });
   },
 
 });
