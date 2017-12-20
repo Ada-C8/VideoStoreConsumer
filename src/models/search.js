@@ -12,6 +12,10 @@ const Search = Backbone.Model.extend({
       errors['title'] = ["Movie Title is required"];
       console.log(errors)
     }
+    if (!attributes.release_date) {
+      errors['release date'] = ["Movie release date is required"];
+      console.log(errors)
+    }
 
     if ( Object.keys(errors).length > 0 ) {
       return errors;

@@ -52,7 +52,8 @@ const SearchListView = Backbone.View.extend({
       this.$('#search-error-message').append('Error: No search terms')
       return
     } else {
-      this.model.url += title;
+      // this.model.url += title;
+      this.model.addTitle(title);
       // console.log(this.model.url);
       let that = this
       this.model.fetch().done(function () {
@@ -61,7 +62,8 @@ const SearchListView = Backbone.View.extend({
 
 
       //reset URL
-      this.model.url = 'http://localhost:3000/movies?query=';
+      this.model.resetUrl();
+      // this.model.url = 'http://localhost:3000/movies?query=';
       // console.log(this.model.length)
 
       //what if no models are returned?  report error here?
