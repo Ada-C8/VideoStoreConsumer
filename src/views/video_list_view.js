@@ -44,7 +44,6 @@ const VideoListView = Backbone.View.extend({
     'click input.btn-search': 'searchMe',
   },
   viewMe(event) {
-    window.clearInterval();
     this.bus.trigger("selectedVideo", event.currentTarget.firstElementChild.innerText);
     // console.log(event.currentTarget.firstElementChild.innerText)
   },

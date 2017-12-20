@@ -32,14 +32,10 @@ const Detail = Backbone.View.extend({
 
       movie.urlRoot += '/?query='
       movie.fetch({}).done(()=> {
-        // this.$el.find('#video-view').empty();
         movie = movie.attributes[0];
         _.extend(movie, {inventory: 0, available_inventory: 0, in_library: false})
         this.model = movie;
-        // console.log(movie);
-        // this.$el.empty();
         this.$el.find('#video-view').append(this.template(movie));
-        // this.model = movie;
         this.$el.find('#checkout-form').hide();
       });
     })
@@ -78,13 +74,10 @@ const Detail = Backbone.View.extend({
     const due = new Date(day.getFullYear(), day.getMonth(), day.getDate()+7);
     const params = {customer_id: event.currentTarget.form["0"].value, due_date: due}
     const url = `http://localhost:3000/rentals/${event.currentTarget.value}/check-out`
-    console.log(event)
     $.post( url, params, (response) => {
-      console.log('rent me!')
       this.render(event.currentTarget.value);
       $('#message').html(`<p>${event.currentTarget.value} has been checked out </p>`)
     }).fail((response) => {
-      console.log(response)
         $('#message').html(`<p>This movie can't be checked out</p>`)
     });
   },
