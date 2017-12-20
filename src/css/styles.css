@@ -1,5 +1,17 @@
 @include foundation-everything;
 
+.hero {
+  background: url("https://unsplash.com/photos/J39X2xX_8CQ")
+  no-repeat;
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+  background-color: black;
+  margin: 0;
+  color: white;
+  box-sizing: content-box;
+  padding: 1% 5% 2% 5%
+}
 main {
     background: lightblue;
 }
