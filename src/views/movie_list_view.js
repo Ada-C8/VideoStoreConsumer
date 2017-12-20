@@ -50,6 +50,10 @@ const MovieListView = Backbone.View.extend({
     });
     return this;
   },
+  // fetchLibrary(event){
+  //   event.preventDefault();
+  //   console.log('fetching library');
+  // },
   searchMovies(event){
     event.preventDefault();
     console.log('in search movies');
