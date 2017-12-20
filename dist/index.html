@@ -6,81 +6,81 @@
 </head>
 <body>
   <header class="page-header">
-        <!-- HERO SECTION -->
-        <section class="hero">
-          <h1>
-            Video Store :)
-          </h1>
-
-        </section>
-        <!-- NAVIGATION -->
-        <nav class="topnav top-bar" role="navigation">
-          <a class="active button" href="#customers">Customers</a>
-          <a href="#rentals" class="button">Rentals</a>
-          <button class = "button view-library">Movie Library</button>
-        </nav>
-  <main>
-    <form id="search-form">
-      <input id="movie-field" type="text" name="filter" placeholder="Search the Movie Database..." >
-      <input type="submit" value="submit" name="button" class="movie-filter">
-    </form>
-
-    <!-- The Modal -->
-
-
-
-  <span id="myModal" class="modal hidden">
-
-    <!-- Modal content -->
-
-    <div class="modal-content">
-      <button class="close button">&times;</button>
-      <p class='display-status'></p>
-
-    </div>
-
-  </span>
-
-
-    <h2 id="header"></h2>
-    <section id="main-content">
-      <div class="list-view" id= "search-list">
-
-      </div>
-      <div id="movie-list" class="list-view">
-      </div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>
+        Video Store :)
+      </h1>
 
     </section>
+    <!-- NAVIGATION -->
+    <nav class="topnav top-bar" role="navigation">
+      <a class="active button" href="#customers">Customers</a>
+      <a href="#rentals" class="button">Rentals</a>
+      <button class = "button view-library">Movie Library</button>
+    </nav>
+    <main>
+      <form id="search-form">
+        <input id="movie-field" type="text" name="filter" placeholder="Search the Movie Database..." >
+        <input type="submit" value="submit" name="button" class="movie-filter">
+      </form>
 
-  </main>
-  <script type="text/template" id="movie-template">
-
-    <div class="row small-12 columns" id="single-movie">
-      <h3 class="title"><%- title %></h3>
-      <p class="overview"><%- overview %></p>
-
-      <p class="release-date"><%- release_date %></p>
-      <% if( typeof image_url !== 'undefined'){ %>
-        <img  src= <%- image_url %> alt= <%- title %>  />
-        <% }%>
-        <div class="movie-actions">
-          <% if( typeof id !== 'undefined'){ %>
+      <!-- The Modal -->
 
 
-            <button class="btn-show alert button" id="show-movie-button">Learn More</button>
 
-          </div>
-          <% }else if( typeof available_inventory !== 'undefined'){ %>
-            <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
-          <% }else{ %>
+      <span id="myModal" class="modal hidden">
+
+        <!-- Modal content -->
+
+        <div class="modal-content">
+          <button class="close button">&times;</button>
+          <p class='display-status'></p>
+
+        </div>
+
+      </span>
+
+
+      <h2 id="header"></h2>
+      <section id="main-content">
+        <div class="list-view" id= "search-list">
+
+        </div>
+        <div id="movie-list" class="list-view">
+        </div>
+
+      </section>
+
+    </main>
+    <script type="text/template" id="movie-template">
+
+      <div class="row small-12 columns" id="single-movie">
+        <h3 class="title"><%- title %></h3>
+        <p class="overview"><%- overview %></p>
+
+        <p class="release-date"><%- release_date %></p>
+        <% if( typeof image_url !== 'undefined'){ %>
+          <img  src= <%- image_url %> alt= <%- title %>  />
+          <% }%>
+          <div class="movie-actions">
+            <% if( typeof available_inventory !== 'undefined'){ %>
+
               <p class="available_inventory">Qty: <%- available_inventory %></p>
-              <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
-            <% } %>
-          </div>
-          <!-- </li> -->
-        </script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="/app.bundle.js"></script>
+              <button class="btn-rent alert button" id="rent-movie-button">Rent Movie</button>
 
-      </body>
-      </html>
+            </div>
+            <% }else if(typeof id !== 'undefined' ){ %>
+              <button class="btn-show alert button" id="show-movie-button">Learn More</button>
+              <% }else{ %>
+                <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
+
+                <% } %>
+              </div>
+              <!-- </li> -->
+            </script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="/app.bundle.js"></script>
+
+          </body>
+          </html>
