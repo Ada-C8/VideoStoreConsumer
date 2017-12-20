@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
 import MovieView from './movie_view';
 
@@ -27,9 +28,14 @@ const MovieListView = Backbone.View.extend({
   completeList() {
     this.model.set(this.referenceList.models);
   },
-  searchMovies(searchTerm) {
+  searchIMDB(searchTerm) {
     this.model.resetUrl(searchTerm);
     this.model.fetch()
+  },
+  searchLibrary(searchTerm) {
+    this.model.set(_.filter(this.referenceList.models, function(movie) {
+      return movie.get('title').toLowerCase().includes(searchTerm.toLowerCase());
+    }));
   },
   addRental(model, quantity) {
     const newRental = {

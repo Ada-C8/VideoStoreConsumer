@@ -36,6 +36,7 @@ $(document).ready(function() {
   });
   rentalLibraryListView.listenTo(eventBus, 'showRentalLibrary', rentalLibraryListView.completeList);
   rentalLibraryListView.listenTo(eventBus, 'addInventory', rentalLibraryListView.addRental);
+  rentalLibraryListView.listenTo(eventBus, 'searchlibrary', rentalLibraryListView.searchLibrary);
 
   const searchList = new MovieList();
   searchList.bus = eventBus;
@@ -46,7 +47,7 @@ $(document).ready(function() {
     el: 'main',
     bus: eventBus,
   });
-  searchListView.listenTo(eventBus, 'searchMovies', searchListView.searchMovies)
+  searchListView.listenTo(eventBus, 'searchimdb', searchListView.searchIMDB)
   searchListView.listenTo(searchListView.model, 'update', searchListView.render);
 
   const customerList = new CustomerList();
@@ -65,10 +66,11 @@ $(document).ready(function() {
     eventBus.trigger('showRentalLibrary');
   });
 
-  $('#search-imdb-movies').on('submit', function(event) {
+  $('#search-movies').on('submit', function(event) {
     event.preventDefault();
+    const location = $('#search-movies [name="searchList"]:checked').val();
     const searchTerm = $('#searchTerm').val();
-    eventBus.trigger('searchMovies', searchTerm);
+    eventBus.trigger(`search${location}`, searchTerm);
   });
 
   $('nav a').click(function() {
