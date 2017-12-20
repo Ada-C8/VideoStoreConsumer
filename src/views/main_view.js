@@ -16,6 +16,7 @@ const MainView = Backbone.View.extend({
     'click button#submit' : 'renderAllMovies',
   },
   renderOurMovies() {
+    this.$('#search-form').html('');
     this.$('#movies-list').empty();
 
     const movieListView = new MovieListView({
