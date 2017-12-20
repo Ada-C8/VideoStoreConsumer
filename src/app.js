@@ -43,12 +43,14 @@ $(document).ready(function() {
   // movieListView.render();
 
   $('body').on('mouseenter', 'li', function(event) {
-    // $(this).find('.summary').css('display', 'block');
     $(this).find('.summary').fadeIn(200);
+    $(this).find('.details').fadeIn(200);
+    $(this).find('.thumbs').fadeIn(200);
   });
 
   $('body').on('mouseleave', 'li', function(event) {
-    // $(this).find('.summary').css('display', 'none');
     $(this).find('.summary').fadeOut(200);
+    $(this).find('.details').fadeOut(200);
+    $(this).find('.thumbs').fadeOut(200);
   });
 });

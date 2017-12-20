@@ -73,6 +73,7 @@ const MovieListView = Backbone.View.extend({
             bus: this.bus,
           });
           this.$('#list').append(movieView.render().$el);
+          $('.rating').hide();
         });
       });
     }
