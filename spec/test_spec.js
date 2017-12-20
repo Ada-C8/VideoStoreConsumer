@@ -1,13 +1,31 @@
+import Movie from '../src/models/movie';
 
-describe('Sample spec', () => {
-  let a;
+describe('Movie Spec', () => {
+  let movie
 
-  it('and so is a spec', () => {
-    a = true;
+  it('Creates a valid instance of a movie.', () => {
+    movie = new Movie ({
+      title: 'A Street Cat Named Bob',
+      release_date: '2016-11-04',
+    })
 
-    expect(a).toBe(true);
+    expect(movie.isValid()).toEqual(true);
   });
-  xit('will not work', () => {
-    expect(false).toBe(true);
+
+  it('Returns invalid if title is not present.', () => {
+    movie = new Movie ({
+      release_date: '2016-11-04',
+    })
+
+    expect(movie.isValid()).toEqual(false);
   });
+
+  it('Returns invalid if release date is not present.', () => {
+    movie = new Movie ({
+      title: 'A Street Cat Named Bob',
+    })
+
+    expect(movie.isValid()).toEqual(false);
+  });
+
 });
