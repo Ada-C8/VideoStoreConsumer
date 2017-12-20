@@ -35,7 +35,6 @@ $(document).ready(function() {
     model: catalog,
     template: $catalogTemplate,
     el: 'main',
-    specifyTemp: "catalog"
   });
 
 

@@ -6,7 +6,6 @@ const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.listenTo(this.model, 'update', this.render);
-    this.specifyTemp = params.specifyTemp;
   },
 
   render() {
@@ -18,11 +17,7 @@ const MovieListView = Backbone.View.extend({
         tagName: 'li',
         className: 'movie'
       });
-      if (this.specifyTemp === "catalog"){
-        this.$('#catalog-movies').append(movieView.render().$el);
-      } else if (this.specifyTemp === "database"){
-        this.$('#database-movies').append(movieView.render().$el);
-      }
+      this.$('#catalog-movies').append(movieView.render().$el);
     });
   },
 
