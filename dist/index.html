@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Baseline</title>
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet">
   </head>
   <body>
     <main id="main-content">
@@ -28,7 +29,6 @@
 
         <div class="store-library-container">
           <h2>Store Library</h2>
-
           <span id="store-library">
           </span>
         </div>
@@ -45,15 +45,11 @@
 
     <script type="text/template" id="store-movie-template">
       <section class="single-store-movie">
-        <% let image = `http://image.tmdb.org/t/p/w185${image_url}` %>
-
-        <img class="image" src= <%- image %> />
+        <img class="image" src= <%- image_url %> />
         <!-- <span class="title"><%- title %></div>
         <span class="release-date"><%- release_date %></div> -->
       </section>
     </script>
-
-
 
     <script src="/app.bundle.js"></script>
 

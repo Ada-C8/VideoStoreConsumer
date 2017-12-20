@@ -7,7 +7,6 @@ import _ from 'underscore';
 import APIMovie from 'models/api_movie'
 import StoreMovie from 'models/store_movie'
 
-
 import APIMoviesView from '../views/api_movies_view'
 import StoreMovieView from '../views/store_movie_view';
 
@@ -25,23 +24,16 @@ const APIMovieView = Backbone.View.extend({
     return this;
   },
   events: {
-    // 'click .submit-btn': 'keywordSearch',
     'click .add-movie-btn': 'addMovieToLibrary',
   },
 
   addMovieToLibrary: function() {
-    let image_url;
-    if (!this.model.attributes.image_url.includes('http://image.tmdb.org/t/p/w185')) {
-      image_url = `http://image.tmdb.org/t/p/w185${this.model.attributes.image_url}`;
-    } else {
-      image_url = this.model.attributes.image_url;
-    }
-    // let image = `http://image.tmdb.org/t/p/w185${this.model.attributes.image_url}`;
+
     const newStoreMovie = new StoreMovie({
       title: this.model.attributes.title,
       release_date: this.model.attributes.release_date,
       overview: this.model.attributes.overview,
-      image_url: image_url,
+      image_url: this.model.attributes.image_url,
     });
 
     let duplicate = false;
@@ -73,12 +65,10 @@ const APIMovieView = Backbone.View.extend({
     });
   },
   successMessages: function(message) {
-    console.log('this was a success');
     const statusMessagesEl = $('.errors');
     statusMessagesEl.empty();
     statusMessagesEl.append(`<li>${message}</li>`);
-  }
-
+  },
 });
 
 export default APIMovieView;

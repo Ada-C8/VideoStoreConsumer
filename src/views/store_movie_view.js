@@ -12,9 +12,6 @@ const StoreMovieView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
     return this;
   },
-  events: {
-
-  },
 });
 
 export default StoreMovieView;

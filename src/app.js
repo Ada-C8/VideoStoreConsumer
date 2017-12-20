@@ -3,8 +3,9 @@ import 'foundation-sites/dist/css/foundation.css';
 import './css/styles.css';
 
 // Import jQuery & Underscore
-import $ from 'jquery';
+import 'script-loader!jquery';
 import _ from 'underscore';
+import 'script-loader!jscroll';
 
 import StoreLibrary from 'collections/store_library';
 import StoreMovie from 'models/store_movie';
@@ -16,10 +17,9 @@ import StoreMovieView from 'views/store_movie_view';
 import APIMoviesView from 'views/api_movies_view';
 import APIMovieView from 'views/api_movie_view';
 
-
 $(document).ready(function() {
-  $('.api-movies-container').hide();
 
+  $('.api-movies-container').hide();
 
   const storeLibrary = new StoreLibrary();
   storeLibrary.fetch();
@@ -41,23 +41,19 @@ $(document).ready(function() {
   apiMoviesView.storeLibrary = storeLibrary;
 
   $('.submit-btn').on('click', function(e) {
-    console.log('submit button');
     e.preventDefault();
     $('.errors').empty();
     const query = $('input[name=query]').val();
     apiMovies.fetch({data: {query:`${query}`}}).then(function(){
       if (apiMoviesView.model.length === 0) {
         $('.errors').append('<li>There are no movies with that keyword search.</li>');
-        console.log(apiMoviesView.model.length);
+        $('.api-movies-container').hide();
       } else {
         $('.api-movies-container').show();
         apiMoviesView.render();
         console.log(apiMovies.length);
       }
     });
-
-
-
   });
-
+  $('.store-library-container').jscroll();
 });

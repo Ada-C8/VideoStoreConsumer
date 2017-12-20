@@ -18,7 +18,6 @@ const APIMoviesView = Backbone.View.extend({
     this.listenTo(this.model, 'update', this.render);
   },
   render() {
-    console.log('in APIMoviesView render');
     this.$('#api-movies').empty();
     this.model.each((apiMovie) => {
       const apiMovieView = new APIMovieView({
@@ -29,10 +28,6 @@ const APIMoviesView = Backbone.View.extend({
       apiMovieView.storeLibrary = this.storeLibrary;
       this.$('#api-movies').append(apiMovieView.render().$el);
     });
-    // console.log(this.model.length);
-    // if (this.model.length === 0 ) {
-    //
-    // }
     return this;
   },
 });
