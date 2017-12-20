@@ -35,7 +35,7 @@
 
     <script type="text/template" id="movie-template" class="movie">
         <p><img class='movie-thumbnail' src='<%= image_url %>' /></p>
-        <h4><%- title %> (<%- release_date.substr(0,4) %>)</h4>
+        <h4><%- title %> <%- release_date !== null ? `(${release_date.substr(0,4)})` : release_date %></h4>
         <p class='summary' style="display:none"><%- overview.substr(0,130) %>...</p>
         <button class='button add-inventory'>+</button>
     </script>
