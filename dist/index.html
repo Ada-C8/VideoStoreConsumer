@@ -24,18 +24,19 @@
       </ul> -->
     </header>
 
-    <section class="search-form" id="search-form">
-      <ul>
+    <section class="search-form grid-x" id="search-form">
+      <div class="columns medium-9 small-12">
+        <ul>
+          <li id="buttons"><button class="button view-library-btn">View Library Movies</button>
 
-        <li id="buttons"><button class="button view-library-btn">View Library Movies</button>
+          <button class="button search-btn">Search for Movies</button></li>
 
-        <button class="button search-btn">Search for Movies</button></li>
-
-        <li><form id="movie-search-form">
-          <input id="query" type="text" name="query" placeholder="Movie Title"/>
-          <input type="submit" value="GO" />
-        </form></li>
-      </ul>
+          <li><form id="movie-search-form">
+            <input id="query" type="text" name="query" placeholder="Movie Title"/>
+            <input type="submit" value="GO" />
+          </form></li>
+        </ul>
+      </div>
     </section>
 
     <section class="movies-appear">

@@ -19,9 +19,6 @@ $(document).ready(function() {
 
   const moviesLibraryTemplate = _.template($('#movie-template').html());
 
-
-
-
   const movies = new MovieList();
   // movies.fetch()
 
@@ -29,8 +26,9 @@ $(document).ready(function() {
 
   $('.view-library-btn').click(function() {
     console.log('in the view library button');
-    $('.movies-appear').show();
-    movies.fetch()
+    movies.fetch({
+      reset: true
+    })
   });
 
   const moviesLibraryView = new MoviesLibraryView({
@@ -57,10 +55,10 @@ $(document).ready(function() {
 
   });
 
-  $('#movies-container').on('click', function(event){
-    movies.fetch({
-      reset: true
-    });
-  })
+  // $('#movies-container').on('click', function(event){
+  //   movies.fetch({
+  //     reset: true
+  //   });
+  // })
 
 });
