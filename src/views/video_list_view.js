@@ -12,7 +12,6 @@ const VideoListView = Backbone.View.extend({
     this.model = parameters.model;
     this.customerList = parameters.customerList;
     this.bus = parameters.bus;
-
     this.listenTo(this.model, 'sortMe', this.render);
     this.listenTo(this.model, 'update', this.render);
     // this.listenTo(this.model, 'change', this.render);
@@ -22,7 +21,6 @@ const VideoListView = Backbone.View.extend({
     if (!list) {
       list = this.model.models;
     }
-
       this.$('#rental-list').empty();
       list.forEach((video) => {
         if (video.get('title')) {
@@ -39,7 +37,6 @@ const VideoListView = Backbone.View.extend({
         }
       });
       return this;
-
   },
   events: {
     'click tr.video-item': 'viewMe',
@@ -47,6 +44,7 @@ const VideoListView = Backbone.View.extend({
     'click input.btn-search': 'searchMe',
   },
   viewMe(event) {
+    window.clearInterval();
     this.bus.trigger("selectedVideo", event.currentTarget.firstElementChild.innerText);
     // console.log(event.currentTarget.firstElementChild.innerText)
   },

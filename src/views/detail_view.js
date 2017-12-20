@@ -32,13 +32,13 @@ const Detail = Backbone.View.extend({
 
       movie.urlRoot += '/?query='
       movie.fetch({}).done(()=> {
-        this.$el.find('#video-view').empty();
+        // this.$el.find('#video-view').empty();
         movie = movie.attributes[0];
         _.extend(movie, {inventory: 0, available_inventory: 0, in_library: false})
         this.model = movie;
         // console.log(movie);
         // this.$el.empty();
-        this.$el.find('#video-view').html(this.template(movie));
+        this.$el.find('#video-view').append(this.template(movie));
         // this.model = movie;
         this.$el.find('#checkout-form').hide();
       });
@@ -81,13 +81,11 @@ const Detail = Backbone.View.extend({
     console.log(event)
     $.post( url, params, (response) => {
       console.log('rent me!')
-      // this.model.save({inventory: this.model.get('inventory') - 1}, {patch: true});
-      // console.log(this.model);
       this.render(event.currentTarget.value);
-      // this.successfulAdd(response);
-    }).fail(() => {
-        // this.failedAdd();
-        console.log('oops')
+      $('#message').html(`<p>${event.currentTarget.value} has been checked out </p>`)
+    }).fail((response) => {
+      console.log(response)
+        $('#message').html(`<p>This movie can't be checked out</p>`)
     });
   },
 });

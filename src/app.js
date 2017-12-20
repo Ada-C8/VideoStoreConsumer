@@ -2,6 +2,7 @@
 import $ from 'jquery';
 import _ from 'underscore';
 import Backbone from 'backbone';
+import Video from 'models/video';
 import VideoList from 'collections/video_list';
 import VideoListView from 'views/video_list_view';
 import DetailView from 'views/detail_view';
@@ -13,6 +14,8 @@ import 'css/_settings.css';
 import 'css/foundation.css';
 import './css/styles.css';
 
+
+// console.log(video.);
 
 const rentalList = new VideoList();
 
@@ -37,7 +40,6 @@ $(document).ready(function() {
       el: '#rental-library',
     });
     rentalView.render();
-
     const detailView = new DetailView({
       collection: rentalList,
       customerList: customerList,
@@ -45,12 +47,17 @@ $(document).ready(function() {
       template: videoTemplate,
       el: '#video-main'
     });
-    detailView.render('Jaws', {flag: 'top'});
+
+    const video = new Video({id: 'top'})
+    video.fetch({}).done(()=>{
+      const topPick = video.get('title');
+      detailView.render(topPick, {flag: 'top'});
+    });
 
   }).fail(()=> {
     $('#rental-library').html('<p>Please refresh page</p>')
   });
-
+  // console.log(video.attributes)
   $('#checkout-form').hide();
 
 });
