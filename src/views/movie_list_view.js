@@ -13,7 +13,6 @@ const MovieListView = Backbone.View.extend({
   },
   render() {
     this.$('#movies').empty();
-    // this.model.fetch();
     this.model.each((movie) => {
       const movieView = new MovieView ({
         model: movie,
@@ -28,35 +27,11 @@ const MovieListView = Backbone.View.extend({
     return this;
   }, // end of render
   events: {
-    'click button.api-movies': 'getMovies',
-    // 'submit #search-form': 'getRequest',
+    'click button.api-movies': 'getMovies'
   },
   getMovies: function (e) {
     this.model.fetch();
   },
-
-  // getRequest: function (e) {
-  //   console.log("YOU HIT THE BUTTON!");
-  //   e.preventDefault();
-  //   const searchParams = this.$('#searchParams').val();
-  //   const returnedList = new MovieList();
-  //   returnedList.searchUrl(searchParams);
-  //   returnedList.fetch();
-  //   console.log("THIS IS returnedList");
-  //   console.log(returnedList);
-  //   this.$('#movies').empty();
-  //   // this.model.fetch();
-  //   returnedList.each((movie) => {
-  //     const movieView = new MovieView ({
-  //       model: movie,
-  //       searchTemplate: this.searchTemplate,
-  //       tagName: 'li',
-  //       className: 'movie'
-  //     });
-  //   const seeSearchTemp = this.searchTemplate(returnedList);
-  //   this.$('#results').prepend(seeSearchTemp);
-  // });
-  // },
 
 }); // end MovieListView
 

@@ -8,12 +8,8 @@ const SearchView = Backbone.View.extend({
     this.listenTo(this.model, "change", this.render);
   },
   render() {
-    console.log("THIS IS SVIEW");
-    console.log(this);
     const compiledTemplate = this.template(this.model.toJSON());
     this.$el.html(compiledTemplate);
-    console.log('in search model')
-    console.log(this)
     return this;
   },
   events: {
@@ -21,9 +17,8 @@ const SearchView = Backbone.View.extend({
   },
   addMovie: function(e) {
     e.preventDefault();
-    // const newMovie = this.model.attributes;
     this.model.save();
-    
+
   }
 
 });
