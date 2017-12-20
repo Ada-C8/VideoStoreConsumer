@@ -15,7 +15,24 @@ const MovieView = Backbone.View.extend({
   },
   events: {
     'click button.btn-add': 'add',
-    'click button.btn-show': 'show'
+    'click button.btn-show': 'showSingle'
+  },
+  showSingle(){
+    event.preventDefault();
+    let tempId = this.model.attributes.id;
+    this.model.set('id', this.model.attributes.title);
+    let tempThis = this;
+    this.model.fetch({
+      success: function(option, response){
+        console.log(response);
+        let newMovie = new Movie(response);
+        tempThis.trigger('show_movie', newMovie);
+        console.log('triggering movie reset');
+        console.log('response');
+      },
+    });
+    this.model.set('id', tempId);
+
   },
   add(event){
     event.preventDefault();
@@ -30,7 +47,7 @@ const MovieView = Backbone.View.extend({
     this.trigger('show_modal');
   },
   show(event) {
-    
+
   },
 });
 

@@ -33,7 +33,7 @@ const MovieListView = Backbone.View.extend({
         className: 'movie',
       });
       this.listenTo(movieView, 'show_modal', this.modalDisplay);
-
+        this.listenTo(movieView, 'show_movie', this.resetModel);
       this.$('#movie-list').append(movieView.render().$el);
 
 
@@ -41,12 +41,18 @@ const MovieListView = Backbone.View.extend({
     });
     return this;
   },
+  resetModel(movie){
+    debugger
+    this.model.set([movie])
+    // this.model.save();
+    debugger
+  },
   searchMovies(event){
     event.preventDefault();
     console.log('in search movies');
     this.model.fetchSearch({
       query: this.$('#movie-field').val(),
-      success: function(query, response){console.log('response');},
+      success: function(query, response){console.log(response);},
     });
   },
 

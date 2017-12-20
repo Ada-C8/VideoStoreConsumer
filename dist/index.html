@@ -17,15 +17,15 @@
       </form>
     </div>
     <!-- The Modal -->
-  <div id="myModal" class="modal hidden">
+    <div id="myModal" class="modal hidden">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p class='display-status'></p>
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p class='display-status'></p>
+      </div>
+
     </div>
-
-  </div>
 
     <h2 id="header"></h2>
     <section id="main-content">
@@ -45,23 +45,24 @@
       <p class="overview"><%- overview %></p>
 
       <p class="release-date"><%- release_date %></p>
-
-      <img  src= <%- image_url %> alt= <%- title %>  />
+      <% if( typeof image_url !== 'undefined'){ %>
+        <img  src= <%- image_url %> alt= <%- title %>  />
+        <% }%>
         <div class="movie-actions">
-      <% if( typeof id !== 'undefined'){ %>
+          <% if( typeof id !== 'undefined'){ %>
 
 
-          <button class="btn-show alert button" id="show-movie-button">Learn More</button>
+            <button class="btn-show alert button" id="show-movie-button">Learn More</button>
 
-        </div>
-        <% }else{ %>
+          </div>
+          <% }else{ %>
             <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
-              <% } %>
-      </div>
-      <!-- </li> -->
-    </script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="/app.bundle.js"></script>
+            <% } %>
+          </div>
+          <!-- </li> -->
+        </script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="/app.bundle.js"></script>
 
-  </body>
-  </html>
+      </body>
+      </html>
