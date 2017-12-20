@@ -42,12 +42,12 @@ const Detail = Backbone.View.extend({
   },
   events: {
     'click button.btn-add': 'addMe',
+    'click button#confirm-checkout.button': console.log('checkout'),
   },
   addMe(event) {
     console.log(this.collection.length);
     const movie = new Video(this.model);
     // let url = movie.urlRoot += '/?' + 'title=' + movie.get('title') + '&release_date='  + movie.get('release_date');
-
     let params = {title: movie.get('title'), release_date: movie.get('release_date')}
 
     $.post( movie.urlRoot, params, (response) => {
@@ -55,7 +55,6 @@ const Detail = Backbone.View.extend({
     }).fail(() => {
         this.failedAdd();
     });
-
   },
   successfulAdd(movie) {
     this.collection.add(movie);
@@ -64,7 +63,11 @@ const Detail = Backbone.View.extend({
   },
   failedAdd(movie) {
     $('#message').html(`<p>Oops.. can't save to your rental library.</p>`)
-  }
+  },
+  checkMeOut(event) {
+    event.preventDefault();
+    console.log(event);
+  },
 });
 
 export default Detail;

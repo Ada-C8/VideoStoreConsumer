@@ -9,9 +9,6 @@ const VideoView = Backbone.View.extend({
     this.$el.html(compiledTemplate);
     return this;
   },
-  events: {
-    // click add to library
-  },
 });
 
 export default VideoView;
