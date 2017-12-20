@@ -37,6 +37,10 @@ aside label {
 div {
   display: inline;
 }
+
+.red{
+  color: red;
+}
 /*
 * {
   border-style: solid;

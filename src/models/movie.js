@@ -6,8 +6,20 @@ const Movie = Backbone.Model.extend({
   // },
 
   validate(attributes) {
+    const errors = {};
 
+    if (!attributes.title) {
+      errors['title'] = ["Movie Title is required"];
+      console.log(errors)
+    }
+
+    if ( Object.keys(errors).length > 0 ) {
+      return errors;
+    } else {
+      return false;
+    }
   },
+
 
 });
 

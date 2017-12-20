@@ -39,6 +39,10 @@
       <div id="movie-search" class= "columns large-5 small-12">
         <div class="movie-entry-form">
           <h3>Find New Movie</h3>
+
+            <p id="search-error-message" class = "red">
+            </p>
+
           <form id="form" method="get">
             <label>Title</label>
             <input type="text" id="title" name="title"></input>
@@ -51,8 +55,8 @@
         <div id="search-results">
           <table>
             <thead>
-              <th class="sort title">Title</th>
-              <th class="sort release_date">Release Date</th>
+              <th class="title">Title</th>
+              <th class="release_date">Release Date</th>
               <th class="img_url">Image</th>
               <th></th>
             </thead>

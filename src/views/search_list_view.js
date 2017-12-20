@@ -13,6 +13,7 @@ const SearchListView = Backbone.View.extend({
   },
   render() {
     this.$('#search-list').empty();
+    this.model.sort();
     this.model.each((search) => {
       console.log('in Search List View render');
       const searchView = new SearchView({
@@ -42,13 +43,19 @@ const SearchListView = Backbone.View.extend({
 
   searchApi() {
     //this is an ugly way to reset the URL.  See if we can fix it
+    // this.$('#search-error-message').empty()
     event.preventDefault();
     const title = this.getFormData()
-    this.model.url += title;
-    console.log(this.model.url);
-    this.model.fetch();
-    this.model.url = 'http://localhost:3000/movies?query=';
-    console.log(this.model);
+    if (title === ""){
+      console.log('Error: No title')
+      this.$('#search-error-message').append('Error: No search terms')
+      return
+    } else {
+      this.model.url += title;
+      console.log(this.model.url);
+      this.model.fetch();
+      this.model.url = 'http://localhost:3000/movies?query=';
+      //what if no models are returned?  report error here?
   }
 
 

@@ -5,6 +5,7 @@ import Search from '../models/search';
 const SearchList = Backbone.Collection.extend({
   model: Search,
   url: 'http://localhost:3000/movies?query=',
+  comparator: 'title',
 
   //  if (this.get('query')) {
   //   `http://localhost:3000/movies?query=${this.get('query')}`

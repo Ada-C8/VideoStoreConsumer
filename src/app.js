@@ -8,13 +8,17 @@ import _ from 'underscore';
 
 import Movie from './models/movie';
 import MovieView from './views/movie_view';
+
 import MovieListView from './views/movie_list_view';
 import MovieList from './collections/movie_list';
+
 import Search from './models/search';
 import SearchView from './views/search_view';
+
 import SearchListView from './views/search_list_view';
 import SearchList from './collections/search_list';
 
+const TABLE_HEADERS = [ 'title', 'release_date']
 
 let movieTemplate;
 let searchTemplate;
@@ -23,7 +27,7 @@ $(document).ready(function() {
 
   let bus = {};
   bus = _.extend(bus, Backbone.Events);
-  
+
   movieTemplate = _.template($('#movie-template').html());
   searchTemplate = _.template($('#search-template').html());
 
@@ -49,6 +53,17 @@ $(document).ready(function() {
     template: searchTemplate,
     bus: bus,
   });
+
+  // const movieList = new MovieList()
+  //
+  // TABLE_HEADERS.forEach((field) => {
+  //   const headerElement = $(`th.sort.${ field }`);
+  //   headerElement.on('click', (event) => {
+  //     console.log(`Sorting table by ${ field }`);
+  //     movieList.comparator = field;
+  //     movieList.sort();
+  //   });
+  // });
 
 
   // TODO: check fetch and rerendering
