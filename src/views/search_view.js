@@ -46,8 +46,11 @@ const SearchView = Backbone.View.extend({
       // make a post request to the api, passing the external Id to the API
       // this request goes to the create at the movies controller
       $.post(url, {movie: {external_id: ex_id }}).done((data) => {
-        if (!data.empty()){
+        console.log('data');
+        console.log(data);
+        if (data !== {}){
           // when the API was success create a new movie model with this data
+          console.log('in if for $.post');
           const newMovieDB = new Movie(data);
           // add the new movie model to the movie list collection
           this.movies.add(newMovieDB)
