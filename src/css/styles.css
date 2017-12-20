@@ -120,6 +120,11 @@ p.display-status {
 nav.top-bar{
   background-color: black;
 }
+nav button.button {
+  background-color: #FF47FA;
+  font-size: 20px;
+  font-weight: bold;
+}
 /*
 * {
 border-style: solid;
