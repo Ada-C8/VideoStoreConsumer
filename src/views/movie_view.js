@@ -15,6 +15,7 @@ const MovieView = Backbone.View.extend({
   },
   add(event) {
     this.model.save();
+    this.model.trigger('update');
   }
 });
 
