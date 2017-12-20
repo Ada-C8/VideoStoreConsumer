@@ -61,6 +61,9 @@ const VendorView = Backbone.View.extend({
         overview: this.model.get('overview'),
       }
       const newMovie = new Movie(movie_data);
+      console.log('saving movie');
+      newMovie.save(null, { type: 'POST' });
+
       console.log('this is a new movie');
       console.log(newMovie);
 
