@@ -11,7 +11,7 @@ const ReturnedMovieListView = Backbone.View.extend({
     this.listenTo(this.bus, 'addMovie', this.addMovie);
   },
   events: {
-    'click form .btn-search': 'matchingMovies'
+    'click form #search-btn': 'matchingMovies'
   },
   addMovie(movie){
     // console.log('in add movie method');

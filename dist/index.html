@@ -16,8 +16,6 @@
     <section class="errors">
     </section>
 
-
-
     <main id="main-content">
       <section id="returned-movies-view" class="small-12 large-6 columns">
         <header class="section-header align-center">
@@ -26,14 +24,14 @@
         <form id="movie-search">
           <label for="title">Search for a movie by clicking MoviesDB</label>
           <input type="text" name="title"/>
-          <input type="radio" name="searchLocation" value="imdb"/>MoviesDB
-          <input type="radio" name="searchLocation" value="local" checked/>Movies In Store
+          <input type="radio" name="searchLocation" value="imdb" id="imdb"/><label for="imdb">MoviesDB</label>
+          <input type="radio" name="searchLocation" value="local" id="local" checked/><label for="local">Movies in Store</label>
           <br/>
           <button id="search-btn" class="button">Get Movies!</button>
         </form>
 
         <section id="imdb-section">
-          <table class="hover striped stack">
+          <table class="striped stack">
             <thead class="aqua-bg">
               <th width="150">Movie</th>
               <th width="100" class="align-center">Release Date</th>
@@ -54,7 +52,7 @@
           <h4>Available Movies for Checkout</h4>
         </header>
 
-        <table class="hover striped stack">
+        <table class="striped stack">
           <thead class="aqua-bg">
             <th width="150">Movie</th>
             <th width="100">Release Date</th>

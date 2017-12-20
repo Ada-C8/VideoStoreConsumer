@@ -19,7 +19,6 @@ body {
 
 .aqua-bg {
   background-color: #ABEBC6;
-  /* color: #E8E8E8; */
 }
 
 .button {
@@ -29,7 +28,7 @@ body {
 
 td .overflow-auto {
   overflow: scroll;
-  height: 200px;
+  height: 220px;
 }
 /*********** HEADER ***********/
 
@@ -38,11 +37,10 @@ td .overflow-auto {
   background-color: #232f3e;
   color: #E8E8E8;
   padding: 10px;
-  /* height: 15vh; */
 }
 
 .main-h1-wrapper {
-  /* border: 2px white solid; */
+  border: 2px #ABEBC6 solid;
 }
 
 .main-h1-wrapper h1 {
