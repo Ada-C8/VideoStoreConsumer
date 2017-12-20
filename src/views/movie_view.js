@@ -24,11 +24,7 @@ const MovieView = Backbone.View.extend({
     console.log(newMovieObject);
     let newMovie = new Movie(newMovieObject);
     console.log(newMovie);
-    // if(!newMovie.isValid()){
-    //   $('.display-status').html('')
-    //   $('.display-status').html(`${newTrip.validationError}`);
-    //   modalDisplay();
-    // }
+    
     this.model.add(newMovie);
   },
 });
