@@ -51,7 +51,6 @@ $(document).ready(function() {
 
   searchMovieListView.render();
 
-  // libMovieList.fetch();
   libMovieList.fetch();
   // new instance of LibMovieListView
   const libMovieListView = new LibMovieListView({
