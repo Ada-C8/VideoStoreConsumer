@@ -10,6 +10,13 @@ const MovieList = Backbone.Collection.extend({
   validate(attributes) {
   },
 
+  myWhere : function( key, val ){
+    return this.filter( function( item ){
+      return item.get( key ).toLowerCase() === val.toLowerCase();
+    });
+  },
+
+
 });
 
 

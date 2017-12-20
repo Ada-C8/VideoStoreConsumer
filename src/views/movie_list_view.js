@@ -87,8 +87,8 @@ const MovieListView = Backbone.View.extend({
 
     searchMovies() {
       event.preventDefault();
-      const title = this.getFormData()
-      const searchResults = this.model.where({title: title});
+      const query = this.getFormData()
+      const searchResults = this.model.myWhere('title', query);
       console.log(searchResults);
       this.render(searchResults)
     },
