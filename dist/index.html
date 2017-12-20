@@ -73,7 +73,7 @@
       <script type="text/template" id="database-template">
 
           <td>
-            <img src= "https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+            <img src= <%- image_url %> />
           </td>
           <td>
             <%- title %>
@@ -110,9 +110,6 @@
               </p>
               <p>
                 <span>Release Date: </span><%- release_date %>
-              </p>
-              <p id="add-button" >
-                <h3>Add to Inventory</h3>
               </p>
             </div>
 
