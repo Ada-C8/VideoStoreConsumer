@@ -71,12 +71,24 @@ const Detail = Backbone.View.extend({
     this.customerList.each((customer) => {
       const name = customer.get('name');
       const id = customer.get('id');
-      $('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
+      this.$('select').append(`<option value=${id}>${name}</option>`); //``<p>${name}</p>
     });
   },
   checkMeOut(event) {
     event.preventDefault();
-    console.log(event);
+    const day = new Date()
+    const due = new Date(day.getFullYear(), day.getMonth(), day.getDate()+7);
+    const params = {customer_id: event.currentTarget.form["0"].value, due_date: due}
+    const url = `http://localhost:3000/rentals/${this.title}/check-out`
+    // console.log(this.model.urlRoot)
+    $.post( url, params, (response) => {
+      console.log('rent me!')
+      console.log(response)
+      // this.successfulAdd(response);
+    }).fail(() => {
+        // this.failedAdd();
+        console.log('oops')
+    });
   },
 });
 
