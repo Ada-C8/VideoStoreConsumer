@@ -36,9 +36,13 @@
     <!-- TEMPLATES -->
     <script type="text/template" id="movie-template">
       <!-- <li class="movie"> -->
+      <div>
         <img src="https://image.tmdb.org/t/p/w300/<%- image_url %>">
-        <p><%- title %></p>
-        <p><%- release_date %></p>
+      </div>
+      <div>
+        <p><strong><%- title %></strong></p>
+        <p>Released in <%- release_date.slice(0, -6) %></p>
+      </div>
       <!-- </li> -->
     </script>
 
@@ -49,7 +53,7 @@
       <div class="large-7 columns">
         <h2><%- title %></h2>
         <p><%- overview %></p>
-        <p><%- release_date %></p>
+        <p>Release date: <%- release_date %></p>
       </div>
     </script>
 

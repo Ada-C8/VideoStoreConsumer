@@ -63,3 +63,26 @@ div {
 #search, #movies {
   margin-top: .8rem;
 }
+
+/* MOVIE LIST */
+main li {
+  list-style-type: none;
+  margin: .5rem;
+}
+
+main li img {
+  height: 5rem;
+  display: inline-block;
+}
+
+main li p {
+  display: inline-block;
+}
+
+strong {
+  font-size: 2rem;
+}
+
+main li div {
+  display: inline-block;
+}
