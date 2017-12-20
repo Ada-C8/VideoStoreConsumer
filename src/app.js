@@ -52,7 +52,7 @@ $(document).ready(function() {
       model: database,
       template: $databaseTemplate,
       el: 'main',
-      specifyTemp: "database"
+      availableInventory: catalog
     });
 
     database.fetch();
