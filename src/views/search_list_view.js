@@ -8,6 +8,7 @@ const SearchListView = Backbone.View.extend({
     this.template = params.template;
     this.movies = params.movies;
     this.bus = params.bus;
+    this.listenTo(this.bus, 'errorSavingMovie', this.renderStatus);
   }, // initialize
   events: {
     'click #search-button': 'searchForMovie',
@@ -15,7 +16,6 @@ const SearchListView = Backbone.View.extend({
   }, // events
   searchForMovie(event) {
     event.preventDefault();
-    console.log('in searchForMovie');
     // this allows us to access the text input in the search form
     const title = this.$('#search-input').val();
 
@@ -54,7 +54,11 @@ const SearchListView = Backbone.View.extend({
   clearResults(){
     $('#results-table').toggleClass('hide');
     $('#search-list').empty();
-  }//clearResults
+  },//clearResults
+  renderStatus(errorMessage){
+    this.$('#search-status').empty();
+    this.$('#search-status').append(errorMessage)
+  }
 }) //close view
 
 export default SearchListView

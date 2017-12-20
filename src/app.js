@@ -24,9 +24,7 @@ $(document).ready(function() {
 
   const moviesList = new MovieList();
 
-  console.log("this is moesList");
-  console.log(moviesList);
-
+  
   const searchListView = new SearchListView({
     el: $('#search-view'),
     template: searchTemplate,

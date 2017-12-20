@@ -25,8 +25,6 @@ const MovieListView = Backbone.View.extend({
     return this
   }, // render
   checkCollectionForMovie(movieData) {
-    console.log('in checkCollectionForMovie');
-    console.log(movieData);
     let haveIt = false;
     this.model.each((movie) => {
       if (movie.get('title') === movieData.title && movie.get('release_date') === movieData.release_date ) {
