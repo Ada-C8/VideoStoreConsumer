@@ -118,6 +118,10 @@ div {
   border: 1px solid gray;
 }
 
+.button:active {
+  
+}
+
 [type='text'] {
   display: inline-block;
   width: 80%;

@@ -18,7 +18,7 @@
           <!-- Rental Library -->
           <article id="rental-library">
             <h3>Search Rentals</h3>
-            
+
             <form>
               <input type="text" name="search" placeholder="search IMDB"/>
               <input type="submit" value="Search" class="button btn-search">
@@ -49,6 +49,14 @@
           <article id="video-view">
 
           </article>
+
+          <form id="checkout-form">
+            <label for="customer">Customer</label>
+            <select name="customer">
+               <!-- Option entries should be added here using JavaScript -->
+            </select>
+             <button class="button" id="confirm-checkout">Checkout</button>
+          </form>
         </section>
 
       </section>
@@ -93,7 +101,6 @@
             <button class="button btn-add">Add</button>
           <% } %>
         </article>
-
 
       </section>
     </script>
