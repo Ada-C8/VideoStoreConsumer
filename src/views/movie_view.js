@@ -16,8 +16,21 @@ const MovieView = Backbone.View.extend({
     'click button.btn-add': 'add',
   },
 
+  // add(event) {
+  //   const movieList = this.model.save();
+  // }
   add(event) {
-    const movieList = this.model.save();
-  }
+    const movieList = this.model.save({}, {
+      success: (model, response) => {
+        this.$('.reporting').empty();
+        this.$('.reporting').append('Successfully saved movie to library!');
+      },
+      error: (model, response) => {
+        this.$('.reporting').empty();
+        this.$('.reporting').append('Failed to save movie to library');
+
+      }
+    });
+  },
 });
  export default MovieView;
