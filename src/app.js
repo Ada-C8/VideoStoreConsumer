@@ -7,28 +7,39 @@ import $ from 'jquery';
 import _ from 'underscore';
 
 // Models and views
-// import Movie from './models/movie';
+import Movie from './models/movie';
 import MovieList from './collections/movie_list';
 import MovieView from './views/movie_view';
 import MovieListView from './views/movie_list_view';
+import ShowView from './views/show_view';
 
 // Define Variables
 let movieTemplate;
+let showTemplate;
 
 // Ready to go
 $(document).ready(function() {
+  // Event Bus
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
+
   // Templates
   movieTemplate = _.template($('#movie-template').html());
+  showTemplate = _.template($('#show-template').html());
 
   const movieList = new MovieList();
-
-  console.log(`Fetching from ${ movieList.url }`);
-
   const movieListView = new MovieListView({
     el: $('.movies'),
     model: movieList,
     template: movieTemplate,
+    bus: bus,
   });
+
+  const showView = new ShowView({
+    el: $('section.movie'),
+    template: showTemplate,
+    bus: bus,
+  })
 
   movieList.fetch();
   movieListView.render();
@@ -53,4 +64,12 @@ $(document).ready(function() {
     movieList.fetch();
     movieListView.render();
   });
+
+  // Details
+  $('button.add-collection').on('click', function() {
+    // let tripID = $(this).attr('data-id');
+    // trip = tripList.get(tripID);
+    // const trip = tripList.add(tripData);
+    // trip.save();
+  })
 });
