@@ -13,27 +13,32 @@
       </div>
     </header>
 
+    <section class="errors">
+    </section>
+
+
+
     <main id="main-content">
       <section id="returned-movies-view" class="small-12 large-6 columns">
-        <header class="section-header">
-          <h4>Search for movies on the web!</h4>
+        <header class="section-header align-center">
+          <h4>Search for Movies to Add</h4>
         </header>
         <form id="movie-search">
-          <label for="title">Title</label>
+          <label for="title">Search for a movie by clicking MoviesDB</label>
           <input type="text" name="title"/>
-          <input type="radio" name="searchLocation" value="imdb"/>IMDB
-          <input type="radio" name="searchLocation" value="local" checked/>Local
+          <input type="radio" name="searchLocation" value="imdb"/>MoviesDB
+          <input type="radio" name="searchLocation" value="local" checked/>Movies In Store
           <br/>
-          <button id='search' class="button btn-search alert">Return Matching Movies!</button>
+          <button id="search-btn" class="button">Get Movies!</button>
         </form>
 
-        <div id="imdb-section">
+        <section id="imdb-section">
           <table class="hover striped stack">
-            <thead>
-              <th>Movie</th>
-              <th>Release Date</th>
-              <th>Overview</th>
-              <th>Add Movie to Store</th>
+            <thead class="aqua-bg">
+              <th width="150">Movie</th>
+              <th width="100" class="align-center">Release Date</th>
+              <th width="200">Overview</th>
+              <th width="50" class="align-center">Add</th>
             </thead>
 
             <!-- Append Movies that match the search -->
@@ -41,19 +46,19 @@
             <tbody id="matching-movies">
             </tbody>
           </table>
-        </div>
+        </section>
       </section>
 
       <section id="current-rentals-view" class="small-12 large-6 columns">
-        <header class="section-header">
-          <h4>Available Movies for Checkout!</h4>
+        <header class="section-header align-center">
+          <h4>Available Movies for Checkout</h4>
         </header>
 
         <table class="hover striped stack">
-          <thead>
-            <th>Movie</th>
-            <th>Release Date</th>
-            <th>Overview</th>
+          <thead class="aqua-bg">
+            <th width="150">Movie</th>
+            <th width="100">Release Date</th>
+            <th width="200">Overview</th>
           </thead>
 
           <!-- Append current Movies in the rental store -->
@@ -62,18 +67,17 @@
           </tbody>
         </table>
       </section>
-
     </main>
 
     <!-- Templates -->
 
     <script type="text/template" id="movie-template">
-      <td>
+      <td class="align-center">
         <img src = '<%- image_url %>' alt='<%- title%>'/>
         <br>
         <%- title %>
       </td>
-      <td>
+      <td class="align-center">
         <%- release_date %>
       </td>
       <td>
@@ -82,7 +86,7 @@
     </script>
 
     <script type="text/template" id="returned-movie-template">
-      <td>
+      <td class="align-center">
         <img src = '<%- image_url %>' alt='<%- title%>'/>
         <br>
         <%- title %>
@@ -90,12 +94,17 @@
       <td>
         <%- release_date %>
       </td>
-      <td>
-        <%- overview %>
+      <td height="100" class="overflow-auto">
+        <div class="overflow-auto">
+          <%- overview %>
       </td>
       <td>
         <button class="button btn-add">Add</button>
       </td>
+    </script>
+
+    <script type="text/template" id="error-template">
+
     </script>
 
     <script src="/app.bundle.js"></script>

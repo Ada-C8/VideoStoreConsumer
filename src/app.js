@@ -31,7 +31,7 @@ $(document).ready(function() {
   movieTemplate = _.template($('#movie-template').html());
   returnedMovieTemplate = _.template($('#returned-movie-template').html());
   // Fetches all movies currently in the rental store
-  $('#imdb-section').hide();
+  $('#imdb-section, #search-btn').hide();
   movieList.fetch({
     success: (model, response) => {
       response.forEach((movie) => {
@@ -43,8 +43,6 @@ $(document).ready(function() {
       console.log(`This is the response: ${response} in the app.js`);
     },
   })
-
-
 
   const movieListView = new MovieListView({
     el: '#current-rentals-view',
@@ -61,14 +59,13 @@ $(document).ready(function() {
   });
 
   $('input[type=radio][name=searchLocation]').change(function(){
-    console.log(this.value);
     if (this.value === 'imdb'){
-      $('#imdb-section').show();
-      $('#search').show();
+      $('#imdb-section, #search-btn').show();
+      // $('#search').show();
       $('#current-rentals-view').hide();
     } else {
-      $('#imdb-section').hide();
-      $('#search').hide();
+      $('#imdb-section, #search-btn').hide();
+      // $('#search').hide();
       $('#current-rentals-view').show();
     }
   });
