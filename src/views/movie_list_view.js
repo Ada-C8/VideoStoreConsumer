@@ -10,9 +10,18 @@ const MovieListView = Backbone.View.extend({
     this.template = params.template;
     this.bus = params.bus;
     this.listenTo(this.model, 'update', this.render);
-    //this.listenTo(this.bus, 'addMovie', this.addMovie);
+    this.listenTo(this.bus, 'addToCollection', this.addToCollection);
   },
-
+  addToCollection(movie){
+    console.log(`The movie in the view method is ${movie}`);
+    const movieView = new MovieView({
+      tagName: 'li',
+      template: this.template,
+      model: movie,
+      bus: this.bus
+    });
+    this.$('#movies-in-store').append(movieView.render().$el);
+  },
   render() {
     this.$('#movie-list').empty();
     const lastMovie = this.model.at(this.model.length -1);

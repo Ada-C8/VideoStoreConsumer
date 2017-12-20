@@ -2,6 +2,13 @@ import Backbone from 'backbone';
 import ReturnedMovie from '../models/returned_movie';
 
 const ReturnedMovieView = Backbone.View.extend({
+  tagName: 'button',
+  events: {
+    'click': 'sendMovieData'
+  },
+  sendMovieData: function(){
+    this.bus.trigger('addMovie', this.model.attributes);
+  },
   model: ReturnedMovie,
 
   initialize(params) {
