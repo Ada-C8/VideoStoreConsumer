@@ -16,6 +16,9 @@ import SearchListView from './views/search_list_view'
 // ready to go
 $(document).ready(function() {
 
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
+
   const movieTemplate = _.template($('#all-movies-template').html());
   const searchTemplate = _.template($('#search-results').html());
 
@@ -27,19 +30,16 @@ $(document).ready(function() {
   const searchListView = new SearchListView({
     el: $('#search-view'),
     template: searchTemplate,
+    bus: bus,
   });
 
   const movieListView = new MovieListView({
     model: moviesList,
     template: movieTemplate,
     el: $('#list-movies'),
+    bus: bus,
   });
 
   moviesList.fetch();
-  // movieListView.render();
-
-
-
-
 
 });
