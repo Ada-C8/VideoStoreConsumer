@@ -9,7 +9,10 @@ initialize(params) {
   this.model = params.model;
   this.bus = params.bus;
   // this.allCustomers = params.allCustomers;
-  this.listenTo(this.bus, 'pass_movie_name', this.addMovieToCheckout);
+  this.listenTo(this.bus, 'pass_movie_name', this.addMovieTitleToCheckoutForm);
+},
+events: {
+  'click input.btn-check-out': 'rentMovie',
 },
 
 render() {
@@ -25,19 +28,23 @@ render() {
   return this;
 },
 
-addMovieToCheckout(title) {
+addMovieTitleToCheckoutForm(title) {
   // now have title of movie
   console.log("Message recieved in addMovieToCheckout");
   console.log(title);
 
   //TODO: scroll up not working
-  // $('body').animate({ scrollTop: 0 }, "slow");
-  $('body').scrollTop(0);
+  // this.$('#rental-view').animate({ scrollTop: 0 }, "slow");
+  // this.$('#rental-view').scrollTop(0);
 
   this.$('#movie-title-selector').val(title)
+
+},
+
+rentMovie(event) {
+  event.preventDefault();
   const customerID = this.$('select option').attr('data-id');
   console.log(customerID);
-
   //create new rental
   console.log('addMovieToCheckout model:');
   console.log(this.model);
@@ -55,11 +62,16 @@ addMovieToCheckout(title) {
   console.log(modelAttributes);
 
   const newRental = new Rental(modelAttributes);
-  // console.log( newRental.url)
-  // newRental.url += title + '/check-out'
+
   //send post request to Rails API
   newRental.save({}, {
-  })
+    success: (model, response) => {
+      console.log('Successfully rented movie');
+    },
+    error: (model, response) => {
+      console.log('Failed to rent movie');
+    },
+  });
 
 },
 
