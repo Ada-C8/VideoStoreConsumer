@@ -16,7 +16,7 @@ const DatabaseListView = Backbone.View.extend({
       let inventoried = false;
       this.inventory.forEach((availableMovie) => {
         if (availableMovie.get('overview') === movie.get('overview')) {
-          inventoried = true
+          inventoried = true;
         }
       })
 
@@ -25,30 +25,34 @@ const DatabaseListView = Backbone.View.extend({
         template: this.template,
         tagName: 'tr',
         className: 'movie',
-        inInventory: inventoried
       });
 
-        this.$('#database-movies').append(movieView.render().$el);
-        console.log(movieView.className)
-        // debugger
+      this.$('#database-movies').append(movieView.render().$el);
+      return this;
     });
   },
 
-  // events: {
-  //   'click button.btn-query': 'search',
-  // },
-  // search: function(e) {
-  //   e.preventDefault();
-  //   console.log("this . MODEL:")
-  //   console.log(this.model);
-  //
-  //   console.log("this")
-  //   console.log(this.$(`input[name='query']`).val())
-  //
-  //
-  //   this.model.set('query', this.$(`input[name='query']`).val());
-  //   this.render()
-  // },
+  events: {
+    'click button.add': 'addToInventory',
+  },
+  addToInventory: function(e) {
+    e.preventDefault();
+    const orderData = {
+    title: this.$(title).val(),
+    image: image_url,
+    overview: overview,
+    inInventory: inventoried,
+    matchedQuote: this.quoteList.findWhere({ symbol: this.$('select[name=symbol]').val() }),
+    console.log("this . MODEL:")
+    console.log(this.model);
+
+    console.log("this")
+    console.log(this.$(`input[name='query']`).val())
+
+
+    this.model.set('query', this.$(`input[name='query']`).val());
+    this.render()
+  },
 
 
 });
