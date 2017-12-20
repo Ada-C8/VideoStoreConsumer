@@ -1,13 +1,11 @@
 import Backbone from 'backbone';
 
 const Movie = Backbone.Model.extend({
-  url: function() {
-    return 'http://localhost:3000/movies/' + this.get('title');
-  },
+  urlRoot: 'http://localhost:3000/movies',
   defaults: {
-    inventory: 0,
-    release_date: new Date(),
-    overview: "No description",
+    'inventory': 0,
+    'release_date': new Date(),
+    'overview': "No description",
   },
   validate(attr) {
     const errors = {};
@@ -23,6 +21,9 @@ const Movie = Backbone.Model.extend({
     } else {
       return false;
     }
+  },
+  getByTitle() {
+    this.url = this.urlRoot + "/" + this.get('title');
   },
 });
 

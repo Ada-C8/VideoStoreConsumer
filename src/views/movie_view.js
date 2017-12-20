@@ -22,6 +22,7 @@ const MovieView = Backbone.View.extend({
   showDetails(e) {
     $('.movie-detail').remove();
     let responseJSON;
+    this.model.getByTitle();
     this.model.fetch({
       success: (r) => {
         responseJSON = r.toJSON();

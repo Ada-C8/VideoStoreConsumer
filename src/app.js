@@ -50,12 +50,14 @@ const addMovie = function addMovie(e) {
   let formInfo = $('#new-movie').serializeArray();
   formInfo = arrayToJSON(formInfo);
   const movie = new Movie(formInfo);
-  console.log(movie);
-  console.log(movie.isValid());
   if (movie.isValid()) {
-    movie.save({
+    movie.save({}, {
       success: () => {
+        console.log("this is working");
         movieList.add(movie);
+      },
+      error: (e, r) => {
+        displayMovieFormErrors(r.responseJSON['errors']);
       }
     });
   } else {
@@ -75,7 +77,9 @@ const displayMovieFormErrors = function displayMovieFormErrors(errors) {
 const arrayToJSON = function arrayToJSON(arr) {
   const output = {};
   arr.forEach((item) => {
-    output[item.name] = item.value;
+    if (item.value) {
+      output[item.name] = item.value;
+    }
   });
   return output;
 };
