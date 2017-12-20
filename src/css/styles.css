@@ -1,5 +1,5 @@
 @include foundation-everything;
-
+@import url('https://fonts.googleapis.com/css?family=Bungee|Gudea|Volkhov');
 .hero {
   background: url("https://images.unsplash.com/photo-1501141178950-e7fa06e4adf5?auto=format&fit=crop&w=1050&q=80")
   no-repeat;
@@ -13,8 +13,23 @@
   padding: 1% 5% 2% 5%;
   text-align: center;
 }
+.hero h1{
+  font-family: 'Bungee', cursive;
+  font-size: 96px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 2px 2px lightgray;
+}
+p, div{
+  font-family: 'Gudea', sans-serif;
+}
+
+h2, h3, h4, h5, h6{
+  font-family: 'Volkhov', serif;
+}
 main {
-    background: lightblue;
+  background: lightblue;
 }
 
 header {
@@ -52,30 +67,30 @@ div {
 }
 
 /* #myModal {
-  width: 500px;
-  background-color: red;
+width: 500px;
+background-color: red;
 } */
 .modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
-    display: flex;
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  display: flex;
 }
 .show{
   display:block;
@@ -102,8 +117,11 @@ p.display-status {
   width: 100%;
   display: block;
 }
+nav .top-bar{
+  background-color: black;
+}
 /*
 * {
-  border-style: solid;
+border-style: solid;
 }
 */
