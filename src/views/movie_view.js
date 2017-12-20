@@ -24,8 +24,9 @@ const MovieView = Backbone.View.extend({
     console.log(newMovieObject);
     let newMovie = new Movie(newMovieObject);
     console.log(newMovie);
-    
+    // debugger
     this.model.add(newMovie);
+    this.trigger('show_modal');
   },
 });
 

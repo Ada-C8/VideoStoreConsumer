@@ -55,6 +55,7 @@ const Movie = Backbone.Model.extend({
           $('.display-status').html('')
           console.log(response.errors);
           $('.display-status').html(movieFailure);
+
           // modalDisplay();
         },
       });
