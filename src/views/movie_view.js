@@ -5,7 +5,9 @@ const MovieView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
     this.bus = params.bus;
-    // console.log(this.bus);
+    this.collection = params.collection;
+
+    // console.log(this.collection);
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
@@ -16,10 +18,36 @@ const MovieView = Backbone.View.extend({
     'click': 'showMovie',
   },
   showMovie(event){
-    let selectedMovie = this.model.attributes;
 
-    this.bus.trigger('addToCollection', selectedMovie);
+    // let theLibrary = this.collection.fetch();
+    // console.log(theLibrary);
+
+    let selectedMovie = this.model.attributes;
+    let selectedSummary = selectedMovie['overview'];
+
+    // array of matching results
+    let found = this.collection.where({overview: selectedSummary});
+
+    let movie_data = {
+      title: selectedMovie.title,
+      overview: selectedMovie.overview,
+      release_date: selectedMovie.release_date,
+      image_url: selectedMovie.image_url,
+    }
+
+    if (found.length > 0) {
+      movie_data['found'] = true;
+    } else {
+      movie_data['found'] = false;
+    }
+
+    console.log(movie_data);
+
+    this.bus.trigger('addToCollection', movie_data);
   },
 });
 
 export default MovieView;
+
+// keep 2 collections
+// one for library, one for search results

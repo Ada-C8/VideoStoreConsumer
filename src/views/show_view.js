@@ -9,7 +9,7 @@ const ShowView = Backbone.View.extend({
     this.model;
     this.listenTo(this.bus, 'addToCollection', this.render);
 
-    console.log(this.collection);
+    // console.log(this.collection);
   },
 
   render(movieData) {
@@ -17,6 +17,10 @@ const ShowView = Backbone.View.extend({
     const compiledTemplate = this.template(movieData);
     this.$el.html(compiledTemplate);
     this.model = movieData;
+
+    if(movieData['found'] == false) {
+      this.$el.append('<button class="button blue white-text float-right add-collection" type="button" name="button" data-id='+movieData.external_id+'>Add to Rental Library</button>');
+    }
   },
   events: {
     'click button.add-collection': 'addtoLibrary'
