@@ -48,15 +48,17 @@
         <div class="list-view" id= "search-list">
 
         </div>
-        <div id="movie-list" class="list-view">
+        <div class="grid-x">
+        <div class="large-12 cell" id="movie-list" class="list-view">
         </div>
+      </div>
 
       </section>
 
     </main>
     <script type="text/template" id="movie-template">
 
-      <div class="row small-12 columns" id="single-movie">
+      <div id="single-movie">
         <h3 class="title"><%- title %></h3>
         <p class="overview"><%- overview %></p>
 
@@ -81,8 +83,8 @@
                 <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
 
                 <% } %>
-              </div>
-              <!-- </li> -->
+        </div>
+
             </script>
             <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
             <script src="/app.bundle.js"></script>
