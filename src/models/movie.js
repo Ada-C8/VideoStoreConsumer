@@ -9,6 +9,20 @@ const Movie = Backbone.Model.extend({
     this.title = params.title;
     // this.attributes.upperCaseTitle = this.title.toUpperCase();
   },
+  validates(attributes) {
+    const errors = {};
+    if(!attributes.title) {
+      errors['title'] = ["cannot be blank"];
+    }
+    if(!attributes.release_date) {
+      errors['release_date'] = ["cannot be blank"]
+    }
+
+    if (Object.keys(errors).length > 0) {
+      return errors;
+    }
+    return false;
+  },
 
 });
 
