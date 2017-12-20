@@ -10,24 +10,40 @@
     </header>
     <main id="main-content">
 
-      <section class="small-12 large-6 columns">
-        <form id="movie-search">
-          <label for="title">Title</label>
+      <!-- Current Movies in the Rental store -->
+      <section id="current-rentals-view" class="small-12 large-6 columns">
+        <header>
+          <h2>Available Movies for Checkout!</h2>
+        </header>
+        <!-- <form id="search-current-rentals">
+          <label for="title">Movie Title you are looking for?</label>
           <input type="text" name="title"/>
-          <button class="btn-search alert button">Search!</button>
-          <button class='button'>Add New Movie </button>
-        </form>
-      </section>
-      
-      <section class="small-12 large-6 columns">
-        <ul id="movie-list">
+          <button class="button btn-search alert">Return Movies in store</button>
+        </form> -->
+        <ul id="movies-in-store">
 
         </ul>
       </section>
 
-      <!-- Search for  movie Movie Form -->
+      <!-- Search for Movie Form -->
+      <section id="returned-movies-view" class="small-12 large-6 columns">
+        <form id="movie-search">
+          <label for="title">Title</label>
+          <input type="text" name="title"/>
+          <button class="button btn-search alert">Return Matching Movies!</button>
+        </form>
+
+        <!-- Movies that match the search -->
+        <div>
+          <ul id="matching-movies">
+
+          </ul>
+        </div>
+      </section>
 
     </main>
+
+    <!-- Templates -->
 
     <script type="text/template" id="movie-template">
       <h3 class="title"><%- title %></h3>
@@ -36,11 +52,38 @@
       </div>
     </script>
 
-    <!-- <script type="text/template" id="movie-detail-template">
-
-    </script> -->
+    <script type="text/template" id="returned-movie-template">
+      <h3 class="title"><%- title %></h3>
+      <p><%- release_date %></p>
+      <p><%- image_url %></p>
+      <p><%- overview %></p>
+      <p><button class="button btn-add">Add to collection</button><p>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
   </body>
   </html>
+<!--
+  // RETURNS BACK
+  //
+  // attributes
+  // :
+  // external_id
+  // :
+  // null
+  // id
+  // :
+  // 196
+  // image_url
+  // :
+  // "/psJb2NQKUWDQyhMRV3hoEWk60gS.jpg"
+  // overview
+  // :
+  // "The discovery of a severed human ear found in a field leads a young man on an investigation related to a beautiful, mysterious nightclub singer and a group of criminals who have kidnapped her child."
+  // release_date
+  // :
+  // "1986-08-01"
+  // title
+  // :
+  // "Blue Velvet" -->

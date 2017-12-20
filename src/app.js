@@ -6,76 +6,58 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
+// Models and Collection
 import Movie from 'models/movie';
+import ReturnedMovie from 'models/returned_movie';
 import MovieList from 'collections/movie_list';
+import ReturnedMovieList from 'collections/returned_movie_list';
+
+// Views
 import MovieView from 'views/movie_view';
 import MovieListView from 'views/movie_list_view';
+import ReturnedMovieView from 'views/returned_movie_view'; // TODO: Do I need this?
+import ReturnedMovieListView from 'views/returned_movie_list_view';
 
-let movieList = new MovieList();
+const movieList = new MovieList();
+const returnedList = new ReturnedMovieList();
 
 let movieTemplate;
+let returnedMovieTemplate;
 
 $(document).ready(function() {
 
   let bus = {};
   bus = _.extend(bus, Backbone.Events);
 
+  // Fetches all movies currently in the rental store
   movieList.fetch({
     success: (model, response) => {
-      // console.log(response);
       response.forEach((movie) => {
         movieList.add(movie);
       });
     },
-    error: (model, reponse) => {
-      console.log(`This is the model: ${model}`);
-      console.log(`This is the response: ${reponse}`);
+    error: (model, response) => {
+      console.log(`This is the model: ${model} in the app.js`);
+      console.log(`This is the response: ${response} in the app.js`);
     },
   })
 
   movieTemplate = _.template($('#movie-template').html());
+  returnedMovieTemplate = _.template($('#returned-movie-template').html());
 
   const movieListView = new MovieListView({
-    el: '#main-content',
+    el: '#current-rentals-view',
     template: movieTemplate,
     model: movieList,
     bus: bus,
   });
 
-  //console.log(movieList.length);
-
-  movieListView.render();
-
-  $('#search-form button').on('click', function () {
-    let query = $('#search-form input').val();
-    let url = movieListView.search(query);
-
-    movieList.set('url', url);
-    result = movieList.fetch();
-    console.log(`the result is ${result}`);
+  const returnedMovieListView = new ReturnedMovieListView({
+    el: '#returned-movies-view',
+    template: returnedMovieTemplate,
+    model: returnedList,
+    bus: bus,
   });
 
-}); // DOCUMENT READY
 
-// RETURNS BACK
-//
-// attributes
-// :
-// external_id
-// :
-// null
-// id
-// :
-// 196
-// image_url
-// :
-// "/psJb2NQKUWDQyhMRV3hoEWk60gS.jpg"
-// overview
-// :
-// "The discovery of a severed human ear found in a field leads a young man on an investigation related to a beautiful, mysterious nightclub singer and a group of criminals who have kidnapped her child."
-// release_date
-// :
-// "1986-08-01"
-// title
-// :
-// "Blue Velvet"
+}); // DOCUMENT READY
