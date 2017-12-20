@@ -22,6 +22,18 @@ button.success {
   display: inline;
 }
 
+button.black{
+  background-color: black;
+}
+
+/*td {
+  font-size: 1.5em;
+}*/
+
+button.black:hover {
+  background-color: grey;
+}
+
 aside.create-tasklist {
   background-color: navy;
   color: #FFFFFF;
@@ -41,9 +53,21 @@ div {
 .red{
   color: red;
 }
-
+.white {
+  background-color: white
+}
 .green{
   color: green;
+}
+
+#close {
+margin-top: 10px;
+background-color: black;
+font-size: 2em
+}
+
+#close.black:hover {
+  background-color: grey;
 }
 
 
@@ -59,12 +83,17 @@ div {
   }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: white;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-}
+};
+
+/*button {
+  background-color: black;
+  font-size: 2em;
+}*/
 /*
 * {
   border-style: solid;
