@@ -11,9 +11,7 @@ describe('Movie spec', () => {
   describe('movie validations', () => {
 
     it('movie is valid with a title', () => {
-
       expect(movie.isValid()).toEqual(true);
-
     });
 
     it('movie invalid without title', () => {
