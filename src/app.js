@@ -9,6 +9,8 @@ import _ from 'underscore';
 import Movie from 'models/movie';
 import MovieList from 'collections/movie_list';
 import MovieListView from 'views/movie_list_view';
+import SearchListView from 'views/search_list_view';
+import SearchView from 'views/search_view';
 
   // const allMovieList = function(event){
   //   const movies = new MovieList();
@@ -27,14 +29,14 @@ import MovieListView from 'views/movie_list_view';
   //   const searchParams = $('#searchParams').val();
   //
 
-    const returnedList = new MovieList();
+    // const returnedList = new MovieList();
   //   returnedList.searchUrl(searchParams);
   //   returnedList.fetch();
-  const searchReturns = new MovieListView({
-      model: returnedList,
-      template: _.template($('#return-template').html()),
-      el: 'main'
-    });
+  // const searchReturns = new MovieListView({
+  //     model: returnedList,
+  //     template: _.template($('#return-template').html()),
+  //     el: 'main'
+  //   });
 
 
  // end of const
@@ -48,8 +50,15 @@ import MovieListView from 'views/movie_list_view';
           template: _.template($('#movie-template').html()),
           el: 'main'
       });
-    movieListView.render();
-    searchReturns.render();
+       const results = new MovieList();
+      const searchListView = new SearchListView({
+            model: results,
+            template: _.template($('#return-template').html()),
+            el: 'main'
+        });
+    // movieListView.render();
+    // searchListView.render();
+    // searchReturns.render();
     // $('.list_movies').click(allMovieList);
     // $('#search-form').submit(searchDbList);
   });

@@ -2,19 +2,19 @@ import Backbone from 'backbone';
 import Movie from '../models/movie';
 import MovieList from '../collections/movie_list';
 
-const MovieView = Backbone.View.extend({
+const SearchView = Backbone.View.extend({
   initialize(params) {
-    this.template = params.template;
     this.searchTemplate = params.searchTemplate;
     this.listenTo(this.model, "change", this.render);
   },
   render() {
-    const compiledTemplate = this.template(this.model.toJSON());
+    const compiledTemplate = this.searchTemplate(this.model.toJSON());
     this.$el.html(compiledTemplate);
-
+    console.log('in search model')
+    console.log(this)
     return this;
   },
 
 });
 
-export default MovieView;
+export default SearchView;
