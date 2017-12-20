@@ -14,6 +14,13 @@ const MovieListView = Backbone.View.extend({
   },
 
   getRentalMovies() {
+    event.preventDefault()
+
+    this.model.each((movie) => {
+      movie.remove();
+      movie.destroy();
+    })
+
     console.log(" all rental movies");
 
     //calls to the rails API, returns movies in RailsDB in JSON
@@ -22,18 +29,23 @@ const MovieListView = Backbone.View.extend({
       movieList.responseJSON.forEach((movie) => {
         const newMovie = new Movie({
         title: movie.title,
-        overview: movie.description,
+        overview: movie.overview,
         release_date: movie.release_date,
         image_url: movie.image_url,
       });
-        this.model.add(newMovie)
+        // this.model.add(newMovie)
       });
+      console.log(this.model);
       this.render();
     })
   },
 
   getIndividualMovie() {
-    event.preventDefault()
+    event.preventDefault();
+    this.model.each((movie) => {
+      movie.remove();
+      movie.destroy();
+    })
 
     const query = this.getFormData();
 
@@ -66,9 +78,7 @@ const MovieListView = Backbone.View.extend({
 
   render(){
     this.$('#movies').empty()
-
     this.model.forEach((movie) => {
-//is it getting into this forEach loop??
       const movieView = new MovieView({
         model: movie,
         template: this.template,
