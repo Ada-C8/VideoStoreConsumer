@@ -19,18 +19,19 @@ const ReturnedMovieListView = Backbone.View.extend({
 
     const newMovie = new ReturnedMovie(movie);
     console.log(newMovie);
-
-    newMovie.save({}, {
-      success: (model, response) => {
-        console.log('save worked');
-        this.bus.trigger('addToCollection', newMovie);
-      },
-      error: (model, response) => {
-        console.log('save failed');
-        console.log(model);
-        console.log(response);
-      }
-    });
+    if (newMovie.isValid()){
+      newMovie.save({}, {
+        success: (model, response) => {
+          console.log('save worked');
+          this.bus.trigger('addToCollection', newMovie);
+        },
+        error: (model, response) => {
+          console.log('save failed');
+          console.log(model);
+          console.log(response);
+        }
+      });
+    }
   },
   matchingMovies(event) {
     // console.log('why the eff is this not working')
@@ -45,15 +46,15 @@ const ReturnedMovieListView = Backbone.View.extend({
       success: (model, response) => {
         response.forEach((movieData) => {
           let newMovie = new ReturnedMovie(movieData);
-          let returnedMovieView = new ReturnedMovieView({
-            tagName: 'li',
-            template: this.template,
-            model: newMovie,
-            bus: this.bus,
-          });
-
-          this.$('#matching-movies').append(returnedMovieView.render().$el);
-
+          if (newMovie.isValid()){
+            let returnedMovieView = new ReturnedMovieView({
+              tagName: 'li',
+              template: this.template,
+              model: newMovie,
+              bus: this.bus,
+            });
+            this.$('#matching-movies').append(returnedMovieView.render().$el);
+          }
         });
       },
       error: (model, response) => {
