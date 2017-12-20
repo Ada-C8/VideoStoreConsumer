@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Backbone from 'backbone';
 import Movie from '../models/movie';
 
@@ -15,6 +16,7 @@ const MovieView = Backbone.View.extend({
   },
   events: {
     'click .btn-add': 'addToInventory',
+    // }
   },
   addToInventory: function(e) {
     e.preventDefault();
@@ -27,21 +29,23 @@ const MovieView = Backbone.View.extend({
         overview: this.model.get("overview"),
         release_date: this.model.get("release_date"),
       };
-
       const addMovieFromDatabase = new Movie(databaseInfo);
       if (addMovieFromDatabase.isValid()) {
         this.inventory.add(addMovieFromDatabase);
         addMovieFromDatabase.save({}, {
-        // success: events.successfulSave,
-        // error: events.failedSave,
+        // success: addMovieFromDatabase.successfulSave(),
+        // error: addMovieFromDatabase.failedSave(),
         success: console.log("yes, added to db probably"),
         error: console.log("not added i think"),
       });
-        console.log(this.inventory);
       }
     }
-
   },
+  // successfulSave(addMovieFromDatabase, response) {
+  //   $('.form-errors ul').empty();
+  //   $('.form-errors ul').append(`<li>${addMovieFromDatabase.get('title')} was added to your catalog!</li>`);
+  // },
+
 });
 
 export default MovieView;
