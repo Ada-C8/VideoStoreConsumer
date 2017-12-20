@@ -58,8 +58,10 @@ const SearchView = Backbone.View.extend({
     $.post(url, {movie: {external_id: ex_id }}).done(function(data) {
       console.log('successful api call');
       console.log(data);
+
   })
-  // TODO: deal with failure case! 
+  // TODO: deal with failure case!
+
   }//makePost
 
 });
