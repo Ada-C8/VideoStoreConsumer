@@ -13,18 +13,21 @@
 
     <section>
       <div id="movie-list">
-        <div id="movies" class="columns large-5 small-12 trade-column">
+        <div id="movies" class="columns large-6 small-12 trade-column">
           <div class="movie-search-form columns small-12">
             <h3>Find a movie in the store:</h3>
             <form id="form" method="get">
               <label>Title</label>
               <input type="text" id="title" name="title"></input>
               <button class="btn-search success button">Search Store</button>
+              <button class="btn-showAll success button">Show All Movies</button>
             </form>
             <div class="new-form-errors">
             </div>
           </div>
           <p id="movie-success-messages" class = "green">
+          </p>
+          <p id="movie-fail-messages" class = "red">
           </p>
           <table>
             <thead>
@@ -52,8 +55,8 @@
           <div class="new-form-errors">
           </div>
         </div>
-        <p id="search-error-message" class = "red">
-        </p>
+        <div id="search-error-message" class = "red">
+        </div>
         <div id="search-results">
           <table>
             <thead>

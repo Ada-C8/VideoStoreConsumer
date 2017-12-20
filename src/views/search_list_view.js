@@ -44,7 +44,7 @@ const SearchListView = Backbone.View.extend({
 
   searchApi() {
     //this is an ugly way to reset the URL.  See if we can fix it
-    this.$('#search-error-message').html('');
+    this.clearMessages('#search-error-message');
     event.preventDefault();
     const title = this.getFormData()
     if (title === ""){
@@ -71,15 +71,14 @@ const SearchListView = Backbone.View.extend({
   reportNoResults(title){
     if(this.model.length == 0) {
       // this.$('#search-error-message').empty()
-      this.$('#movie-success-messages').html('');
-
+      this.clearMessages('#search-error-message');
       console.log(`No movies match search term: ${title}`)
       this.$('#search-error-message').append(`No movies match search term: ${title}`)
     }
   },
-  // clearMessages(){
-  //   this.$('#movie-success-messages').html('');
-  // },
+  clearMessages(tag){
+    this.$(tag).empty();
+  },
 
 });
 

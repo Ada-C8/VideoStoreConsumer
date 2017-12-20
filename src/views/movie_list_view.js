@@ -42,59 +42,68 @@ const MovieListView = Backbone.View.extend({
     }
   },
 
-    events: {
-      'click button.btn-search': 'searchMovies',
-    },
+  events: {
+    'click button.btn-search': 'searchMovies',
+    'click button.btn-showAll': 'render',
+  },
 
-    addMovieDB(movie_hash){
-      const newMovie = new Movie(movie_hash)
-      this.model.add(newMovie);
+  addMovieDB(movie_hash){
+    const newMovie = new Movie(movie_hash)
+    this.model.add(newMovie);
 
-      if (!newMovie.isValid()) {
-        // handleValidationFailuresTrip(trip.validationError);
-        return;
+    if (!newMovie.isValid()) {
+      // handleValidationFailuresTrip(trip.validationError);
+      return;
+    }
+    this.clearMessages('#movie-success-messages');
+    this.clearMessages('#movie-fail-messages');
+
+    newMovie.save({}, {
+      success: (model, response) => {
+        console.log(this.model.attributes)
+        console.log(`Successfully added new movie: ${newMovie.get('title')}`);
+        let successMessage = `Successfully added new movie: ${newMovie.get('title')}`;
+        this.$('#movie-success-messages').append(successMessage);
+        this.$('#movie-success-messages').show();
+      },
+      error: (model, response) => {
+        console.log('Failed to save movie! Server response:');
+        console.log(response);
+        this.model.remove(model);
+      },
+    });
+  },
+
+  clearMessages(tag){
+    this.$(tag).html('');
+  },
+
+  getFormData() {
+    console.log("I am reading the movie rental form")
+    const title = this.$('.movie-search-form input[name=title]').val();
+    this.$('.movie-search-form input[name=title]').val('')
+    return title;
+  },
+
+  searchMovies() {
+    event.preventDefault();
+    const query = this.getFormData()
+    const searchResults = this.model.myWhere('title', query);
+    console.log(searchResults.length == 0);
+    if (searchResults == 0){
+      this.clearMessages('#movie-fail-messages');
+      // this.$('#movie-fail-messages').html('');
+      if (query == ""){
+        let failMessage = 'Search requires an inputed title'
+        this.$('#movie-fail-messages').append(failMessage);
+      }else {
+        let failMessage = `No movies found for title "${query}"`;
+        this.$('#movie-fail-messages').append(failMessage);
       }
-      this.clearMessages();
+    } else {
+      this.render(searchResults);
+    }
+  },
+});
 
-      newMovie.save({}, {
-        success: (model, response) => {
-          console.log(this.model.attributes)
-          console.log(`Successfully added new movie: ${newMovie.get('title')}`);
-          let successMessage = `Successfully added new movie: ${newMovie.get('title')}`;
-          this.$('#movie-success-messages').append(successMessage);
-          this.$('#movie-success-messages').show();
-        },
-        error: (model, response) => {
-          console.log('Failed to save movie! Server response:');
-          console.log(response);
-          this.model.remove(model);
-
-          // handleValidationFailuresTrip(response.responseJSON["errors"]);
-        },
-      });
-    },
-    clearMessages(){
-      this.$('#movie-success-messages').html('');
-    },
-    getFormData() {
-      console.log("I am reading the movie rental form")
-      // const formData = {};
-      const title = this.$('.movie-search-form input[name=title]').val();
-      this.$('.movie-search-form input[name=title]').val('')
-      // formData['title'] = title;
-      return title;
-    },
-
-    searchMovies() {
-      event.preventDefault();
-      const query = this.getFormData()
-      const searchResults = this.model.myWhere('title', query);
-      console.log(searchResults);
-      this.render(searchResults)
-    },
-
-
-
-  });
-
-  export default MovieListView;
+export default MovieListView;
