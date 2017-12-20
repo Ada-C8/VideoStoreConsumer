@@ -31,8 +31,8 @@ addMovieToCheckout(title) {
   console.log(title);
 
   //TODO: scroll up not working
-  // this.$('#rental-view').animate({ scrollTop: 0 }, "slow");
-  // this.$('#rental-view').scrollTop(0);
+  // $('body').animate({ scrollTop: 0 }, "slow");
+  $('body').scrollTop(0);
 
   this.$('#movie-title-selector').val(title)
   const customerID = this.$('select option').attr('data-id');
@@ -56,7 +56,7 @@ addMovieToCheckout(title) {
 
   const newRental = new Rental(modelAttributes);
   // console.log( newRental.url)
-  newRental.url += title + '/check-out'
+  // newRental.url += title + '/check-out'
   //send post request to Rails API
   newRental.save({}, {
   })
