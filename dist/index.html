@@ -7,13 +7,54 @@
 <body>
   <main id="main-content">
     <script src="/app.bundle.js"></script>
-    <header>
+    <header class= >
       <h1 class="text-center">Movie Store</h1>
     </header>
+    <section>
+      <button id="modalBtn" class= "button black float-right"> Add a new movie</button>
+    </section>
 
     <section>
+      <section id="myModal" class = "columns small-12 modal hide">
+        <!-- <div class= "modal-content"> -->
+          <section>
+
+
+          <button id ="close" class="button black float-right" aria-label="Close">&#215;</button>
+          <div id="movie-search" class= "columns large-12 small-12 white">
+          <div class="movie-entry-form">
+              <h3>Find a new movie</h3>
+              <form id="form" method="get">
+                <label>Title</label>
+                <input type="text" id="title" name="title"></input>
+                <button class="btn-search-api success button">Search Movies</button>
+              </form>
+              <div class="new-form-errors">
+              </div>
+            </div>
+            <div id="search-error-message" class = "red">
+            </div>
+            <div id="search-results">
+              <table>
+                <thead>
+                  <th class="title">Title</th>
+                  <th class="release_date">Release Date</th>
+                  <th class="img_url">Image</th>
+                  <th></th>
+                </thead>
+                <tbody id="search-list">
+                </tbody>
+              </table>
+            </div>
+          <!-- </div> -->
+
+          </section>
+        </div>
+      </section>
+
+
       <div id="movie-list">
-        <div id="movies" class="columns large-6 small-12 trade-column">
+        <div id="movies" class="columns small-12 trade-column">
           <div class="movie-search-form columns small-12">
             <h3>Find a movie in the store:</h3>
             <form id="form" method="get">
@@ -39,52 +80,18 @@
             </tbody>
           </table>
         </div>
-
-
-
       </div>
-
-      <div id="movie-search" class= "columns large-5 small-12">
-        <div class="movie-entry-form">
-          <h3>Find a new movie</h3>
-          <form id="form" method="get">
-            <label>Title</label>
-            <input type="text" id="title" name="title"></input>
-            <button class="btn-search-api success button">Search Movies</button>
-          </form>
-          <div class="new-form-errors">
-          </div>
-        </div>
-        <div id="search-error-message" class = "red">
-        </div>
-        <div id="search-results">
-          <table>
-            <thead>
-              <th class="title">Title</th>
-              <th class="release_date">Release Date</th>
-              <th class="img_url">Image</th>
-              <th></th>
-            </thead>
-            <tbody id="search-list">
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-
     </section>
-
-
-
-
   </main>
-
 </body>
 
 
 <script type="text/template" id="movie-template">
   <td>
-    <%- title %>
+    <h4>
+        <%- title %>
+    </h4>
+<!-- <%- release_date %> -->
   </td>
   <td>
     <%- release_date %>
@@ -96,16 +103,20 @@
 
 <script type="text/template" id="search-template">
   <td>
-    <%- title %>
-  </td>
-  <td>
+    <h4>
+      <%- title %>
+    </h4>
     <%- release_date %>
   </td>
+  <!-- <td>
+    <%- release_date %>
+  </td> -->
   <td>
     <img src= "<%- image_url %>" />
   </td>
   <td>
-    <button class="button">Add movie</button>
+    <button class="button add">Add movie</button>
+    <p class="nothing red hide">Added Movie!</p>
   </td>
 
 </script>
