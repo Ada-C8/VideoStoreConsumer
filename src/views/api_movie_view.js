@@ -30,11 +30,18 @@ const APIMovieView = Backbone.View.extend({
   },
 
   addMovieToLibrary: function() {
+    let image_url;
+    if (!this.model.attributes.image_url.includes('http://image.tmdb.org/t/p/w185')) {
+      image_url = `http://image.tmdb.org/t/p/w185${this.model.attributes.image_url}`;
+    } else {
+      image_url = this.model.attributes.image_url;
+    }
+    // let image = `http://image.tmdb.org/t/p/w185${this.model.attributes.image_url}`;
     const newStoreMovie = new StoreMovie({
       title: this.model.attributes.title,
       release_date: this.model.attributes.release_date,
       overview: this.model.attributes.overview,
-      image_url: this.model.attributes.image_url
+      image_url: image_url,
     });
 
     let duplicate = false;

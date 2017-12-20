@@ -18,6 +18,8 @@ import APIMovieView from 'views/api_movie_view';
 
 
 $(document).ready(function() {
+  $('.api-movies-container').hide();
+
 
   const storeLibrary = new StoreLibrary();
   storeLibrary.fetch();
@@ -48,6 +50,7 @@ $(document).ready(function() {
         $('.errors').append('<li>There are no movies with that keyword search.</li>');
         console.log(apiMoviesView.model.length);
       } else {
+        $('.api-movies-container').show();
         apiMoviesView.render();
         console.log(apiMovies.length);
       }

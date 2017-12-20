@@ -6,11 +6,13 @@
   </head>
   <body>
     <main id="main-content">
+
+      <header class='logo'>
+        Saved by the Videos
+      </header>
+
       <div class="search-form-container">
-        <h3>Search for Movies:</h3>
         <form id="search-form">
-          <label type="text" name="query" placeholder="ex. Indiana Jones" />
-          <label for="query">Query:</label>
           <input id="keyword" type="text" name="query" placeholder="ex. Indiana Jones" />
           <button class="submit-btn button">Submit</button>
         </form>
@@ -18,30 +20,37 @@
         </ul>
       </div>
 
-      <h2>Search Results</h2>
         <div class="api-movies-container">
+          <h2>Search Results</h2>
           <ul id="api-movies">
           </ul>
         </div>
 
-      <h2>Store Library</h2>
         <div class="store-library-container">
-          <ul id="store-library">
-          </ul>
+          <h2>Store Library</h2>
+
+          <span id="store-library">
+          </span>
         </div>
 
     </main>
     <script type="text/template" id="api-movie-template">
-      <li class="single-api-movie">
-        <span class="title"><%- title %></span>
-        <span class="release-date"><%- release_date %></span>
-        <button class="add-movie-btn button">Add to Library</button>
-      </li>
+      <section class="single-api-movie">
+        <img class="image api-movie-image" src= <%- image_url %> />
+        <!-- <span class="title"><%- title %></span>
+        <span class="release-date"><%- release_date %></span> -->
+        <button class="add-movie-btn button">+</button>
+      </section>
     </script>
 
     <script type="text/template" id="store-movie-template">
-      <span class="title"><%- title %></span>
-      <span class="release-date"><%- release_date %></span>
+      <section class="single-store-movie">
+        <% let image = `http://image.tmdb.org/t/p/w185${image_url}` %>
+
+        <img class="image" src= <%- image %> />
+        <!-- <span class="title"><%- title %></div>
+        <span class="release-date"><%- release_date %></div> -->
+      </section>
     </script>
 
 
