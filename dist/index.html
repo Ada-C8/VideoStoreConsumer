@@ -2,14 +2,87 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Backbone Baseline</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
   </head>
   <body>
-    <main id="main-content">
-      
-    </main>
+    <div class="content-wrapper">
+      <header class="header">
+        <h1 class="main-title">IK <i class="fas fa-film"></i> Movies</h1>
+        <p class="sub-head">Made with Backbone blood, API sweat, and Ruby on Rails tears ( <i class="fas fa-heart"></i> Iuliia &amp; Kee )</p>
+      </header>
+
+      <nav class="grid-x grid-padding-x main-nav">
+        <div class="cell nav-wrapper">
+          <form id="search-form">
+            <input type="text" name="search" placeholder="Enter search keywords here">
+            <button type="submit" name="button" id="search" class="button"><i class="fas fa-search"></i> Search</button>
+          </form>
+
+           <button id="movies" class="button blue" type="button" name="button"><i class="fas fa-book"></i> Rental Library</button>
+        </div>
+      </nav>
+
+      <main id="main-content" class="grid-x main">
+        <section class="movies large-6 cell">
+          <ul class="grid-x medium-up-2 movies-list"></ul>
+        </section>
+
+        <section class="movie large-6 cell">
+          <div class="grid-x grid-padding-x details-wrapper"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; Ada Developers Academy 2017</p>
+    </footer>
 
     <script src="/app.bundle.js"></script>
+    <!-- TEMPLATES -->
+    <script type="text/template" id="movie-template">
+      <div class="cell">
+        <div class="card">
+          <% if (image_url[0] != 'h' ) { %>
+            <img src="https://image.tmdb.org/t/p/w300/<%- image_url %>">
+          <% } else { %>
+            <img src="<%- image_url %>">
+          <% } %>
+          <div class="card-section">
+            <% if (title.length > 14) {%>
+              <h6><%- title.slice(0,14) %>...</h6>
+            <%} else {%>
+              <h6><%- title %></h6>
+            <% }%>
+            <p>( <%- release_date.slice(0, 4) %> )</p>
+          </div>
+        </div>
+      </div>
+    </script>
 
+    <script type="text/template" id="show-template">
+      <div class="large-5 cell img-detail">
+        <% if (image_url[0] != 'h' ) { %>
+          <img src="https://image.tmdb.org/t/p/w300/<%- image_url %>">
+        <% } else { %>
+          <img src="<%- image_url %>">
+        <% } %>
+      </div>
+      <div class="large-7 cell text-detail">
+        <h2><%- title %></h2>
+        <p class="movie-release">Release date: <%- release_date %></p>
+        <p class="movie-summary"><%- overview %></p>
+
+        <% if (!inInventory) { %>
+          <button class="button add-collection" type="button" name="button"><i class="fas fa-plus-square"></i> Add to Rental Library</button>
+        <% } else { %>
+          <div class="callout alert">
+            <h5><i class="fas fa-exclamation-triangle"></i> This movie is in your library</h5>
+            <p>You're a fine curator, you know that?</p>
+          </div>
+        <% }%>
+      </div>
+    </script>
   </body>
   </html>
