@@ -24,11 +24,18 @@ hr {
 
 .button {
   background-color: black;
+  margin: auto;
 }
 
 .button:hover {
   background-color: grey;
 }
+
+/*#button-button {
+  width:400px;
+  margin:auto 0;
+  text-align: center;
+}*/
 /*#wrapper {
     width: 650px;
     margin: 0 auto;
@@ -90,16 +97,16 @@ hr {
 }
 
 #library-movies p, #search-movies p {
-  max-width: 600px;
+  max-width: 400px;
   margin: auto;
   margin-top: 2%;
 }
 
 #library-movie-container, #search-movie-container {
-  margin: 3%;
+  margin-top: 3%;
+  margin-left: 26%;
   display: inline-block;
 }
-
 
 p.lib-movie, p.search-movie {
   border: solid black 1px;
