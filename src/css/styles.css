@@ -11,26 +11,44 @@ header {
 
 h1 {
   color: white;
-  margin-left: 2%;
+  margin-left: 5%;
 }
 
 hr {
   border-color: black;
 }
 
+.button-holder {
+  text-align: center;
+}
+
+.button {
+  background-color: black;
+}
+
+.button:hover {
+  background-color: grey;
+}
+/*#wrapper {
+    width: 650px;
+    margin: 0 auto;
+}*/
+
 /*Status messages*/
 #messages {
   text-align: center;
-  margin: 1%;
+  margin: 0;
 }
 
 #rental-messages {
   text-align: center;
+  margin: 10%;
 }
 
 /*check in and check out*/
 #check-out-container h2, #check-in-container h2 {
   text-align: center;
+  margin-top: 5%;
 }
 
 #check-out-form, #check-in-form {
@@ -38,9 +56,9 @@ hr {
   margin: auto;
 }
 
-/*#check-out-form {
-  margin-bottom: 10%;
-}*/
+#check-out-form {
+  margin-bottom: 5%;
+}
 
 /*movie search*/
 #search-movies-container h2 {
@@ -54,16 +72,39 @@ hr {
 #movie-search-form {
   max-width: 300px;
   margin: auto;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
-/*library movies*/
+/*library and search movies*/
 #library-movies-container h2 {
   text-align: center;
 }
 
+#library-movie-details p, #search-movie-details p {
+  padding: 2%;
+  padding-bottom: 0;
+}
+
+.button.btn-add-checkout, .button.btn-add-movie {
+  margin: 4%;
+}
+
+#library-movies p, #search-movies p {
+  max-width: 600px;
+  margin: auto;
+  margin-top: 2%;
+}
+
+#library-movie-container, #search-movie-container {
+  margin: 3%;
+  display: inline-block;
+}
+
+
 p.lib-movie, p.search-movie {
   border: solid black 1px;
+  border-radius: 25px;
+  background-color: darkgrey;
 }
 
 #completed-checkbox {

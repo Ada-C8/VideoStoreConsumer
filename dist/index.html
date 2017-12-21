@@ -11,47 +11,52 @@
         <h1>anderserb Video Store</h1>
       </header>
 
-      <div class="row">
-        <div id="messages">
-          <!-- error handling messages live here -->
-        </div>
-      </div>
+      <div id="wrapper">
 
       <div class="row">
 
         <section id="rental-view">
+
           <div id="rental-messages">
           </div>
-            <div class="columns large-6 small-12">
-              <div id="check-out-container">
-                <h2>Check-out</h2>
-                <form id="check-out-form">
-                  <label for="customer-name">Name</label>
-                  <select name="customer-name">
-                    <!-- Option entries should be added here using JavaScript -->
-                  </select>
-                  <input id="movie-title-selector" type="text" name="movie-title" placeholder="Moonlight" value="">
-                  <input class="button btn-check-out" type="submit" value="Check-out movie">
-                </form>
-              </div>
-            </div>
 
-            <div class="columns large-6 small-12">
-              <div id="check-in-container">
-                <h2>Check-in</h2>
-                <form id="check-in-form">
-                  <label for="customer-name">Name</label>
-                  <select name="customer-name">
-                    <!-- Option entries should be added here using JavaScript -->
-                  </select>
-                  <input type="text" name="movie-title" placeholder="Moonlight">
-                  <input type="submit" class="button" value="Check-in movie">
-                </form>
-              </div>
+          <div class="columns large-6 small-12">
+            <div id="check-out-container">
+              <h2>Check-out</h2>
+              <form id="check-out-form">
+                <label for="customer-name">Name</label>
+                <select name="customer-name">
+                  <!-- Option entries should be added here using JavaScript -->
+                </select>
+                <input id="movie-title-selector" type="text" name="movie-title" placeholder="Moonlight" value="">
+                <input class="button btn-check-out" type="submit" value="Check-out movie">
+              </form>
             </div>
-          </section>
-          <hr>
+          </div>
+
+          <div class="columns large-6 small-12">
+            <div id="check-in-container">
+              <h2>Check-in</h2>
+              <form id="check-in-form">
+                <label for="customer-name">Name</label>
+                <select name="customer-name">
+                  <!-- Option entries should be added here using JavaScript -->
+                </select>
+                <input type="text" name="movie-title" placeholder="Moonlight">
+                <input type="submit" class="button" value="Check-in movie">
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <hr>
+
         <div class="row">
+          <div class="row">
+            <div id="messages">
+              <!-- error handling messages live here -->
+            </div>
+          </div>
           <div class="columns large-6 small-12">
             <div id='search-movies-container'>
               <h2>All Movies</h2>
@@ -80,31 +85,46 @@
             </div>
           </div>
         </div>
-      </main>
+
+      </div>
+    </div>
+
+    </main>
 
     <script type="text/template" id="library-movie-template">
-      <p>
-        <strong>Title: </strong> <%- title %>
-      </p>
-      <p>
-        <strong>Description: </strong> <%- overview %>
-      </p>
-      <p>
-        <strong>Release Date: </strong> <%- release_date %>
-      </p>
-      <button class="button btn-add-checkout" value="<%- title %>">Add to check-out</button>
+      <div id="library-movie-container">
+        <img src="https://image.tmdb.org/t/p/w185<%- image_url %>" alt="movie image">
+      </div>
+      <div id="library-movie-details">
+        <p>
+          <strong>Title: </strong> <%- title %>
+        </p>
+        <p>
+          <strong>Description: </strong> <%- overview %>
+        </p>
+        <p>
+          <strong>Release Date: </strong> <%- release_date %>
+        </p>
+        <button class="button btn-add-checkout" value="<%- title %>">Add to check-out</button>
+      </div>
     </script>
+
     <script type="text/template" id="search-movie-template">
-      <p>
-        <strong>Title: </strong> <%- title %>
-      </p>
-      <p>
-        <strong>Description: </strong> <%- overview %>
-      </p>
-      <p>
-        <strong>Release Date: </strong> <%- release_date %>
-      </p>
-      <button class="button btn-add-movie <%- external_id %>">Add To Library</button>
+      <div id="search-movie-container">
+        <img src="<%- image_url %>" alt="movie image">
+      </div>
+      <div id="search-movie-details">
+        <p>
+          <strong>Title: </strong> <%- title %>
+        </p>
+        <p>
+          <strong>Description: </strong> <%- overview %>
+        </p>
+        <p>
+          <strong>Release Date: </strong> <%- release_date %>
+        </p>
+        <button class="button btn-add-movie <%- external_id %>">Add To Library</button>
+      </div>
 
     </script>
 
