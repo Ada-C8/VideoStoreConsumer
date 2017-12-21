@@ -7,17 +7,17 @@
   <body>
     <main id="main-content">
       <header>
-        <h1>Video Store</h1>
-        <button class="btn-rental-lib button">All Movies</button>
-        <section id = "search-form">
+        <h1 id = "home">jamny's video store</h1>
+        <button class="btn-rental-lib button">Rental Library</button>
+        <section id = "search-form" class = "float-right">
           <form id = "search-movies">
-            <input name="movie-query" placeholder="Enter Movie Title"/>
+            <input name="movie-query" placeholder="Search TMBD"/>
             <button class="btn-search alert button">Search</button>
           </form>
         </section>
       </header>
       <section id = "movies-container" class="movies-container columns small-10 small-offset-1 end">
-        <h2>Movies</h2>
+        <h2>Rental Movies</h2>
         <section class="movies-list-container">
           <ul id="movies" class="movies">
           </ul>
@@ -57,19 +57,23 @@
 
       <div class="small-6 columns">
         <h3 class="title"><%- title %></h3>
-        <p class="release_date"><%- release_date %></p>
+        <p class="release_date">(<%- release_date.slice(0,4) %>)</p>
         <button class="btn-movie-details success button">View Movie Details</button>
-        <button class="btn-add-movie button">Add Movie</button>
       </div>
     </script>
     <script type="text/template" id= "movie-details-template">
       <section class="row small-12 columns">
 
+        <img src="<%- image_url %>" class = "image_url"/>
         <h3 class="title"><%- title %></h3>
-        <p class = "image_url"> <%- image_url %> </p>
-        <p class="release_date">$<%- release_date %></p>
+        <p class="release_date"><%- release_date.slice(0,4) %></p>
         <p class="overview"> Overview: <%- overview %></p>
-        <!-- <button class="btn-all-movies success button">Back to All movies</button> -->
+        <span>
+          <%= external_id ? '<button class="btn-add-movie button">Add Movie to Library</button>' : '<p id = "rental-availability">This movie is available in our rental library</p>' %>
+        </span>
+        <span>
+          <%= external_id ? '<button class="btn-all-movies success button">Back to Results</button>' : '' %>
+        </span>
       </section>
     </script>
 

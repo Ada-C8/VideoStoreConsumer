@@ -25,6 +25,7 @@ $(document).ready(function() {
   const movieListView = new MovieListView({
     model: rentalMovies,
     template: _.template($('#movie-template').html()),
+    detailsTemplate: _.template($('#movie-details-template').html()),
     el: 'main',
   });
 
@@ -36,8 +37,10 @@ $(document).ready(function() {
     model: searchedMovies,
     libary: rentalMovies,
     template: _.template($('#movie-template').html()),
+    detailsTemplate: _.template($('#movie-details-template').html()),
     el: 'main',
   });
+
 
   // $('#main-content').append('<p>Hello World!</p>');
 

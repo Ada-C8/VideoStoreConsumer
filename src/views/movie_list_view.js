@@ -6,6 +6,7 @@ import MovieView from '../views/movie_view';
 const MovieListView = Backbone.View.extend({
   initialize(params) {
     this.template = params.template;
+    this.detailsTemplate = params.detailsTemplate;
     this.model = params.model;
     this.listenTo(this.model, 'update', this.render);
   },
@@ -19,6 +20,7 @@ const MovieListView = Backbone.View.extend({
       // Create a new view with the model & template
       const movieView = new MovieView({
         model: movie,
+        detailsTemplate: this.detailsTemplate,
         template: this.template,
         tagName: 'li',
         className: 'movie row',
@@ -33,6 +35,8 @@ const MovieListView = Backbone.View.extend({
   events: {
     'click button.btn-search': 'searchMovies',
     'click button.btn-rental-lib': 'viewMovies',
+    'click button.btn-movie-details': 'hideRentalsLibrary',
+    'click button.btn-all-movies': 'showRentalsLibrary',
   },
   searchMovies: function(event) {
     event.preventDefault();
@@ -45,7 +49,17 @@ const MovieListView = Backbone.View.extend({
   viewMovies: function(event) {
     this.$('.movies-container h2').html('Rental Library Movies');
     this.model.viewRentalMovies();
+    this.$('.movies-container').show();
+    this.$('#movie-details-container').hide();
   },
+  hideRentalsLibrary: function(event) {
+    this.$('.movies-container').hide();
+    this.$('#movie-details-container').show();
+  },
+  showRentalsLibrary: function(event) {
+    console.log('in the Movie List View showRentalsLibrary function');
+    this.$('.movies-container').show();
+  }
 });
 
 export default MovieListView;

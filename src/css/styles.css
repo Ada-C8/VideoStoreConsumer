@@ -1,12 +1,13 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+    background: snow;
 }
 
 header {
-  background-color: lightgreen;
+  background-color: black;
   padding: 0.5rem;
+  color: white;
 }
 
 #completed-checkbox {
@@ -42,6 +43,21 @@ div {
   list-style-type: none;
 }
 
+header h1, #search-form, header p, header button {
+  display: inline-block;
+}
+
+#search-form {
+  padding-top: 20px;
+}
+
+.float-right {
+  float: right;
+}
+
+#rental-availability{
+  color: red;
+}
 /*
 * {
   border-style: solid;
