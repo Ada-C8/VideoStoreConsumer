@@ -31,8 +31,8 @@
         <h4><%- title %> <%- release_date !== null ? `(${release_date.substr(0,4)})` : release_date %></h4>
         <p class='moviehover summary' style="display:none"><%- overview.substr(0,130) %>...</p>
         <p class='moviehover details' style="display:none"><span style='color:<%= average_rating > 5 ? 'green' : 'red' %>'><%- average_rating %>/10 </span> <span class='rating'><%- rating %></span></p>
-        <p class='moviehover thumbs' style="display:none"><img class='like' src='Like.png'/></p>
-        <p class='moviehover thumbs' style="display:none"><img class='dislike' src='Like.png'/></p>
+        <p class='moviehover thumbs' style="display:none"><img class='like' src='http://res.cloudinary.com/laurarobertson/image/upload/v1513819840/Like_acfu0a.png'/></p>
+        <p class='moviehover thumbs' style="display:none"><img class='dislike' src='http://res.cloudinary.com/laurarobertson/image/upload/v1513819840/Like_acfu0a.png'/></p>
         <button class='button add-inventory'>+</button>
     </script>
 
