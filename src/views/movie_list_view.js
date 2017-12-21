@@ -22,6 +22,16 @@ const MovieListView = Backbone.View.extend({
     this.mode = "search";
   },
 
+  events: {
+    "click li.movie" : "toggleHighlight"
+  },
+
+  toggleHighlight(event) {
+    let active = event.currentTarget;
+    this.$el.find('li.movie').attr('class', 'movie highlighted');
+    this.$el.find('li.movie').not(active).attr('class', 'movie');
+  },
+
   render() {
     this.$('ul').empty();
 

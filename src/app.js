@@ -1,10 +1,10 @@
-import 'css/_settings.css';
-import 'foundation-sites/dist/css/foundation.css';
-import 'css/styles.css';
-
 // Import jQuery & Underscore
 import $ from 'jquery';
 import _ from 'underscore';
+import 'foundation-sites';
+
+// CSS
+import styles from './css/styles.css';
 
 // Models and views
 import Movie from './models/movie';
@@ -39,7 +39,7 @@ $(document).ready(function() {
   });
 
   const showView = new ShowView({
-    el: $('section.movie'),
+    el: $('section.movie div.details-wrapper'),
     template: showTemplate,
     bus: bus,
     collection: movieList
@@ -66,4 +66,11 @@ $(document).ready(function() {
     movieListView.inventoryMode();
     movieList.fetch();
   });
+
+  // Stylish
+  $('li.movie').on('click', function() {
+    console.log(this);
+    $('li.movie').removeClass('highlighted');
+    $(this).addClass('highlighted');
+  })
 });

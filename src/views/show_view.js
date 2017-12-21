@@ -16,6 +16,7 @@ const ShowView = Backbone.View.extend({
     this.$el.html('');
     const compiledTemplate = this.template(movieData.attributes);
     this.$el.html(compiledTemplate);
+
     this.model = movieData;
   },
 

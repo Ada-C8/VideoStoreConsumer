@@ -1,88 +1,139 @@
-/* @include foundation-everything; */
+/*----------------- imports -----------------*/
+/*  fontawesome, foundation, google fonts */
+@import url("https://use.fontawesome.com/releases/v5.0.2/css/all.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.min.css");
+@import url('https://fonts.googleapis.com/css?family=Cabin|PT+Sans:400,700');
 
-main {
-    background: lightblue;
+/*----------------- big styles-----------------*/
+/*  test */
+/** { border: 1px solid red !important; }*/
+
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+html, body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Cabin', sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'PT Sans', sans-serif;
+}
+.fas { margin-right: 0.4rem; }
+.fa-camera, .fa-heart {margin-right: 0;}
+.highlighted { border: 5px solid #f9dc48; }
+button.button {
+  background: #f9dc48;
+  color: #333;
+  border-radius: 2px;
+}
+button.button:hover,
+button.button:active,
+button.button:focus {
+  background: #f7bc3d;
+  color: #333;
 }
 
+/*----------------- header -----------------*/
 header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  background-color: #968e9e;
+  padding: 0.6rem;
+}
+h1.main-title {
+  text-align: center;
+}
+p.sub-head {
+  color: #555;
+  text-align: center;
 }
 
-#completed-checkbox {
-  display: inline;
+/*----------------- nav -----------------*/
+nav.main-nav {
+  padding: 0.5rem 0;
+  width: 100%;
+  background-color: #c7c0ce;
+  text-align: center;
 }
-
-label {
-  display: inline;
-}
-
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
-}
-
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
-
-.completed {
-  text-decoration: line-through;
-}
-
-div {
-  display: inline;
-}
-/*
-* {
-  border-style: solid;
-}
-*/
-
-
-/* OUR STYLES */
-
-/* SEARCH FORM ON MAIN PAGE */
-#search-form {
+form#search-form {
   display: inline-block;
+  width: 60%;
 }
-
-#search-form input, #search, #movies {
+form#search-form input[name="search"],
+button#search,
+button#movies {
   height: 3rem;
   display: inline-block;
 }
-
-#search-form input {
-  width: 15rem;
+form#search-form input[name="search"] {
+  width: 50%;
+  margin-right: 5%;
+  padding-left: 2%;
+  border-radius: 2px;
+}
+button#search,
+button#movies {
+  margin-top: .7rem;
+  width: 20%;
 }
 
-#search, #movies {
-  margin-top: .8rem;
+/*----------------- main -----------------*/
+main#main-content {
+  background: #c8c5cc;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
-/* MOVIE LIST */
-main li {
+/*----------------- list -----------------*/
+section.movies {
+  padding-top: 1rem;
+  overflow: auto;
+}
+ul.movies-list li.movie {
   list-style-type: none;
-  margin: .5rem;
+  margin: 1rem;
+  width: 26%;
 }
-
-main li img {
-  height: 5rem;
+div.card {
+  margin-bottom: 0;
+  border: none;
+  background: #f0f0f0;
+}
+div.card img {
+  height: 11rem;
   display: inline-block;
+  filter: grayscale(100%);
+}
+div.card-section { padding: 0.5em; }
+div.card-section h6,
+div.card-section p {
+  text-align: center;
+}
+div.card-section h6 { margin-bottom: 0; }
+div.card-section p {
+  color: #888;
+  font-size: 0.7em;
 }
 
-main li p {
-  display: inline-block;
+/*----------------- details -----------------*/
+section.movie { padding: 2rem; }
+div.details-wrapper {
+  background: #f0f0f0;
+  height: auto;
 }
-
-strong {
-  font-size: 2rem;
+div.img-detail img { padding-top: 1em; }
+p.movie-summary { color: #555; font-size: 0.9rem; }
+div.text-detail { padding: 1em 0 4em; }
+div.large-7 button.add-collection {
+  display: block;
+  margin: 2em auto 0;
+  text-align: center;
 }
-
-main li div {
-  display: inline-block;
+div.callout {
+  margin-top: 2em;
+  text-align: center;
 }
