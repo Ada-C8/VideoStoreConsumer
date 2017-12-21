@@ -6,9 +6,60 @@ import './css/styles.css';
 import $ from 'jquery';
 import _ from 'underscore';
 
+// Our Components - Project Models, Collections, Views
+import LibMovie from './models/lib_movie';
+import LibMovieList from './collections/lib_movie_list';
+import LibMovieView from './views/lib_movie_view';
+import LibMovieListView from './views/lib_movie_list_view';
+import SearchMovieListView from './views/search_movie_list_view';
+import RentalView from './views/rental_view';
+import Rental from './models/rental';
+
+// template varibles
+let libraryMovieTemplate;
+let searchMovieTemplate;
+
+// new instances of models
+const libMovieList = new LibMovieList();
+const searchMovieList = new LibMovieList();
+const rental = new Rental();
+
 // ready to go
 $(document).ready(function() {
+  // events bus
+  let bus = {};
+  bus = _.extend(bus, Backbone.Events);
 
-  $('#main-content').append('<p>Hello World!</p>');
+  //  underscore templates
+  libraryMovieTemplate = _.template($('#library-movie-template').html());
+  searchMovieTemplate = _.template($('#search-movie-template').html());
 
+  const rentalView = new RentalView({
+    el: '#rental-view',
+    bus: bus,
+    model: rental,
+  })
+
+  rentalView.render();
+
+  const searchMovieListView = new SearchMovieListView({
+    el: 'main',
+    model: searchMovieList,
+    template: searchMovieTemplate,
+    bus: bus,
+  });
+
+  searchMovieListView.render();
+
+  libMovieList.fetch();
+  // new instance of LibMovieListView
+  const libMovieListView = new LibMovieListView({
+    el: 'main',
+    model: libMovieList,
+    template: libraryMovieTemplate,
+    bus: bus,
+  });
+
+  libMovieListView.render();
+  // console.log(libMovieList);
 });
