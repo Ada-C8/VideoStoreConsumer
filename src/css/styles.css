@@ -1,44 +1,124 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
+/* General styling */
+
+body {
+  text-align: center;
+  background: #141414;
 }
+
+h1, h2, h3, h4, h5, p,[type='radio'] + label[for] {
+  font-family: 'Raleway', sans-serif;
+  color: #e5e5e5;
+}
+
+h4 {
+  height: 80px;
+  font-size: 1.2em;
+  overflow: hidden;
+}
+
+/* Header */
 
 header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  max-width: 600px;
+  margin: 20px auto;
 }
 
-#completed-checkbox {
-  display: inline;
+/* List styling */
+
+li {
+  margin: 30px;
+  display: inline-block;
+  list-style: none;
+  position: relative;
+  max-width: 185px;
+  transition: all .1s ease-in-out;
 }
 
-label {
-  display: inline;
+li:hover {
+transform: scale(1.1);
 }
 
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
+img {
+  height: 276px;
+  border-radius: 2px;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
+.summary {
+  font-size: 0.9em;
+  line-height: 1.3em;
+  padding: 80px 10px 0;
+  border-radius: 2px;
+  height: 276px;
+  position:absolute;
+  overflow: hidden;
+  top: 0;
+  left: -1px;
+  right: -1px;
+  background: rgba(0,0,0,0.8);
 }
 
-.completed {
-  text-decoration: line-through;
+
+/* Movie */
+
+.add-inventory {
+  font-weight: bolder;
+  padding: 7px 11px 9px;
+  background: rgba(255,0,0,0.6);
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  border-radius: 50%;
 }
 
-div {
-  display: inline;
+.add-inventory:hover {
+  background: rgba(255,0,0,0.85);
 }
-/*
-* {
-  border-style: solid;
+
+.details {
+  font-size: 0.85em;
+  padding-left: 10px;
+  text-align: left;
+  position: absolute;
+  width: 100%;
+  bottom: 95px;
+  font-weight: bold;
 }
-*/
+
+.rating {
+  font-weight: normal;
+  color: rgba(255,255,255,0.5);
+  margin-left: 3px;
+  padding: 2px 3px;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.thumbs {
+  position: absolute;
+  right: 8px;
+  bottom: 95px;
+}
+
+.like, .dislike {
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  padding: 5px;
+  width: 24px;
+  height: 24px;
+}
+
+.dislike {
+  transform: rotate(180deg);
+}
+
+.like {
+  margin-top: -60px;
+}
+
+/* Customer */
+
+
+/* Footer */

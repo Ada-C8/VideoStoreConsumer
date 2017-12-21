@@ -2,12 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Baseline</title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700,900" rel="stylesheet">
+    <title>VideoVideo</title>
   </head>
+  <header>
+    <h1>VideoStore</h1>
+
+    <section>
+      <form class='search-form'>
+        <input type='text' name='search' placeholder='Search' />
+        <input type="radio" id='inventory' name="search-type" value="search inventory"><label for="inventory">Search Inventory</label>
+        <input type="radio" id='imdb' name="search-type" value="search IMDB" checked><label for="imdb">Search IMDB</label>
+        <input type='submit' value='Search' class='button' id="searchButton"></input>
+      </form>
+    </section>
+  </header>
+
   <body>
     <main id="main-content">
-      
+      <button id='movie-button' class='button'>All movies</button>
+      <button id='customer-button' class='button'>All customers</button>
+
+      <ul id='list'></ul>
     </main>
+
+    <script type="text/template" id="movie-template" class="movie">
+        <p><img class='movie-thumbnail' src='<%= image_url %>' /></p>
+        <h4><%- title %> <%- release_date !== null ? `(${release_date.substr(0,4)})` : release_date %></h4>
+        <p class='moviehover summary' style="display:none"><%- overview.substr(0,130) %>...</p>
+        <p class='moviehover details' style="display:none"><span style='color:<%= average_rating > 5 ? 'green' : 'red' %>'><%- average_rating %>/10 </span> <span class='rating'><%- rating %></span></p>
+        <p class='moviehover thumbs' style="display:none"><img class='like' src='http://res.cloudinary.com/laurarobertson/image/upload/v1513819840/Like_acfu0a.png'/></p>
+        <p class='moviehover thumbs' style="display:none"><img class='dislike' src='http://res.cloudinary.com/laurarobertson/image/upload/v1513819840/Like_acfu0a.png'/></p>
+        <button class='button add-inventory'>+</button>
+    </script>
+
+    <script type="text/template" id="customer-template" class="customer">
+        <h3><%- name %></h3>
+        <p><%- phone %></p>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
