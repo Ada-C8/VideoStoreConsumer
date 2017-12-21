@@ -81,6 +81,7 @@ header a {
 .listing-info {
   float: left;
   margin: 1em 1em 1em .5em;
+  min-width: 35%;
 }
 
 .listing-info, .slide {
