@@ -10,6 +10,18 @@ header {
   padding: 1em;
 }
 
+header h1 {
+  margin-bottom: 0;
+  line-height: 1em;
+  font-family: 'Bungee Inline', cursive;
+}
+
+header p {
+  margin-top: 0;
+  margin-left: 3px;
+  line-height: 1em;
+}
+
 nav {
   text-align: right;
 }
@@ -38,23 +50,25 @@ header a {
   width: 35%;
 }
 
-#main-content{
-  clear: both;
-}
-
 #movies {
-  list-style-type: none;
-  margin-left: 4em;
-  width: 85%;
+  clear: both;
+  margin: 0 auto;
 }
 
-.movie {
+.movie, .customer {
   background: #2f2f2f;
   border: solid 5px #ffcf00;
   border-radius: 5px;
-  min-height: 360px;
   margin: 1em;
   padding: 1em;
+}
+
+.movie {
+  min-height: 360px;
+}
+
+.customer {
+  color: #ffcf00;
 }
 
 .movie img {
@@ -69,12 +83,12 @@ header a {
   margin: 1em 1em 1em .5em;
 }
 
-.listing-info, .details, .add-rental-form {
+.listing-info, .slide {
   color: white;
   display: inline-block;
 }
 
-.listing-info p {
+.listing-info p, .customer p, #add-rental label {
   color: #afafaf;
 }
 
@@ -86,10 +100,13 @@ header a {
 
 .slide {
   display: none;
-  width: 27em;
-  /* height: 318px; */
+  padding: 1em;
 }
 
 .details {
-  overflow: auto;
+  overflow: scroll;
+}
+
+#add-rental input[name="inventory"] {
+  width: 3em;
 }
