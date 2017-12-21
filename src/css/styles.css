@@ -1,44 +1,90 @@
 @include foundation-everything;
 
 main {
-    background: lightblue;
+  background-image: url('https://i.pinimg.com/originals/2c/6b/a3/2c6ba31d76936549fb3376552cb4070c.jpg');
+  background-size: 1000px 1000px;
+  font-family: 'Londrina Solid', cursive;
 }
 
-header {
-  background-color: lightgreen;
-  padding: 0.5rem;
-}
-
-#completed-checkbox {
-  display: inline;
-}
-
-label {
-  display: inline;
-}
-
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
-}
-
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
-}
-
-.completed {
-  text-decoration: line-through;
+button:hover {
+  background-color: #e22ef7;
 }
 
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+#search-form, .errors {
+  margin-right: 20%;
+  margin-left: 20%;
+  width: 60%;
+  text-align: center;
 }
-*/
+
+.logo {
+  font-size: 5rem;
+  text-align: center;
+  /*text-shadow: 10px 10px #f7add3;*/
+}
+
+#store-library, #api-movies {
+  margin-right: 10%;
+  margin-left: 10%;
+  display: inline-flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo, .api-movies-container h2, .store-library-container h2 {
+  color: #f4c842;
+  text-shadow: 6px 4px 0 #000;
+  background: url('https://i.pinimg.com/736x/41/79/3a/41793a2a1b0406da3f4e0d29b2e3de3a--pattern-print-print-patterns.jpg');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Londrina Solid', cursive;
+}
+
+.api-movies-container h2, .store-library-container h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-shadow: 6px 4px 0 #e22ef7;
+}
+
+.errors {
+  color: white;
+  font-size: 2rem;
+  list-style: none;
+}
+.title {
+  display: block;
+}
+
+.single-api-movie, .single-store-movie {
+  margin: 1em;
+  box-shadow: 13px 13px #08c4d0;
+  position: relative;
+}
+
+.single-api-movie img, .single-store-movie img{
+  border-style: solid;
+  border-width: medium;
+  border-color: #2eebf7;
+  width: 185px;
+}
+
+#submit-button:hover, #add-movie-btn:hover {
+  background-color: #2eebf7;
+}
+
+.add-movie-btn {
+  position: absolute;
+  background-color: #e22ef7;
+  bottom: 10px;
+  right: 10px;
+}
+
+.submit-btn {
+  background-color: #e22ef7;
+}

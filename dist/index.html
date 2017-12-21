@@ -3,11 +3,53 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Baseline</title>
+    <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet">
   </head>
   <body>
     <main id="main-content">
-      
+
+      <header class='logo'>
+        Saved by the Videos
+      </header>
+
+      <div class="search-form-container">
+        <form id="search-form">
+          <input id="keyword" type="text" name="query" placeholder="ex. Indiana Jones" />
+          <button id="submit-button" class="submit-btn button">Submit</button>
+        </form>
+        <ul class="errors">
+        </ul>
+      </div>
+
+        <div class="api-movies-container">
+          <h2>Search Results</h2>
+          <ul id="api-movies">
+          </ul>
+        </div>
+
+        <div class="store-library-container">
+          <h2>Store Library</h2>
+          <span id="store-library">
+          </span>
+        </div>
+
     </main>
+    <script type="text/template" id="api-movie-template">
+      <section class="single-api-movie">
+        <img class="image api-movie-image" src= <%- image_url %> />
+        <!-- <span class="title"><%- title %></span>
+        <span class="release-date"><%- release_date %></span> -->
+        <button id="add-movie-btn" class="add-movie-btn button">+</button>
+      </section>
+    </script>
+
+    <script type="text/template" id="store-movie-template">
+      <section class="single-store-movie">
+        <img class="image" src= <%- image_url %> />
+        <!-- <span class="title"><%- title %></div>
+        <span class="release-date"><%- release_date %></div> -->
+      </section>
+    </script>
 
     <script src="/app.bundle.js"></script>
 
