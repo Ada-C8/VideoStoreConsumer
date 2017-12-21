@@ -33,9 +33,8 @@ const LibMovieListView = BackBone.View.extend({
 
         this.model.remove(model);
         console.log(response.responseJSON['errors']);
-        this.statusUpdate(response.responseJSON['errors']['title']);
-
         //report status
+        this.statusUpdate(response.responseJSON['errors']['title']);
       }
     })
   },
