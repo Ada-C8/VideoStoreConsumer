@@ -7,31 +7,37 @@
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
   </head>
   <body>
-    <header class="header">
-      <h1 class="main-title">IK <i class="fas fa-film"></i> Movies</h1>
-      <p class="sub-head">Made with Backbone blood, API sweat, and Ruby on Rails tears ( <i class="fas fa-heart"></i> Iuliia &amp; Kee )</p>
-    </header>
+    <div class="content-wrapper">
+      <header class="header">
+        <h1 class="main-title">IK <i class="fas fa-film"></i> Movies</h1>
+        <p class="sub-head">Made with Backbone blood, API sweat, and Ruby on Rails tears ( <i class="fas fa-heart"></i> Iuliia &amp; Kee )</p>
+      </header>
 
-    <nav class="grid-x grid-padding-x main-nav">
-      <div class="cell nav-wrapper">
-        <form id="search-form">
-          <input type="text" name="search" placeholder="Enter search keywords here">
-          <button type="submit" name="button" id="search" class="button"><i class="fas fa-search"></i> Search</button>
-        </form>
+      <nav class="grid-x grid-padding-x main-nav">
+        <div class="cell nav-wrapper">
+          <form id="search-form">
+            <input type="text" name="search" placeholder="Enter search keywords here">
+            <button type="submit" name="button" id="search" class="button"><i class="fas fa-search"></i> Search</button>
+          </form>
 
-         <button id="movies" class="button blue" type="button" name="button"><i class="fas fa-book"></i> Rental Library</button>
-      </div>
-    </nav>
+           <button id="movies" class="button blue" type="button" name="button"><i class="fas fa-book"></i> Rental Library</button>
+        </div>
+      </nav>
 
-    <main id="main-content" class="grid-x main">
-      <section class="movies large-6 cell">
-        <ul class="grid-x medium-up-2 movies-list"></ul>
-      </section>
+      <main id="main-content" class="grid-x main">
+        <section class="movies large-6 cell">
+          <ul class="grid-x medium-up-2 movies-list"></ul>
+        </section>
 
-      <section class="movie large-6 cell">
-        <div class="grid-x grid-padding-x details-wrapper"></div>
-      </section>
-    </main>
+        <section class="movie large-6 cell">
+          <div class="grid-x grid-padding-x details-wrapper"></div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <p>&copy; Ada Developers Academy 2017</p>
+    </footer>
 
     <script src="/app.bundle.js"></script>
     <!-- TEMPLATES -->

@@ -67,9 +67,8 @@ $(document).ready(function() {
     movieList.fetch();
   });
 
-  // Stylish
+  // Styling
   $('li.movie').on('click', function() {
-    console.log(this);
     $('li.movie').removeClass('highlighted');
     $(this).addClass('highlighted');
   })
