@@ -6,6 +6,10 @@ main {
   font-family: 'Londrina Solid', cursive;
 }
 
+button:hover {
+  background-color: #e22ef7;
+}
+
 div {
   display: inline;
 }
@@ -68,6 +72,10 @@ div {
   border-width: medium;
   border-color: #2eebf7;
   width: 185px;
+}
+
+#submit-button:hover, #add-movie-btn:hover {
+  background-color: #2eebf7;
 }
 
 .add-movie-btn {

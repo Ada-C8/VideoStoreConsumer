@@ -3,9 +3,8 @@ import 'foundation-sites/dist/css/foundation.css';
 import './css/styles.css';
 
 // Import jQuery & Underscore
-import 'script-loader!jquery';
 import _ from 'underscore';
-import 'script-loader!jscroll';
+import $ from 'jquery';
 
 import StoreLibrary from 'collections/store_library';
 import StoreMovie from 'models/store_movie';
