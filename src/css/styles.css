@@ -85,7 +85,8 @@ aside label {
 }
 
 .card {
-  width: 350px;
+  /* width: 350px; */
+  width: 20vw;
   background: snow;
   text-align: center;
   height: 470px;
@@ -150,6 +151,10 @@ p {
 
   #movie-info {
     width: 400px;
+  }
+
+  .card {
+    width: 450px;
   }
 
 }
