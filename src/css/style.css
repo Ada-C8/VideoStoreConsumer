@@ -1,0 +1,137 @@
+/*
+header:
+font-family: 'Abril Fatface', cursive;
+body:
+font-family: 'Roboto', sans-serif;
+*/
+
+.hidden {
+  display: none;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+
+/********************/
+/****** header ******/
+.hero {
+  /* background: url('https://i.imgur.com/cq3UAle.jpg') 30% no-repeat; */
+  /* img of canyons with several hot air balloons */
+  /* Photo by Egzon Bytyqi on Unsplash */
+  background-color: #5DBCD2;
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  background-color: #5DBCD2;
+  color: #20333e;
+}
+
+.hero-section-text h1 {
+  font-size: 5rem;
+  color: #20333e;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-family: 'Abril Fatface', cursive;
+}
+
+/*********************/
+/****** buttons ******/
+#show-movies, #search-movies {
+  color: white;
+  border-color: white;
+}
+
+#show-movies:hover, #search-movies:hover {
+  color: #20333e;
+}
+
+input {
+  display: inline;
+}
+
+/*************************/
+/****** search form ******/
+#movie-search-form {
+  display: none;
+}
+
+.form-style li {
+  display: inline-block;
+}
+
+.form-style input {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3px;
+}
+
+.title {
+  margin-left: 25px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-family: 'Abril Fatface', cursive;
+}
+
+/**************************/
+/****** single movie ******/
+#movie-library {
+  overflow: scroll;
+  position: relative;
+  height: 90vh;
+}
+
+/****************************/
+/****** list of movies ******/
+.movie-list-container {
+  display: flex;
+}
+
+#movie-library {
+  display: none;
+  justify-content: space-around;
+}
+
+#movie-library li {
+  display: inline-block;
+  justify-content: space-around;
+  width: 190px;
+  height:
+}
+
+.movie-library-list {
+  height: 70vh;
+  overflow: scroll;
+}
+
+.movie {
+  display: inline-block;
+  list-style: none;
+  position: relative;
+  max-width: 185px;
+  transition: all .1s ease-in-out;
+}
+
+
+.overview {
+  float: right;
+}
+
+li:hover {
+transform: scale(1.1);
+}
+
+/********************/
+/****** FOOTER ******/
+footer {
+  text-align: center;
+  width: 100%;
+}

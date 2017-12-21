@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Roboto" rel="stylesheet">
+  <title>Video Store</title>
+</head>
+<body>
 
-    <script src="/app.bundle.js"></script>
+  <header class="hero">
+    <div class="hero-section-text">
+      <h1>Video Store</h1>
+      <span><h5>
+        <button id="show-movies" class="movie-button button secondary hollow">Check out what's in stock!</button>
+      </h5></span>
+    </div>
+  </header>
 
-  </body>
-  </html>
+
+  <main id="main-content">
+    <!-- MESSAGES -->
+    <span id="status-msg"></span>
+    <span id="confirmation-msg"></span>
+
+    <section class="flex nav">
+      <div>
+        <span id="title"><h2>Video Store</h2></span>
+      </div>
+      <div>
+        <!-- SEARCH -->
+        <form id="movie-search-form">
+          <ul class="form-style">
+            <li>
+              <input id="query" type="text" name="query" placeholder="Enter a movie title">
+            </li>
+            <li>
+              <input type="submit" class="button secondary">
+            </li>
+          </ul>
+        </form>
+      </div>
+    </section>
+
+    <!-- LIST OF MOVIES -->
+    <section class="movie-list-container">
+      <ul id="movie-library">
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2017 Sara Frandsen, Nkiru Onwuneme, Amy Cash
+  </footer>
+  <!-------------------------->
+  <!-------------------------->
+
+  <!-- STATUS MESSAGE -->
+  <script type="text/template" id="status-msg-template">
+  </script>
+
+  <!-- SINGLE MOVIE TEMPLATE -->
+  <script type="text/template" id="movie-template">
+      <div id="item">
+      <h3><%- title %></h3>
+      <h5>(<%- release_date %>)</h5>
+      <p><%- overview.substr(0,50) %>...</p>
+      <img src="<%- image_url %>" />
+      <button class="btn-add alert button" style="<%- external_id ? '' : 'display:none;' %>">Add to Library</button>
+    </div>
+  </script>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>
