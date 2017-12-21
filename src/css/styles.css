@@ -76,7 +76,7 @@ aside label {
 
 #search-input {
   line-height: 40px;
-  width: 42vw;
+  width: 30vw;
   border-radius: 3px;
 }
 
@@ -157,4 +157,7 @@ p {
     width: 450px;
   }
 
+  #search-input {
+    width: 42vw;
+  }
 }
