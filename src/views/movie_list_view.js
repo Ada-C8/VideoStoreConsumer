@@ -22,8 +22,8 @@ const MovieListView = Backbone.View.extend({
         model: movie,
         detailsTemplate: this.detailsTemplate,
         template: this.template,
-        tagName: 'li',
-        className: 'movie row',
+        // tagName: 'li',
+        className: 'movie',
       });
       console.log('MAKING MOVIE VIEWS');
       // Then render the MovieView and append the resulting HTML to the DOM.
@@ -35,7 +35,7 @@ const MovieListView = Backbone.View.extend({
   events: {
     'click button.btn-search': 'searchMovies',
     'click .btn-rental-lib': 'viewMovies',
-    'click button.btn-movie-details': 'hideRentalsLibrary',
+    'click .btn-movie-details': 'hideRentalsLibrary',
     'click button.btn-all-movies': 'showRentalsLibrary',
   },
   searchMovies: function(event) {

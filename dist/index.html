@@ -2,28 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Backbone Baseline</title>
+    <title>JAMNY | Video Rentals</title>
+
+    <!-- STYLESHEETS -->
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Roboto|Poppins" rel="stylesheet">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
   </head>
   <body>
     <main id="main-content">
       <header>
-        <h1 id="home" class="btn-rental-lib" >jamny's Video Rental Library</h1>
-        <section id = "search-form" class = "float-right">
+        <h1 id="home" class="btn-rental-lib float-left small-6 columns" >Video Rentals</h1>
+        <section id="search-form" class="float-right small-6 columns">
           <form id = "search-movies">
-            <input name="movie-query" placeholder="Search TMBD"/>
-            <button class="btn-search alert button">Search</button>
+            <input id="search-input" name="movie-query" placeholder="  Search for a Movie in TMBD"/>
+            <button class="btn-search alert button button">Search</button>
           </form>
         </section>
       </header>
-      <section id = "movies-container" class="movies-container columns small-10 small-offset-1 end">
+      <section id = "movies-container" class="movies-container">
         <h2>Rental Movies</h2>
         <section class="movies-list-container">
-          <ul id="movies" class="movies">
-          </ul>
+          <!-- <ul id="movies" class="movies">
+          </ul> -->
+
+          <div class="movies">
+            <div class="grid-container">
+              <div id="movies"class="grid-x grid-padding-x small-up-2 medium-up-3">
+
+            </div>
+          </div>
         </section>
       </section>
 
-      <section id = "movie-details-container" class="movie-details-container columns small-10 small-offset-1 end">
+      <section id = "movie-details-container" class="movie-details-container">
       </section>
 
       <section id = "add-movie-form">
@@ -37,30 +49,48 @@
     <script src="/app.bundle.js"></script>
 
     <script type="text/template" id= "movie-template">
-      <div class="small-6 columns">
+      <!-- <div class="small-6 columns">
         <img src="<%- image_url %>" class = "image_url" />
       </div>
 
       <div class="small-6 columns">
         <h3 class="title"><%- title %></h3>
         <p class="release_date">(<%- release_date.slice(0,4) %>)</p>
-        <button class="btn-movie-details success button">View Movie Details</button>
+        <button class="btn-movie-details success button expanded">View Movie Details</button>
+      </div> -->
+
+      <div class="cell">
+        <div class="card btn-movie-details">
+          <section>
+            <img src="<%- image_url %>" class = "image_url" />
+          </section>
+
+          <div class="card-section">
+            <h4 class="title"><%- title %></h4>
+            <strong><p class="release_date">(<%- release_date.slice(0,4) %>)</p></strong>
+          </div>
+        </div>
       </div>
     </script>
-    <script type="text/template" id= "movie-details-template">
-      <section class="row small-12 columns">
 
-        <img src="<%- image_url %>" class = "image_url"/>
-        <h3 class="title"><%- title %></h3>
-        <p class="release_date"><%- release_date.slice(0,4) %></p>
-        <p class="overview"> Overview: <%- overview %></p>
-        <span>
-          <%= external_id ? '<button class="btn-add-movie button">Add Movie to Library</button>' : '<p id = "rental-availability">This movie is now in our rental library</p>' %>
-        </span>
-        <span>
-          <%= external_id ? '<button class="btn-all-movies success button">Back to Results</button>' : '' %>
-        </span>
-      </section>
+    <script type="text/template" id="movie-details-template">
+
+      <div id="movie-details-container">
+        <img id="movie-photo"src="<%- image_url %>" class="image_url"/>
+
+        <div id="movie-info">
+          <h3 class="title"><%- title %></h3>
+          <p class="release_date"><strong>Release Date: <%- release_date%></strong></p>
+          <p class="overview"><strong>Overview:</strong> <%- overview %></p>
+          <span>
+            <%= external_id ? '<button class="btn-add-movie button success">Add Movie to Library</button>' : '<p id = "rental-availability"><strong>This movie is now in our rental library.</strong></p>' %>
+          </span>
+          <span>
+            <%= external_id ? '<button class="btn-all-movies button">Back to Results</button>' : '' %>
+          </span>
+        </div>
+      </div>
+
     </script>
 
   </body>

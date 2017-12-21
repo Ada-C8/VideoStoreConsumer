@@ -11,7 +11,7 @@ const MovieView = Backbone.View.extend({
     this.listenTo(this.model, "change", this.render);
   },
   events: {
-    'click button.btn-movie-details': 'viewMovie',
+    'click .btn-movie-details': 'viewMovie',
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
