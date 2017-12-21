@@ -1,6 +1,69 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Secular+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
-main {
+/*********** ALL STYLES ***********/
+
+h1, h2, h3, h4 {
+  font-family: 'Secular One', sans-serif;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.aqua-bg {
+  background-color: #ABEBC6;
+}
+
+.button {
+  background-color: #ABEBC6;
+  color: #232f3e;
+  border-radius: 5px;
+}
+
+td .overflow-auto {
+  overflow: scroll;
+  height: 220px;
+}
+/*********** HEADER ***********/
+
+.main-header {
+  text-align: center;
+  background-color: #232f3e;
+  color: #E8E8E8;
+  padding: 10px;
+}
+
+.main-h1-wrapper {
+  border: 2px #ABEBC6 solid;
+}
+
+.main-h1-wrapper h1 {
+  margin: 0;
+}
+
+/******* MAIN SECTION HEADERS *******/
+
+.section-header {
+  border: 1px #B8B8B8 solid;
+  border-radius: 5px;
+  margin: 20px 0 20px 0;
+
+}
+
+.section-header h4 {
+  padding: 10px;
+  margin: 0;
+}
+
+
+/* main {
     background: lightblue;
 }
 
@@ -36,7 +99,7 @@ aside label {
 
 div {
   display: inline;
-}
+} */
 /*
 * {
   border-style: solid;

@@ -3,13 +3,116 @@
   <head>
     <meta charset="utf-8">
     <title>Backbone Baseline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+
   <body>
+    <header class="main-header">
+      <div class="main-h1-wrapper">
+        <h1>Video Store Plus</h1>
+      </div>
+    </header>
+
     <main id="main-content">
-      
+      <section id="returned-movies-view" class="small-12 large-6 columns">
+        <header class="section-header align-center">
+          <h4>Search for Movies to Add</h4>
+        </header>
+        <section id="returned-movies-errors">
+        </section>
+
+        <form id="movie-search">
+          <label for="title">Search for a movie by clicking MoviesDB</label>
+          <input type="text" name="title"/>
+          <input type="radio" name="searchLocation" value="imdb" id="imdb"/><label for="imdb">MoviesDB</label>
+          <input type="radio" name="searchLocation" value="local" id="local" checked/><label for="local">Movies in Store</label>
+          <br/>
+          <button id="search-btn" class="button">Get Movies!</button>
+          <div id="success-movie-add">
+          </div>
+        </form>
+
+        <section id="imdb-section">
+          <header class="section-header align-center">
+            <h4>Movies that Match your Search</h4>
+          </header>
+          <table class="striped stack">
+            <thead class="aqua-bg">
+              <th width="150">Movie</th>
+              <th width="100" class="align-center">Release Date</th>
+              <th width="200">Overview</th>
+              <th width="50" class="align-center">Add</th>
+            </thead>
+
+            <!-- Append Movies that match the search -->
+
+            <tbody id="matching-movies">
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+      <section id="current-rentals-view" class="small-12 large-6 columns">
+        <header class="section-header align-center">
+          <h4>Available Movies for Checkout</h4>
+        </header>
+
+        <section id="available-movies-errors">
+        </section>
+
+        <table class="striped stack">
+          <thead class="aqua-bg">
+            <th width="150">Movie</th>
+            <th width="100">Release Date</th>
+            <th width="200">Overview</th>
+          </thead>
+
+          <!-- Append current Movies in the rental store -->
+          <tbody id="movies-in-store">
+          </tbody>
+        </table>
+      </section>
     </main>
+
+    <!-- Templates -->
+
+    <script type="text/template" id="movie-template">
+      <td class="align-center">
+        <img src = '<%- image_url %>' alt='<%- title%>'/>
+        <br>
+        <%- title %>
+      </td>
+      <td class="align-center">
+        <%- release_date %>
+      </td>
+      <td>
+        <%- overview %>
+      </td>
+    </script>
+
+    <script type="text/template" id="returned-movie-template">
+      <td class="align-center">
+        <img src = '<%- image_url %>' alt='<%- title%>'/>
+        <br>
+        <%- title %>
+      </td>
+      <td>
+        <%- release_date %>
+      </td>
+      <td height="100" class="overflow-auto">
+        <div class="overflow-auto">
+          <%- overview %>
+      </td>
+      <td>
+        <button class="button btn-add">Add</button>
+      </td>
+    </script>
+
+    <script type="text/template" id="error-template">
+
+    </script>
 
     <script src="/app.bundle.js"></script>
 
   </body>
-  </html>
+</html>
