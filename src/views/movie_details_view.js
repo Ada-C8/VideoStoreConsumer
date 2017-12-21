@@ -11,7 +11,8 @@ const MovieDetailsView = Backbone.View.extend({
   },
   events: {
     'click button.btn-all-movies': 'showRentalsLibrary',
-      'click button.btn-add-movie': 'addMovie',
+    'click button.btn-add-movie': 'addMovie',
+    'click button.btn-search': 'searchMovies',
   },
   render() {
     const compiledTemplate = this.template(this.model.toJSON());
@@ -35,7 +36,17 @@ const MovieDetailsView = Backbone.View.extend({
     this.model.save();
     console.log('the movie saved');
 
-    alert(`Woohoo! ${this.model.attributes.title} is now added to the rental library!`)
+    //alert(`Woohoo! ${this.model.attributes.title} is now added to the rental library!`);
+  },
+  searchMovies: function(event) {
+    event.preventDefault();
+    this.$('.movies-container h2').html('Results');
+    console.log('INSIDE MOVIE VIEW: searchMovies');
+    this.$('#movie-details-container').hide();
+    this.$('#results-container').show();
+
+    const query = this.$('input[name=movie-query]').val();
+    this.model.search(query);
   },
 });
 

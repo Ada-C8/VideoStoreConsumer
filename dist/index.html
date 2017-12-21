@@ -7,8 +7,7 @@
   <body>
     <main id="main-content">
       <header>
-        <h1 id = "home">jamny's video store</h1>
-        <button class="btn-rental-lib button">Rental Library</button>
+        <h1 id="home" class="btn-rental-lib" >jamny's Video Rental Library</h1>
         <section id = "search-form" class = "float-right">
           <form id = "search-movies">
             <input name="movie-query" placeholder="Search TMBD"/>
@@ -23,19 +22,6 @@
           </ul>
         </section>
       </section>
-      <!-- <section id = "results-container" class="results-container columns small-10 small-offset-1 end">
-        <h2>Results</h2>
-        <section class="results-list-container">
-          <ul id="results" class="movies">
-          </ul>
-        </section>
-        <section id = "search-form">
-          <form id = "search-movies">
-            <input name="movie-query" placeholder="Enter Movie Title"/>
-            <button class="btn-search alert button">Search</button>
-          </form>
-        </section>
-      </section> -->
 
       <section id = "movie-details-container" class="movie-details-container columns small-10 small-offset-1 end">
       </section>
@@ -69,7 +55,7 @@
         <p class="release_date"><%- release_date.slice(0,4) %></p>
         <p class="overview"> Overview: <%- overview %></p>
         <span>
-          <%= external_id ? '<button class="btn-add-movie button">Add Movie to Library</button>' : '<p id = "rental-availability">This movie is available in our rental library</p>' %>
+          <%= external_id ? '<button class="btn-add-movie button">Add Movie to Library</button>' : '<p id = "rental-availability">This movie is now in our rental library</p>' %>
         </span>
         <span>
           <%= external_id ? '<button class="btn-all-movies success button">Back to Results</button>' : '' %>

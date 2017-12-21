@@ -34,15 +34,16 @@ const MovieListView = Backbone.View.extend({
   },
   events: {
     'click button.btn-search': 'searchMovies',
-    'click button.btn-rental-lib': 'viewMovies',
+    'click .btn-rental-lib': 'viewMovies',
     'click button.btn-movie-details': 'hideRentalsLibrary',
     'click button.btn-all-movies': 'showRentalsLibrary',
   },
   searchMovies: function(event) {
     event.preventDefault();
     this.$('.movies-container h2').html('Results');
-    this.$('#results-container').show();
-
+    this.$('#movie-details-container').hide();
+    this.$('#movies-container').show();
+    console.log('***INSIDE MOVIE LIST VIEW: searchMovies');
     const query = this.$('input[name=movie-query]').val();
     this.model.search(query);
   },

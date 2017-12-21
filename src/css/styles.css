@@ -1,7 +1,7 @@
 @include foundation-everything;
 
-main {
-    background: snow;
+body {
+  background: snow;
 }
 
 header {
@@ -57,6 +57,10 @@ header h1, #search-form, header p, header button {
 
 #rental-availability{
   color: red;
+}
+
+#home {
+  cursor: pointer;
 }
 /*
 * {

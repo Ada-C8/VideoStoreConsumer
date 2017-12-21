@@ -19,8 +19,8 @@ const MovieView = Backbone.View.extend({
     return this;
   },
   viewMovie() {
-    // console.log(this.$('#movies-container'));
-    // this.$el.hide();
+    console.log('***INSIDE MOVIE VIEW');
+    console.log(this.model);
     console.log('viewing movie');
     const movieDetailsView = new MovieDetailsView({
       model: this.model,
@@ -32,7 +32,7 @@ const MovieView = Backbone.View.extend({
 
     this.$('main').prepend(movieDetailsView.render().$el);
     this.$('#movie-details-container').show();
-  }
+  },
 });
 
 export default MovieView;
