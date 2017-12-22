@@ -1,15 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
-    </main>
+<head>
+  <meta charset="utf-8">
+  <title>Hometown Video</title>
 
-    <script src="/app.bundle.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Bungee+Inline" rel="stylesheet">
 
-  </body>
-  </html>
+</head>
+<body>
+  <header>
+    <div id="logo" class="columns small-6">
+      <h1>Hometown</h1>
+      <p>Video Store</p>
+    </div>
+    <nav class="columns small-6">
+      <a href="#" id="movies-link">Movies</a> | <a href="#" id="customers-link">Customers</a> | <a href="#" id="rentals-link">Rentals</a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <div id='movies-container'>
+      <div class="actions">
+        <button id='show-rental-library' class='button'>Rental Library</button>
+        <form id='search-movies'>
+          <input type="radio" id="library-radio" name="searchList" value="library" checked="checked"/>
+          <label for="library-radio">Rental Library</label>
+
+          <input type="radio" id="imdb-radio" name="searchList" value="imdb">
+          <label for="imdb-radio">IMDB</label>
+
+          <label>Search Titles</label>
+          <input type='text' id='searchTerm'/>
+          <input type='submit' class='button' id='search' value='Search'></input>
+        </form>
+      </div>
+      <section id='movies'>
+      </section>
+    </div>
+
+    <div id="customers-container" class="display-none">
+      <ul id="customers">
+      </ul>
+    </div>
+
+    <div id="rentals-container" class="display-none">
+      <p>No rentals yet</p>
+    </div>
+
+  </main>
+
+  <script type="text/template" id="library-movie-template">
+    <span>
+      <img src='<%- image_url %>' alt='<%- title %>'/>
+    </span>
+    <div class="listing-info">
+      <h3><%- title %></h3>
+      <p><%- release_date.slice(0, 4) %></p>
+      <button class='button show-details'>Show Details</button>
+    </div>
+    <div class="details slide">
+      <h5>Overview</h5>
+      <p><%- overview %></p>
+    </div>
+  </script>
+
+  <script type="text/template" id="imdb-movie-template">
+    <span>
+      <img src='<%- image_url %>' alt='<%- title %>'/>
+    </span>
+    <div class="listing-info">  
+      <h3><%- title %></h3>
+      <p><%- release_date.slice(0, 4) %></p>
+      <button class='button show-details'>Show Details</button>
+      <button class='button show-form'>Add to Rental Library</button>
+    </div>
+    <div class="details slide">
+      <h5>Overview</h5>
+      <p><%- overview %></p>
+    </div>
+    <div class="add-rental-form slide">
+      <h5>Add Movie to Inventory</h5>
+      <form id="add-rental">
+        <label>Quantity</label>
+        <input type="text" name="inventory" value="qty"></input>
+        <input type="submit" class="button" value="Order Movie"></input>
+      </form>
+    </div>
+  </script>
+
+  <script type="text/template" id="customer-template">
+    <h4><%- name %></h4>
+    <p>Member Since: <%- registered_at.slice(0, 4) %></p>
+    <p>Account Credit: $<%- account_credit %></p>
+    <p>Number of Movies Checked Out: <%- movies_checked_out_count %></p>
+    <p>Phone: <%- phone %></p>
+    <p>Address:</p>
+    <p><%- address %> <br>
+    <%- city %>, <%- state %> <%- postal_code %></p>
+  </script>
+
+  <script src="/app.bundle.js"></script>
+
+</body>
+</html>

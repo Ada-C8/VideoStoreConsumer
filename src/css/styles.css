@@ -1,44 +1,113 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
+body {
+  background: #ececec;
 }
 
 header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  background: #2f2f2f;
+  color: #ffcf00;
+  padding: 1em;
 }
 
-#completed-checkbox {
-  display: inline;
+header h1 {
+  margin-bottom: 0;
+  line-height: 1em;
+  font-family: 'Bungee Inline', cursive;
 }
 
-label {
-  display: inline;
+header p {
+  margin-top: 0;
+  margin-left: 3px;
+  line-height: 1em;
 }
 
-button.success {
-  margin-right: 1.2rem;
-  display: inline;
+nav {
+  text-align: right;
 }
 
-aside.create-tasklist {
-  background-color: navy;
-  color: #FFFFFF;
-}
-aside label {
-  color: #FFFFFF;
+header a {
+  color: #ffcf00;
 }
 
-.completed {
-  text-decoration: line-through;
+.display-none {
+  display: none;
 }
 
-div {
-  display: inline;
+.actions {
+  padding: 1em;
 }
-/*
-* {
-  border-style: solid;
+
+#show-rental-library {
+  display: inline-block;
+  margin: 1em;
 }
-*/
+
+#search-movies {
+  display: inline-block;
+  float: right;
+  margin: 1em;
+  width: 35%;
+}
+
+#movies {
+  clear: both;
+  margin: 0 auto;
+}
+
+.movie, .customer {
+  background: #2f2f2f;
+  border: solid 5px #ffcf00;
+  border-radius: 5px;
+  margin: 1em;
+  padding: 1em;
+}
+
+.movie {
+  min-height: 360px;
+}
+
+.customer {
+  color: #ffcf00;
+}
+
+.movie img {
+  border: 4px solid white;
+  display: inline-block;
+  float: left;
+  margin: 1em;
+}
+
+.listing-info {
+  float: left;
+  margin: 1em 1em 1em .5em;
+  min-width: 35%;
+}
+
+.listing-info, .slide {
+  color: white;
+  display: inline-block;
+}
+
+.listing-info p, .customer p, #add-rental label {
+  color: #afafaf;
+}
+
+.listing-info button {
+  background: #ffcf00;
+  color: #2f2f2f;
+  margin: 4px;
+}
+
+.slide {
+  display: none;
+  padding: 1em;
+}
+
+.details {
+  overflow: scroll;
+}
+
+#add-rental input[name="inventory"] {
+  width: 3em;
+}
