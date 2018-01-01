@@ -5,8 +5,119 @@
     <title>Backbone Baseline</title>
   </head>
   <body>
+    <nav class="row">
+      <section class="columns medium-6 small-12">
+        <header>
+          <h1 class="logo">CJ's Vidja Shtore</h1>
+        </header>
+      </section>
+      <section class="columns medium-6 small-12">
+        <form>
+          <!-- <label for="query"></label> -->
+          <div class="row">
+            <section class="columns medium-9 small-12">
+              <input type="text" name="query" placeholder="Search database" />
+            </section>
+            <section class="columns medium-3 small-12">
+            <button class="btn-query button">Submit</button>
+            </section>
+          </div>
+        </form>
+      </section>
+
+    </nav>
+
     <main id="main-content">
-      
+
+      <section class="workspace row">
+        <div class="form-errors">
+          <ul>
+          </ul>
+        </div>
+
+        <!-- <article id="sort-history" class="columns small-12 medium-4 large-4"> -->
+
+
+        <!-- toggles visability between database and container -->
+        <article id="database-container" class="columns small-12 medium-5 large-5">
+            <h4>Database Results</h4>
+            <table>
+              <thead>
+                <tr>
+                  <td>
+                    img
+                  </td>
+                  <td>
+                    Title
+                  </td>
+                  <td>
+                    release date
+                  </td>
+                  <td>
+                    status
+                  </td>
+                </tr>
+              </thead>
+              <tbody id="database-movies">
+
+              </tbody>
+            </table>
+
+        </article>
+
+        <article id="catalog-container" class="columns small-12 medium-6 large-6">
+          <h2>Catalog List</h2>
+          <ul id="catalog-movies">
+
+          </ul>
+        </article>
+
+      </section>
+      <footer>
+
+      </footer >
+
+      <script type="text/template" id="database-template">
+          <td>
+            <img src= <%- image_url %> />
+          </td>
+          <td>
+            <%- title %>
+          </td>
+          <td>
+            <%- release_date %>
+          </td>
+          <td>
+            <button class="btn-add button"><%- inInventory===false ? "Add" : "Nope" %> </button>
+          </td>
+      </script>
+
+      <script type="text/template" id="catalog-template">
+        <li class="catalog-movie">
+          <div class="row">
+
+            <div id="title-image" class="columns medium-6 small-12">
+              <p>
+                <span><%- title %></span>
+              </p>
+              <img src= "https://image.tmdb.org/t/p/w185/<%- image_url %>" />
+            </div>
+
+            <div id="overview" class="columns medium-6 small-12">
+              <p>
+                <span>Overview: </span><%- overview %>
+              </p>
+              <p>
+                <span>Release Date: </span><%- release_date %>
+              </p>
+            </div>
+
+          </div>
+        </li>
+
+      </script>
+
+
     </main>
 
     <script src="/app.bundle.js"></script>

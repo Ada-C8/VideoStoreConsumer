@@ -1,12 +1,87 @@
 @include foundation-everything;
 
-main {
-    background: lightblue;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  color: #465362;
+  padding: 10px;
 }
 
-header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+h1 {
+  font-size: 2em;
+  padding-top: 25px;
+}
+
+h1, h2, h3 {
+  text-align: center;
+}
+
+main {
+  background: white;
+  margin: 10px;
+}
+
+nav {
+  background: #C3DFE0;
+  position: sticky;
+  box-shadow: 0 2px 3px -2px #465362;
+}
+input[type="text"], input[type="text"]:focus {
+  margin: 0;
+  padding-left: 5px;
+  font-size: 1.25em;
+  width: 100%;
+  border-width: 0;
+  box-shadow: 0 -2px -5px -2px #465362;
+}
+
+input[type="text"]:focus{
+  box-shadow: 0 1px 5px 1px #8CD195;
+}
+
+article {
+  margin: 20px 0;
+}
+
+table td, #database-container h2 {
+  color: #465362;
+}
+
+#database-container, #catalog-container {
+  background: #C3DFE0;
+  color: #233831;
+  /* border: 1px solid #ADA8B6; */
+  box-shadow: 0 -2px 5px -2px #465362;
+}
+#database-container {
+  background: #C2DC85;
+}
+
+ul#catalog-movies {
+  list-style-type: none;
+}
+
+.catalog-movie {
+  background: white;
+  margin: 15px 0;
+  box-shadow: 0 2px 5px -2px #465362;
+}
+.catalog-movie span{
+  font-weight: bold;
+}
+
+#title-image{
+  display: block;
+  text-align: center;
+}
+#title-image img {
+  width: 100%;
+}
+#overview {
+  padding-top: 10px;
 }
 
 #completed-checkbox {
@@ -37,8 +112,27 @@ aside label {
 div {
   display: inline;
 }
-/*
-* {
-  border-style: solid;
+
+
+h3 {
+  background: #BCD979;
+  box-shadow: 0 2px 5px -2px #465362;
 }
-*/
+
+h4 {
+  text-align: center;
+}
+
+#database-container {
+  height: 40vw;
+  overflow: scroll;
+}
+
+#catalog-container {
+  height: 40vw;
+  overflow: scroll;
+}
+/*
+button.btn-add.alreadyAdded {
+  background: grey;
+} */
