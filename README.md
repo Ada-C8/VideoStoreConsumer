@@ -27,19 +27,24 @@ This project will be utilizing an external API within an API! Whoa! Your front-e
 
   **Example .env file:**
 
-  '''
+  ```
   MOVIEDB_KEY = <MOVIEDB_KEY>
+
   SECRET_KEY_BASE = <SECRET_KEY_BASE>
-  '''
+  
+  ```
+
 
   -  Set up rails back end:
   While in VideoStoreConsumer-API/ in your terminal Run:
   _Note: You must have Rails installed._
 
-  '''
+  ```
   bundle install
+
   rails server
-  '''
+  ```
+
   Your server should be running at this point
 
 ### 3. Run Front End
@@ -48,8 +53,8 @@ This project will be utilizing an external API within an API! Whoa! Your front-e
   It will be the directory with the json.lock file
   In your terminal run:
 
-  '''
+  ```
   npm install
 
   npm start
-  '''
+  ```
