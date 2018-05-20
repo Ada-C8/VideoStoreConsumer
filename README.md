@@ -1,10 +1,9 @@
 # Video Store Consumer
 
-In this project, you'll take a lot of the knowledge you have so far and create an end-to-end Video Store application. The final product will be something that a rental store employee might use to manage the video store where they work.
+Class project for Ada Developers Academy
+Created an end-to-end Video Store application using Backbone, Javascript, and jQuery
 
-This is a [Phase 3](https://github.com/Ada-Developers-Academy/pedagogy/blob/master/rule-of-three.md) Pair project.
-
-## Learning Goals
+## Goals
 - Leverage jQuery event observation along with Backbone to enable a dynamic user interface
 - Organize browser interactions according to Backbone's MVC pattern
 - Revisit Rails API functionality
@@ -19,76 +18,38 @@ Our rental store employees want to be able to manage their rental inventory. The
 ## Project Information
 This project will be utilizing an external API within an API! Whoa! Your front-end implementation will be interacting with a **Rails API** that you will be modifying. The Rails API wraps an **external API** which contains many endpoints related to movies. The external API is [The Movie DB](https://www.themoviedb.org/documentation/api).
 
-## Project Setup
-### 1. Backbone Part
-  - One person shall fork this repository
-  - Add the pair as a collaborator on the project
-  - Both people shall clone the repository
-  - Install dependencies using `$npm install`
-  - Start the development server using `$npm start`
+## Local Setup
+### 1. Clone the repository
 
-### 2. API Configuration
-  - Follow the instructions on the API's [Getting Started](https://developers.themoviedb.org/3/getting-started) page to set up your account and request an API Key.  
-  (You can use Ada's address in the registration process)
-  - Read through the documentation for the API. A few endpoints you may want to explore include:
-    - [Search Movies](https://developers.themoviedb.org/3/search/search-movies)
-    - [Get Movie Details](https://developers.themoviedb.org/3/movies/get-movie-details)
-    - [Configuration](https://developers.themoviedb.org/3/configuration/get-api-configuration)
+### 2. Run Back End
+  - Follow the instructions on the API's [Getting Started](https://developers.themoviedb.org/3/getting-started) page to set up your account and request an API Key.
+  - Set up the `.env` file with the API key in VideoStoreConsumer-API/
 
-### 3. Rails Part
-  - One person shall fork the API repository. You can find it at your cohort's GitHub org, and the project's name is VideoStoreConsumer-API. You should immediately notice that this is a Rails project not a Backbone project.
-  - Add the pair as a collaborator on the project
-  - Both people shall clone the repository
-  - Set up the `.env` file with the API key from step #2
-  - Set up the DB
-  - Ensure both people can run the API locally
+  **Example .env file:**
 
+  '''
+  MOVIEDB_KEY = <MOVIEDB_KEY>
+  SECRET_KEY_BASE = <SECRET_KEY_BASE>
+  '''
 
-## Project Requirements
+  -  Set up rails back end:
+  While in VideoStoreConsumer-API/ in your terminal Run:
+  _Note: You must have Rails installed._
 
-### Front-End
-- Rental store employee should be able to:
-  - search all Movies
-    - add a movie to the rental library
-  - list all movies in the rental library
+  '''
+  bundle install
+  rails server
+  '''
+  Your server should be running at this point
 
-### Back-End
-- The search functionality is already implemented!
-- Add support for adding an external movie to the rental library
+### 3. Run Front End
+  - Run Front End Server:
+  Change directories to VideoStoreConsumer/
+  It will be the directory with the json.lock file
+  In your terminal run:
 
-<!--
-- Show a paginated collection of Movies, 10 per page
-  - This will show a movie's
-- Allow a user to interact with a Movie by clicking
-  - When _selected_, a Movie shows more information
-  - When _deselected_, a Movie returns to its default state
-  - Only one movie can be selected at a time
-  - Selected another movie deselects the one which was selected
-- Changing the page deselects a Movie -->
+  '''
+  npm install
 
-## Project Design
-### Front-End
-- Consider what Backbone models, collections and views you will need to utilize
-- Consider what events you will want to handle
-- Consider how you will make requests from the front-end to the API
-
-### Back-End
-- Investigate the existing implementation to gain an understanding of what you are working with
-- Consider what data the back-end will require to complete the tasks in the requirements
-
-## Optional Enhancements
-Some of these optional requirements require work in the front-end only, back-end only or both.
-
-- Rental!
-  - Check out: Select a movie along with a customer to create a rental
-  - Check in: Select a customer to see the movies they have checked out. Select a single (or multiple) rentals to check back in
-  - See all overdue rentals
-- CRUD customers
-- Introduce scrolling pagination to dynamically load more movies when scrolling to the bottom (research!!)
-
-## Resources
-
-Note, you may need to use non restful API calls for rentals and this can be done by overriding Backbone.sync.  Below are some resources on how to do so.
-
-- [Overriding Backbone.sync for non-RESTful APIs](https://thejsguy.com/2015/03/18/overriding-backbone-sync.html)
-- [Non-RESTful backend with Backbonejs](https://stackoverflow.com/questions/24770250/non-restful-backend-with-backbone-js)
+  npm start
+  '''
