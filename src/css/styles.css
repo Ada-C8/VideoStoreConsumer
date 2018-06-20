@@ -1,12 +1,44 @@
 @include foundation-everything;
+@import url('https://fonts.googleapis.com/css?family=Bungee|Gudea|Volkhov');
+.hero {
+  background: url("https://images.unsplash.com/photo-1501141178950-e7fa06e4adf5?auto=format&fit=crop&w=1050&q=80")
+  no-repeat;
+  background-size: cover;
+  height: 300px;
+  width: 100%;
+  /* background-color: black; */
+  margin: 0;
+  color: white;
+  /* box-sizing: content-box; */
+  padding: 1% 5% 2% 5%;
+  text-align: center;
+  /* opacity: 1.2; */
+  /* background-color: black; */
+}
+.hero h1{
+  font-family: 'Bungee', cursive;
+  font-size: 96px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-shadow: 5px 5px lightgray;
+  /* opacity: 1; */
+}
+p, div{
+  font-family: 'Gudea', sans-serif;
+}
 
+h2, h3, h4, h5, h6{
+  font-family: 'Volkhov', serif;
+}
 main {
-    background: lightblue;
+  background: white;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 header {
-  background-color: lightgreen;
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
 #completed-checkbox {
@@ -24,10 +56,10 @@ button.success {
 
 aside.create-tasklist {
   background-color: navy;
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
 }
 aside label {
-  color: #FFFFFF;
+  /* color: #FFFFFF; */
 }
 
 .completed {
@@ -37,8 +69,106 @@ aside label {
 div {
   display: inline;
 }
+
+/* #myModal {
+width: 500px;
+background-color: red;
+} */
+.modal {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  display: flex;
+}
+.show{
+  display:block;
+}
+
+.hidden{
+  display: none;
+}
+
+.button.close {
+  display: block;
+  width: 5%;
+  height: 2%;
+  /* float: right; */
+  align-content: right;
+  /* margin-left: 75%; */
+  background-color: lightblue;
+  margin-right: 15%;
+  font-size: 30%;
+}
+
+p.display-status {
+  max-width: 500px;
+  width: 100%;
+  display: block;
+}
+nav.top-bar{
+  background-color: black;
+}
+nav button.button {
+  background-color: #FF47FA;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 1%;
+}
+
+nav button.button:hover {
+text-shadow: 1px 1px lightgray;
+background-color: #771FD4;
+}
+
+#search-form {
+  /* width: 80%; */
+  /* margin: 1% 5% 1% 5%; */
+  align-self: center;
+  padding: 1%;
+  /* background-color: black; */
+}
+
+#movie-field {
+  width: 35%;
+  /* padding-left: 2%; */
+  margin-left: 1%;
+  margin-right: 2%;
+  /* background-color: #FF47FA; */
+  color: black;
+  font-weight: bold;
+  display: inline-block;
+}
+
+input.movie-filter {
+  background-color: white;
+  height: 30px;
+  display: inline-block;
+  background-color: #FF47FA;
+  font-weight: bold;
+}
+
+#movie-list {
+  display: inline-block;
+  /* max-width: 40%; */
+}
 /*
 * {
-  border-style: solid;
+border-style: solid;
 }
 */

@@ -1,15 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Backbone Baseline</title>
-  </head>
-  <body>
-    <main id="main-content">
-      
+<head>
+  <meta charset="utf-8">
+  <title>Backbone Baseline</title>
+</head>
+<body>
+  <header class="page-header">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <h1>
+        Video Store :)
+      </h1>
+    </section>
+    <!-- NAVIGATION -->
+    <nav class="topnav top-bar" role="navigation">
+      <button class="active button" href="#customers">Customers</a>
+      <button class="button">Rentals</a>
+      <button class = "button view-library">Movie Library</button>
+    </nav>
+  </section>
+  </header>
+    <main>
+      <form id="search-form">
+        <input id="movie-field" type="text" name="filter" placeholder="Search the Movie Database..." >
+        <input type="submit" value="submit" name="button" class="movie-filter">
+      </form>
+
+      <!-- The Modal -->
+
+
+
+      <span id="myModal" class="modal hidden">
+
+        <!-- Modal content -->
+
+        <div class="modal-content">
+          <button class="close button">&times;</button>
+          <p class='display-status'></p>
+
+        </div>
+
+      </span>
+
+
+      <h2 id="header"></h2>
+      <section id="main-content">
+        <div class="list-view" id= "search-list">
+
+        </div>
+        <div class="grid-x">
+        <div class="large-12 cell" id="movie-list" class="list-view">
+        </div>
+      </div>
+
+      </section>
+
     </main>
+    <script type="text/template" id="movie-template">
 
-    <script src="/app.bundle.js"></script>
+      <div id="single-movie">
+        <h3 class="title"><%- title %></h3>
+        <p class="overview"><%- overview %></p>
 
-  </body>
-  </html>
+        <p class="release-date"><%- release_date %></p>
+        <% if( typeof image_url !== 'undefined'){ %>
+          <img  src= <%- image_url %> alt= <%- title %>  />
+          <% }%>
+          <div class="movie-actions">
+            <% if( typeof available_inventory !== 'undefined'){ %>
+
+              <p class="available_inventory">Qty: <%- available_inventory %></p>
+              <button class="btn-rent alert button" id="rent-movie-button">Rent Movie</button>
+
+            </div>
+            <% }else if(typeof id !== 'undefined' ){ %>
+              <button class="btn-show alert button" id="show-movie-button">Learn More</button>
+              <% }else{ %>
+                <p>
+
+                Sorry, this movie is not currently in the inventory.
+              </p>
+                <button class="btn-add alert button" id="add-movie-button">Add to Library</button>
+
+                <% } %>
+        </div>
+
+            </script>
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script src="/app.bundle.js"></script>
+
+          </body>
+          </html>
